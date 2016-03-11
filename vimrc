@@ -1,10 +1,9 @@
 call plug#begin('~/.vim/plugged')
 
+set nocompatible
 set number
 set colorcolumn=90
 set showmatch
-
-nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
