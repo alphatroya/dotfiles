@@ -62,6 +62,8 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'itchyny/lightline.vim'
 
+Plug 'airblade/vim-gitgutter'
+
 syntax enable
 set background=dark
 colorscheme solarized
