@@ -49,6 +49,15 @@ if &shell =~# 'fish$'
     set shell=/bin/bash
 endif
 
+if empty($TMUX)
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+    let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+else
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+endif
 
 Plug 'SirVer/ultisnips' 
 
@@ -61,6 +70,8 @@ Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdtree'
 
 Plug 'itchyny/lightline.vim'
+
+Plug 'wincent/command-t'
 
 Plug 'airblade/vim-gitgutter'
 
