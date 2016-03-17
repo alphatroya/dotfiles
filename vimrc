@@ -1,12 +1,53 @@
 call plug#begin('~/.vim/plugged')
 
-set nocompatible
-set number
-set colorcolumn=90
-set showmatch
+Plug 'SirVer/ultisnips' 
+
+Plug 'honza/vim-snippets'
+
+Plug 'fatih/vim-go'
+
+Plug 'Valloric/YouCompleteMe'
+
+Plug 'scrooloose/syntastic'
+
+Plug 'scrooloose/nerdtree'
+
+Plug 'itchyny/lightline.vim'
+
+Plug 'wincent/command-t'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'ervandew/supertab'
+
+call plug#end()
+
+" ultiships configuration
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" syntastic setup
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
+
+set showmatch
+set number
+set nocompatible
+set colorcolumn=90
 
 set autoindent             " Indent according to previous line.
 set expandtab              " Use spaces instead of tabs.
@@ -63,24 +104,6 @@ else
     let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 endif
 
-Plug 'SirVer/ultisnips' 
-
-Plug 'fatih/vim-go'
-
-Plug 'Valloric/YouCompleteMe'
-
-Plug 'ervandew/supertab'
-
-Plug 'scrooloose/nerdtree'
-
-Plug 'itchyny/lightline.vim'
-
-Plug 'wincent/command-t'
-
-Plug 'airblade/vim-gitgutter'
-
-syntax enable
 set background=dark
 colorscheme solarized
 
-call plug#end()
