@@ -22,7 +22,17 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'ervandew/supertab'
 
+Plug 'conradirwin/vim-bracketed-paste'
+
+Plug 'marijnh/tern_for_vim'
+
 call plug#end()
+
+"tern for vim setup
+"enable keyboard shortcuts
+let g:tern_map_keys=1
+"show argument hints
+let g:tern_show_argument_hints='on_hold'
 
 " ultiships configuration
 " Trigger configuration. Do not use <tab> if you use
