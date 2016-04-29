@@ -53,6 +53,8 @@ let g:syntastic_check_on_wq = 0
 
 " NERDTree setting
 map <C-q> :NERDTreeToggle<CR>
+" configure closing vim if close all splits except NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
