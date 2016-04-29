@@ -12,6 +12,8 @@ Plug 'scrooloose/syntastic'
 
 Plug 'scrooloose/nerdtree'
 
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 Plug 'itchyny/lightline.vim'
 
 Plug 'wincent/command-t'
