@@ -28,10 +28,10 @@ Plug 'marijnh/tern_for_vim'
 
 call plug#end()
 
-"tern for vim setup
-"enable keyboard shortcuts
+" tern for vim setup
+" enable keyboard shortcuts
 let g:tern_map_keys=1
-"show argument hints
+" show argument hints
 let g:tern_show_argument_hints='on_hold'
 
 " ultiships configuration
@@ -50,6 +50,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" NERDTree setting
+map <C-q> :NERDTreeToggle<CR>
 
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
