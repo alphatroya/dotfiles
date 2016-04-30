@@ -28,7 +28,18 @@ Plug 'conradirwin/vim-bracketed-paste'
 
 Plug 'marijnh/tern_for_vim'
 
+Plug 'kien/ctrlp.vim'
+
+Plug 'nathanaelkane/vim-indent-guides'
+
 call plug#end()
+
+" enable Ingent Guides plugin at launch
+autocmd vimenter * IndentGuidesEnable 
+
+" ctrlp settings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " tern for vim setup
 " enable keyboard shortcuts
@@ -60,6 +71,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
+autocmd BufNewFile,BufRead Podfile,Fastfile,Appfile,Matchfile set syntax=ruby
 
 set showmatch
 set number
