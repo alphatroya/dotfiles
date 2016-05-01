@@ -32,6 +32,8 @@ Plug 'kien/ctrlp.vim'
 
 Plug 'nathanaelkane/vim-indent-guides'
 
+Plug 'tpope/vim-markdown'
+
 call plug#end()
 
 " enable Ingent Guides plugin at launch
@@ -83,6 +85,8 @@ set expandtab              " Use spaces instead of tabs.
 set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
+
+set wildmode=longest,list
 
 set backspace   =indent,eol,start  " Make backspace work as you would expect.
 set hidden                 " Switch between buffers without having to save first.
