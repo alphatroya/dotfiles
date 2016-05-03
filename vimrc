@@ -73,7 +73,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
-autocmd BufNewFile,BufRead Podfile,Fastfile,Appfile,Matchfile set syntax=ruby
+autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
 set showmatch
 set number
