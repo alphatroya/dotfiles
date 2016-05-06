@@ -4,6 +4,8 @@ Plug 'SirVer/ultisnips'
 
 Plug 'honza/vim-snippets'
 
+Plug 'tpope/vim-surround'
+
 Plug 'fatih/vim-go'
 
 Plug 'Valloric/YouCompleteMe'
