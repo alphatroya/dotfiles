@@ -2,6 +2,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'SirVer/ultisnips' 
 
+Plug 'tpope/vim-fugitive'
+
 Plug 'myusuf3/numbers.vim' 
 
 Plug 'honza/vim-snippets'
