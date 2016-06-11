@@ -40,6 +40,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'tpope/vim-markdown'
 
+Plug 'keith/swift.vim'
+
 call plug#end()
 
 " enable Ingent Guides plugin at launch
