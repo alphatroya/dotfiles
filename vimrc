@@ -1,61 +1,30 @@
 call plug#begin('~/.vim/plugged')
-
 Plug 'SirVer/ultisnips' 
-
 Plug 'tpope/vim-fugitive'
-
+Plug 'Yggdroot/indentLine'
 Plug 'myusuf3/numbers.vim' 
-
 Plug 'honza/vim-snippets'
-
 Plug 'tpope/vim-surround'
-
 Plug 'fatih/vim-go'
-
 Plug 'Valloric/YouCompleteMe'
-
 Plug 'scrooloose/syntastic'
-
+Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
-
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
 Plug 'itchyny/lightline.vim'
-
 Plug 'wincent/command-t'
-
 Plug 'airblade/vim-gitgutter'
-
 Plug 'jiangmiao/auto-pairs'
-
 Plug 'ervandew/supertab'
-
 Plug 'conradirwin/vim-bracketed-paste'
-
-Plug 'marijnh/tern_for_vim'
-
 Plug 'kien/ctrlp.vim'
-
-Plug 'nathanaelkane/vim-indent-guides'
-
 Plug 'tpope/vim-markdown'
-
 Plug 'keith/swift.vim'
-
 call plug#end()
-
-" enable Ingent Guides plugin at launch
-autocmd vimenter * IndentGuidesEnable 
 
 " ctrlp settings
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-
-" tern for vim setup
-" enable keyboard shortcuts
-let g:tern_map_keys=1
-" show argument hints
-let g:tern_show_argument_hints='on_hold'
 
 " ultiships configuration
 " Trigger configuration. Do not use <tab> if you use
@@ -83,6 +52,14 @@ filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
+"" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+
+"" Map leader to ,
+let mapleader=','
+
 set showmatch
 set number
 set nocompatible
@@ -106,9 +83,15 @@ set showcmd                " Show already typed keys when more are expected.
 
 set incsearch              " Highlight while searching with / or ?.
 set hlsearch               " Keep matches highlighted.
+set ignorecase
+set smartcase
 
 set ttyfast                " Faster redrawing.
 set lazyredraw             " Only redraw when necessary.
+
+"" Directories for swp files
+set nobackup
+set noswapfile
 
 set splitbelow             " Open new windows below the current window.
 set splitright             " Open new windows right of the current window.
@@ -125,9 +108,12 @@ else
     let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
-" Keymap for moving current line 
-nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
-nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
+
+" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '¦'
+let g:indentLine_faster = 1
 
 " The fish shell is not very compatible to other shells and unexpectedly
 " " breaks things that use 'shell'.
