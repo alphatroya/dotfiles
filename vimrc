@@ -20,6 +20,7 @@ Plug 'conradirwin/vim-bracketed-paste'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-markdown'
 Plug 'keith/swift.vim'
+Plug 'mileszs/ack.vim'
 call plug#end()
 
 " ctrlp settings
