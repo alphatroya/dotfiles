@@ -1,14 +1,19 @@
 call plug#begin('~/.vim/plugged')
+"snippets
 Plug 'SirVer/ultisnips' 
-Plug 'tpope/vim-fugitive'
-Plug 'Yggdroot/indentLine'
-Plug 'myusuf3/numbers.vim' 
 Plug 'honza/vim-snippets'
+"git wrapper
+Plug 'tpope/vim-fugitive'
+"indents display 
+Plug 'Yggdroot/indentLine'
+"relative line numbers
+Plug 'myusuf3/numbers.vim' 
 Plug 'tpope/vim-surround'
+"Golang support
 Plug 'fatih/vim-go'
 Plug 'Valloric/YouCompleteMe'
-Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
+"Nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'itchyny/lightline.vim'
@@ -17,15 +22,16 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 Plug 'conradirwin/vim-bracketed-paste'
-Plug 'kien/ctrlp.vim'
+"Markdown support
 Plug 'tpope/vim-markdown'
+"Swift support
 Plug 'keith/swift.vim'
+"Ack support
 Plug 'mileszs/ack.vim'
 call plug#end()
 
-" ctrlp settings
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" lightline configuration
+let g:lightline = {'colorscheme': 'jellybeans',}
 
 " ultiships configuration
 " Trigger configuration. Do not use <tab> if you use
