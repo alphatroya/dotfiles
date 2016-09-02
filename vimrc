@@ -37,7 +37,7 @@ let g:lightline = {'colorscheme': 'jellybeans',}
 " Trigger configuration. Do not use <tab> if you use
 " https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<c-a>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " syntastic setup
@@ -63,6 +63,9 @@ autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set synt
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
+
+" Enable spell check
+set spell
 
 "" Map leader to ,
 let mapleader=','
