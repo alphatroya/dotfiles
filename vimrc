@@ -22,13 +22,24 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 Plug 'conradirwin/vim-bracketed-paste'
+Plug 'ctrlpvim/ctrlp.vim'
 "Markdown support
 Plug 'tpope/vim-markdown'
 "Swift support
 Plug 'keith/swift.vim'
 "Ack support
 Plug 'mileszs/ack.vim'
+"Split/join plugin
+Plug 'AndrewRadev/splitjoin.vim'
+" Tagbar
+Plug 'majutsushi/tagbar'
 call plug#end()
+
+" Map leader to ,
+let mapleader=','
+
+" Set update time
+set updatetime=100
 
 " lightline configuration
 let g:lightline = {'colorscheme': 'jellybeans',}
@@ -44,6 +55,36 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" Tagbar go configuration
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -67,8 +108,48 @@ set fileencodings=utf-8
 " Enable spell check
 set spell
 
-"" Map leader to ,
-let mapleader=','
+
+" Enable autosave before :make command
+set autowrite
+
+" Keymapping for quickfix navigation
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+" Bindings for vim-go plugin
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
+
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
 
 set showmatch
 set number
