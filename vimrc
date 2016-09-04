@@ -59,7 +59,7 @@ set statusline+=%*
 
 " Tagbar go configuration
 nmap <F8> :TagbarToggle<CR>
-autocmd FileType go :TagbarToggle
+autocmd FileType go :TagbarOpen
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
