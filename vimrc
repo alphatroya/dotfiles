@@ -12,7 +12,6 @@ Plug 'tpope/vim-surround'
 "Golang support
 Plug 'fatih/vim-go'
 Plug 'Valloric/YouCompleteMe'
-Plug 'sheerun/vim-polyglot'
 "Nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -60,6 +59,7 @@ set statusline+=%*
 
 " Tagbar go configuration
 nmap <F8> :TagbarToggle<CR>
+autocmd FileType go :TagbarToggle
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -100,6 +100,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
+
+" Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
 "" Encoding
@@ -109,7 +111,6 @@ set fileencodings=utf-8
 
 " Enable spell check
 set spell
-
 
 " Enable autosave before :make command
 set autowrite
@@ -133,6 +134,7 @@ function! s:build_go_files()
   endif
 endfunction
 
+" Bindings for vim-go plugin
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 let g:go_fmt_command = "goimports"
@@ -142,13 +144,10 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
-
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
-
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
-
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
@@ -235,6 +234,7 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
+" Set color scheme
 set background=dark
 colorscheme gruvbox
 
