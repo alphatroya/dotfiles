@@ -33,6 +33,8 @@ Plug 'mileszs/ack.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 " Tagbar
 Plug 'majutsushi/tagbar'
+" Gruvbox theme
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " Map leader to ,
@@ -42,7 +44,7 @@ let mapleader=','
 set updatetime=100
 
 " lightline configuration
-let g:lightline = {'colorscheme': 'jellybeans',}
+let g:lightline = {'colorscheme': 'gruvbox',}
 
 " ultiships configuration
 " Trigger configuration. Do not use <tab> if you use
@@ -234,5 +236,5 @@ cnoreabbrev Q q
 cnoreabbrev Qall qall
 
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
 
