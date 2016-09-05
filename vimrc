@@ -1,7 +1,4 @@
 call plug#begin('~/.vim/plugged')
-"snippets
-Plug 'SirVer/ultisnips' 
-Plug 'honza/vim-snippets'
 "git wrapper
 Plug 'tpope/vim-fugitive'
 "indents display 
@@ -11,7 +8,6 @@ Plug 'myusuf3/numbers.vim'
 Plug 'tpope/vim-surround'
 "Golang support
 Plug 'fatih/vim-go'
-Plug 'Valloric/YouCompleteMe'
 "Nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -34,6 +30,11 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'majutsushi/tagbar'
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
+" Autocomplete
+Plug 'Shougo/neocomplete.vim'
+" Snippets
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 call plug#end()
 
 " Map leader to ,
@@ -42,15 +43,24 @@ let mapleader=','
 " Set update time
 set updatetime=100
 
+" Autocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+
+" Snippets support
+imap <C-j>     <Plug>(neosnippet_expand_or_jump)
+smap <C-j>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-j>     <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+let g:neosnippet#enable_snipmate_compatibility = 1
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
 " lightline configuration
 let g:lightline = {'colorscheme': 'gruvbox',}
-
-" ultiships configuration
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-a>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " syntastic setup
 set statusline+=%#warningmsg#
@@ -151,6 +161,7 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
+let g:go_snippet_engine = "neosnippet"
 
 set showmatch
 set number
