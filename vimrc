@@ -121,6 +121,7 @@ set fileencodings=utf-8
 
 " Enable spell check
 set spell
+set spelllang=ru_ru,en_us
 
 " Enable autosave before :make command
 set autowrite
