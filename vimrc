@@ -35,6 +35,8 @@ Plug 'Shougo/neocomplete.vim'
 " Snippets
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+" Dash
+Plug 'rizzatti/dash.vim'
 call plug#end()
 
 " Map leader to ,
