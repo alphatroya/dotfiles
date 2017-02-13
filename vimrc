@@ -1,35 +1,56 @@
 call plug#begin('~/.vim/plugged')
-"git wrapper
-Plug 'tpope/vim-fugitive'
-"indents display 
-Plug 'Yggdroot/indentLine'
-"relative line numbers
-Plug 'myusuf3/numbers.vim' 
-Plug 'tpope/vim-surround'
-"Golang support
+" ### verified plugins ###
+
+" Golang support
 Plug 'fatih/vim-go'
-"Nerdtree
+
+" relative line numbers
+Plug 'myusuf3/numbers.vim' 
+
+" This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces
+Plug 'Yggdroot/indentLine'
+
+" Swift support
+Plug 'keith/swift.vim'
+
+" Gruvbox theme
+Plug 'morhetz/gruvbox'
+
+" Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
+Plug 'tpope/vim-surround'
+
+" Insert or delete brackets, parens, quotes in pair.
+Plug 'jiangmiao/auto-pairs'
+
+" Nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'itchyny/lightline.vim'
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Simple tmux statusline generator with support for powerline symbols
+Plug 'edkolev/tmuxline.vim'
+
+" ----------------------------
+" ### non-verified plugins ###
+"
+" git wrapper
+Plug 'tpope/vim-fugitive'
 Plug 'wincent/command-t'
 Plug 'airblade/vim-gitgutter'
-Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
 Plug 'conradirwin/vim-bracketed-paste'
 Plug 'ctrlpvim/ctrlp.vim'
-"Markdown support
+" Markdown support
 Plug 'tpope/vim-markdown'
-"Swift support
-Plug 'keith/swift.vim'
-"Ack support
+" Ack support
 Plug 'mileszs/ack.vim'
-"Split/join plugin
+" Split/join plugin
 Plug 'AndrewRadev/splitjoin.vim'
 " Tagbar
 Plug 'majutsushi/tagbar'
-" Gruvbox theme
-Plug 'morhetz/gruvbox'
 " Autocomplete
 Plug 'Shougo/neocomplete.vim'
 " Snippets
@@ -61,13 +82,10 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-" lightline configuration
-let g:lightline = {'colorscheme': 'gruvbox',}
-
-" syntastic setup
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Airline configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='base16'
+let g:airline_powerline_fonts = 1
 
 " Tagbar go configuration
 nmap <F8> :TagbarToggle<CR>
