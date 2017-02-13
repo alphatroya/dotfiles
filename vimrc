@@ -38,7 +38,6 @@ Plug 'edkolev/tmuxline.vim'
 "
 " git wrapper
 Plug 'tpope/vim-fugitive'
-Plug 'wincent/command-t'
 Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
 Plug 'conradirwin/vim-bracketed-paste'
