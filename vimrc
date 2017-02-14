@@ -67,7 +67,13 @@ Plug 'vim-syntastic/syntastic'
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
 
+" True Sublime Text style multiple selections for Vim
+Plug 'terryma/vim-multiple-cursors'
+
 call plug#end()
+
+" vim multiple cursors key
+let g:multi_cursor_next_key='<C-g>'
 
 " Map leader to ,
 let mapleader=','
