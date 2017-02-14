@@ -48,16 +48,15 @@ Plug 'terryma/vim-expand-region'
 " Easy motions plugin
 Plug 'easymotion/vim-easymotion'
 
+" Dash support
+Plug 'rizzatti/dash.vim'
+
 " ----------------------------
 " ### non-verified plugins ###
 "
 " git wrapper
 Plug 'tpope/vim-fugitive'
 Plug 'ervandew/supertab'
-" Markdown support
-Plug 'tpope/vim-markdown'
-" Ack support
-Plug 'mileszs/ack.vim'
 " Tagbar
 Plug 'majutsushi/tagbar'
 " Autocomplete
@@ -65,8 +64,6 @@ Plug 'Shougo/neocomplete.vim'
 " Snippets
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-" Dash
-Plug 'rizzatti/dash.vim'
 call plug#end()
 
 " Map leader to ,
