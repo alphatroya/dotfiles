@@ -45,6 +45,9 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
 Plug 'terryma/vim-expand-region'
 
+" Easy motions plugin
+Plug 'easymotion/vim-easymotion'
+
 " ----------------------------
 " ### non-verified plugins ###
 "
@@ -89,7 +92,6 @@ if has('conceal')
 endif
 
 " Airline configuration
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='gotham'
 let g:airline_powerline_fonts = 1
 
