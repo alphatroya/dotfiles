@@ -14,7 +14,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'keith/swift.vim'
 
 " Gruvbox theme
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
 
 " Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
 Plug 'tpope/vim-surround'
@@ -83,7 +83,7 @@ endif
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16'
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 
 " Tagbar go configuration
@@ -267,5 +267,5 @@ cnoreabbrev Qall qall
 
 " Set color scheme
 set background=dark
-colorscheme gruvbox
+colorscheme dracula
 
