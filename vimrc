@@ -42,6 +42,9 @@ Plug 'conradirwin/vim-bracketed-paste'
 " Split/join lines plugin
 Plug 'AndrewRadev/splitjoin.vim'
 
+" Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
+Plug 'terryma/vim-expand-region'
+
 " ----------------------------
 " ### non-verified plugins ###
 "
