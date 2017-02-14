@@ -33,21 +33,25 @@ Plug 'vim-airline/vim-airline-themes'
 " Simple tmux statusline generator with support for powerline symbols
 Plug 'edkolev/tmuxline.vim'
 
+" A Vim plugin which shows a git diff in the 'gutter' 
+Plug 'airblade/vim-gitgutter'
+
+" Enables transparent pasting into vim. (i.e. no more :set paste!)
+Plug 'conradirwin/vim-bracketed-paste'
+
+" Split/join lines plugin
+Plug 'AndrewRadev/splitjoin.vim'
+
 " ----------------------------
 " ### non-verified plugins ###
 "
 " git wrapper
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'ervandew/supertab'
-Plug 'conradirwin/vim-bracketed-paste'
-Plug 'ctrlpvim/ctrlp.vim'
 " Markdown support
 Plug 'tpope/vim-markdown'
 " Ack support
 Plug 'mileszs/ack.vim'
-" Split/join plugin
-Plug 'AndrewRadev/splitjoin.vim'
 " Tagbar
 Plug 'majutsushi/tagbar'
 " Autocomplete
