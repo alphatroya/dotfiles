@@ -14,7 +14,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'keith/swift.vim'
 
 " Gruvbox theme
-Plug 'whatyouhide/vim-gotham'
+Plug 'morhetz/gruvbox'
 
 " Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
 Plug 'tpope/vim-surround'
@@ -95,7 +95,7 @@ if has('conceal')
 endif
 
 " Airline configuration
-let g:airline_theme='gotham'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
 
 " Tagbar go configuration
@@ -279,5 +279,5 @@ cnoreabbrev Qall qall
 
 " Set color scheme
 set background=dark
-colorscheme gotham
+colorscheme gruvbox
 
