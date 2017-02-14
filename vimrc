@@ -51,19 +51,22 @@ Plug 'easymotion/vim-easymotion'
 " Dash support
 Plug 'rizzatti/dash.vim'
 
-" ----------------------------
-" ### non-verified plugins ###
-"
-" git wrapper
-Plug 'tpope/vim-fugitive'
-Plug 'ervandew/supertab'
 " Tagbar
 Plug 'majutsushi/tagbar'
+
 " Autocomplete
 Plug 'Shougo/neocomplete.vim'
+
 " Snippets
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+
+" Syntastic
+Plug 'vim-syntastic/syntastic'
+
+" Perform all your vim insert mode completions with Tab
+Plug 'ervandew/supertab'
+
 call plug#end()
 
 " Map leader to ,
@@ -129,10 +132,15 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
     \ }
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
 " NERDTree setting
 map <C-q> :NERDTreeToggle<CR>
@@ -205,6 +213,8 @@ set expandtab              " Use spaces instead of tabs.
 set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
+
+autocmd BufNewFile,BufRead *.yaml setlocal smarttab tabstop=2 shiftwidth=2 
 
 set wildmode=longest,list
 
