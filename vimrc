@@ -70,6 +70,12 @@ Plug 'ervandew/supertab'
 " True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
 
+" Autoformat code
+Plug 'Chiel92/vim-autoformat'
+
+" Vim plugin for intensely orgasmic commenting
+Plug 'scrooloose/nerdcommenter'
+
 call plug#end()
 
 " vim multiple cursors key
@@ -80,6 +86,11 @@ let mapleader=','
 
 " Set update time
 set updatetime=100
+
+" NERD commenter 
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
 
 " Autocomplete
 let g:neocomplete#enable_at_startup = 1
