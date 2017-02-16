@@ -55,6 +55,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'majutsushi/tagbar'
 
 " Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neocomplete.vim'
 
 " Snippets
@@ -96,8 +97,12 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 
 " Autocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
+if has('nvim')
+    let g:deoplete#enable_at_startup = 1
+else 
+    let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_smart_case = 1
+endif
 
 " Easy motions setup
 let g:EasyMotion_smartcase = 1
