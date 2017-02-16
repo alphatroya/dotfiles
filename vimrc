@@ -81,6 +81,9 @@ call plug#end()
 " vim multiple cursors key
 let g:multi_cursor_next_key='<C-g>'
 
+" change supertab completion fill to from top
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
 " Map leader to ,
 let mapleader=','
 
