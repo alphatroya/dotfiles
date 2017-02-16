@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-" ### verified plugins ###
 
 " Golang support
 Plug 'fatih/vim-go'
@@ -76,6 +75,9 @@ Plug 'Chiel92/vim-autoformat'
 
 " Vim plugin for intensely orgasmic commenting
 Plug 'scrooloose/nerdcommenter'
+
+" Vim repeat
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
