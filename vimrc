@@ -79,6 +79,9 @@ Plug 'scrooloose/nerdcommenter'
 " Vim repeat
 Plug 'tpope/vim-repeat'
 
+" CtrlP plugin
+Plug 'ctrlpvim/ctrlp.vim'
+
 call plug#end()
 
 " vim multiple cursors key
@@ -127,6 +130,11 @@ endif
 " Airline configuration
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
+
+" CtrlP mapping
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 " Tagbar go configuration
 nmap <F8> :TagbarToggle<CR>
