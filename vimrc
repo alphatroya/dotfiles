@@ -82,6 +82,9 @@ Plug 'tpope/vim-repeat'
 " CtrlP plugin
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 " vim multiple cursors key
