@@ -232,8 +232,9 @@ let g:go_snippet_engine = "neosnippet"
 
 set showmatch
 set number
-set nocompatible
 set colorcolumn=90
+set mouse=a                 " Automatically enable mouse usage
+set mousehide               " Hide the mouse cursor while typing
 
 set autoindent             " Indent according to previous line.
 set expandtab              " Use spaces instead of tabs.
@@ -280,6 +281,7 @@ else
     let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
+set nocompatible
 
 " IndentLine
 let g:indentLine_enabled = 1
