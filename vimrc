@@ -85,6 +85,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
+" fish script support
+Plug 'dag/vim-fish'
+
 call plug#end()
 
 " vim multiple cursors key
