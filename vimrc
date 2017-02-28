@@ -135,7 +135,6 @@ endif
 
 " Airline configuration
 let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 1
 
 " CtrlP mapping
 let g:ctrlp_map = '<c-p>'
