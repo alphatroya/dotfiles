@@ -88,6 +88,9 @@ Plug 'tpope/vim-fugitive'
 " fish script support
 Plug 'dag/vim-fish'
 
+" ruby support
+Plug 'vim-ruby/vim-ruby'
+
 call plug#end()
 
 " vim multiple cursors key
@@ -189,9 +192,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
-
-" Enable syntax highlighting for ruby-based configuration files
-autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
 "" Encoding
 set encoding=utf-8
@@ -351,6 +351,9 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" Enable syntax highlighting for ruby-based configuration files
+autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
 " Set color scheme
 set background=dark
