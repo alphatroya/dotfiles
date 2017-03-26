@@ -91,7 +91,14 @@ Plug 'dag/vim-fish'
 " ruby support
 Plug 'vim-ruby/vim-ruby'
 
+" rust support
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
+
+" rust support customization
+let g:syntastic_rust_checkers = ['rustc']
+let g:rustfmt_autosave = 1
 
 " vim multiple cursors key
 let g:multi_cursor_next_key='<C-g>'
