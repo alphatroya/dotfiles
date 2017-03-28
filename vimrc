@@ -146,6 +146,9 @@ endif
 " Airline configuration
 let g:airline_theme='gruvbox'
 
+" Configure templates
+autocmd! BufNewFile Fastfile 0r ~/.vim/templates/Fastfile
+
 " CtrlP mapping
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'

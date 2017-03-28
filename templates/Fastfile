@@ -1,0 +1,39 @@
+#!usr/bin/ruby
+
+fastlane_version "2.0"
+
+default_platform :ios
+
+platform :ios do
+    before_all do
+        ENV["FASTLANE_XCODE_LIST_TIMEOUT"] = "120"
+    end
+
+    desc "Bootstrap project for the developing"
+    lane :bootstrap do 
+    end
+
+    desc "Invoke all tests"
+    lane :test do 
+    end
+
+    desc "Deploy a new beta build"
+    lane :beta do
+    end
+
+    desc "Deploy a release build"
+    lane :prerelease do 
+    end
+
+    desc "Deploy a release build"
+    lane :release do 
+    end
+
+    after_all do |lane|
+        clean_build_artifacts
+    end
+
+    error do |lane, exception|
+        clean_build_artifacts
+    end
+end
