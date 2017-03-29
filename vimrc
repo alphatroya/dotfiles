@@ -131,6 +131,22 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 nmap <Leader>s <Plug>(easymotion-overwin-f)
 
+" Highlight %VAR% placeholders with the Todo colour group
+function! LoadTemplate()
+    " setup vim for highlight %VAR% placeholders
+    syn match Todo "%\u\+%" containedIn=ALL
+endfunction
+" Configure templates
+autocmd! BufNewFile Fastfile 0r ~/.vim/templates/Fastfile
+autocmd! BufNewFile Appfile 0r ~/.vim/templates/Appfile
+autocmd! BufNewFile * call LoadTemplate()
+"Jump between %VAR% placeholders in Normal mode with
+" <Ctrl-p>
+nnoremap <c-t> /%\u.\{-1,}%<cr>c/%/e<cr>
+"Jump between %VAR% placeholders in Insert mode with
+" <Ctrl-p>
+inoremap <c-t> <ESC>/%\u.\{-1,}%<cr>c/%/e<cr>
+
 " Snippets support
 imap <C-j>     <Plug>(neosnippet_expand_or_jump)
 smap <C-j>     <Plug>(neosnippet_expand_or_jump)
@@ -145,9 +161,6 @@ endif
 
 " Airline configuration
 let g:airline_theme='gruvbox'
-
-" Configure templates
-autocmd! BufNewFile Fastfile 0r ~/.vim/templates/Fastfile
 
 " CtrlP mapping
 let g:ctrlp_map = '<c-p>'
@@ -364,7 +377,7 @@ map <C-l> <C-W>l
 
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
-
+    
 " Set color scheme
 set background=dark
 colorscheme gruvbox

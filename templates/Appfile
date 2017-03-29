@@ -1,0 +1,6 @@
+#!usr/bin/ruby
+
+apple_id %APPLE_ID%
+app_identifier %IDENTIFIER%
+team_name %TEAMNAME%
+team_id %TEAMID%
