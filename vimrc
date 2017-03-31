@@ -60,6 +60,7 @@ Plug 'Shougo/neocomplete.vim'
 " Snippets
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 
 " Syntastic
 Plug 'vim-syntastic/syntastic'
@@ -167,6 +168,8 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 
 " Airline configuration
 let g:airline_theme='gruvbox'
