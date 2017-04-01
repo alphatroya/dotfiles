@@ -102,6 +102,9 @@ Plug 'mattn/gist-vim'
 " Underlines the word under the cursor
 Plug 'vim-cursorword'
 
+" A Vim plugin for more pleasant editing on commit messages
+Plug 'rhysd/committia.vim'
+
 call plug#end()
 
 " gist plugin setup
