@@ -99,6 +99,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 
+" Underlines the word under the cursor
+Plug 'vim-cursorword'
+
 call plug#end()
 
 " gist plugin setup
