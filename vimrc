@@ -3,6 +3,9 @@ call plug#begin('~/.vim/plugged')
 " A universal set of defaults that (hopefully) everyone can agree on<Paste>
 Plug 'sensible.vim'
 
+" This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
+Plug 'sleuth.vim'
+
 " Golang support
 Plug 'fatih/vim-go', { 'for': 'go' }
 
