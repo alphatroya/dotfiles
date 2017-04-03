@@ -412,6 +412,9 @@ map <C-l> <C-W>l
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
     
+" Map buffer switching to F6
+map <F6> :bn<CR>
+
 " Set color scheme
 set background=dark
 colorscheme gruvbox
