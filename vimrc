@@ -1,7 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
+" A universal set of defaults that (hopefully) everyone can agree on<Paste>
+Plug 'sensible.vim'
+
 " Golang support
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 " relative line numbers
 Plug 'myusuf3/numbers.vim' 
@@ -10,7 +13,7 @@ Plug 'myusuf3/numbers.vim'
 Plug 'Yggdroot/indentLine'
 
 " Swift support
-Plug 'keith/swift.vim'
+Plug 'keith/swift.vim', { 'for': 'swift' }
 
 " Gruvbox theme
 Plug 'morhetz/gruvbox'
@@ -90,10 +93,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'dag/vim-fish'
 
 " ruby support
-Plug 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 
 " rust support
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " gist integration
 Plug 'mattn/webapi-vim'
@@ -414,6 +417,9 @@ autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set synt
     
 " Map buffer switching to F6
 map <F6> :bn<CR>
+
+" Enable folding
+set foldenable
 
 " Set color scheme
 set background=dark
