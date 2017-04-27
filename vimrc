@@ -18,8 +18,8 @@ Plug 'Yggdroot/indentLine'
 " Swift support
 Plug 'keith/swift.vim', { 'for': 'swift' }
 
-" Gruvbox theme
-Plug 'morhetz/gruvbox'
+" Theme
+Plug 'dracula/vim'
 
 " Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
 Plug 'tpope/vim-surround'
@@ -184,7 +184,8 @@ endif
 let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 
 " Airline configuration
-let g:airline_theme='gruvbox'
+let g:airline_theme='dracula'
+let g:airline_powerline_fonts = 1
 
 " CtrlP mapping
 let g:ctrlp_map = '<c-p>'
@@ -264,8 +265,9 @@ set fileencodings=utf-8
 " Enable spell check
 set spell
 set spelllang=ru_ru,en_us
+map <F5> :setlocal spell! spelllang=en_us<CR>
 
-" Enable autosave before :make command
+" Enable auto save before :make command
 set autowrite
 
 " Keymapping for quickfix navigation
@@ -426,5 +428,5 @@ set foldenable
 
 " Set color scheme
 set background=dark
-colorscheme gruvbox
+colorscheme dracula
 
