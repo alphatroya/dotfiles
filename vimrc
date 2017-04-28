@@ -430,3 +430,8 @@ set foldenable
 set background=dark
 colorscheme dracula
 
+let g:committia_hooks = {}
+function! g:committia_hooks.diff_open(info)
+    " Additional settings
+    setlocal nospell
+endfunction
