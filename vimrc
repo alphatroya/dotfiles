@@ -10,7 +10,7 @@ Plug 'sleuth.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 
 " relative line numbers
-Plug 'myusuf3/numbers.vim' 
+Plug 'myusuf3/numbers.vim'
 
 " This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces
 Plug 'Yggdroot/indentLine'
@@ -38,7 +38,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Simple tmux statusline generator with support for powerline symbols
 Plug 'edkolev/tmuxline.vim'
 
-" A Vim plugin which shows a git diff in the 'gutter' 
+" A Vim plugin which shows a git diff in the 'gutter'
 Plug 'airblade/vim-gitgutter'
 
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
@@ -111,6 +111,9 @@ Plug 'vim-cursorword'
 " A Vim plugin for more pleasant editing on commit messages
 Plug 'rhysd/committia.vim'
 
+" Better whitespace highlighting for Vim
+Plug 'ntpeters/vim-better-whitespace'
+
 call plug#end()
 
 " gist plugin setup
@@ -134,7 +137,7 @@ let mapleader=','
 " Set update time
 set updatetime=100
 
-" NERD commenter 
+" NERD commenter
 let g:NERDSpaceDelims = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
@@ -142,7 +145,7 @@ let g:NERDTrimTrailingWhitespace = 1
 " Autocomplete
 if has('nvim')
     let g:deoplete#enable_at_startup = 1
-else 
+else
     let g:neocomplete#enable_at_startup = 1
     let g:neocomplete#enable_smart_case = 1
 endif
@@ -302,7 +305,7 @@ let g:go_highlight_extra_types = 1
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
@@ -320,7 +323,7 @@ set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
 
-autocmd BufNewFile,BufRead *.yaml setlocal smarttab tabstop=2 shiftwidth=2 
+autocmd BufNewFile,BufRead *.yaml setlocal smarttab tabstop=2 shiftwidth=2
 
 set wildmode=longest,list
 
@@ -419,7 +422,7 @@ map <C-l> <C-W>l
 
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
-    
+
 " Map buffer switching to F6
 map <F6> :bn<CR>
 
