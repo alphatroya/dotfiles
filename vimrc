@@ -423,6 +423,11 @@ set foldenable
 set background=dark
 colorscheme dracula
 
+" Enable substitution previews with inccommand
+if has("nvim")
+    set inccommand=nosplit
+endif
+
 let g:committia_hooks = {}
 function! g:committia_hooks.diff_open(info)
     " Additional settings
