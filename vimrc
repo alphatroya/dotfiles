@@ -114,6 +114,9 @@ Plug 'rhysd/committia.vim'
 " Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
 
+" Vim code break game
+Plug 'johngrib/vim-game-code-break'
+
 call plug#end()
 
 " gist plugin setup
