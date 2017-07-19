@@ -431,6 +431,8 @@ if has("nvim")
     set inccommand=nosplit
 endif
 
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
 let g:committia_hooks = {}
 function! g:committia_hooks.diff_open(info)
     " Additional settings
