@@ -389,6 +389,13 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+cnoreabbrev Ц w
+cnoreabbrev ц w
+cnoreabbrev Й q
+cnoreabbrev й q
+cnoreabbrev Цй wq
+cnoreabbrev ЦЙ wq
+cnoreabbrev цй wq
 
 " Fast saving
 nmap <leader>w :w!<cr>
