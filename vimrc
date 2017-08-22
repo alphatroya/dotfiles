@@ -114,6 +114,9 @@ Plug 'rhysd/committia.vim'
 " Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
 
+" Inc-/decrement the current value (bool, int, numeric, hex) with one keystroke
+Plug 'vim-scripts/nextval'
+
 " Vim code break game
 Plug 'johngrib/vim-game-code-break'
 
