@@ -120,6 +120,9 @@ Plug 'vim-scripts/nextval'
 " Vim code break game
 Plug 'johngrib/vim-game-code-break'
 
+" Ack plugin
+Plug 'mileszs/ack.vim'
+
 call plug#end()
 
 " gist plugin setup
@@ -448,3 +451,8 @@ function! g:committia_hooks.diff_open(info)
     " Additional settings
     setlocal nospell
 endfunction
+
+" Make silver searcher as default searcher by Ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
