@@ -123,6 +123,9 @@ Plug 'johngrib/vim-game-code-break'
 " Ack plugin
 Plug 'mileszs/ack.vim'
 
+" format plugin
+Plug 'sbdchd/neoformat'
+
 call plug#end()
 
 " gist plugin setup
