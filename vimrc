@@ -80,8 +80,8 @@ Plug 'terryma/vim-multiple-cursors'
 " Autoformat code
 Plug 'Chiel92/vim-autoformat'
 
-" Vim plugin for intensely orgasmic commenting
-Plug 'scrooloose/nerdcommenter'
+" Comment stuff out.
+Plug 'tpope/vim-commentary'
 
 " Vim repeat
 Plug 'tpope/vim-repeat'
@@ -148,11 +148,6 @@ let mapleader=','
 
 " Set update time
 set updatetime=100
-
-" NERD commenter
-let g:NERDSpaceDelims = 1
-let g:NERDCommentEmptyLines = 1
-let g:NERDTrimTrailingWhitespace = 1
 
 " Autocomplete
 if has('nvim')
