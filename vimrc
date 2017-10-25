@@ -24,9 +24,6 @@ Plug 'dracula/vim'
 " Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
 Plug 'tpope/vim-surround'
 
-" Insert or delete brackets, parens, quotes in pair.
-Plug 'jiangmiao/auto-pairs'
-
 " Nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
