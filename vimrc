@@ -123,6 +123,9 @@ Plug 'mileszs/ack.vim'
 " format plugin
 Plug 'sbdchd/neoformat'
 
+" Make the yanked region apparent
+Plug 'machakann/vim-highlightedyank'
+
 call plug#end()
 
 " gist plugin setup
