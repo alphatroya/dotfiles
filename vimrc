@@ -439,7 +439,7 @@ colorscheme dracula
 
 " Enable substitution previews with inccommand
 if has("nvim")
-    set inccommand=nosplit
+    set inccommand=split
 endif
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
