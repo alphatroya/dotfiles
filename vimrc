@@ -61,8 +61,8 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'honza/vim-snippets'
 
-" Syntastic
-Plug 'vim-syntastic/syntastic'
+" Syntax linter
+Plug 'w0rp/ale'
 
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
@@ -118,7 +118,6 @@ Plug 'machakann/vim-highlightedyank'
 call plug#end()
 
 " rust support customization
-let g:syntastic_rust_checkers = ['rustc']
 let g:rustfmt_autosave = 1
 
 " vim multiple cursors key
@@ -169,6 +168,7 @@ let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 " Airline configuration
 let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#ale#enabled = 1
 
 " Tagbar Rust configuration
 autocmd FileType rust :TagbarOpen
