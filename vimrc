@@ -119,6 +119,9 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Additional next/previous mapping
+Plug 'tpope/vim-unimpaired'
+
 call plug#end()
 
 " rust support customization
@@ -417,7 +420,7 @@ map <C-l> <C-W>l
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
-" Map buffer switching to F6
+" Map buffer switching to F6 and F7
 map <F6> :bn<CR>
 map <F7> :bprevious<CR>
 
