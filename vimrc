@@ -80,9 +80,6 @@ Plug 'tpope/vim-commentary'
 " Vim repeat
 Plug 'tpope/vim-repeat'
 
-" CtrlP plugin
-Plug 'ctrlpvim/ctrlp.vim'
-
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
@@ -160,12 +157,6 @@ endfunction
 autocmd! BufNewFile Fastfile 0r ~/.vim/templates/Fastfile
 autocmd! BufNewFile Appfile 0r ~/.vim/templates/Appfile
 autocmd! BufNewFile * call LoadTemplate()
-"Jump between %VAR% placeholders in Normal mode with
-" <Ctrl-p>
-nnoremap <c-t> /%\u.\{-1,}%<cr>c/%/e<cr>
-"Jump between %VAR% placeholders in Insert mode with
-" <Ctrl-p>
-inoremap <c-t> <ESC>/%\u.\{-1,}%<cr>c/%/e<cr>
 
 " Snippets support
 imap <C-j>     <Plug>(neosnippet_expand_or_jump)
@@ -184,11 +175,6 @@ let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 " Airline configuration
 let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
-
-" CtrlP mapping
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
 
 " Tagbar Rust configuration
 autocmd FileType rust :TagbarOpen
@@ -320,8 +306,6 @@ set shiftround             " >> indents to next multiple of 'shiftwidth'.
 
 autocmd BufNewFile,BufRead *.yaml setlocal smarttab tabstop=2 shiftwidth=2
 
-set wildmode=longest,list
-
 set backspace   =indent,eol,start  " Make backspace work as you would expect.
 set hidden                 " Switch between buffers without having to save first.
 set laststatus  =2         " Always show statusline.
@@ -358,6 +342,9 @@ else
 endif
 
 set nocompatible
+
+set path+=**
+set wildmenu
 
 " IndentLine
 let g:indentLine_enabled = 1
