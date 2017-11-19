@@ -115,6 +115,10 @@ Plug 'sbdchd/neoformat'
 " Make the yanked region apparent
 Plug 'machakann/vim-highlightedyank'
 
+" fzf fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 " rust support customization
@@ -415,6 +419,7 @@ autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set synt
 
 " Map buffer switching to F6
 map <F6> :bn<CR>
+map <F7> :bprevious<CR>
 
 " Enable folding
 set foldenable
@@ -440,3 +445,9 @@ endfunction
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" fzf bindings
+nmap <Leader>; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
+
