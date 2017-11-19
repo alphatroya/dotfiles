@@ -82,9 +82,6 @@ Plug 'tpope/vim-repeat'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
-" fish script support
-Plug 'dag/vim-fish'
-
 " ruby support
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 
@@ -108,6 +105,9 @@ Plug 'johngrib/vim-game-code-break'
 
 " Ack plugin
 Plug 'mileszs/ack.vim'
+
+" A collection of language packs for Vim.
+Plug 'sheerun/vim-polyglot'
 
 " format plugin
 Plug 'sbdchd/neoformat'
