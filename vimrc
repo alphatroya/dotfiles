@@ -67,9 +67,6 @@ Plug 'w0rp/ale'
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
 
-" True Sublime Text style multiple selections for Vim
-Plug 'terryma/vim-multiple-cursors'
-
 " Autoformat code
 Plug 'Chiel92/vim-autoformat'
 
@@ -78,9 +75,6 @@ Plug 'tpope/vim-commentary'
 
 " Vim repeat
 Plug 'tpope/vim-repeat'
-
-" Git wrapper
-Plug 'tpope/vim-fugitive'
 
 " ruby support
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
@@ -99,9 +93,6 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " Inc-/decrement the current value (bool, int, numeric, hex) with one keystroke
 Plug 'vim-scripts/nextval'
-
-" Vim code break game
-Plug 'johngrib/vim-game-code-break'
 
 " Ack plugin
 Plug 'mileszs/ack.vim'
