@@ -55,7 +55,6 @@ Plug 'majutsushi/tagbar'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neocomplete.vim'
 
 " Snippets
 Plug 'Shougo/neosnippet'
@@ -135,12 +134,7 @@ let mapleader=','
 set updatetime=100
 
 " Autocomplete
-if has('nvim')
-    let g:deoplete#enable_at_startup = 1
-else
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_smart_case = 1
-endif
+let g:deoplete#enable_at_startup = 1
 
 " Easy motions setup
 let g:EasyMotion_smartcase = 1
@@ -222,6 +216,23 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
     \ }
+
+" Tagbar swift configuration
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_swift = {
+  \ 'ctagstype': 'swift',
+  \ 'kinds' : [
+    \ 'n:Enums',
+    \ 't:Typealiases',
+    \ 'p:Protocols',
+    \ 's:Structs',
+    \ 'c:Classes',
+    \ 'f:Functions',
+    \ 'v:Variables',
+    \ 'e:Extensions'
+  \ ],
+  \ 'sort' : 0
+  \ }
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
