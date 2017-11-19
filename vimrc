@@ -95,10 +95,6 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 " rust support
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-" gist integration
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'
-
 " Underlines the word under the cursor
 Plug 'vim-cursorword'
 
@@ -124,11 +120,6 @@ Plug 'sbdchd/neoformat'
 Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
-
-" gist plugin setup
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
-let g:gist_post_private = 1
 
 " rust support customization
 let g:syntastic_rust_checkers = ['rustc']
