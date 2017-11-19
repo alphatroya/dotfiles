@@ -9,9 +9,6 @@ Plug 'sleuth.vim'
 " Golang support
 Plug 'fatih/vim-go', { 'for': 'go' }
 
-" relative line numbers
-Plug 'myusuf3/numbers.vim'
-
 " This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces
 Plug 'Yggdroot/indentLine'
 
