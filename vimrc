@@ -177,6 +177,7 @@ let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 
+nmap <F8> :TagbarToggle<CR>
 " Tagbar Rust configuration
 autocmd FileType rust :TagbarOpen
 let g:tagbar_type_rust = {
@@ -194,7 +195,6 @@ let g:tagbar_type_rust = {
     \}
 
 " Tagbar go configuration
-nmap <F8> :TagbarToggle<CR>
 autocmd FileType go :TagbarOpen
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -225,7 +225,6 @@ let g:tagbar_type_go = {
     \ }
 
 " Tagbar swift configuration
-nmap <F8> :TagbarToggle<CR>
 let g:tagbar_type_swift = {
   \ 'ctagstype': 'swift',
   \ 'kinds' : [
@@ -397,12 +396,6 @@ cnoreabbrev цй wq
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
-
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
@@ -419,10 +412,6 @@ map <C-l> <C-W>l
 
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
-
-" Map buffer switching to F6 and F7
-map <F6> :bn<CR>
-map <F7> :bprevious<CR>
 
 " Enable folding
 set foldenable
