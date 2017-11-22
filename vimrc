@@ -215,22 +215,6 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
     \ }
 
-" Tagbar swift configuration
-let g:tagbar_type_swift = {
-  \ 'ctagstype': 'swift',
-  \ 'kinds' : [
-    \ 'n:Enums',
-    \ 't:Typealiases',
-    \ 'p:Protocols',
-    \ 's:Structs',
-    \ 'c:Classes',
-    \ 'f:Functions',
-    \ 'v:Variables',
-    \ 'e:Extensions'
-  \ ],
-  \ 'sort' : 0
-  \ }
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
