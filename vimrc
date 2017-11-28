@@ -118,9 +118,6 @@ call plug#end()
 " rust support customization
 let g:rustfmt_autosave = 1
 
-" vim multiple cursors key
-let g:multi_cursor_next_key='<C-g>'
-
 " change supertab completion fill to from top
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
@@ -144,6 +141,7 @@ function! LoadTemplate()
     " setup vim for highlight %VAR% placeholders
     syn match Todo "%\u\+%" containedIn=ALL
 endfunction
+
 " Configure templates
 autocmd! BufNewFile Fastfile 0r ~/.vim/templates/Fastfile
 autocmd! BufNewFile Appfile 0r ~/.vim/templates/Appfile
@@ -252,8 +250,8 @@ map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
 " Bindings for vim-go plugin
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <C-d>  <Plug>(go-run)
+autocmd FileType go nmap <C-t> <Plug>(go-test)
 
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
@@ -335,7 +333,6 @@ endif
 
 set nocompatible
 
-set path+=**
 set wildmenu
 
 " IndentLine
@@ -379,12 +376,6 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
@@ -396,9 +387,7 @@ set background=dark
 colorscheme dracula
 
 " Enable substitution previews with inccommand
-if has("nvim")
-    set inccommand=split
-endif
+set inccommand=split
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
