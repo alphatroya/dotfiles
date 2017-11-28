@@ -110,6 +110,9 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+" Exchange text regions
+Plug 'tommcdo/vim-exchange'
+
 " Additional next/previous mapping
 Plug 'tpope/vim-unimpaired'
 
