@@ -1,10 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
 " A universal set of defaults that (hopefully) everyone can agree on<Paste>
-Plug 'sensible.vim'
+Plug 'vim-scripts/sensible.vim'
 
 " This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
-Plug 'sleuth.vim'
+Plug 'vim-scripts/sleuth.vim'
 
 " Golang support
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -83,7 +83,7 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 " Underlines the word under the cursor
-Plug 'vim-cursorword'
+Plug 'vim-scripts/vim-cursorword'
 
 " A Vim plugin for more pleasant editing on commit messages
 Plug 'rhysd/committia.vim'
