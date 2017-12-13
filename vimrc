@@ -408,5 +408,6 @@ endif
 " fzf bindings
 nmap <Leader>; :Buffers<CR>
 nmap <Leader>t :Files<CR>
+nmap <Leader>y :GFiles<CR>
 nmap <Leader>r :Tags<CR>
 
