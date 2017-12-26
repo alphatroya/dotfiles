@@ -126,6 +126,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Map leader to ,
 let mapleader=','
+noremap \ ,
 
 " Set update time
 set updatetime=100
