@@ -21,10 +21,6 @@ Plug 'dracula/vim'
 " Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
 Plug 'tpope/vim-surround'
 
-" Nerdtree
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -66,9 +62,6 @@ Plug 'w0rp/ale'
 
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
-
-" Autoformat code
-Plug 'Chiel92/vim-autoformat'
 
 " Comment stuff out.
 Plug 'tpope/vim-commentary'
@@ -140,12 +133,6 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 nmap <Leader>s <Plug>(easymotion-overwin-f)
 
-" Highlight %VAR% placeholders with the Todo colour group
-function! LoadTemplate()
-    " setup vim for highlight %VAR% placeholders
-    syn match Todo "%\u\+%" containedIn=ALL
-endfunction
-
 " Configure templates
 autocmd! BufNewFile Fastfile 0r ~/.vim/templates/Fastfile
 autocmd! BufNewFile Appfile 0r ~/.vim/templates/Appfile
@@ -171,6 +158,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 
 nmap <F8> :TagbarToggle<CR>
+
 " Tagbar Rust configuration
 autocmd FileType rust :TagbarOpen
 let g:tagbar_type_rust = {
@@ -226,11 +214,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-
-" NERDTree setting
-map <C-q> :NERDTreeToggle<CR>
-" configure closing vim if close all splits except NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
@@ -335,8 +318,6 @@ else
     let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
-set nocompatible
-
 set wildmenu
 
 " IndentLine
@@ -368,14 +349,6 @@ cnoreabbrev й q
 cnoreabbrev Цй wq
 cnoreabbrev ЦЙ wq
 cnoreabbrev цй wq
-
-" Fast saving
-nmap <leader>w :w!<cr>
-
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
