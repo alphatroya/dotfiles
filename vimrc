@@ -133,11 +133,6 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 nmap <Leader>s <Plug>(easymotion-overwin-f)
 
-" Configure templates
-autocmd! BufNewFile Fastfile 0r ~/.vim/templates/Fastfile
-autocmd! BufNewFile Appfile 0r ~/.vim/templates/Appfile
-autocmd! BufNewFile * call LoadTemplate()
-
 " Snippets support
 imap <C-j>     <Plug>(neosnippet_expand_or_jump)
 smap <C-j>     <Plug>(neosnippet_expand_or_jump)
