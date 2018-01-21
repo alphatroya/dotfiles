@@ -381,3 +381,7 @@ nmap <Leader>y :GFiles<CR>
 nmap <Leader>r :Tags<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
