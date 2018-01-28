@@ -210,10 +210,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
-filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on                  " Enable syntax highlighting.
 
-"" Encoding
+" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
@@ -271,23 +270,19 @@ set colorcolumn=90
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
 
-set autoindent             " Indent according to previous line.
 set expandtab              " Use spaces instead of tabs.
 set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
 
-autocmd BufNewFile,BufRead *.yaml setlocal smarttab tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufRead *.yaml setlocal tabstop=2 shiftwidth=2
 
-set backspace   =indent,eol,start  " Make backspace work as you would expect.
 set hidden                 " Switch between buffers without having to save first.
-set laststatus  =2         " Always show statusline.
 set display     =lastline  " Show as much as possible of the last line.
 
 set showmode               " Show current mode in command-line.
 set showcmd                " Show already typed keys when more are expected.
 
-set incsearch              " Highlight while searching with / or ?.
 set hlsearch               " Keep matches highlighted.
 set ignorecase
 set smartcase
@@ -314,19 +309,11 @@ else
     let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
-set wildmenu
-
 " IndentLine
 let g:indentLine_enabled = 1
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = '¦'
 let g:indentLine_faster = 1
-
-" The fish shell is not very compatible to other shells and unexpectedly
-" " breaks things that use 'shell'.
-if &shell =~# 'fish$'
-    set shell=/bin/bash
-endif
 
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -345,9 +332,6 @@ cnoreabbrev й q
 cnoreabbrev Цй wq
 cnoreabbrev ЦЙ wq
 cnoreabbrev цй wq
-
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
 
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
