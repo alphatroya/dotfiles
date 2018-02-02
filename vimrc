@@ -114,6 +114,8 @@ call plug#end()
 " rust support customization
 let g:rustfmt_autosave = 1
 
+set termguicolors
+
 " change supertab completion fill to from top
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
