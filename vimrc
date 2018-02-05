@@ -16,7 +16,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'keith/swift.vim', { 'for': 'swift' }
 
 " Theme
-Plug 'dracula/vim'
+Plug 'arcticicestudio/nord-vim'
 
 " Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
 Plug 'tpope/vim-surround'
@@ -150,7 +150,7 @@ endif
 let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 
 " Airline configuration
-let g:airline_theme='dracula'
+let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#ale#enabled = 1
 
@@ -343,7 +343,7 @@ set foldenable
 
 " Set color scheme
 set background=dark
-colorscheme dracula
+colorscheme nord
 
 " Enable substitution previews with inccommand
 set inccommand=split
