@@ -51,6 +51,7 @@ Plug 'majutsushi/tagbar'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'for': 'go' }
 
 " Snippets
 Plug 'Shougo/neosnippet'
@@ -118,6 +119,7 @@ set termguicolors
 
 " change supertab completion fill to from top
 let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "context"
 
 " Map leader to ,
 let mapleader=','
