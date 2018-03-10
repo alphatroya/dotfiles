@@ -117,14 +117,11 @@ call plug#end()
 let g:rustfmt_autosave = 1
 
 set termguicolors
+let mapleader=" "
 
 " change supertab completion fill to from top
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabDefaultCompletionType = "context"
-
-" Map leader to ,
-let mapleader=','
-noremap \ ,
 
 " Set update time
 set updatetime=100
@@ -134,9 +131,6 @@ let g:deoplete#enable_at_startup = 1
 
 " Easy motions setup
 let g:EasyMotion_smartcase = 1
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-nmap <Leader>s <Plug>(easymotion-overwin-f)
 
 " Snippets support
 imap <C-j>     <Plug>(neosnippet_expand_or_jump)
