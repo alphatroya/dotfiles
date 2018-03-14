@@ -359,13 +359,22 @@ if executable('ag')
 endif
 
 " fzf bindings
-nmap <Leader>; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>y :GFiles<CR>
-nmap <Leader>r :Tags<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>F :GFiles<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>h :History<CR>
+nmap <Leader>t :BTags<CR>
+nmap <Leader>T :Tags<CR>
+nmap <Leader>l :BLines<CR>
+nmap <Leader>L :Lines<CR>
+nmap <Leader>' :Marks<CR>
+nmap <Leader>a :Ag<CR>
+nmap <Leader>s :Filetypes<CR>
+nmap <Leader>: :History:<CR>
+nmap <Leader>/ :History/<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap <Leader>w :w!<cr>
 
