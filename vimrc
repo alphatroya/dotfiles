@@ -1,5 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
+" Vim script for text filtering and alignment
+Plug 'godlygeek/tabular'
+
 " A universal set of defaults that (hopefully) everyone can agree on<Paste>
 Plug 'vim-scripts/sensible.vim'
 
@@ -7,14 +10,10 @@ Plug 'vim-scripts/sensible.vim'
 Plug 'vim-scripts/sleuth.vim'
 
 " Golang support
-Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'jodosha/vim-godebug', { 'for': 'go' }
 
 " This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces
 Plug 'Yggdroot/indentLine'
-
-" Swift support
-Plug 'keith/swift.vim', { 'for': 'swift' }
 
 " Theme
 Plug 'arcticicestudio/nord-vim'
@@ -71,12 +70,6 @@ Plug 'tpope/vim-commentary'
 " Vim repeat
 Plug 'tpope/vim-repeat'
 
-" ruby support
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-
-" rust support
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-
 " Underlines the word under the cursor
 Plug 'vim-scripts/vim-cursorword'
 
@@ -110,6 +103,12 @@ Plug 'tommcdo/vim-exchange'
 
 " Additional next/previous mapping
 Plug 'tpope/vim-unimpaired'
+
+" Hyperfocus-writing in Vim.
+Plug 'junegunn/limelight.vim'
+
+" Distraction-free writing in Vim.
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -378,3 +377,7 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " Fast saving
 nmap <Leader>w :w!<cr>
 
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+let g:vim_markdown_conceal = 0
