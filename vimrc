@@ -110,6 +110,9 @@ Plug 'junegunn/limelight.vim'
 " Distraction-free writing in Vim.
 Plug 'junegunn/goyo.vim'
 
+" A dummy text generator
+Plug 'vim-scripts/loremipsum'
+
 call plug#end()
 
 " rust support customization
