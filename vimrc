@@ -52,6 +52,7 @@ Plug 'majutsushi/tagbar'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'for': 'go' }
+Plug 'sebastianmarkow/deoplete-rust'
 
 " Snippets
 Plug 'Shougo/neosnippet'
