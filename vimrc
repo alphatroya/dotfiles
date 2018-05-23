@@ -10,6 +10,7 @@ Plug 'vim-scripts/sensible.vim'
 Plug 'vim-scripts/sleuth.vim'
 
 " Golang support
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'jodosha/vim-godebug', { 'for': 'go' }
 
 " This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces
