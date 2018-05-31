@@ -2,4 +2,4 @@
 
 ## Installation
 
-Place a symlink to alacritty.yml file to `~/.config/alacritty/alacritty.yml` folder
+Place a symlink to alacritty.yml file in `~/.config/alacritty/alacritty.yml` folder
