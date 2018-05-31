@@ -1,1 +1,0 @@
-/Users/alphatroya/.vimrc
