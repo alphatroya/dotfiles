@@ -47,7 +47,7 @@ values."
      git
      markdown
      org
-     spell-checking
+     (spell-checking :variables =enable-flyspell-auto-completion= t)
      syntax-checking
      version-control
      )
