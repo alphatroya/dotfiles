@@ -35,12 +35,6 @@ Plug 'airblade/vim-gitgutter'
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
 
-" Split/join lines plugin
-Plug 'AndrewRadev/splitjoin.vim'
-
-" Vim plugin that allows you to visually select increasingly larger regions of text using the same key combination.
-Plug 'terryma/vim-expand-region'
-
 " Easy motions plugin
 Plug 'easymotion/vim-easymotion'
 
@@ -53,7 +47,7 @@ Plug 'majutsushi/tagbar'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'for': 'go' }
-Plug 'sebastianmarkow/deoplete-rust'
+Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
 
 " Snippets
 Plug 'Shougo/neosnippet'
