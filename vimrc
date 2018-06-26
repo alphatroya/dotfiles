@@ -48,11 +48,7 @@ Plug 'majutsushi/tagbar'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'for': 'go' }
 Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
-
-" Snippets
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'honza/vim-snippets'
+Plug 'landaire/deoplete-swift', { 'for': 'swift' }
 
 " Syntax linter
 Plug 'w0rp/ale'
@@ -129,20 +125,6 @@ let g:deoplete#enable_at_startup = 1
 
 " Easy motions setup
 let g:EasyMotion_smartcase = 1
-
-" Snippets support
-imap <C-j>     <Plug>(neosnippet_expand_or_jump)
-smap <C-j>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-j>     <Plug>(neosnippet_expand_target)
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-let g:neosnippet#enable_snipmate_compatibility = 1
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/plugged/vim-snippets/snippets'
 
 " Airline configuration
 let g:airline_theme='nord'
@@ -259,7 +241,6 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
-let g:go_snippet_engine = "neosnippet"
 
 set showmatch
 set number
