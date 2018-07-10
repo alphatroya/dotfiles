@@ -74,9 +74,6 @@ Plug 'ntpeters/vim-better-whitespace'
 " Inc-/decrement the current value (bool, int, numeric, hex) with one keystroke
 Plug 'vim-scripts/nextval'
 
-" Ack plugin
-Plug 'mileszs/ack.vim'
-
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
 
@@ -331,11 +328,6 @@ function! g:committia_hooks.diff_open(info)
     " Additional settings
     setlocal nospell
 endfunction
-
-" Make silver searcher as default searcher by Ack.vim
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
 " fzf bindings
 nmap <Leader>f :Files<CR>
