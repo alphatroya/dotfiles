@@ -93,12 +93,6 @@ Plug 'tommcdo/vim-exchange'
 " Additional next/previous mapping
 Plug 'tpope/vim-unimpaired'
 
-" Hyperfocus-writing in Vim.
-Plug 'junegunn/limelight.vim'
-
-" Distraction-free writing in Vim.
-Plug 'junegunn/goyo.vim'
-
 " A dummy text generator
 Plug 'vim-scripts/loremipsum'
 
@@ -348,8 +342,5 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Fast saving
 nmap <Leader>w :w!<cr>
-
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
 
 let g:vim_markdown_conceal = 0

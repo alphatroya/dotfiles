@@ -1,5 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/alphatroya/Projects/MoyaRequestLogger/fastlane'
-let g:netrw_dirhist_2='/Users/alphatroya/Projects/dotfiles/nvim'
-let g:netrw_dirhist_3='/Users/alphatroya/Projects/ati-messenger'
+let g:netrw_dirhist_cnt =4
