@@ -11,7 +11,6 @@ Plug 'vim-scripts/sleuth.vim'
 
 " Golang support
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'jodosha/vim-godebug', { 'for': 'go' }
 
 " This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces
 Plug 'Yggdroot/indentLine'
@@ -47,8 +46,12 @@ Plug 'majutsushi/tagbar'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'for': 'go' }
-Plug 'sebastianmarkow/deoplete-rust', { 'for': 'rust' }
 Plug 'landaire/deoplete-swift', { 'for': 'swift' }
+
+Plug 'autozimu/LanguageClient-neovim', {
+\ 'branch': 'next',
+\ 'do': 'bash install.sh',
+\ }
 
 " Syntax linter
 Plug 'w0rp/ale'
@@ -344,3 +347,15 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nmap <Leader>w :w!<cr>
 
 let g:vim_markdown_conceal = 0
+
+let g:LanguageClient_serverCommands = {
+\ 'rust': ['rustup', 'run', 'stable', 'rls'],
+\ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
