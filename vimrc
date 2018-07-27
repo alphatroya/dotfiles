@@ -1,8 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-" Vim script for text filtering and alignment
-Plug 'godlygeek/tabular'
-
 " A universal set of defaults that (hopefully) everyone can agree on<Paste>
 Plug 'vim-scripts/sensible.vim'
 
