@@ -125,12 +125,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-
 syntax on                  " Enable syntax highlighting.
 
 " Encoding
@@ -150,6 +144,10 @@ set autowrite
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
+
+" Bindings for vim-cargo plugin
+autocmd FileType rust nmap <C-d> :CargoRun<CR>
+autocmd FileType rust nmap <C-t> :CargoTest<CR>
 
 " Bindings for vim-go plugin
 autocmd FileType go nmap <C-d>  <Plug>(go-run)
