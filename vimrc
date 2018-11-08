@@ -31,9 +31,6 @@ Plug 'airblade/vim-gitgutter'
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
 
-" Easy motions plugin
-Plug 'easymotion/vim-easymotion'
-
 " Dash support
 Plug 'rizzatti/dash.vim'
 
@@ -112,9 +109,6 @@ set updatetime=100
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
-
-" Easy motions setup
-let g:EasyMotion_smartcase = 1
 
 " Airline configuration
 let g:airline_theme='nord'
