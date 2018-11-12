@@ -31,9 +31,6 @@ Plug 'airblade/vim-gitgutter'
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
 
-" Dash support
-Plug 'rizzatti/dash.vim'
-
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'for': 'go' }
@@ -66,9 +63,6 @@ Plug 'rhysd/committia.vim'
 
 " Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
-
-" Inc-/decrement the current value (bool, int, numeric, hex) with one keystroke
-Plug 'vim-scripts/nextval'
 
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
