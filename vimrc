@@ -33,8 +33,6 @@ Plug 'conradirwin/vim-bracketed-paste'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'for': 'go' }
-Plug 'landaire/deoplete-swift', { 'for': 'swift' }
 
 Plug 'autozimu/LanguageClient-neovim', {
 \ 'branch': 'next',
@@ -42,9 +40,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 \ }
 
 Plug 'timonv/vim-cargo'
-
-" Syntax linter
-Plug 'w0rp/ale'
 
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
@@ -107,7 +102,6 @@ let g:deoplete#enable_at_startup = 1
 " Airline configuration
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#enabled = 1
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
