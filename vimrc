@@ -278,6 +278,7 @@ let g:vim_markdown_conceal = 0
 
 let g:LanguageClient_serverCommands = {
 \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+\ 'swift': ['sourcekit-lsp'],
 \ }
 
 " Automatically start language servers.
