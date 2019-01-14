@@ -62,6 +62,9 @@ Plug 'ntpeters/vim-better-whitespace'
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
 
+" Rust support
+Plug 'rust-lang/rust.vim'
+
 " format plugin
 Plug 'sbdchd/neoformat'
 
@@ -90,7 +93,6 @@ set termguicolors
 let mapleader=" "
 
 " change supertab completion fill to from top
-let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:SuperTabDefaultCompletionType = "context"
 
 " Set update time
