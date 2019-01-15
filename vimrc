@@ -6,9 +6,6 @@ Plug 'vim-scripts/sensible.vim'
 " This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
 Plug 'vim-scripts/sleuth.vim'
 
-" Golang support
-Plug 'fatih/vim-go', { 'for': 'go' }
-
 " This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces
 Plug 'Yggdroot/indentLine'
 
@@ -38,8 +35,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 \ 'branch': 'next',
 \ 'do': 'bash install.sh',
 \ }
-
-Plug 'timonv/vim-cargo'
 
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
@@ -128,43 +123,6 @@ set autowrite
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
-
-" Bindings for vim-cargo plugin
-autocmd FileType rust nmap <C-d> :CargoRun<CR>
-autocmd FileType rust nmap <C-t> :CargoTest<CR>
-
-" Bindings for vim-go plugin
-autocmd FileType go nmap <C-d>  <Plug>(go-run)
-autocmd FileType go nmap <C-t> <Plug>(go-test)
-
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-autocmd FileType go nmap <C-b> :<C-u>call <SID>build_go_files()<CR>
-
-" Bindings for vim-go plugin
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-let g:go_fmt_command = "goimports"
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
-autocmd FileType go nmap <Leader>i <Plug>(go-info)
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
 
 set showmatch
 set number
