@@ -29,12 +29,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'conradirwin/vim-bracketed-paste'
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-Plug 'autozimu/LanguageClient-neovim', {
-\ 'branch': 'next',
-\ 'do': 'bash install.sh',
-\ }
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
@@ -235,16 +230,3 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nmap <Leader>w :w!<cr>
 
 let g:vim_markdown_conceal = 0
-
-let g:LanguageClient_serverCommands = {
-\ 'rust': ['rustup', 'run', 'stable', 'rls'],
-\ 'swift': ['sourcekit-lsp'],
-\ }
-
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
