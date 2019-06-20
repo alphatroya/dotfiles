@@ -49,9 +49,6 @@ Plug 'ntpeters/vim-better-whitespace'
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
 
-" Rust support
-Plug 'rust-lang/rust.vim'
-
 " Make the yanked region apparent
 Plug 'machakann/vim-highlightedyank'
 
