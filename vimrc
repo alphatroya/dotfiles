@@ -29,7 +29,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'conradirwin/vim-bracketed-paste'
 
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Comment stuff out.
 Plug 'tpope/vim-commentary'
@@ -49,12 +49,14 @@ Plug 'ntpeters/vim-better-whitespace'
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
 
+" Rust support
+Plug 'rust-lang/rust.vim'
+
+" Golang support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Make the yanked region apparent
 Plug 'machakann/vim-highlightedyank'
-
-" fzf fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 " Exchange text regions
 Plug 'tommcdo/vim-exchange'
@@ -73,10 +75,6 @@ let mapleader=" "
 " Airline configuration
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
 syntax on                  " Enable syntax highlighting.
 
@@ -187,21 +185,6 @@ function! g:committia_hooks.diff_open(info)
     " Additional settings
     setlocal nospell
 endfunction
-
-" fzf bindings
-nmap <Leader>f :Files<CR>
-nmap <Leader>F :GFiles<CR>
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>h :History<CR>
-nmap <Leader>t :BTags<CR>
-nmap <Leader>T :Tags<CR>
-nmap <Leader>l :BLines<CR>
-nmap <Leader>L :Lines<CR>
-nmap <Leader>' :Marks<CR>
-nmap <Leader>a :Ag<CR>
-nmap <Leader>s :Filetypes<CR>
-nmap <Leader>: :History:<CR>
-nmap <Leader>/ :History/<CR>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
@@ -331,3 +314,39 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " COC.NVIM CONFIG END
+
+" Golang config BEGIN
+
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+    if l:file =~# '^\f\+_test\.go$'
+      call go#test#Test(0, 1)
+    elseif l:file =~# '^\f\+\.go$'
+      call go#cmd#Build(0)
+    endif
+endfunction
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+
+let g:go_fmt_command = "goimports"
+let g:go_addtags_transform = "camelcase"
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
+
+" Golang config END
