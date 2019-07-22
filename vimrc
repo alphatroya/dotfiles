@@ -54,6 +54,7 @@ Plug 'rust-lang/rust.vim'
 
 " Golang support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'majutsushi/tagbar'
 
 " Make the yanked region apparent
 Plug 'machakann/vim-highlightedyank'
