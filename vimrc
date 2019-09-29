@@ -65,6 +65,9 @@ Plug 'tommcdo/vim-exchange'
 " Additional next/previous mapping
 Plug 'tpope/vim-unimpaired'
 
+" Markdown preview
+Plug 'shime/vim-livedown'
+
 call plug#end()
 
 " rust support customization
