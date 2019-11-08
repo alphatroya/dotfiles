@@ -68,6 +68,9 @@ Plug 'tpope/vim-unimpaired'
 " Markdown preview
 Plug 'shime/vim-livedown'
 
+" Working with tables
+Plug 'dhruvasagar/vim-table-mode'
+
 call plug#end()
 
 " rust support customization
