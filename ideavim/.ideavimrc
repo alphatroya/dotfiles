@@ -1,0 +1,19 @@
+let mapleader = " "
+
+set nocompatible
+set ignorecase
+set smartcase
+set surround
+set multiple-cursors
+set smartjoin
+set commentary
+set showmode
+set easymotion
+
+map <C-g> <Plug>NextWholeOccurrence
+
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+set ideajoin
+set clipboard+=ideaput
+
