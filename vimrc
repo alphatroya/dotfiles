@@ -71,6 +71,9 @@ Plug 'shime/vim-livedown'
 " Working with tables
 Plug 'dhruvasagar/vim-table-mode'
 
+" Show mark symbols on the gutter
+Plug 'kshenoy/vim-signature'
+
 call plug#end()
 
 " rust support customization
