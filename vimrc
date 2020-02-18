@@ -48,10 +48,7 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
-
-" Rust support
-Plug 'rust-lang/rust.vim'
-
+"
 " Golang support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'majutsushi/tagbar'
@@ -75,9 +72,6 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'kshenoy/vim-signature'
 
 call plug#end()
-
-" rust support customization
-let g:rustfmt_autosave = 1
 
 set termguicolors
 let mapleader=" "
@@ -355,8 +349,11 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
 
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
 
 " Golang config END
+
+autocmd FileType swift nmap <leader>t :!swift test<CR>
