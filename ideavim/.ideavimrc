@@ -17,3 +17,4 @@ set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLM
 set ideajoin
 set clipboard+=ideaput
 
+imap jj <Esc>
