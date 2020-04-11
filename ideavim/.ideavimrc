@@ -9,6 +9,9 @@ set smartjoin
 set commentary
 set showmode
 set easymotion
+set textobj-entire
+set argtextobj
+set ReplaceWithRegister
 
 map <C-g> <Plug>NextWholeOccurrence
 
