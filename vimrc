@@ -71,6 +71,12 @@ Plug 'dhruvasagar/vim-table-mode'
 " Show mark symbols on the gutter
 Plug 'kshenoy/vim-signature'
 
+" Consistency with ideavim
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+
 call plug#end()
 
 set termguicolors
