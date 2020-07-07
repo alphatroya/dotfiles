@@ -12,6 +12,7 @@ set easymotion
 set textobj-entire
 set argtextobj
 set ReplaceWithRegister
+set exchange
 
 map <C-g> <Plug>NextWholeOccurrence
 
@@ -19,5 +20,3 @@ set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLM
 
 set ideajoin
 set clipboard+=ideaput
-
-imap jj <Esc>
