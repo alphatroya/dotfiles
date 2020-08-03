@@ -77,6 +77,9 @@ Plug 'vim-scripts/argtextobj.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 set termguicolors
@@ -297,7 +300,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_autosave = 1
+" let g:go_metalinter_autosave = 1
 
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
