@@ -13,6 +13,7 @@ set textobj-entire
 set argtextobj
 set ReplaceWithRegister
 set exchange
+set highlightedyank
 
 map <C-g> <Plug>NextWholeOccurrence
 
