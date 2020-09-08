@@ -42,13 +42,13 @@ Plug 'rhysd/committia.vim'
 
 " Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
-
-" A collection of language packs for Vim.
-Plug 'sheerun/vim-polyglot'
 "
 " Golang support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'majutsushi/tagbar'
+
+" A collection of language packs for Vim.
+Plug 'sheerun/vim-polyglot'
 
 " Make the yanked region apparent
 Plug 'machakann/vim-highlightedyank'
