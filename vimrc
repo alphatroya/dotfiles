@@ -68,8 +68,8 @@ Plug 'vim-scripts/argtextobj.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 
-" Git wrapper
-Plug 'tpope/vim-fugitive'
+" Mergetool
+Plug 'samoshkin/vim-mergetool'
 
 call plug#end()
 
