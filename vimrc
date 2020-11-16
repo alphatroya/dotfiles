@@ -68,9 +68,6 @@ Plug 'vim-scripts/argtextobj.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 
-" Mergetool
-Plug 'samoshkin/vim-mergetool'
-
 call plug#end()
 
 set termguicolors
