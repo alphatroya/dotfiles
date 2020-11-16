@@ -9,7 +9,6 @@ set smartjoin
 set commentary
 set showmode
 set easymotion
-set textobj-entire
 set argtextobj
 set ReplaceWithRegister
 set exchange
@@ -21,3 +20,4 @@ set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLM
 
 set ideajoin
 set clipboard+=ideaput
+set ideavimsupport=
