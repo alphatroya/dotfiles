@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-" A universal set of defaults that (hopefully) everyone can agree on<Paste>
+" A universal set of defaults that (hopefully) everyone can agree on
 Plug 'vim-scripts/sensible.vim'
 
 " This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
@@ -65,8 +65,6 @@ Plug 'kshenoy/vim-signature'
 " Consistency with ideavim
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/argtextobj.vim'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
 
 call plug#end()
 
@@ -77,7 +75,8 @@ let mapleader=" "
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
 
-syntax on                  " Enable syntax highlighting.
+" Enable syntax highlighting.
+syntax on
 
 " Encoding
 set encoding=utf-8
@@ -91,11 +90,6 @@ map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Enable auto save before :make command
 set autowrite
-
-" Keymapping for quickfix navigation
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
 
 set showmatch
 set number
@@ -169,9 +163,6 @@ cnoreabbrev цй wq
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
-" Enable folding
-set foldenable
-
 " Set color scheme
 set background=dark
 colorscheme nord
@@ -191,8 +182,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " Fast saving
 nmap <Leader>w :w!<cr>
-
-let g:vim_markdown_conceal = 0
 
 " Golang config BEGIN
 
@@ -224,7 +213,6 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-" let g:go_metalinter_autosave = 1
 
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
@@ -232,5 +220,3 @@ let g:go_auto_sameids = 1
 " Golang config END
 
 autocmd FileType swift nmap <leader>t :!swift test<CR>
-
-set diffopt+=vertical
