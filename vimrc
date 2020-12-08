@@ -66,6 +66,9 @@ Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/argtextobj.vim'
 
+" Fades your inactive buffers
+Plug 'TaDaa/vimade'
+
 call plug#end()
 
 set termguicolors
