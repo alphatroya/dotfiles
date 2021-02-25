@@ -69,6 +69,10 @@ Plug 'vim-scripts/argtextobj.vim'
 " Fades your inactive buffers
 Plug 'TaDaa/vimade'
 
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
 
 set termguicolors
@@ -223,3 +227,7 @@ let g:go_auto_sameids = 1
 " Golang config END
 
 autocmd FileType swift nmap <leader>t :!swift test<CR>
+
+" fzf
+nnoremap <silent> <Leader><Enter>   :Files<CR>
+nnoremap <silent> <Leader><Leader>  :Buffers<CR>
