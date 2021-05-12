@@ -194,6 +194,8 @@ nmap <Leader>w :w!<cr>
 
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
+autocmd FileType go nmap <leader>a :GoAlternate!<CR>
+
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
