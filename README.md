@@ -1,22 +1,11 @@
-# [Neo-vim](https://neovim.io/) configuration files
+# [Neovim](https://neovim.io/) configuration files
 
-## Installation
+- Install [vim-plug](https://github.com/junegunn/vim-plug#neovim) plugin manager
 
-- Create `~/.config/nvim/init.vim` with those contents:
-
-```
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-source ~/.vimrc
-```
-
-- Install [vim-plug](https://github.com/junegunn/vim-plug) plugin manager
-
-- Create symlink to the vimrc and vim folder
+- Create symlink to the nvim config folder
 
 ```
-ln -s <path to vimrc file> ~/.vimrc
-ln -s <path to nvim folder> ~/.vim
+ln -s $(pwd) ~/.config/nvim
 ```
 
-- Call `:PlugInstall` inside neovim
+- Call `:PlugInstall` to install required plugins
