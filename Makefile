@@ -1,16 +1,12 @@
 CURRENT_FOLDER:=$(shell pwd)
-VIMRC:=~/.vimrc
-VIMF:=~/.vim
+NVIM:=~/.config/nvim
 IDEAVIMRC:=~/.ideavimrc
 ALACRITTY:=~/.config/alacritty/alacritty.yml
 
 .PHONY:
-all: $(VIMF) $(VIMRC) $(IDEAVIMRC) $(ALACRITTY)
+all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY)
 
-$(VIMF): $(CURRENT_FOLDER)/nvim
-	ln -sf $< $@
-
-$(VIMRC): $(CURRENT_FOLDER)/nvim/vimrc
+$(NVIM): $(CURRENT_FOLDER)/nvim
 	ln -sf $< $@
 
 $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
