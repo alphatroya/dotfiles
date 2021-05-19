@@ -15,3 +15,7 @@ $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
 $(ALACRITTY): $(CURRENT_FOLDER)/alacritty/alacritty.yml
 	mkdir -p ~/.config/alacritty
 	ln -sf $< $@
+
+.PHONY:
+brew:
+	brew bundle check || brew bundle
