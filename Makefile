@@ -13,4 +13,5 @@ $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
 	ln -sf $< $@
 
 $(ALACRITTY): $(CURRENT_FOLDER)/alacritty/alacritty.yml
+	mkdir -p ~/.config/alacritty
 	ln -sf $< $@
