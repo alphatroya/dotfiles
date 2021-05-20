@@ -19,9 +19,6 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Simple tmux statusline generator with support for powerline symbols
-Plug 'edkolev/tmuxline.vim'
-
 " A Vim plugin which shows a git diff in the 'gutter'
 Plug 'airblade/vim-gitgutter'
 
