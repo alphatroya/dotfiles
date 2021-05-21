@@ -1,0 +1,43 @@
+[core]
+	pager = delta
+	excludesfile = ~/.gitignore
+	autocrlf = input
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	features = line-numbers decorations side-by-side
+	colorMoved = default
+	syntax-theme = Nord
+[merge]
+	tool = vim_mergetool
+[mergetool "vim_mergetool"]
+	cmd = nvim "$MERGED"
+[commit]
+	gpgsign = true
+[push]
+	default = simple
+[gpg]
+	program = /usr/local/bin/gpg
+[mergetool]
+	keepBackup = false
+[color]
+	ui = true
+[credential]
+	helper = osxkeychain
+[fetch]
+	prune = true
+[alias]
+	append = town append
+	hack = town hack
+	kill = town kill
+	new-pull-request = town new-pull-request
+	prepend = town prepend
+	prune-branches = town prune-branches
+	rename-branch = town rename-branch
+	repo = town repo
+	ship = town ship
+	sync = town sync
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main

@@ -5,6 +5,7 @@ ALACRITTY:=~/.config/alacritty/alacritty.yml
 
 .PHONY: all
 all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY)
+	cd git && make
 
 $(NVIM): $(CURRENT_FOLDER)/nvim
 	ln -sf $< $@
