@@ -16,6 +16,8 @@
 	gpgsign = true
 [push]
 	default = simple
+[rebase]
+	autosquash = true
 [gpg]
 	program = /usr/local/bin/gpg
 [mergetool]
