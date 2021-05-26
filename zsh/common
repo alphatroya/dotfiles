@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+export EDITOR="/usr/local/bin/nvim"
+export VISUAL="/usr/local/bin/nvim"
+
+# Initialize ruby
+eval "$(rbenv init -)"
+
+# Configure zsh
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Configure thefuck tool
+eval $(thefuck --alias)
+fuck-command-line() {
+    local FUCK="$(THEFUCK_REQUIRE_CONFIRMATION=0 thefuck $(fc -ln -1 | tail -n 1) 2> /dev/null)"
+    [[ -z $FUCK ]] && echo -n -e "\a" && return
+    BUFFER=$FUCK
+    zle end-of-line
+}
+zle -N fuck-command-line
+
+# Configure zoxide
+eval "$(zoxide init zsh)"
+
+# Configure prompt
+eval "$(starship init zsh)"
+
+

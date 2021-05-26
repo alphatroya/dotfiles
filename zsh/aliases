@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Russian typos
+alias агсл="fuck"
+alias учше="exit"
+
+# Alternatives to standard tools
+alias vim="nvim"
+alias ls="exa"
+alias cat="bat"
+
+# git aliases
+alias gloga="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gfap="git fetch --all --prune"
+
+# gh aliases
+alias ghp="gh pr"
+alias ghpc="gh pr checks"
+alias ghpco="gh pr checkout"
+alias ghpa="gh pr review -a"
+alias ghpd="gh pr diff"
+
+alias rstatus='git log --since=8:00am --author="Alexey Korolev" | grep -Eo "Close #[0-9]+" | sed "s/Close #//"  | xargs echo "/fhm" | tr -d "\\n" | pbcopy'
