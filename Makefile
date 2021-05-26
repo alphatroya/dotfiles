@@ -2,9 +2,10 @@ CURRENT_FOLDER:=$(shell pwd)
 NVIM:=~/.config/nvim
 IDEAVIMRC:=~/.ideavimrc
 ALACRITTY:=~/.config/alacritty/alacritty.yml
+ZSH_SENTINEL=$(CURRENT_FOLDER)/zsh/.sentinel
 
 .PHONY: all
-all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY)
+all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY) $(ZSH_SENTINEL)
 	cd git && make
 
 $(NVIM): $(CURRENT_FOLDER)/nvim
@@ -18,6 +19,13 @@ $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
 $(ALACRITTY): $(CURRENT_FOLDER)/alacritty/alacritty.yml
 	mkdir -p ~/.config/alacritty
 	ln -sf $< $@
+
+$(ZSH_SENTINEL):
+	echo "source ${PWD}"/zsh/aliases >> ~/.zshrc
+	echo "source ${PWD}"/zsh/common >> ~/.zshrc
+	echo "source ${PWD}"/zsh/create-feature >> ~/.zshrc
+	touch $@
+
 
 .PHONY: brew
 brew:
