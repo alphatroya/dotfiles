@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-export EDITOR="/usr/local/bin/nvim"
-export VISUAL="/usr/local/bin/nvim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export LANG="en_EN"
 
 # Initialize ruby
