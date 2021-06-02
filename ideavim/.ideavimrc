@@ -39,8 +39,6 @@ set exchange
 
 " PLUGINS SECTION END
 
-set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-
 sethandler <C-A> a:vim
 sethandler <C-B> a:vim
 sethandler <C-D> a:ide

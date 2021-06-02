@@ -96,7 +96,7 @@ map <F5> :setlocal spell! spelllang=en_us<CR>
 set autowrite
 
 set showmatch
-set number
+set number relativenumber
 set colorcolumn=90
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
