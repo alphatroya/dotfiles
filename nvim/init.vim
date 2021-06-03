@@ -82,6 +82,9 @@ let g:airline_powerline_fonts = 1
 " Enable syntax highlighting.
 syntax on
 
+" Because 4 sec is insane
+set updatetime=50
+
 " Encoding
 set encoding=utf-8
 set fileencoding=utf-8
