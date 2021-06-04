@@ -233,3 +233,8 @@ autocmd FileType swift nmap <leader>t :!swift test<CR>
 " fzf
 nnoremap <silent> <Leader><Enter>   :Files<CR>
 nnoremap <silent> <Leader><Leader>  :Buffers<CR>
+
+" automatically trim whitespaces on save, provided by vim-better-whitespace
+" plugin
+let g:strip_whitespace_on_save = 1
+
