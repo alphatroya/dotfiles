@@ -122,7 +122,6 @@ set hlsearch               " Keep matches highlighted.
 set ignorecase
 set smartcase
 
-set ttyfast                " Faster redrawing.
 set lazyredraw             " Only redraw when necessary.
 
 "" Directories for swp files
