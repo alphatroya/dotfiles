@@ -100,7 +100,8 @@ set autowrite
 
 set showmatch
 set number relativenumber
-set colorcolumn=90
+set scrolloff=8             " Scroll page as soon I reaching 8 lines before edge
+set colorcolumn=90          " Show vertical line on 90 symbols width
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
 
