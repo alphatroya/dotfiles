@@ -3,6 +3,7 @@ NVIM:=~/.config/nvim
 IDEAVIMRC:=~/.ideavimrc
 ALACRITTY:=~/.config/alacritty/alacritty.yml
 ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
+FZF=~/.fzf.zsh
 
 .PHONY: all
 all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY) $(ANTIGEN_SCRIPT)
@@ -20,7 +21,10 @@ $(ALACRITTY): $(CURRENT_FOLDER)/alacritty/alacritty.yml
 	mkdir -p ~/.config/alacritty
 	ln -sf $< $@
 
-$(ANTIGEN_SCRIPT):
+$(FZF):
+	$(brew --prefix)/opt/fzf/install
+
+$(ANTIGEN_SCRIPT): $(FZF)
 	curl -L git.io/antigen > $@
 	echo "source ${PWD}"/zsh/antigen.zsh >> ~/.zshrc
 	echo "source ${PWD}"/zsh/antigen >> ~/.zshrc
