@@ -8,5 +8,5 @@ To place all symlinks just call `make`.
 
 ### [Alacritty](https://github.com/jwilm/alacritty) terminal
 
-To manually install config place a symlink to alacritty.yml file in
+To manually install config place a symlink to `alacritty.yml` file in
 `~/.config/alacritty/alacritty.yml` folder. Create folder if needed.
