@@ -6,9 +6,6 @@ Plug 'vim-scripts/sensible.vim'
 " This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
 Plug 'vim-scripts/sleuth.vim'
 
-" This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces
-Plug 'Yggdroot/indentLine'
-
 " Theme
 Plug 'arcticicestudio/nord-vim'
 
@@ -118,11 +115,13 @@ set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
 set list                   " Show non-printable characters.
 
-" IndentLine
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '¦'
-let g:indentLine_faster = 1
+" Set color scheme
+set background=dark
+colorscheme nord
+
+set inccommand=split " Enable substitution previews with inccommand
+
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -145,15 +144,6 @@ cnoreabbrev цй wq
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
-" Set color scheme
-set background=dark
-colorscheme nord
-
-" Enable substitution previews with inccommand
-set inccommand=split
-
-set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
-
 let g:committia_hooks = {}
 function! g:committia_hooks.diff_open(info)
     " Additional settings
@@ -162,8 +152,7 @@ endfunction
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" Fast saving
-nmap <Leader>w :w!<cr>
+nmap <Leader>w :w!<cr> " Fast saving
 
 autocmd FileType swift nmap <leader>t :!swift test<CR>
 
