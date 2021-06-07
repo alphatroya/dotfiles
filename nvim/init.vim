@@ -88,7 +88,6 @@ set updatetime=50
 " Enable spell check
 set spell
 set spelllang=ru_ru,en_us
-map <F5> :setlocal spell! spelllang=en_us<CR>
 
 " Enable auto save before :make command
 set autowrite
@@ -97,6 +96,7 @@ set showmatch
 set number relativenumber
 set scrolloff=8             " Scroll page as soon I reaching 8 lines before edge
 set colorcolumn=90          " Show vertical line on 90 symbols width
+
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
 
@@ -104,8 +104,6 @@ set expandtab              " Use spaces instead of tabs.
 set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
-
-autocmd BufNewFile,BufRead *.yaml setlocal tabstop=2 shiftwidth=2
 
 set hidden                 " Switch between buffers without having to save first.
 set display     =lastline  " Show as much as possible of the last line.
@@ -119,8 +117,7 @@ set smartcase
 
 set lazyredraw             " Only redraw when necessary.
 
-"" Directories for swp files
-set nobackup
+set nobackup               " Directories for swp files
 set noswapfile
 
 set splitbelow             " Open new windows below the current window.
