@@ -85,11 +85,6 @@ syntax on
 " Because 4 sec is insane
 set updatetime=50
 
-" Encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
-
 " Enable spell check
 set spell
 set spelllang=ru_ru,en_us
