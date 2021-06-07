@@ -137,11 +137,6 @@ set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
 
 set list                   " Show non-printable characters.
-if has('multi_byte') && &encoding ==# 'utf-8'
-  let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
-else
-  let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
-endif
 
 " IndentLine
 let g:indentLine_enabled = 1
