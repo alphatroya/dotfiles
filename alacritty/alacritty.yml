@@ -363,6 +363,7 @@ key_bindings:
 
   - { key: F,  mods: Alt,           chars: "\x1bf"                       }
   - { key: B,  mods: Alt,           chars: "\x1bb"                       }
+  - { key: C,  mods: Alt,           chars: "\x1bc"                       }
 
   - { key: PageUp,   mods: Shift,   action: ScrollPageUp                 }
   - { key: PageDown, mods: Shift,   action: ScrollPageDown               }
