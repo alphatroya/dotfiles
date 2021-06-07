@@ -72,7 +72,6 @@ Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
-set termguicolors
 let mapleader=" "
 
 " Airline configuration
@@ -88,46 +87,35 @@ set updatetime=50
 " Enable spell check
 set spell
 set spelllang=ru_ru,en_us
+set termguicolors
 
-" Enable auto save before :make command
-set autowrite
-
+set autowrite " Enable auto save before :make command
 set showmatch
 set number relativenumber
 set scrolloff=8             " Scroll page as soon I reaching 8 lines before edge
 set colorcolumn=90          " Show vertical line on 90 symbols width
-
 set mouse=a                 " Automatically enable mouse usage
 set mousehide               " Hide the mouse cursor while typing
-
 set expandtab              " Use spaces instead of tabs.
 set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
-
 set hidden                 " Switch between buffers without having to save first.
 set display     =lastline  " Show as much as possible of the last line.
-
 set showmode               " Show current mode in command-line.
 set showcmd                " Show already typed keys when more are expected.
-
 set hlsearch               " Keep matches highlighted.
 set ignorecase
 set smartcase
-
 set lazyredraw             " Only redraw when necessary.
-
 set nobackup               " Directories for swp files
 set noswapfile
-
 set splitbelow             " Open new windows below the current window.
 set splitright             " Open new windows right of the current window.
-
 set cursorline             " Find the current line quickly.
 set wrapscan               " Searches wrap around end-of-file.
 set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
-
 set list                   " Show non-printable characters.
 
 " IndentLine
