@@ -7,11 +7,6 @@ export LANG="en_US.UTF-8"
 # Initialize ruby
 eval "$(rbenv init -)"
 
-# Configure zsh
-export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Configure thefuck tool
 eval $(thefuck --alias)
 fuck-command-line() {
@@ -28,4 +23,6 @@ eval "$(zoxide init zsh)"
 # Configure prompt
 eval "$(starship init zsh)"
 
+# Configure fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
