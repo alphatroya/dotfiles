@@ -14,7 +14,7 @@ To manually install config place a symlink to `alacritty.yml` file in
 ### git
 
 Call `make` to create root config reference in the ~/.gitconfig file.
-Additionally you can create `private` file with private configuration like this:
+Additionally you can create `git/private` file with private configuration like this:
 
 ```git
 [user]
