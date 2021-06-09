@@ -6,7 +6,7 @@ To place all symlinks just call `make`.
 
 ## Tool config descriptions
 
-### [Alacritty](https://github.com/jwilm/alacritty) terminal
+### alacritty
 
 To manually install config place a symlink to `alacritty.yml` file in
 `~/.config/alacritty/alacritty.yml` folder. Create folder if needed.
@@ -27,7 +27,7 @@ Additionally you can create `git/private` file with private configuration like t
 
 Also you may create `~/.gitignore` file for global ignore rules (like `.DS_Store` files in Mac).
 
-### [neovim](https://neovim.io/)
+### neovim
 
 - Install [vim-plug](https://github.com/junegunn/vim-plug#neovim) plugin manager
 
