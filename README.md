@@ -38,3 +38,12 @@ ln -s $(pwd)/nvim ~/.config/nvim
 ```
 
 - Call `:PlugInstall` to install required plugins
+
+### zsh
+
+```sh
+echo "source ${PWD}"/zsh/aliases >> ~/.zshrc \
+echo "source ${PWD}"/zsh/common >> ~/.zshrc \
+echo "source ${PWD}"/zsh/create-feature >> ~/.zshrc \
+echo "source ${PWD}"/zsh/antigen >> ~/.zshrc
+```
