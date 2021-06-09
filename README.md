@@ -26,3 +26,15 @@ Additionally you can create `git/private` file with private configuration like t
 ```
 
 Also you may create `~/.gitignore` file for global ignore rules (like `.DS_Store` files in Mac).
+
+### [neovim](https://neovim.io/)
+
+- Install [vim-plug](https://github.com/junegunn/vim-plug#neovim) plugin manager
+
+- Create symlink to the nvim config folder
+
+```
+ln -s $(pwd)/nvim ~/.config/nvim
+```
+
+- Call `:PlugInstall` to install required plugins
