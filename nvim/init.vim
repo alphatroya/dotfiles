@@ -67,6 +67,8 @@ Plug 'TaDaa/vimade'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" LSP config
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 let mapleader=" "
@@ -164,3 +166,7 @@ nnoremap <silent> <Leader><Leader>  :Buffers<CR>
 " plugin
 let g:strip_whitespace_on_save = 1
 
+lua << EOF
+require'lspconfig'.sourcekit.setup{}
+require'lspconfig'.gopls.setup{}
+EOF
