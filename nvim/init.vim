@@ -74,9 +74,6 @@ let mapleader=" "
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 1
 
-" Enable syntax highlighting.
-syntax on
-
 " Because 4 sec is insane
 set updatetime=50
 
@@ -99,8 +96,6 @@ set shiftround             " >> indents to next multiple of 'shiftwidth'.
 set hidden                 " Switch between buffers without having to save first.
 set display     =lastline  " Show as much as possible of the last line.
 set showmode               " Show current mode in command-line.
-set showcmd                " Show already typed keys when more are expected.
-set hlsearch               " Keep matches highlighted.
 set ignorecase
 set smartcase
 set lazyredraw             " Only redraw when necessary.
