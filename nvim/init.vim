@@ -44,9 +44,6 @@ Plug 'majutsushi/tagbar'
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
 
-" Make the yanked region apparent
-Plug 'machakann/vim-highlightedyank'
-
 " Exchange text regions
 Plug 'tommcdo/vim-exchange'
 
@@ -161,6 +158,9 @@ autocmd FileType swift nmap <leader>t :!swift test<CR>
 " fzf
 nnoremap <silent> <Leader><Enter>   :Files<CR>
 nnoremap <silent> <Leader><Leader>  :Buffers<CR>
+
+" hightlight yank
+au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=true}
 
 " automatically trim whitespaces on save, provided by vim-better-whitespace
 " plugin
