@@ -12,9 +12,6 @@ Plug 'hrsh7th/nvim-compe'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-" This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
-Plug 'vim-scripts/sleuth.vim'
-
 " Theme
 Plug 'joshdick/onedark.vim'
 
@@ -97,13 +94,14 @@ set softtabstop =4         " Tab key indents by 4 spaces.
 set shiftwidth  =4         " >> indents by 4 spaces.
 set shiftround             " >> indents to next multiple of 'shiftwidth'.
 set hidden                 " Switch between buffers without having to save first.
-set display     =lastline  " Show as much as possible of the last line.
+set display     +=lastline " Show as much as possible of the last line.
 set showmode               " Show current mode in command-line.
 set ignorecase
 set smartcase
 set lazyredraw             " Only redraw when necessary.
 set nobackup               " Directories for swp files
 set noswapfile
+
 set splitbelow             " Open new windows below the current window.
 set splitright             " Open new windows right of the current window.
 set cursorline             " Find the current line quickly.
@@ -191,6 +189,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 end
 
 local servers = { "gopls", "sourcekit" }
