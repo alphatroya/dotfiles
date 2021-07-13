@@ -63,9 +63,11 @@ Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/argtextobj.vim'
 
-" Fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Telescope dependencies
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+" Telescope
+Plug 'nvim-telescope/telescope.nvim'
 
 call plug#end()
 
@@ -150,10 +152,6 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nmap <Leader>w :w!<cr> " Fast saving
 
 autocmd FileType swift nmap <leader>t :!swift test<CR>
-
-" fzf
-nnoremap <silent> <Leader><Enter>   :Files<CR>
-nnoremap <silent> <Leader><Leader>  :Buffers<CR>
 
 " hightlight yank
 au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=true}
@@ -248,3 +246,7 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+" Telescope mappings
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
