@@ -3,11 +3,20 @@ call plug#begin('~/.vim/plugged')
 " A universal set of defaults that (hopefully) everyone can agree on
 Plug 'vim-scripts/sensible.vim'
 
+" LSP config
+Plug 'neovim/nvim-lspconfig'
+
+" Autocomplete
+Plug 'hrsh7th/nvim-compe'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " This plugin automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
 Plug 'vim-scripts/sleuth.vim'
 
 " Theme
-Plug 'arcticicestudio/nord-vim'
+Plug 'joshdick/onedark.vim'
 
 " Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
 Plug 'tpope/vim-surround'
@@ -38,11 +47,8 @@ Plug 'rhysd/committia.vim'
 Plug 'ntpeters/vim-better-whitespace'
 "
 " Golang support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'majutsushi/tagbar'
-
-" A collection of language packs for Vim.
-Plug 'sheerun/vim-polyglot'
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'ray-x/go.nvim'
 
 " Exchange text regions
 Plug 'tommcdo/vim-exchange'
@@ -57,21 +63,16 @@ Plug 'kshenoy/vim-signature'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/argtextobj.vim'
 
-" Fades your inactive buffers
-Plug 'TaDaa/vimade'
-
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" LSP config
-Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 let mapleader=" "
 
 " Airline configuration
-let g:airline_theme='nord'
+let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
 
 " Because 4 sec is insane
@@ -109,13 +110,13 @@ set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
 set list                   " Show non-printable characters.
 
-" Set color scheme
-set background=dark
-colorscheme nord
+colorscheme onedark " Set color scheme
 
 set inccommand=split " Enable substitution previews with inccommand
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 nospell " using tab and disable spellcheck for gol
 
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -162,6 +163,88 @@ au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, o
 let g:strip_whitespace_on_save = 1
 
 lua << EOF
-require'lspconfig'.sourcekit.setup{}
-require'lspconfig'.gopls.setup{}
+local nvim_lsp = require('lspconfig')
+
+local on_attach = function(client, bufnr)
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+    --Enable completion triggered by <c-x><c-o>
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    -- Mappings.
+    local opts = { noremap=true, silent=true }
+
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+    buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+end
+
+local servers = { "gopls", "sourcekit" }
+for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+            debounce_text_changes = 150,
+        }
+    }
+end
 EOF
+
+set completeopt=menuone,noselect
+
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.resolve_timeout = 800
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.vsnip = v:true
+let g:compe.source.luasnip = v:true
+let g:compe.source.emoji = v:true
+
+lua <<EOF
+require('go').setup()
+EOF
+
+autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    highlight = {
+        enable = true,
+    },
+}
+EOF
+
