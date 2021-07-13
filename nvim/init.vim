@@ -66,6 +66,9 @@ Plug 'nvim-lua/plenary.nvim'
 " Telescope
 Plug 'nvim-telescope/telescope.nvim'
 
+" Spell checker based on treesitter plugin
+Plug 'lewis6991/spellsitter.nvim'
+
 call plug#end()
 
 let mapleader=" "
@@ -116,7 +119,7 @@ set inccommand=split " Enable substitution previews with inccommand
 
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
-autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 nospell " using tab and disable spellcheck for gol
+autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab for golang
 
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -235,6 +238,7 @@ require('go').setup({
     goimport='gopls',
     gofmt = 'gopls',
 })
+require('spellsitter').setup()
 EOF
 
 " Call goformat during saving
