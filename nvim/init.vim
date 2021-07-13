@@ -231,10 +231,14 @@ let g:compe.source.luasnip = v:true
 let g:compe.source.emoji = v:true
 
 lua <<EOF
-require('go').setup()
+require('go').setup({
+    goimport='gopls',
+    gofmt = 'gopls',
+})
 EOF
 
-autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
+" Call goformat during saving
+autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
 
 :lua require('treesitter')
 
