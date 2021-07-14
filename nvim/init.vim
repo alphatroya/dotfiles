@@ -44,8 +44,7 @@ Plug 'rhysd/committia.vim'
 Plug 'ntpeters/vim-better-whitespace'
 "
 " Golang support
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'ray-x/go.nvim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Exchange text regions
 Plug 'tommcdo/vim-exchange'
@@ -212,17 +211,10 @@ EOF
 set completeopt=menuone,noselect
 
 lua <<EOF
-require('go').setup({
-    goimport='gopls',
-    gofmt = 'gopls',
-})
 require('spellsitter').setup()
 require('config-compe')
 require('treesitter')
 EOF
-
-" Call goformat during saving
-autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
 
 " Telescope mappings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>

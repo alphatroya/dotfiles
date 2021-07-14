@@ -1,5 +1,7 @@
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>a :GoAlternate!<CR>
+autocmd FileType go nmap <leader>l :GoMetaLinter<CR>
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
@@ -12,22 +14,17 @@ function! s:build_go_files()
 endfunction
 
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 
-let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "gopls"
+let g:go_rename_command = "gopls"
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_auto_sameids = 0
+let g:go_build_tags = ""
+let g:go_fillstruct_mode = 'gopls'
 let g:go_addtags_transform = "camelcase"
 
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-
-let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-
+let g:go_metalinter_command = 'golangci-lint'
+let g:go_metalinter_enabled = []
