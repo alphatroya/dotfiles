@@ -13,7 +13,7 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Theme
-Plug 'joshdick/onedark.vim'
+Plug 'joshdick/onedark.vim', { 'branch': 'main' }
 
 " Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
 Plug 'tpope/vim-surround'
@@ -71,6 +71,9 @@ Plug 'lewis6991/spellsitter.nvim'
 
 call plug#end()
 
+set termguicolors
+colorscheme onedark " Set color scheme
+
 let mapleader=" "
 
 " Airline configuration
@@ -83,7 +86,6 @@ set updatetime=50
 " Enable spell check
 set spell
 set spelllang=ru_ru,en_us
-set termguicolors
 
 set autowrite " Enable auto save before :make command
 set showmatch
@@ -112,8 +114,6 @@ set wrapscan               " Searches wrap around end-of-file.
 set report      =0         " Always report changed lines.
 set synmaxcol   =200       " Only highlight the first 200 columns.
 set list                   " Show non-printable characters.
-
-colorscheme onedark " Set color scheme
 
 set inccommand=split " Enable substitution previews with inccommand
 
@@ -195,7 +195,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 end
 
-local servers = { "gopls", "sourcekit" }
+local servers = { "gopls", "sourcekit", "vimls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -208,43 +208,18 @@ EOF
 
 set completeopt=menuone,noselect
 
-let g:compe = {}
-let g:compe.enabled = v:true
-let g:compe.autocomplete = v:true
-let g:compe.debug = v:false
-let g:compe.min_length = 1
-let g:compe.preselect = 'enable'
-let g:compe.throttle_time = 80
-let g:compe.source_timeout = 200
-let g:compe.resolve_timeout = 800
-let g:compe.incomplete_delay = 400
-let g:compe.max_abbr_width = 100
-let g:compe.max_kind_width = 100
-let g:compe.max_menu_width = 100
-let g:compe.documentation = v:true
-
-let g:compe.source = {}
-let g:compe.source.path = v:true
-let g:compe.source.buffer = v:true
-let g:compe.source.calc = v:true
-let g:compe.source.nvim_lsp = v:true
-let g:compe.source.nvim_lua = v:true
-let g:compe.source.vsnip = v:true
-let g:compe.source.luasnip = v:true
-let g:compe.source.emoji = v:true
-
 lua <<EOF
 require('go').setup({
     goimport='gopls',
     gofmt = 'gopls',
 })
 require('spellsitter').setup()
+require('config-compe')
+require('treesitter')
 EOF
 
 " Call goformat during saving
 autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
-
-:lua require('treesitter')
 
 " Telescope mappings
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
