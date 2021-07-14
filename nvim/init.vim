@@ -195,7 +195,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>fs', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 end
 
-local servers = { "gopls", "sourcekit", "vimls" }
+local servers = { "gopls", "sourcekit", "vimls", "jsonls", "yamlls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
