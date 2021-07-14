@@ -69,6 +69,9 @@ Plug 'nvim-telescope/telescope.nvim'
 " Spell checker based on treesitter plugin
 Plug 'lewis6991/spellsitter.nvim'
 
+" A super powerful autopairs for Neovim. It support multiple character.
+Plug 'windwp/nvim-autopairs'
+
 call plug#end()
 
 set termguicolors
