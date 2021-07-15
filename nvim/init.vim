@@ -22,9 +22,6 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" A Vim plugin which shows a git diff in the 'gutter'
-Plug 'airblade/vim-gitgutter'
-
 " Enables transparent pasting into vim. (i.e. no more :set paste!)
 Plug 'conradirwin/vim-bracketed-paste'
 
@@ -71,7 +68,11 @@ Plug 'lewis6991/spellsitter.nvim'
 " A super powerful autopairs for Neovim. It support multiple character.
 Plug 'windwp/nvim-autopairs'
 
+" Indent line plugin
 Plug 'lukas-reineke/indent-blankline.nvim'
+
+" Super fast git decorations implemented purely in lua/teal.
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
@@ -177,6 +178,7 @@ lua <<EOF
 require('config/lsp')
 require('config/compe')
 require('config/treesitter')
+require('config/gitsigns')
 require('config/telescope')
 require('spellsitter').setup()
 EOF
