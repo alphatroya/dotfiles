@@ -176,6 +176,7 @@ vim.g.strip_whitespace_on_save = 1
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
 vim.api.nvim_set_keymap('n', '<leader>w', ':w!<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>r', ':source %<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>v', ':e $MYVIMRC<cr>', { noremap = true })
 
 vim.g.indent_blankline_show_current_context = true
 vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if', '^while', '^for', '^object', '^table', 'block', 'arguments'}
