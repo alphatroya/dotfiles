@@ -168,6 +168,9 @@ let g:strip_whitespace_on_save = 1
 " map <esc> to exit from the nvim terminal
 tnoremap <Esc> <C-\><C-n>
 
+lua vim.g.indent_blankline_show_current_context = true
+lua vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if', '^while', '^for', '^object', '^table', 'block', 'arguments'}
+
 set completeopt=menuone,noselect
 
 lua <<EOF
