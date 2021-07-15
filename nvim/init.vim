@@ -45,6 +45,7 @@ Plug 'ntpeters/vim-better-whitespace'
 "
 " Golang support
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'buoto/gotests-vim' " Support for gotests tool
 
 " Exchange text regions
 Plug 'tommcdo/vim-exchange'
