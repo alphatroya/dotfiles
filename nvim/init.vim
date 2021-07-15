@@ -157,7 +157,7 @@ nmap <Leader>w :w!<cr> " Fast saving
 autocmd FileType swift nmap <leader>t :!swift test<CR>
 
 " hightlight yank
-au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=250, on_visual=true}
+au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}
 
 " automatically trim whitespaces on save, provided by vim-better-whitespace
 " plugin
