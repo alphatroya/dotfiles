@@ -56,9 +56,8 @@ Plug 'tpope/vim-unimpaired'
 " Show mark symbols on the gutter
 Plug 'kshenoy/vim-signature'
 
-" Consistency with ideavim
+" Replace with register (a gr* key bindings)
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'vim-scripts/argtextobj.vim'
 
 " Telescope dependencies
 Plug 'nvim-lua/popup.nvim'
@@ -71,6 +70,9 @@ Plug 'lewis6991/spellsitter.nvim'
 
 " A super powerful autopairs for Neovim. It support multiple character.
 Plug 'windwp/nvim-autopairs'
+
+" Automatic tags generation
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 
@@ -189,7 +191,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+    buf_set_keymap('n', '<space>gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
@@ -213,11 +215,8 @@ set completeopt=menuone,noselect
 
 lua <<EOF
 require('spellsitter').setup()
-require('config-compe')
-require('treesitter')
+require('config/compe')
+require('config/treesitter')
+require('config/telescope')
 EOF
 
-" Telescope mappings
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
