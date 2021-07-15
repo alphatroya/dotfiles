@@ -71,6 +71,8 @@ Plug 'lewis6991/spellsitter.nvim'
 " A super powerful autopairs for Neovim. It support multiple character.
 Plug 'windwp/nvim-autopairs'
 
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 call plug#end()
 
 set termguicolors
@@ -162,6 +164,9 @@ au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}
 " automatically trim whitespaces on save, provided by vim-better-whitespace
 " plugin
 let g:strip_whitespace_on_save = 1
+
+" map <esc> to exit from the nvim terminal
+tnoremap <Esc> <C-\><C-n>
 
 set completeopt=menuone,noselect
 
