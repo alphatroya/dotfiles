@@ -1,45 +1,41 @@
 require("plugins")
 
-vim.o.termguicolors = true
+vim.o.termguicolors            = true
 vim.g.onedark_terminal_italics = 1
 vim.cmd [[colorscheme onedark]] -- Set color scheme
 
-vim.g.mapleader = ' '
-
--- Airline configuration
-vim.g.airline_theme = 'onedark'
+vim.g.mapleader               = ' '
+vim.g.airline_theme           = 'onedark' -- Airline configuration
 vim.g.airline_powerline_fonts = 1
-
-vim.o.updatetime = 50 -- Because 4 sec is insane
-
-vim.o.spell           = true    -- Enable spell check
-vim.o.spelllang       = "ru_ru,en_us"
-vim.o.autowrite       = true    -- Enable auto save before :make command
-vim.o.showmatch       = true
-vim.wo.number         = true
-vim.wo.relativenumber = true
-vim.o.scrolloff       = 8       -- Scroll page as soon I reaching 8 lines before edge
-vim.o.colorcolumn     = "90"    -- Show vertical line on 90 symbols width
-vim.o.mouse           = "a"     -- Automatically enable mouse usage
-vim.o.expandtab       = true    -- Use spaces instead of tabs.
-vim.o.softtabstop     = 4       -- Tab key indents by 4 spaces.
-vim.o.shiftwidth      = 4       -- >> indents by 4 spaces.
-vim.o.shiftround      = true    -- >> indents to next multiple of 'shiftwidth'.
-vim.o.hidden          = true    -- Switch between buffers without having to save first.
-vim.o.showmode        = true    -- Show current mode in command-line.
-vim.o.ignorecase      = true
-vim.o.smartcase       = true
-vim.o.lazyredraw      = true    -- Only redraw when necessary.
-vim.o.backup          = false   -- Directories for swp files
-vim.o.swapfile        = false
-vim.o.inccommand      = 'split' -- Enable substitution previews with inccommand
-vim.o.splitbelow      = true    -- Open new windows below the current window.
-vim.o.splitright      = true    -- Open new windows right of the current window.
-vim.o.cursorline      = true    -- Find the current line quickly.
-vim.o.wrapscan        = true    -- Searches wrap around end-of-file.
-vim.o.report          = 0       -- Always report changed lines.
-vim.o.synmaxcol       = 200     -- Only highlight the first 200 columns.
-vim.o.list            = true    -- Show non-printable characters.
+vim.o.updatetime              = 50        -- Because 4 sec is insane
+vim.o.spell                   = true      -- Enable spell check
+vim.o.spelllang               = "ru_ru,en_us"
+vim.o.autowrite               = true      -- Enable auto save before :make command
+vim.o.showmatch               = true
+vim.wo.number                 = true
+vim.wo.relativenumber         = true
+vim.o.scrolloff               = 8         -- Scroll page as soon I reaching 8 lines before edge
+vim.o.colorcolumn             = "90"      -- Show vertical line on 90 symbols width
+vim.o.mouse                   = "a"       -- Automatically enable mouse usage
+vim.o.expandtab               = true      -- Use spaces instead of tabs.
+vim.o.softtabstop             = 4         -- Tab key indents by 4 spaces.
+vim.o.shiftwidth              = 4         -- >> indents by 4 spaces.
+vim.o.shiftround              = true      -- >> indents to next multiple of 'shiftwidth'.
+vim.o.hidden                  = true      -- Switch between buffers without having to save first.
+vim.o.showmode                = true      -- Show current mode in command-line.
+vim.o.ignorecase              = true
+vim.o.smartcase               = true
+vim.o.lazyredraw              = true      -- Only redraw when necessary.
+vim.o.backup                  = false     -- Directories for swp files
+vim.o.swapfile                = false
+vim.o.inccommand              = 'split'   -- Enable substitution previews with inccommand
+vim.o.splitbelow              = true      -- Open new windows below the current window.
+vim.o.splitright              = true      -- Open new windows right of the current window.
+vim.o.cursorline              = true      -- Find the current line quickly.
+vim.o.wrapscan                = true      -- Searches wrap around end-of-file.
+vim.o.report                  = 0         -- Always report changed lines.
+vim.o.synmaxcol               = 200       -- Only highlight the first 200 columns.
+vim.o.list                    = true      -- Show non-printable characters.
 
 vim.cmd [[set display     +=lastline]] -- Show as much as possible of the last line.
 
