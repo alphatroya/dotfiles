@@ -99,6 +99,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 require('config/lsp')
 require('config/compe')
+require("config/snippets")
 require('config/treesitter')
 require('config/gitsigns')
 require('config/telescope')
