@@ -96,5 +96,21 @@ return require('packer').startup(function(use)
     -- Snippets support
     use 'L3MON4D3/LuaSnip'
 
+    -- Git integration
+    use {
+        'TimUntersberger/neogit',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'sindrets/diffview.nvim',
+        },
+    }
+
+    use {
+        'sindrets/diffview.nvim',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+        },
+    }
+
 end)
 

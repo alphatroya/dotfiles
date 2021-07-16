@@ -107,3 +107,8 @@ require('config/gitsigns')
 require('config/telescope')
 require('spellsitter').setup()
 
+require('neogit').setup {
+    integrations = {
+        diffview = true
+    },
+}
