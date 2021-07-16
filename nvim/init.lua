@@ -69,14 +69,14 @@ autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab fo
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
-let g:committia_hooks = {}
-function! g:committia_hooks.diff_open(info)
-    " Additional settings
-    setlocal nospell
-endfunction
-
 autocmd FileType swift nmap <leader>t :!swift test<CR>
 ]], false)
+
+vim.g.committia_hooks = {
+    diff_open = function()
+        vim.wo.spell = false
+    end
+}
 
 -- Start interactive EasyAlign in visual mode (e.g. vipga)
 vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
