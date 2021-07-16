@@ -44,27 +44,27 @@ vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGH
 vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true }) --  map <esc> to exit from the nvim terminal
 
+vim.api.nvim_set_keymap('c', 'W!', 'w!', { noremap = true })
+vim.api.nvim_set_keymap('c', 'Q!', 'q!', {noremap = true})
+vim.api.nvim_set_keymap('c', 'Qall!', 'qall!', {noremap = true})
+vim.api.nvim_set_keymap('c', 'Wq', 'wq', {noremap = true})
+vim.api.nvim_set_keymap('c', 'Wa', 'wa', {noremap = true})
+vim.api.nvim_set_keymap('c', 'wQ', 'wq', {noremap = true})
+vim.api.nvim_set_keymap('c', 'WQ', 'wq', {noremap = true})
+vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true})
+vim.api.nvim_set_keymap('c', 'Q', 'q', {noremap = true})
+vim.api.nvim_set_keymap('c', 'Qall', 'qall', {noremap = true})
+vim.api.nvim_set_keymap('c', 'Ц', 'w', {noremap = true})
+vim.api.nvim_set_keymap('c', 'ц', 'w', {noremap = true})
+vim.api.nvim_set_keymap('c', 'Й', 'q', {noremap = true})
+vim.api.nvim_set_keymap('c', 'й', 'q', {noremap = true})
+vim.api.nvim_set_keymap('c', 'Цй', 'wq', {noremap = true})
+vim.api.nvim_set_keymap('c', 'ЦЙ', 'wq', {noremap = true})
+vim.api.nvim_set_keymap('c', 'цй', 'wq', {noremap = true})
+
 vim.api.nvim_exec(
 [[
 autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab for golang
-
-cnoreabbrev W! w!
-cnoreabbrev Q! q!
-cnoreabbrev Qall! qall!
-cnoreabbrev Wq wq
-cnoreabbrev Wa wa
-cnoreabbrev wQ wq
-cnoreabbrev WQ wq
-cnoreabbrev W w
-cnoreabbrev Q q
-cnoreabbrev Qall qall
-cnoreabbrev Ц w
-cnoreabbrev ц w
-cnoreabbrev Й q
-cnoreabbrev й q
-cnoreabbrev Цй wq
-cnoreabbrev ЦЙ wq
-cnoreabbrev цй wq
 
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
@@ -76,13 +76,13 @@ function! g:committia_hooks.diff_open(info)
 endfunction
 
 autocmd FileType swift nmap <leader>t :!swift test<CR>
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 ]], false)
+
+-- Start interactive EasyAlign in visual mode (e.g. vipga)
+vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', {})
+
+-- Start interactive EasyAlign for a motion/text object (e.g. gaip)
+vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', {})
 
 -- automatically trim whitespaces on save, provided by vim-better-whitespace plugin
 vim.g.strip_whitespace_on_save = 1
