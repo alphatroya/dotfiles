@@ -97,6 +97,8 @@ vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if',
 
 vim.o.completeopt = 'menuone,noselect'
 
+vim.o.pastetoggle = '<F2>'
+
 require('config/lsp')
 require('config/compe')
 require("config/snippets")

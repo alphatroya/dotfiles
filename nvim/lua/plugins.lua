@@ -30,9 +30,6 @@ return require('packer').startup(function(use)
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
 
-    -- Enables transparent pasting into vim. (i.e. no more :set paste!)
-    use 'conradirwin/vim-bracketed-paste'
-
     -- Comment stuff out.
     use 'tpope/vim-commentary'
 
