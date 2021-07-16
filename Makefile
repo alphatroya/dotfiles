@@ -10,8 +10,7 @@ all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY) $(ANTIGEN_SCRIPT)
 	cd git && make
 
 $(NVIM): $(CURRENT_FOLDER)/nvim
-	sh -c 'curl -fLo "$${XDG_DATA_HOME:-$$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-		       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 	ln -sf $< $@
 
 $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
