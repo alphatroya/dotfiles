@@ -5,10 +5,6 @@ vim.g.onedark_terminal_italics = 1
 vim.cmd [[colorscheme onedark]] -- Set color scheme
 
 vim.g.mapleader                                      = ' '
-vim.g.airline_theme                                  = 'onedark' -- Airline configuration
-vim.g.airline_powerline_fonts                        = 1
-vim.g['airline#extensions#tabline#enabled']          = 1
-vim.g['airline#extensions#tabline#buffer_min_count'] = 2
 vim.o.updatetime                                     = 250       -- Because 4 sec is insane
 vim.wo.signcolumn                                    = 'yes'     -- Always show sign column
 vim.o.spell                                          = true      -- Enable spell check
@@ -118,3 +114,8 @@ require('neogit').setup {
         diffview = true
     },
 }
+
+require('lualine').setup {
+    options = {theme = 'onedark'},
+}
+

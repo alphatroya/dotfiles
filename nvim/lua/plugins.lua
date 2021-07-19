@@ -27,8 +27,10 @@ return require('packer').startup(function(use)
     use 'tpope/vim-surround'
 
     -- Airline
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
+    use {
+        'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
 
     -- Comment stuff out.
     use 'tpope/vim-commentary'
