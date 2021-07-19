@@ -17,6 +17,7 @@ $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
 	ln -sf $< $@
 
 $(ALACRITTY): $(CURRENT_FOLDER)/alacritty/alacritty.yml
+	@echo 'Current alacritty config uses GoMono Nerd Font, you should download and install it from here: https://www.nerdfonts.com/font-downloads'
 	mkdir -p ~/.config/alacritty
 	ln -sf $< $@
 
