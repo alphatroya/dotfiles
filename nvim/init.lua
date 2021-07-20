@@ -99,7 +99,7 @@ vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if',
 
 vim.o.completeopt = 'menuone,noselect'
 
-vim.o.pastetoggle = '<F2>'
+vim.o.pastetoggle = '<F12>'
 
 require('config/lsp')
 require('config/compe')
