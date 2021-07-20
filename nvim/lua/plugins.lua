@@ -26,9 +26,13 @@ return require('packer').startup(function(use)
     -- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
     use 'tpope/vim-surround'
 
-    -- Airline
+    -- Lualine
     use {
         'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+    use {
+        'romgrk/barbar.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
