@@ -90,6 +90,7 @@ vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=tru
 vim.api.nvim_set_keymap('n', '<leader>w', ':w!<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>r', ':source %<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>v', ':e $MYVIMRC<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 
 -- call neogit
 vim.api.nvim_set_keymap('n', '<leader>git', ':Neogit<cr>', { noremap = true })
