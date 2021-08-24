@@ -96,9 +96,6 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- A simple, easy-to-use Vim alignment plugin.
-    use 'junegunn/vim-easy-align'
-
     -- Snippets support
     use 'L3MON4D3/LuaSnip'
 

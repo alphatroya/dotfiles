@@ -1,6 +1,6 @@
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>a :GoAlternate!<CR>
-autocmd FileType go nmap <leader>l :GoMetaLinter<CR>
+autocmd FileType go nmap <leader>l :GoMetaLinter ./...<CR>
 autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader>if :GoIfErr<CR>
 
