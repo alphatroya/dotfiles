@@ -10,6 +10,7 @@ return require('packer').startup(function(use)
 
     -- LSP config
     use 'neovim/nvim-lspconfig'
+    use 'glepnir/lspsaga.nvim'
 
     -- Autocomplete
     use 'hrsh7th/nvim-compe'

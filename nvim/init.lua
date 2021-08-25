@@ -43,26 +43,28 @@ vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGH
 vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true }) --  map <esc> to exit from the nvim terminal
 
-vim.api.nvim_set_keymap('c', 'W!', 'w!', { noremap = true })
-vim.api.nvim_set_keymap('c', 'Q!', 'q!', {noremap = true})
-vim.api.nvim_set_keymap('c', 'Qall!', 'qall!', {noremap = true})
-vim.api.nvim_set_keymap('c', 'Wq', 'wq', {noremap = true})
-vim.api.nvim_set_keymap('c', 'Wa', 'wa', {noremap = true})
-vim.api.nvim_set_keymap('c', 'wQ', 'wq', {noremap = true})
-vim.api.nvim_set_keymap('c', 'WQ', 'wq', {noremap = true})
-vim.api.nvim_set_keymap('c', 'W', 'w', {noremap = true})
-vim.api.nvim_set_keymap('c', 'Q', 'q', {noremap = true})
-vim.api.nvim_set_keymap('c', 'Qall', 'qall', {noremap = true})
-vim.api.nvim_set_keymap('c', 'Ц', 'w', {noremap = true})
-vim.api.nvim_set_keymap('c', 'ц', 'w', {noremap = true})
-vim.api.nvim_set_keymap('c', 'Й', 'q', {noremap = true})
-vim.api.nvim_set_keymap('c', 'й', 'q', {noremap = true})
-vim.api.nvim_set_keymap('c', 'Цй', 'wq', {noremap = true})
-vim.api.nvim_set_keymap('c', 'ЦЙ', 'wq', {noremap = true})
-vim.api.nvim_set_keymap('c', 'цй', 'wq', {noremap = true})
 
 vim.api.nvim_exec(
 [[
+" Safe command remapping, see https://stackoverflow.com/questions/3878692/how-to-create-an-alias-for-a-command-in-vim/3879737#3879737
+fun! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")' .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfun
+call SetupCommandAlias("W","w")
+call SetupCommandAlias("Q","q")
+call SetupCommandAlias("Qall","qall")
+call SetupCommandAlias('Wq', 'wq')
+call SetupCommandAlias('Wa', 'wa')
+call SetupCommandAlias('wQ', 'wq')
+call SetupCommandAlias('WQ', 'wq')
+call SetupCommandAlias('Ц', 'w')
+call SetupCommandAlias('ц', 'w')
+call SetupCommandAlias('Й', 'q')
+call SetupCommandAlias('й', 'q')
+call SetupCommandAlias('Цй', 'wq')
+call SetupCommandAlias('ЦЙ', 'wq')
+call SetupCommandAlias('цй', 'wq')
+
 autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab for golang
 
 " Enable syntax highlighting for ruby-based configuration files
@@ -108,6 +110,7 @@ require("config/snippets")
 require('config/treesitter')
 require('config/gitsigns')
 require('config/telescope')
+require('config/lsp-saga')
 require('spellsitter').setup()
 
 require('neogit').setup {
