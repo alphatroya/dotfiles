@@ -116,5 +116,8 @@ return require('packer').startup(function(use)
         },
     }
 
+    -- toggle quick and loclists
+    use 'milkypostman/vim-togglelist'
+
 end)
 

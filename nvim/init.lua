@@ -71,6 +71,11 @@ autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab fo
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
 autocmd FileType swift nmap <leader>t :!swift test<CR>
+
+let g:toggle_list_no_mappings = 0
+nmap <script> <silent> <F2> :call ToggleLocationList()<CR>
+nmap <script> <silent> <F3> :call ToggleQuickfixList()<CR>
+
 ]], false)
 
 vim.g.committia_hooks = {
