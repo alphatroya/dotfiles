@@ -119,5 +119,8 @@ return require('packer').startup(function(use)
     -- toggle quick and loclists
     use 'milkypostman/vim-togglelist'
 
+    -- better quickfix windows
+    use 'kevinhwang91/nvim-bqf'
+
 end)
 

@@ -73,8 +73,8 @@ autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set synt
 autocmd FileType swift nmap <leader>t :!swift test<CR>
 
 let g:toggle_list_no_mappings = 0
-nmap <script> <silent> <F2> :call ToggleLocationList()<CR>
-nmap <script> <silent> <F3> :call ToggleQuickfixList()<CR>
+nmap <script> <silent> <F3> :call ToggleLocationList()<CR>
+nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
 
 ]], false)
 
