@@ -97,9 +97,6 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- Snippets support
-    use 'L3MON4D3/LuaSnip'
-
     -- Git integration
     use {
         'TimUntersberger/neogit',
@@ -122,5 +119,9 @@ return require('packer').startup(function(use)
     -- better quickfix windows
     use 'kevinhwang91/nvim-bqf'
 
+
+    -- snippets support
+    use 'hrsh7th/vim-vsnip'
+    use 'golang/vscode-go'
 end)
 
