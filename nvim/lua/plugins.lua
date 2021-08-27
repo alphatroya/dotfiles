@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
     }
 
     -- Comment stuff out.
-    use 'tpope/vim-commentary'
+    use 'b3nj5m1n/kommentary'
 
     -- Vim repeat
     use 'tpope/vim-repeat'
