@@ -44,7 +44,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-repeat'
 
     -- Underlines the word under the cursor
-    use 'vim-scripts/vim-cursorword'
+    use 'yamatsum/nvim-cursorline'
 
     -- A Vim plugin for more pleasant editing on commit messages
     use 'rhysd/committia.vim'
