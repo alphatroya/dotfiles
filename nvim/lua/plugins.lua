@@ -123,5 +123,9 @@ return require('packer').startup(function(use)
     -- snippets support
     use 'hrsh7th/vim-vsnip'
     use 'golang/vscode-go'
+
+    -- rainbow brackets
+    use 'p00f/nvim-ts-rainbow'
+
 end)
 
