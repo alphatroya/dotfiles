@@ -119,6 +119,7 @@ return require('packer').startup(function(use)
     -- better quickfix windows
     use 'kevinhwang91/nvim-bqf'
 
+    use 'edluffy/specs.nvim'
 
     -- snippets support
     use 'hrsh7th/vim-vsnip'
@@ -126,6 +127,9 @@ return require('packer').startup(function(use)
 
     -- rainbow brackets
     use 'p00f/nvim-ts-rainbow'
+
+    -- show signature help during edition
+    use { "ray-x/lsp_signature.nvim" }
 
 end)
 

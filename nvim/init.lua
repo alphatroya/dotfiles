@@ -130,6 +130,25 @@ require('lualine').setup {
     options = {theme = 'onedark'},
 }
 
+
+require('specs').setup {
+    show_jumps  = true,
+    min_jump = 15,
+    popup = {
+        delay_ms = 0,
+        inc_ms = 10,
+        blend = 10,
+        width = 20,
+        winhl = "PMenu",
+        fader = require('specs').exp_fader,
+        resizer = require('specs').shrink_resizer
+    },
+    ignore_filetypes = {},
+    ignore_buftypes = {
+        nofile = true,
+    },
+}
+
 require('kommentary.config').configure_language("default", {
     prefer_single_line_comments = true,
 })
