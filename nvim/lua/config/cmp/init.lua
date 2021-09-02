@@ -12,6 +12,7 @@ cmp.setup({
         end,
     },
     mapping = {
+        ['<C-e>'] = cmp.mapping.close(),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if vim.fn.pumvisible() == 1 then
                 vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
@@ -34,9 +35,10 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s", }),
-        ['<CR>'] = cmp.mapping.confirm({
+        ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Replace,
             select = true,
-        })
+        },
     },
     sources = {
         { name = 'vsnip' },
