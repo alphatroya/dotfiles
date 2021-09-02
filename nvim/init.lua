@@ -159,3 +159,4 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
+vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)

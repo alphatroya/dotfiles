@@ -4,10 +4,14 @@ IDEAVIMRC:=~/.ideavimrc
 ALACRITTY:=~/.config/alacritty/alacritty.yml
 ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
 FZF=~/.fzf.zsh
+SNIPPETS:=~/.vsnip
 
 .PHONY: all
-all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY) $(ANTIGEN_SCRIPT)
+all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY) $(ANTIGEN_SCRIPT) $(SNIPPETS)
 	cd git && make
+
+$(SNIPPETS): $(CURRENT_FOLDER)/snippets
+	ln -sf $< $@
 
 $(NVIM): $(CURRENT_FOLDER)/nvim
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
