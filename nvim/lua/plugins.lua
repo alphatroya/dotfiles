@@ -13,7 +13,14 @@ return require('packer').startup(function(use)
     use 'glepnir/lspsaga.nvim'
 
     -- Autocomplete
-    use 'hrsh7th/nvim-compe'
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-vsnip',
+            'hrsh7th/cmp-buffer',
+        }
+    }
 
     -- Treesitter
     use {
@@ -121,15 +128,19 @@ return require('packer').startup(function(use)
 
     use 'edluffy/specs.nvim'
 
-    -- snippets support
-    use 'hrsh7th/vim-vsnip'
-    use 'golang/vscode-go'
-
     -- rainbow brackets
     use 'p00f/nvim-ts-rainbow'
 
     -- show signature help during edition
-    use { "ray-x/lsp_signature.nvim" }
+    use 'ray-x/lsp_signature.nvim'
+
+    use {
+        'hrsh7th/vim-vsnip',
+        requires = {
+            -- go snippets support
+            'golang/vscode-go'
+        }
+    }
 
 end)
 

@@ -21,9 +21,13 @@ local on_attach = function(client, bufnr)
     require "lsp_signature".on_attach()
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 local servers = { "gopls", "sourcekit", "vimls", "jsonls", "yamlls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
+        capabilities = capabilities, 
         on_attach = on_attach,
         flags = {
             debounce_text_changes = 150,

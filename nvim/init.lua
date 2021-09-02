@@ -113,7 +113,7 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.pastetoggle = '<F12>'
 
 require('config/lsp')
-require('config/compe')
+require('config/cmp')
 require('config/treesitter')
 require('config/gitsigns')
 require('config/telescope')
