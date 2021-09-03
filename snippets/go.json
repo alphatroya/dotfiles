@@ -1,6 +1,6 @@
 {
-  "Swagger init": {
-    "prefix": ["swag"],
+  "Swagger new entry": {
+    "prefix": ["nswag"],
     "body": [
         "// @Summary ${1}",
         "// @Description ${2}",
@@ -8,6 +8,20 @@
         "// @Accept json",
         "// @Produce json",
         "// @Router /${5} [${6|get,post,put,delete|}]"
+    ],
+    "description": "Create base swagger comment placeholder"
+  },
+  "Swagger new global description": {
+    "prefix": ["gnswag"],
+    "body": [
+        "// @title ${1}",
+        "// @version ${2:1.0}",
+        "// @description ${3}",
+        "// @host localhost:8080",
+        "// @securityDefinitions.apikey Bearer",
+        "// @in header",
+        "// @name Authorization",
+        "// @BasePath /api/v1"
     ],
     "description": "Create base swagger comment placeholder"
   }
