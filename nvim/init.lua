@@ -120,12 +120,6 @@ require('config/telescope')
 require('config/lsp-saga')
 require('spellsitter').setup()
 
-require('neogit').setup {
-    integrations = {
-        diffview = true
-    },
-}
-
 require('lualine').setup {
     options = {theme = 'onedark'},
 }

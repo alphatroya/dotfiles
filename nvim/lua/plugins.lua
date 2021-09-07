@@ -58,7 +58,7 @@ return require('packer').startup(function(use)
 
     -- Better whitespace highlighting for Vim
     use 'ntpeters/vim-better-whitespace'
-    --
+
     -- Golang support
     use {
         'fatih/vim-go',
@@ -109,14 +109,6 @@ return require('packer').startup(function(use)
         'TimUntersberger/neogit',
         requires = {
             'nvim-lua/plenary.nvim',
-            'sindrets/diffview.nvim',
-        },
-    }
-
-    use {
-        'sindrets/diffview.nvim',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
         },
     }
 

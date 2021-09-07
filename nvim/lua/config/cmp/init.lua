@@ -1,7 +1,6 @@
 local cmp = require 'cmp'
 
 vim.api.nvim_set_keymap('i', '<C-k>', '<Plug>(vsnip-expand-or-jump)', { silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<Plug>(vsnip-expand-or-jump)', { silent = true })
 vim.api.nvim_set_keymap('v', '<C-k>', '<Plug>(vsnip-expand-or-jump)', { silent = true })
 
 local check_back_space = function()
