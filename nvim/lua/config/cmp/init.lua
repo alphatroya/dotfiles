@@ -50,6 +50,8 @@ cmp.setup({
                 end,
             },
         },
+        { name = 'calc'},
+        { name = 'emoji'},
     }
 })
 

@@ -19,6 +19,8 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-vsnip',
             'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-emoji',
+            'hrsh7th/cmp-calc',
         }
     }
 
