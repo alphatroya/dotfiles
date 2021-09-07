@@ -1,8 +1,5 @@
 local cmp = require 'cmp'
 
-vim.api.nvim_set_keymap('i', '<C-k>', '<Plug>(vsnip-expand-or-jump)', { silent = true })
-vim.api.nvim_set_keymap('v', '<C-k>', '<Plug>(vsnip-expand-or-jump)', { silent = true })
-
 local check_back_space = function()
   local col = vim.fn.col('.') - 1
   return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
@@ -16,24 +13,8 @@ cmp.setup({
     },
     mapping = {
         ['<C-e>'] = cmp.mapping.close(),
-        ['<Tab>'] = cmp.mapping(function(fallback)
-            if vim.fn.pumvisible() == 1 then
-                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, true, true), 'n')
-            elseif check_back_space() then
-                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Tab>', true, true, true), 'n')
-            else
-                fallback()
-            end
-        end, { "i", "s", }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-            if vim.fn.pumvisible() == 1 then
-                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-p>', true, true, true), 'n')
-            elseif check_back_space() then
-                vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<S-Tab>', true, true, true), 'n')
-            else
-                fallback()
-            end
-        end, { "i", "s", }),
+        ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
@@ -64,3 +45,13 @@ require("nvim-autopairs.completion.cmp").setup({
   map_complete = true,
   auto_select = true,
 })
+
+vim.api.nvim_exec([[
+" Next snippet
+imap <expr> <C-l>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-l>'
+smap <expr> <C-l>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-l>'
+
+" Back
+imap <expr> <C-k>   vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)' : '<C-l>'
+smap <expr> <C-k>   vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)' : '<C-l>'
+]], false)
