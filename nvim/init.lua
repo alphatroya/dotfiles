@@ -118,7 +118,6 @@ require('config/treesitter')
 require('config/gitsigns')
 require('config/telescope')
 require('config/lsp-saga')
-require('spellsitter').setup()
 
 require('lualine').setup {
     options = {theme = 'onedark'},
