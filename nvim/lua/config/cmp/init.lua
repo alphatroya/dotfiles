@@ -27,8 +27,10 @@ cmp.setup({
             name = 'buffer',
             opts = {
                 get_bufnrs = function()
-                    return vim.api.nvim_list_bufs()
-                end,
+                    return vim.tbl_filter(function(bufnr)
+                        return vim.api.nvim_buf_is_valid(bufnr) and vim.api.nvim_buf_is_loaded(bufnr)
+                    end, vim.api.nvim_list_bufs())
+                end
             },
         },
         { name = 'calc'},

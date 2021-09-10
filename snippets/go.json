@@ -7,7 +7,7 @@
         "// @Tags ${4}",
         "// @Accept json",
         "// @Produce json",
-        "// @Router /${5} [${6|get,post,put,delete|}]"
+        "// @Router /${5} [${6|get,post,put,patch,delete|}]"
     ],
     "description": "Create base swagger comment placeholder"
   },
@@ -35,7 +35,7 @@
   "Swagger new param statement": {
     "prefix": ["swagp"],
     "body": [
-        "// @Param ${1|query,path,body|} ${2:name} ${3:type} ${4|true,false|} \"${5:description}\""
+        "// @Param ${1:name} ${2|query,path,body|} ${3:type} ${4|true,false|} \"${5:description}\""
     ],
     "description": "Create swagger result line item"
   }
