@@ -44,6 +44,5 @@ ln -s $(pwd)/nvim ~/.config/nvim
 ```sh
 echo "source ${PWD}"/zsh/aliases >> ~/.zshrc \
 echo "source ${PWD}"/zsh/common >> ~/.zshrc \
-echo "source ${PWD}"/zsh/create-feature >> ~/.zshrc \
 echo "source ${PWD}"/zsh/antigen >> ~/.zshrc
 ```

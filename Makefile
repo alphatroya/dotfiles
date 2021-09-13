@@ -34,7 +34,6 @@ $(ANTIGEN_SCRIPT): $(FZF)
 	echo "source ${PWD}"/zsh/antigen >> ~/.zshrc
 	echo "source ${PWD}"/zsh/aliases >> ~/.zshrc
 	echo "source ${PWD}"/zsh/common >> ~/.zshrc
-	echo "source ${PWD}"/zsh/create-feature >> ~/.zshrc
 
 .PHONY: brew
 brew:
