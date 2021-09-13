@@ -111,20 +111,13 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- Git integration
-    use {
-        'TimUntersberger/neogit',
-        requires = {
-            'nvim-lua/plenary.nvim',
-        },
-    }
-
     -- toggle quick and loclists
     use 'milkypostman/vim-togglelist'
 
     -- better quickfix windows
     use 'kevinhwang91/nvim-bqf'
 
+    -- hightlight cursor location after huge jumping
     use 'edluffy/specs.nvim'
 
     -- rainbow brackets
@@ -133,6 +126,7 @@ return require('packer').startup(function(use)
     -- show signature help during edition
     use 'ray-x/lsp_signature.nvim'
 
+    -- snippets support
     use {
         'hrsh7th/vim-vsnip',
         requires = {

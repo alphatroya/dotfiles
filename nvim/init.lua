@@ -102,9 +102,6 @@ vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', {noremap = true})
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 
--- call neogit
-vim.api.nvim_set_keymap('n', '<leader>git', ':Neogit<cr>', { noremap = true })
-
 vim.g.indent_blankline_show_current_context = true
 vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if', '^while', '^for', '^object', '^table', 'block', 'arguments'}
 
