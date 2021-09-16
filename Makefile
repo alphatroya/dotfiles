@@ -22,6 +22,7 @@ $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
 	ln -sf $< $@
 
 $(KITTY): $(CURRENT_FOLDER)/kitty
+	@echo 'Current kitty config uses GoMono Nerd Font, you should download and install it from here: https://www.nerdfonts.com/font-downloads'
 	ln -sf $< $@
 
 $(ALACRITTY): $(CURRENT_FOLDER)/alacritty/alacritty.yml
