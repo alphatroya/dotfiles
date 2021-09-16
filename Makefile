@@ -2,12 +2,13 @@ CURRENT_FOLDER:=$(shell pwd)
 NVIM:=~/.config/nvim
 IDEAVIMRC:=~/.ideavimrc
 ALACRITTY:=~/.config/alacritty/alacritty.yml
+KITTY:=~/.config/kitty
 ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
 FZF=~/.fzf.zsh
 SNIPPETS:=~/.vsnip
 
 .PHONY: all
-all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY) $(ANTIGEN_SCRIPT) $(SNIPPETS)
+all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(KITTY)
 	cd git && make
 
 $(SNIPPETS): $(CURRENT_FOLDER)/snippets
@@ -18,6 +19,9 @@ $(NVIM): $(CURRENT_FOLDER)/nvim
 	ln -sf $< $@
 
 $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
+	ln -sf $< $@
+
+$(KITTY): $(CURRENT_FOLDER)/kitty
 	ln -sf $< $@
 
 $(ALACRITTY): $(CURRENT_FOLDER)/alacritty/alacritty.yml
