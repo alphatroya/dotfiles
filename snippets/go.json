@@ -1,4 +1,19 @@
 {
+  "New gomock struct": {
+    "prefix": ["gomock"],
+    "body": [
+        "${1:ctrl} := gomock.NewController(t)",
+        "${2:mock} := mocks.New$3(ctrl)",
+        "${2}.",
+        "EXPECT().",
+        "$4($5).",
+        "DoAndReturn(func(_ interface{}) ($6) {",
+        "$0",
+        "}).",
+        "AnyTimes()"
+    ],
+    "description": "Create base swagger comment placeholder"
+  },
   "Swagger new entry": {
     "prefix": ["swagn"],
     "body": [
