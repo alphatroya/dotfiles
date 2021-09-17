@@ -2,7 +2,7 @@
 
 export EDITOR="nvim"
 export VISUAL="nvim"
-export LANG="en_US.UTF-8"
+export LANG="en_RU.UTF-8"
 
 # Initialize ruby
 eval "$(rbenv init -)"
