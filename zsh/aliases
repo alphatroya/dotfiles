@@ -23,3 +23,6 @@ alias ghpa="gh pr review -a"
 alias ghpd="gh pr diff"
 
 alias rstatus='git log --since=8:00am --author="Alexey Korolev" | grep -Eo "Close #[0-9]+" | sed "s/Close #//"  | xargs echo "/fhm" | tr -d "\\n" | pbcopy'
+
+# kubernetes
+alias k=kubectl
