@@ -1,5 +1,5 @@
 brew "bat"
-brew "dotenv"
+brew "direnv"
 brew "exa"
 brew "fd"
 brew "fzf"
