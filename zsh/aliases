@@ -26,3 +26,8 @@ alias rstatus='git log --since=8:00am --author="Alexey Korolev" | grep -Eo "Clos
 
 # kubernetes
 alias k=kubectl
+
+# Fill Redmine hours aliases
+alias fillredmine='z stun && vim work.csv && git commit --all -m "Update $(date -u +"%Y-%m-%d")" && git push && cd -'
+alias fillredmineloc='z stun && vim work.csv && docker run -e REDMINE_API_KEY -e REDMINE_HOST -v $(pwd):/home/appuser/data fiction --csv data/work.csv && cd -'
+
