@@ -6,11 +6,6 @@ To place all symlinks just call `make`.
 
 ## Tool config descriptions
 
-### alacritty
-
-To manually install config place a symlink to `alacritty.yml` file in
-`~/.config/alacritty/alacritty.yml` folder. Create folder if needed.
-
 ### git
 
 Call `make` to create root config reference in the ~/.gitconfig file.

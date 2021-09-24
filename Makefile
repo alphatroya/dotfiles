@@ -1,14 +1,13 @@
 CURRENT_FOLDER:=$(shell pwd)
 NVIM:=~/.config/nvim
 IDEAVIMRC:=~/.ideavimrc
-ALACRITTY:=~/.config/alacritty/alacritty.yml
 KITTY:=~/.config/kitty
 ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
 FZF=~/.fzf.zsh
 SNIPPETS:=~/.vsnip
 
 .PHONY: all
-all: $(NVIM) $(IDEAVIMRC) $(ALACRITTY) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(KITTY)
+all: $(NVIM) $(IDEAVIMRC) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(KITTY)
 	cd git && make
 
 $(SNIPPETS): $(CURRENT_FOLDER)/snippets
@@ -23,11 +22,6 @@ $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
 
 $(KITTY): $(CURRENT_FOLDER)/kitty
 	@echo 'Current kitty config uses GoMono Nerd Font, you should download and install it from here: https://www.nerdfonts.com/font-downloads'
-	ln -sf $< $@
-
-$(ALACRITTY): $(CURRENT_FOLDER)/alacritty/alacritty.yml
-	@echo 'Current alacritty config uses GoMono Nerd Font, you should download and install it from here: https://www.nerdfonts.com/font-downloads'
-	mkdir -p ~/.config/alacritty
 	ln -sf $< $@
 
 $(FZF):
