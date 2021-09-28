@@ -1,10 +1,12 @@
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <leader>a :GoAlternate!<CR>
-autocmd FileType go nmap <leader>l :GoMetaLinter ./...<CR>
-autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <leader>if :GoIfErr<CR>
-autocmd FileType go nmap <leader>gat :GoAddTags<CR>
-autocmd FileType go nmap <leader>gfs :GoFillStruct<CR>
+setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab for golang
+
+nmap <leader>t  <Plug>(go-test)
+nmap <leader>a :GoAlternate!<CR>
+nmap <leader>l :GoMetaLinter ./...<CR>
+nmap <leader>c <Plug>(go-coverage-toggle)
+nmap <leader>if :GoIfErr<CR>
+nmap <leader>gat :GoAddTags<CR>
+nmap <leader>gfs :GoFillStruct<CR>
 
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
@@ -16,7 +18,7 @@ function! s:build_go_files()
     endif
 endfunction
 
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 let g:go_list_type = "quickfix"
 let g:go_fmt_fail_silently = 1

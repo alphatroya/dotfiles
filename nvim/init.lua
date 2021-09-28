@@ -65,8 +65,6 @@ call SetupCommandAlias('Цй', 'wq')
 call SetupCommandAlias('ЦЙ', 'wq')
 call SetupCommandAlias('цй', 'wq')
 
-autocmd Filetype go setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab for golang
-
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
