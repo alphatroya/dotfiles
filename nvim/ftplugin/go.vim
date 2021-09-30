@@ -1,4 +1,5 @@
 setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab for golang
+set cmdheight=2
 
 nmap <leader>t  <Plug>(go-test)
 nmap <leader>a :GoAlternate!<CR>
@@ -29,7 +30,7 @@ let g:go_info_mode='gopls'
 let g:go_fillstruct_mode = 'gopls'
 let g:go_addtags_transform = "camelcase"
 let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
 let g:go_doc_keywordprg_enabled = 1
 
 let g:go_metalinter_command = 'golangci-lint'
