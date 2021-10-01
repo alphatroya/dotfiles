@@ -74,6 +74,7 @@ let g:toggle_list_no_mappings = 0
 nmap <script> <silent> <F3> :call ToggleLocationList()<CR>
 nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
 
+let g:markdown_fenced_languages = ['go', 'swift', 'rust']
 ]], false)
 
 vim.g.committia_hooks = {
