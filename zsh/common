@@ -5,7 +5,7 @@ export VISUAL="nvim"
 export LANG="en_RU.UTF-8"
 
 # Initialize ruby
-eval "$(rbenv init -)"
+eval "$(rbenv init - zsh)"
 
 # Configure thefuck tool
 eval $(thefuck --alias)
