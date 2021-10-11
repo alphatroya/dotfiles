@@ -10,7 +10,12 @@ return require('packer').startup(function(use)
 
     -- LSP config
     use 'neovim/nvim-lspconfig'
-    use 'glepnir/lspsaga.nvim'
+
+    -- upstream is not updated a long time switch to the fork
+    -- More info:
+    -- https://github.com/glepnir/lspsaga.nvim/issues/241
+    -- use 'glepnir/lspsaga.nvim'
+    use 'tami5/lspsaga.nvim'
 
     -- Autocomplete
     use {
@@ -28,6 +33,11 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
+    }
+
+    -- Show code context
+    use {
+        'romgrk/nvim-treesitter-context',
     }
 
     -- Theme

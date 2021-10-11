@@ -29,9 +29,10 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_fillstruct_mode = 'gopls'
 let g:go_addtags_transform = "camelcase"
+
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 0
-let g:go_doc_keywordprg_enabled = 1
+let g:go_doc_keywordprg_enabled = 0
 
 let g:go_metalinter_command = 'golangci-lint'
 let g:go_metalinter_enabled = []

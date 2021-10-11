@@ -18,7 +18,11 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     buf_set_keymap('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]], opts)
 
-    require "lsp_signature".on_attach()
+    local cfg = {
+        use_lspsaga = true,  -- set to true if you want to use lspsaga popup
+        hi_parameter = "IncSearch", -- how your parameter will be highlight
+    }
+    require "lsp_signature".on_attach(cfg, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
