@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-emoji',
             'hrsh7th/cmp-calc',
+            'onsails/lspkind-nvim',
         }
     }
 

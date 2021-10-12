@@ -1,9 +1,5 @@
 local cmp = require 'cmp'
-
-local check_back_space = function()
-  local col = vim.fn.col('.') - 1
-  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
-end
+local lspkind = require('lspkind')
 
 cmp.setup({
     snippet = {
@@ -19,6 +15,9 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
+    },
+    formatting = {
+        format = lspkind.cmp_format({with_text = true, maxwidth = 50})
     },
     sources = {
         { name = 'vsnip' },
