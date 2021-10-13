@@ -2,6 +2,9 @@ local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
 cmp.setup({
+    completion = {
+        completeopt = 'menu,menuone,noinsert',
+    },
     snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
@@ -34,11 +37,16 @@ cmp.setup({
         },
         { name = 'calc'},
         { name = 'emoji'},
+    },
+    experimental = {
+        ghost_text = true,
     }
 })
 
 require('nvim-autopairs').setup({
     disable_filetype = { "TelescopePrompt" , "vim" },
+    enable_check_bracket_line = false,
+    check_ts = true,
 })
 
 require("nvim-autopairs.completion.cmp").setup({

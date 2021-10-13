@@ -104,7 +104,7 @@ vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 vim.g.indent_blankline_show_current_context = true
 vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if', '^while', '^for', '^object', '^table', 'block', 'arguments'}
 
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect'
 
 vim.o.pastetoggle = '<F12>'
 

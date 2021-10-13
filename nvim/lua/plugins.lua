@@ -37,9 +37,7 @@ return require('packer').startup(function(use)
     }
 
     -- Show code context
-    use {
-        'romgrk/nvim-treesitter-context',
-    }
+    use 'romgrk/nvim-treesitter-context'
 
     -- Theme
     use 'joshdick/onedark.vim'
