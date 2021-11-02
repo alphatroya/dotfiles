@@ -31,3 +31,10 @@ alias k=kubectl
 alias fillredmine='z stun && git pull && vim work.csv && git commit --all -m "Update $(date -u +"%Y-%m-%d")" && git push && cd -'
 alias fillredmineloc='z stun && git pull && vim work.csv && docker run -e REDMINE_API_KEY -e REDMINE_HOST -v $(pwd):/home/appuser/data fiction --csv data/work.csv && cd -'
 
+# measure curl timing (https://susam.in/maze/timing-with-curl.html)
+alias curlt='curl -L -w "time_namelookup: %{time_namelookup}\ntime_connect: %{time_connect}\ntime_appconnect: %{time_appconnect}\ntime_pretransfer: %{time_pretransfer}\ntime_redirect: %{time_redirect}\ntime_starttransfer: %{time_starttransfer}\ntime_total: %{time_total}\n"'
+
+# view files tree
+alias lt1='exa --tree -L1'
+alias lt2='exa --tree -L2'
+alias lt3='exa --tree -L3'
