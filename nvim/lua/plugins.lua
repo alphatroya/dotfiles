@@ -144,5 +144,8 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- support file.txt:<line>:<column> file opening
+    use 'wsdjeg/vim-fetch'
+
 end)
 
