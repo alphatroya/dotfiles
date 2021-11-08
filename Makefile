@@ -5,9 +5,10 @@ KITTY:=~/.config/kitty
 ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
 FZF=~/.fzf.zsh
 SNIPPETS:=~/.vsnip
+XCODE_SNIPPETS:=~/Library/Developer/Xcode/UserData/CodeSnippets
 
 .PHONY: all
-all: $(NVIM) $(IDEAVIMRC) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(KITTY)
+all: $(NVIM) $(IDEAVIMRC) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(KITTY) $(XCODE_SNIPPETS)
 	cd git && make
 
 $(SNIPPETS): $(CURRENT_FOLDER)/snippets
@@ -33,6 +34,9 @@ $(ANTIGEN_SCRIPT): $(FZF)
 	echo "source ${PWD}"/zsh/antigen >> ~/.zshrc
 	echo "source ${PWD}"/zsh/aliases >> ~/.zshrc
 	echo "source ${PWD}"/zsh/common >> ~/.zshrc
+
+$(XCODE_SNIPPETS): $(CURRENT_FOLDER)/xcode-snippets
+	ln -sf $< $@
 
 .PHONY: brew
 brew:
