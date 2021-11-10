@@ -3,27 +3,27 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>Tttt_</string>
+	<string>gss_</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>All</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -&gt; Bool {
-        return &lt;#true#&gt;
-    }
+	<string>guard let self = self else {
+    return
+}
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>1F14AC1B-5F3D-430C-9B4A-B7A8F69BBFF3</string>
+	<string>86B713E9-8260-43F5-B2C2-BADF8FA660BF</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
-	<string></string>
+	<string>Create self unwrapping</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>My Code Snippet</string>
+	<string>self unwrap</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
