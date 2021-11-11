@@ -3,27 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>gss_</string>
+	<string>swiftlintd_</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
+		<string>ClassImplementation</string>
+		<string>TopLevel</string>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let self = self else {
-    return
-}
-</string>
+	<string>// swiftlint:disable:next &lt;#exception#&gt;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>86B713E9-8260-43F5-B2C2-BADF8FA660BF</string>
+	<string>C7D15F60-6172-406C-A159-5BA5CE1DA53D</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Create self unwrapping</string>
+	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>self unwrap</string>
+	<string>New swiftlint exception</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

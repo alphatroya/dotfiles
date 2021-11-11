@@ -3,27 +3,27 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>gss_</string>
+	<string>da_</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let self = self else {
-    return
+	<string>DispatchQueue.global(qos: &lt;#qos#&gt;).async {
+    &lt;#code#&gt;
 }
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>86B713E9-8260-43F5-B2C2-BADF8FA660BF</string>
+	<string>AC39C344-0120-4408-9BD9-03F11E581E0A</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>Create self unwrapping</string>
+	<string>Perform code in separate thread</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>self unwrap</string>
+	<string>Create a new thread</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
