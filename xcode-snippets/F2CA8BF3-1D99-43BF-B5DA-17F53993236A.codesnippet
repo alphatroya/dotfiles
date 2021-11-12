@@ -3,26 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>swiftlintd_</string>
+	<string>logd_</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>TopLevel</string>
 		<string>CodeBlock</string>
-		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// swiftlint:disable:next &lt;#exception#&gt;</string>
+	<string>log.debug(&lt;#entry#&gt;)
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>C7D15F60-6172-406C-A159-5BA5CE1DA53D</string>
+	<string>F2CA8BF3-1D99-43BF-B5DA-17F53993236A</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetSummary</key>
 	<string></string>
 	<key>IDECodeSnippetTitle</key>
-	<string>New swiftlint exception</string>
+	<string>Create a new debug log statement</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
