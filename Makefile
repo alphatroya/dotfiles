@@ -1,14 +1,13 @@
 CURRENT_FOLDER:=$(shell pwd)
 NVIM:=~/.config/nvim
 IDEAVIMRC:=~/.ideavimrc
-KITTY:=~/.config/kitty
 ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
 FZF=~/.fzf.zsh
 SNIPPETS:=~/.vsnip
 XCODE_SNIPPETS:=~/Library/Developer/Xcode/UserData/CodeSnippets
 
 .PHONY: all
-all: $(NVIM) $(IDEAVIMRC) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(KITTY) $(XCODE_SNIPPETS)
+all: $(NVIM) $(IDEAVIMRC) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS)
 	cd git && make
 
 $(SNIPPETS): $(CURRENT_FOLDER)/snippets
@@ -19,10 +18,6 @@ $(NVIM): $(CURRENT_FOLDER)/nvim
 	ln -sf $< $@
 
 $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
-	ln -sf $< $@
-
-$(KITTY): $(CURRENT_FOLDER)/kitty
-	@echo 'Current kitty config uses GoMono Nerd Font, you should download and install it from here: https://www.nerdfonts.com/font-downloads'
 	ln -sf $< $@
 
 $(FZF):
