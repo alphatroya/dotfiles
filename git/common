@@ -44,4 +44,4 @@
 [init]
 	defaultBranch = main
 [help]
-	autocorrect = 10
+        autoCorrect = prompt
