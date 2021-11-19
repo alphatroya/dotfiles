@@ -36,9 +36,6 @@ return require('packer').startup(function(use)
         run = ':TSUpdate',
     }
 
-    -- Show code context
-    use 'romgrk/nvim-treesitter-context'
-
     -- Theme
     use 'joshdick/onedark.vim'
 
@@ -122,9 +119,6 @@ return require('packer').startup(function(use)
 
     -- toggle quick and loclists
     use 'milkypostman/vim-togglelist'
-
-    -- better quickfix windows
-    use 'kevinhwang91/nvim-bqf'
 
     -- hightlight cursor location after huge jumping
     use 'edluffy/specs.nvim'
