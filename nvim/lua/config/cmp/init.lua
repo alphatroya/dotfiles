@@ -45,15 +45,12 @@ cmp.setup({
 
 require('nvim-autopairs').setup({
     disable_filetype = { "TelescopePrompt" , "vim" },
-    enable_check_bracket_line = false,
     check_ts = true,
+    map_c_w = true,
 })
 
-require("nvim-autopairs.completion.cmp").setup({
-  map_cr = true,
-  map_complete = true,
-  auto_select = true,
-})
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 vim.api.nvim_exec([[
 " Next snippet
