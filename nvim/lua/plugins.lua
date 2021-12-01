@@ -14,8 +14,7 @@ return require('packer').startup(function(use)
     -- upstream is not updated a long time switch to the fork
     -- More info:
     -- https://github.com/glepnir/lspsaga.nvim/issues/241
-    -- use 'glepnir/lspsaga.nvim'
-    use 'alphatroya/lspsaga.nvim'
+    use 'tami5/lspsaga.nvim'
 
     -- Autocomplete
     use {

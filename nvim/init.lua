@@ -95,9 +95,6 @@ vim.api.nvim_set_keymap('n', '<leader>v', ':e $MYVIMRC<cr>', { noremap = true })
 -- close active buffer
 vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
 
--- yank to end of the line
-vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap = true})
-
 -- keep it centered
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', {noremap = true})
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
