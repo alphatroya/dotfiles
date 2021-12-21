@@ -28,8 +28,25 @@ alias rstatus='git log --since=8:00am --author="Alexey Korolev" | grep -Eo "Clos
 alias k=kubectl
 
 # Fill Redmine hours aliases
-alias fillredmine='z stun && git pull && vim work.csv && git commit --all -m "Update $(date -u +"%Y-%m-%d")" && git push && cd -'
-alias fillredmineloc='z stun && git pull && vim work.csv && docker run -e REDMINE_API_KEY -e REDMINE_HOST -v $(pwd):/home/appuser/data fiction --csv data/work.csv && cd -'
+func fillredmine() {
+    local return="no"
+    if [[ ! -f work.csv ]]; then
+        return="yes"
+        z stun
+    fi
+
+    git pull
+    vim work.csv
+    if [[ `git status --porcelain` ]]; then
+        git commit --all -m "Update $(date -u +"%Y-%m-%d")" && git push
+    else
+        echo "Nothing to commit, exit"
+    fi
+
+    if [[ $return == "yes" ]]; then
+        cd -
+    fi
+}
 
 # measure curl timing (https://susam.in/maze/timing-with-curl.html)
 alias curlt='curl -L -w "time_namelookup: %{time_namelookup}\ntime_connect: %{time_connect}\ntime_appconnect: %{time_appconnect}\ntime_pretransfer: %{time_pretransfer}\ntime_redirect: %{time_redirect}\ntime_starttransfer: %{time_starttransfer}\ntime_total: %{time_total}\n"'
