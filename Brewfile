@@ -1,5 +1,4 @@
 brew "bat"
-brew "direnv"
 brew "exa"
 brew "fd"
 brew "fzf"

@@ -20,9 +20,6 @@ zle -N fuck-command-line
 # Configure zoxide
 eval "$(zoxide init zsh)"
 
-# Configure direnv
-eval "$(direnv hook zsh)"
-
 # Configure prompt
 eval "$(starship init zsh)"
 
