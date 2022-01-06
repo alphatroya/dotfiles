@@ -18,7 +18,7 @@ fuck-command-line() {
 zle -N fuck-command-line
 
 # Configure zoxide
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # Configure prompt
 eval "$(starship init zsh)"
