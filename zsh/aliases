@@ -32,7 +32,7 @@ func fillredmine() {
     local return="no"
     if [[ ! -f work.csv ]]; then
         return="yes"
-        z stun
+        cd stun
     fi
 
     git pull
