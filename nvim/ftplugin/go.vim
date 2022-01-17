@@ -21,9 +21,9 @@ endfunction
 
 nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
+let g:go_gopls_enabled = 1
 let g:go_list_type='quickfix'
-" let g:go_fmt_command='gopls'
-let g:go_fmt_command = "gofumpt"
+let g:go_fmt_command='gopls'
 let g:go_imports_mode='gopls'
 let g:go_gopls_gofumpt=1
 let g:go_rename_command='gopls'
