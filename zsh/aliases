@@ -32,7 +32,7 @@ func fillredmine() {
     local return="no"
     if [[ ! -f work.csv ]]; then
         return="yes"
-        cd stun
+        cd /Users/alphatroya/Developer/stunning-enigma
     fi
 
     git pull
@@ -55,3 +55,5 @@ alias curlt='curl -L -w "time_namelookup: %{time_namelookup}\ntime_connect: %{ti
 alias lt1='exa --tree -L1'
 alias lt2='exa --tree -L2'
 alias lt3='exa --tree -L3'
+
+alias zettel="echo $(date +"%Y%m%d%H%M") | pbcopy"

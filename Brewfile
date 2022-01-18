@@ -1,6 +1,7 @@
 brew "bat"
 brew "exa"
 brew "fd"
+brew "fx"
 brew "fzf"
 brew "git"
 brew "git-delta"
