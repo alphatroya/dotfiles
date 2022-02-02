@@ -5,9 +5,10 @@ ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
 FZF=~/.fzf.zsh
 SNIPPETS:=~/.vsnip
 XCODE_SNIPPETS:=~/Library/Developer/Xcode/UserData/CodeSnippets
+VIM_SKELETONS:=~/.skeletons
 
 .PHONY: all
-all: $(NVIM) $(IDEAVIMRC) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS)
+all: $(NVIM) $(IDEAVIMRC) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS) $(VIM_SKELETONS)
 	cd git && make
 
 $(SNIPPETS): $(CURRENT_FOLDER)/snippets
@@ -15,6 +16,9 @@ $(SNIPPETS): $(CURRENT_FOLDER)/snippets
 
 $(NVIM): $(CURRENT_FOLDER)/nvim
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+	ln -sf $< $@
+
+$(VIM_SKELETONS): $(CURRENT_FOLDER)/nvim/skeletons
 	ln -sf $< $@
 
 $(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc

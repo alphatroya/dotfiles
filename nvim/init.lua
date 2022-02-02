@@ -69,6 +69,9 @@ call SetupCommandAlias('цй', 'wq')
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
+" Configure skeletons
+autocmd BufNewFile *.sh 0r ~/.skeletons/bash.sh
+
 autocmd FileType swift nmap <leader>t :!swift test<CR>
 
 let g:toggle_list_no_mappings = 0
