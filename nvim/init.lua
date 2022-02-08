@@ -1,9 +1,7 @@
 require("plugins")
 
--- Removed for a macOS terminal compatibility
--- vim.o.termguicolors            = true
-vim.g.onedark_terminal_italics = 1
 vim.cmd [[colorscheme onedark]] -- Set color scheme
+vim.g.onedark_terminal_italics = 1
 
 vim.g.mapleader                                      = ' '
 vim.o.updatetime                                     = 250       -- Because 4 sec is insane
@@ -44,7 +42,6 @@ vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGH
 vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true }) --  map <esc> to exit from the nvim terminal
 
-
 vim.api.nvim_exec(
 [[
 " Safe command remapping, see https://stackoverflow.com/questions/3878692/how-to-create-an-alias-for-a-command-in-vim/3879737#3879737
@@ -74,9 +71,15 @@ autocmd BufNewFile *.sh 0r ~/.skeletons/bash.sh
 
 autocmd FileType swift nmap <leader>t :!swift test<CR>
 
-let g:toggle_list_no_mappings = 0
-nmap <script> <silent> <F3> :call ToggleLocationList()<CR>
-nmap <script> <silent> <F2> :call ToggleQuickfixList()<CR>
+" vim-illuminate setup
+augroup illuminate_augroup
+    autocmd!
+    autocmd VimEnter * hi illuminatedWord cterm=inverse
+    autocmd VimEnter * hi LspReferenceText cterm=inverse
+    autocmd VimEnter * hi LspReferenceWrite cterm=inverse
+    autocmd VimEnter * hi LspReferenceRead cterm=inverse
+augroup END
+let g:Illuminate_delay = 1000
 
 let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 ]], false)

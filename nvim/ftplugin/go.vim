@@ -3,7 +3,6 @@ set cmdheight=2
 
 nmap <leader>t <Plug>(go-test)
 nmap <leader>a :GoAlternate!<CR>
-nmap <leader>l :GoMetaLinter ./...<CR>
 nmap <leader>c <Plug>(go-coverage-toggle)
 nmap <leader>if :GoIfErr<CR>
 nmap <leader>gat :GoAddTags<CR>

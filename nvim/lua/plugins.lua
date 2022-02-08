@@ -58,7 +58,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-repeat'
 
     -- Underlines the word under the cursor
-    use 'yamatsum/nvim-cursorline'
+    use 'RRethy/vim-illuminate'
 
     -- A Vim plugin for more pleasant editing on commit messages
     use 'rhysd/committia.vim'
@@ -116,9 +116,6 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- toggle quick and loclists
-    use 'milkypostman/vim-togglelist'
-
     -- hightlight cursor location after huge jumping
     use 'edluffy/specs.nvim'
 
@@ -140,4 +137,3 @@ return require('packer').startup(function(use)
     -- support file.txt:<line>:<column> file opening
     use 'wsdjeg/vim-fetch'
 end)
-
