@@ -70,8 +70,11 @@ return require('packer').startup(function(use)
     use {
         'fatih/vim-go',
         run = ':GoUpdateBinaries',
+        requires = {
+            'AndrewRadev/splitjoin.vim',
+            'buoto/gotests-vim' -- Support for gotests tool
+        }
     }
-    use 'buoto/gotests-vim' -- Support for gotests tool
 
     -- Exchange text regions
     use 'tommcdo/vim-exchange'

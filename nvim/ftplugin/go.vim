@@ -6,7 +6,7 @@ nmap <leader>c <Plug>(go-coverage-toggle)
 nmap <leader>if :GoIfErr<CR>
 nmap <leader>gat :GoAddTags<CR>
 nmap <leader>gfs :GoFillStruct<CR>
-nmap <leader>gr :GoRename<CR>
+nmap <leader>gl :!golines -w %<CR>
 
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
