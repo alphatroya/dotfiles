@@ -15,8 +15,8 @@ $(SNIPPETS): $(CURRENT_FOLDER)/snippets
 	ln -sf $< $@
 
 $(NVIM): $(CURRENT_FOLDER)/nvim
-	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 	ln -sf $< $@
+	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim || echo "Already exists"
 
 $(VIM_SKELETONS): $(CURRENT_FOLDER)/nvim/skeletons
 	ln -sf $< $@
