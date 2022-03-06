@@ -7,7 +7,6 @@
 [delta]
 	features = line-numbers decorations side-by-side
 	colorMoved = default
-	syntax-theme = Nord
 [merge]
 	tool = vim_mergetool
 [mergetool "vim_mergetool"]
