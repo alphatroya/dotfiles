@@ -82,6 +82,8 @@ augroup END
 let g:Illuminate_delay = 1000
 
 let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
+" global statusline
+set laststatus=3
 ]], false)
 
 vim.g.committia_hooks = {
