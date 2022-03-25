@@ -88,15 +88,6 @@ return require('packer').startup(function(use)
     -- Replace with register (a gr* key bindings)
     use 'vim-scripts/ReplaceWithRegister'
 
-    -- Telescope
-    use {
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            {'nvim-lua/popup.nvim'},
-            {'nvim-lua/plenary.nvim'}
-        }
-    }
-
     -- Spell checker based on treesitter plugin
     use {
         'lewis6991/spellsitter.nvim',
@@ -139,4 +130,16 @@ return require('packer').startup(function(use)
 
     -- support file.txt:<line>:<column> file opening
     use 'wsdjeg/vim-fetch'
+
+    -- FZF support
+    use {
+        'ojroques/nvim-lspfuzzy',
+        requires = {
+            {
+                'junegunn/fzf',
+                run = ":call fzf#install()",
+            },
+            {'junegunn/fzf.vim'},
+        },
+    }
 end)

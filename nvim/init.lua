@@ -40,7 +40,6 @@ vim.cmd [[set display     +=lastline]] -- Show as much as possible of the last l
 vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 
 vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true }) --  map <esc> to exit from the nvim terminal
 
 vim.api.nvim_exec(
 [[
@@ -82,6 +81,9 @@ augroup END
 let g:Illuminate_delay = 1000
 
 let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
+
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
 " global statusline
 set laststatus=3
 ]], false)
@@ -118,7 +120,7 @@ require('config/lsp')
 require('config/cmp')
 require('config/treesitter')
 require('config/gitsigns')
-require('config/telescope')
+require('config/fzf')
 require('config/lsp-saga')
 
 require('lualine').setup {
