@@ -2,7 +2,7 @@
 
 # Difftastic
 alias gdiff="GIT_EXTERNAL_DIFF=difft git diff"
-alias gshow="GIT_EXTERNAL_DIFF=difft git show"
+alias gshow="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
 
 # Russian typos
 alias учше="exit"
