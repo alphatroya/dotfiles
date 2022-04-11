@@ -37,6 +37,7 @@ return require('packer').startup(function(use)
 
     -- Theme
     use 'joshdick/onedark.vim'
+    use 'dracula/vim'
 
     -- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
     use 'tpope/vim-surround'

@@ -1,6 +1,6 @@
 require("plugins")
 
-vim.cmd [[colorscheme onedark]] -- Set color scheme
+vim.cmd [[colorscheme dracula]] -- Set color scheme
 vim.g.onedark_terminal_italics = 1
 
 vim.g.mapleader                                      = ' '
@@ -124,7 +124,10 @@ require('config/fzf')
 require('config/lsp-saga')
 
 require('lualine').setup {
-    options = {theme = 'onedark'},
+    options = {
+        theme = 'dracula',
+        globalstatus = true,
+    },
 }
 
 
