@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+# Difftastic
+alias gdiff="GIT_EXTERNAL_DIFF=difft git diff"
+alias gshow="GIT_EXTERNAL_DIFF=difft git show"
+
 # Russian typos
-alias агсл="fuck"
 alias учше="exit"
 
 # Alternatives to standard tools
@@ -14,13 +17,6 @@ alias gpp="gp &"
 alias gloga="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gfap="git fetch --all --prune"
 alias gcS=gcs
-
-# gh aliases
-alias ghp="gh pr"
-alias ghpc="gh pr checks"
-alias ghpco="gh pr checkout"
-alias ghpa="gh pr review -a"
-alias ghpd="gh pr diff"
 
 alias rstatus='git log --since=8:00am --author="Alexey Korolev" | grep -Eo "Close #[0-9]+" | sed "s/Close #//"  | xargs echo "/fhm" | tr -d "\\n" | pbcopy'
 
@@ -55,5 +51,3 @@ alias curlt='curl -L -w "time_namelookup: %{time_namelookup}\ntime_connect: %{ti
 alias lt1='exa --tree -L1'
 alias lt2='exa --tree -L2'
 alias lt3='exa --tree -L3'
-
-alias zettel="echo $(date +"%Y%m%d%H%M") | pbcopy"
