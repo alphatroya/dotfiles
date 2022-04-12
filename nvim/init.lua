@@ -1,7 +1,6 @@
 require("plugins")
 
 vim.cmd [[colorscheme dracula]] -- Set color scheme
-vim.g.onedark_terminal_italics = 1
 
 vim.g.mapleader                                      = ' '
 vim.o.updatetime                                     = 250       -- Because 4 sec is insane
