@@ -30,11 +30,26 @@ end
 local servers = { "gopls", "sourcekit", "vimls", "jsonls", "yamlls" }
 for _, lsp in ipairs(servers) do
     local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
     nvim_lsp[lsp].setup {
         capabilities = capabilities,
         on_attach = on_attach,
+        settings = {
+            gopls = {
+                experimentalPostfixCompletions = true,
+                analyses = {
+                    unusedparams = true,
+                    shadow = true,
+                },
+                staticcheck = true,
+                gofumpt = true,
+            },
+        },
+        init_options = {
+            usePlaceholders = true,
+        },
         flags = {
             debounce_text_changes = 150,
         }
