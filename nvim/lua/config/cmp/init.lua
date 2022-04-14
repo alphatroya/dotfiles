@@ -52,11 +52,10 @@ cmp.setup({
 
 cmp.setup.cmdline('/', {
     mapping = {
-        ["<cr>"] = cmp.mapping(cmp.mapping.confirm(), {"i", "c"}),
         ["<c-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "c"}),
         ["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "c"}),
         ["<tab>"] = cmp.mapping(
-            cmp.mapping.select_next_item(),
+            cmp.mapping.confirm(),
             {"i", "s", "c"}
         ),
     },
@@ -83,6 +82,10 @@ cmp.setup.cmdline(':', {
 })
 
 vim.api.nvim_exec([[
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
 " Next snippet
 imap <expr> <C-l>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-l>'
 smap <expr> <C-l>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)' : '<C-l>'
