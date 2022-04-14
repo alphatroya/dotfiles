@@ -6,7 +6,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- A universal set of defaults that (hopefully) everyone can agree on
-    use 'vim-scripts/sensible.vim'
+    use 'tpope/vim-sensible'
 
     -- LSP config
     use 'neovim/nvim-lspconfig'
