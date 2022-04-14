@@ -97,7 +97,7 @@ return require('packer').startup(function(use)
     }
 
     -- A super powerful autopairs for Neovim. It support multiple character.
-    use 'windwp/nvim-autopairs'
+    use 'jiangmiao/auto-pairs'
 
     -- Indent line plugin
     use 'lukas-reineke/indent-blankline.nvim'
