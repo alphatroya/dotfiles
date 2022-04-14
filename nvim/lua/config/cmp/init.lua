@@ -33,9 +33,7 @@ cmp.setup({
         ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
         ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Insert }),
         ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Insert }),
-        ['<CR>'] = cmp.mapping.confirm {
-            select = true,
-        },
+        ['<CR>'] = cmp.mapping.confirm { select = true },
     },
     formatting = {
         format = lspkind.cmp_format({with_text = true, maxwidth = 50})
@@ -53,7 +51,18 @@ cmp.setup({
 })
 
 cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = {
+        ["<cr>"] = cmp.mapping(cmp.mapping.confirm(), {"i", "c"}),
+        ["<c-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "c"}),
+        ["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "c"}),
+        ["<tab>"] = cmp.mapping(
+            cmp.mapping.select_next_item(),
+            {"i", "s", "c"}
+        ),
+    },
+    view = {
+        entries = {name = 'wildmenu', separator = '|' },
+    },
     sources = {
         { name = 'buffer' }
     }
