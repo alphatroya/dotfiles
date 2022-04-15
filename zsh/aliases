@@ -11,14 +11,11 @@ alias учше="exit"
 alias vim="nvim"
 alias ls="exa"
 alias cat="bat"
-alias gpp="gp &"
 
 # git aliases
 alias gloga="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-alias gfap="git fetch --all --prune"
+alias gfap="git fetch --all"
 alias gcS=gcs
-
-alias rstatus='git log --since=8:00am --author="Alexey Korolev" | grep -Eo "Close #[0-9]+" | sed "s/Close #//"  | xargs echo "/fhm" | tr -d "\\n" | pbcopy'
 
 # kubernetes
 alias k=kubectl
@@ -43,9 +40,6 @@ func fillredmine() {
         cd -
     fi
 }
-
-# measure curl timing (https://susam.in/maze/timing-with-curl.html)
-alias curlt='curl -L -w "time_namelookup: %{time_namelookup}\ntime_connect: %{time_connect}\ntime_appconnect: %{time_appconnect}\ntime_pretransfer: %{time_pretransfer}\ntime_redirect: %{time_redirect}\ntime_starttransfer: %{time_starttransfer}\ntime_total: %{time_total}\n"'
 
 # view files tree
 alias lt1='exa --tree -L1'
