@@ -33,6 +33,7 @@ vim.o.wrapscan                                       = true      -- Searches wra
 vim.o.report                                         = 0         -- Always report changed lines.
 vim.o.synmaxcol                                      = 200       -- Only highlight the first 200 columns.
 vim.o.list                                           = true      -- Show non-printable characters.
+vim.o.laststatus                                     = 3         -- Global statusline
 
 vim.cmd [[set display     +=lastline]] -- Show as much as possible of the last line.
 
@@ -83,8 +84,6 @@ let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-" global statusline
-set laststatus=3
 ]], false)
 
 vim.g.committia_hooks = {
