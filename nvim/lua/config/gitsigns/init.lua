@@ -1,6 +1,6 @@
 require('gitsigns').setup {
-    numhl = false,
-    linehl = false,
+    numhl = true,
+    linehl = true,
     keymaps = {
        noremap = true,
 
@@ -15,10 +15,6 @@ require('gitsigns').setup {
         ['n <leader>hR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
         ['n <leader>hp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
         ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-    },
-    watch_index = {
-        interval = 1000,
-        follow_files = true
     },
 }
 
