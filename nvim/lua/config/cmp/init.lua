@@ -1,6 +1,11 @@
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 local cmp_types = require"cmp.types.cmp"
 cmp.setup({
     completion = {
@@ -18,21 +23,21 @@ cmp.setup({
     mapping = {
         ['<C-e>'] = cmp.mapping.close(),
         ["<Tab>"] = cmp.mapping(function(fallback)
-            -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
             if cmp.visible() then
-                local entry = cmp.get_selected_entry()
-                if not entry then
-                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                else
-                    cmp.confirm()
-                end
+                cmp.select_next_item()
+            elseif vim.fn["vsnip#available"](1) == 1 then
+                feedkey("<Plug>(vsnip-expand-or-jump)", "")
+            elseif has_words_before() then
+                cmp.complete()
             else
-                fallback()
+                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
         end, {"i","s","c",}),
         ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
         ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Insert }),
+        ['<down>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Insert }),
         ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Insert }),
+        ['<up>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Insert }),
         ['<CR>'] = cmp.mapping.confirm { select = true },
     },
     formatting = {
@@ -68,17 +73,8 @@ cmp.setup.cmdline('/', {
 })
 
 cmp.setup.cmdline(':', {
+    completion = { autocomplete = false },
     mapping = cmp.mapping.preset.cmdline(),
-    view = {
-        entries = 'native',
-    },
-    sources = cmp.config.sources(
-    {
-        { name = 'path' }
-    },
-    {
-        { name = 'cmdline' }
-    })
 })
 
 vim.api.nvim_exec([[

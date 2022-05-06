@@ -55,3 +55,7 @@ for _, lsp in ipairs(servers) do
         }
     }
 end
+
+require('lint').linters_by_ft = {
+  go = {'golangcilint',}
+}

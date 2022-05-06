@@ -84,6 +84,10 @@ let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
+let g:do_filetype_lua                                = 1
+let g:did_load_filetypes                             = 0
+
+au BufWritePost <buffer> lua require('lint').try_lint()
 ]], false)
 
 vim.g.committia_hooks = {

@@ -142,4 +142,7 @@ return require('packer').startup(function(use)
             {'junegunn/fzf.vim'},
         },
     }
+
+    -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
+    use 'mfussenegger/nvim-lint'
 end)
