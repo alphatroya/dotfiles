@@ -47,9 +47,6 @@ for _, lsp in ipairs(servers) do
                 gofumpt = true,
             },
         },
-        init_options = {
-            usePlaceholders = true,
-        },
         flags = {
             debounce_text_changes = 150,
         }
