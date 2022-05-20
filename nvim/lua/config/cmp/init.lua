@@ -24,7 +24,7 @@ cmp.setup({
         ['<C-e>'] = cmp.mapping.close(),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
-                cmp.select_next_item()
+                cmp.select_next_item({ behavior = cmp_types.SelectBehavior.Select })
             elseif vim.fn["vsnip#available"](1) == 1 then
                 feedkey("<Plug>(vsnip-expand-or-jump)", "")
             elseif has_words_before() then
@@ -33,14 +33,14 @@ cmp.setup({
                 fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
             end
         end, {"i","s","c",}),
-        ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Insert }),
-        ['<down>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Insert }),
-        ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Insert }),
-        ['<up>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Insert }),
+        ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
+        ['<down>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
+        ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Select }),
+        ['<up>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<CR>'] = cmp.mapping.confirm { select = true },
     },
     formatting = {
-        format = lspkind.cmp_format({with_text = true, maxwidth = 50})
+        format = lspkind.cmp_format()
     },
     sources = {
         { name = 'vsnip' },
