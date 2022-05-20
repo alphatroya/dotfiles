@@ -1,4 +1,5 @@
 brew "bat"
+brew "difftastic"
 brew "exa"
 brew "fd"
 brew "fx"
