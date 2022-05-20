@@ -116,8 +116,6 @@ vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if',
 
 vim.o.completeopt = 'menu,menuone,noselect'
 
-vim.o.pastetoggle = '<F12>'
-
 require('config/lsp')
 require('config/cmp')
 require('config/treesitter')
