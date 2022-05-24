@@ -20,11 +20,9 @@ return require('packer').startup(function(use)
     use {
         'hrsh7th/nvim-cmp',
         requires = {
-            'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-vsnip',
+            'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-emoji',
-            'hrsh7th/cmp-calc',
             'onsails/lspkind-nvim',
         }
     }
@@ -110,9 +108,6 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- hightlight cursor location after huge jumping
-    use 'edluffy/specs.nvim'
-
     -- rainbow brackets
     use 'p00f/nvim-ts-rainbow'
 
@@ -123,8 +118,9 @@ return require('packer').startup(function(use)
     use {
         'hrsh7th/vim-vsnip',
         requires = {
+            'hrsh7th/vim-vsnip-integ',
             -- go snippets support
-            'golang/vscode-go'
+            'golang/vscode-go',
         }
     }
 

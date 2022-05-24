@@ -114,8 +114,6 @@ vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 vim.g.indent_blankline_show_current_context = true
 vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if', '^while', '^for', '^object', '^table', 'block', 'arguments'}
 
-vim.o.completeopt = 'menu,menuone,noselect'
-
 require('config/lsp')
 require('config/cmp')
 require('config/treesitter')
@@ -127,25 +125,6 @@ require('lualine').setup {
     options = {
         theme = 'dracula',
         globalstatus = true,
-    },
-}
-
-
-require('specs').setup {
-    show_jumps  = true,
-    min_jump = 15,
-    popup = {
-        delay_ms = 0,
-        inc_ms = 10,
-        blend = 10,
-        width = 20,
-        winhl = "PMenu",
-        fader = require('specs').exp_fader,
-        resizer = require('specs').shrink_resizer
-    },
-    ignore_filetypes = {},
-    ignore_buftypes = {
-        nofile = true,
     },
 }
 

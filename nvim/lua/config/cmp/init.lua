@@ -6,10 +6,14 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
 local cmp_types = require"cmp.types.cmp"
 cmp.setup({
     completion = {
-        completeopt = 'menu,menuone,noinsert',
+        completeopt = 'menu,menuone,noselect',
     },
     snippet = {
         expand = function(args)
@@ -22,32 +26,22 @@ cmp.setup({
     },
     mapping = {
         ['<C-e>'] = cmp.mapping.close(),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item({ behavior = cmp_types.SelectBehavior.Select })
-            elseif vim.fn["vsnip#available"](1) == 1 then
-                feedkey("<Plug>(vsnip-expand-or-jump)", "")
-            elseif has_words_before() then
-                cmp.complete()
-            else
-                fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-            end
-        end, {"i","s","c",}),
+        ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
-        ['<down>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Select }),
+        ['<down>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<up>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Select }),
-        ['<CR>'] = cmp.mapping.confirm { select = true },
+        ['<CR>'] = cmp.mapping.confirm {
+            select = true,
+        },
     },
     formatting = {
         format = lspkind.cmp_format()
     },
     sources = {
-        { name = 'vsnip' },
         { name = 'nvim_lsp' },
+        { name = 'vsnip' },
         { name = 'buffer' },
-        { name = 'calc'},
-        { name = 'emoji'},
     },
     experimental = {
         ghost_text = true,
@@ -60,7 +54,7 @@ cmp.setup.cmdline('/', {
         ["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "c"}),
         ["<tab>"] = cmp.mapping(
             cmp.mapping.confirm(),
-            {"i", "s", "c"}
+            {"i", "s"}
         ),
     },
     view = {
