@@ -48,23 +48,6 @@ cmp.setup({
     }
 })
 
-cmp.setup.cmdline('/', {
-    mapping = {
-        ["<c-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), {"i", "c"}),
-        ["<c-n>"] = cmp.mapping(cmp.mapping.select_next_item(), {"i", "c"}),
-        ["<tab>"] = cmp.mapping(
-            cmp.mapping.confirm(),
-            {"i", "s"}
-        ),
-    },
-    view = {
-        entries = {name = 'wildmenu', separator = '|' },
-    },
-    sources = {
-        { name = 'buffer' }
-    }
-})
-
 cmp.setup.cmdline(':', {
     completion = { autocomplete = false },
     mapping = cmp.mapping.preset.cmdline(),
