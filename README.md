@@ -9,7 +9,7 @@ To place all symlinks just call `make`.
 ### git
 
 Call `make` to create root config reference in the ~/.gitconfig file.
-Additionally you can create `git/private` file with private configuration like this:
+Additionally you can append some private info to it.
 
 ```git
 [user]
