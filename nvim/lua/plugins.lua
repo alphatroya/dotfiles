@@ -24,8 +24,12 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
             'onsails/lspkind-nvim',
+            'hrsh7th/cmp-copilot',
         }
     }
+
+    -- Live-updating Neovim LSP diagnostics in quickfix and loclist
+    use 'onsails/diaglist.nvim'
 
     -- Treesitter
     use {
@@ -110,6 +114,9 @@ return require('packer').startup(function(use)
 
     -- rainbow brackets
     use 'p00f/nvim-ts-rainbow'
+
+    -- copilot
+    use 'github/copilot.vim'
 
     -- show signature help during edition
     use 'ray-x/lsp_signature.nvim'

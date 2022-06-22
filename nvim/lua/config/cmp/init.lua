@@ -26,6 +26,7 @@ cmp.setup({
     },
     mapping = {
         ['<C-e>'] = cmp.mapping.close(),
+        ['<M-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
         ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Select }),
@@ -36,12 +37,19 @@ cmp.setup({
         },
     },
     formatting = {
-        format = lspkind.cmp_format()
+        format = function(entry, vim_item)
+            if entry.source.name == "copilot" then
+                vim_item.kind = " Copilot"
+                return vim_item
+            end
+            return lspkind.cmp_format()(entry, vim_item)
+        end,
     },
     sources = {
-        { name = 'nvim_lsp' },
-        { name = 'vsnip' },
-        { name = 'buffer' },
+        { name = 'copilot', group_index = 1 },
+        { name = 'nvim_lsp', group_index = 1 },
+        { name = 'vsnip', group_index = 2 },
+        { name = 'buffer', group_index = 2 },
     },
     experimental = {
         ghost_text = true,

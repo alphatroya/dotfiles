@@ -87,6 +87,9 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:do_filetype_lua                                = 1
 let g:did_load_filetypes                             = 0
 
+nmap <space>q <cmd>lua require('diaglist').open_all_diagnostics()<cr>
+nmap <space>l <cmd>lua require('diaglist').open_buffer_diagnostics()<cr>
+
 au BufWritePost <buffer> lua require('lint').try_lint()
 ]], false)
 
@@ -139,3 +142,9 @@ require'nvim-treesitter.configs'.setup {
 }
 
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
+
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true
+vim.g.copilot_tab_fallback = ""
+
+require("diaglist").init{}
