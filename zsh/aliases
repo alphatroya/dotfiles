@@ -25,7 +25,7 @@ func fillredmine() {
     local return="no"
     if [[ ! -f work.csv ]]; then
         return="yes"
-        cd /Users/alphatroya/Developer/stunning-enigma
+        cd /Users/alphatroya/src/github.com/alphatroya/stunning-enigma
     fi
 
     git pull
