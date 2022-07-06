@@ -11,10 +11,10 @@ return require('packer').startup(function(use)
     -- LSP config
     use 'neovim/nvim-lspconfig'
 
-    -- upstream is not updated a long time switch to the fork
-    -- More info:
-    -- https://github.com/glepnir/lspsaga.nvim/issues/241
-    use 'tami5/lspsaga.nvim'
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+    })
 
     -- Autocomplete
     use {
@@ -148,4 +148,7 @@ return require('packer').startup(function(use)
 
     -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
     use 'mfussenegger/nvim-lint'
+
+    -- hurl support
+    use 'fourjay/vim-hurl'
 end)
