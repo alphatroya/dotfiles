@@ -45,3 +45,5 @@ func fillredmine() {
 alias lt1='exa --tree -L1'
 alias lt2='exa --tree -L2'
 alias lt3='exa --tree -L3'
+
+alias -s git="git get"

@@ -8,7 +8,13 @@ lspsaga.init_lsp_saga {
     code_action_keys = {
         quit = {'q', '<esc>', '<C-c>'}, exec = '<CR>'
     },
-    symbol_in_winbar = true,
+    symbol_in_winbar = {
+        in_custom = false,
+        enable = true,
+        separator = ' ',
+        show_file = true,
+        click_support = false,
+    },
 }
 
 local opts = { noremap=true, silent=true }
