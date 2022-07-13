@@ -148,7 +148,4 @@ return require('packer').startup(function(use)
 
     -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
     use 'mfussenegger/nvim-lint'
-
-    -- hurl support
-    use 'fourjay/vim-hurl'
 end)
