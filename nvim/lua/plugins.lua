@@ -31,10 +31,31 @@ return require('packer').startup(function(use)
     -- Live-updating Neovim LSP diagnostics in quickfix and loclist
     use 'onsails/diaglist.nvim'
 
-    -- Treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
+        run = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = "all",
+                auto_install = true,
+                ignore_install = { "phpdoc" },
+                highlight = {
+                    enable = true,
+                    use_languagetree = true,
+                },
+                indent = {
+                    enable = true,
+                },
+            })
+        end,
+    }
+
+    -- Portable package manager for Neovim
+    use {
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end,
     }
 
     -- Theme
@@ -111,9 +132,6 @@ return require('packer').startup(function(use)
             'nvim-lua/plenary.nvim'
         }
     }
-
-    -- rainbow brackets
-    use 'p00f/nvim-ts-rainbow'
 
     -- copilot
     use 'github/copilot.vim'

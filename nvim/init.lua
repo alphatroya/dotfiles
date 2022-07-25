@@ -117,7 +117,6 @@ vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if',
 
 require('config/lsp')
 require('config/cmp')
-require('config/treesitter')
 require('config/gitsigns')
 require('config/fzf')
 require('config/lsp-saga')
@@ -132,13 +131,6 @@ require('lualine').setup {
 require('kommentary.config').configure_language("default", {
     prefer_single_line_comments = true,
 })
-
-require'nvim-treesitter.configs'.setup {
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-  }
-}
 
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
