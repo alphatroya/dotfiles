@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
     require 'illuminate'.on_attach(client)
 end
 
-local servers = { "gopls", "sourcekit", "vimls", "jsonls", "yamlls" }
+local servers = { "gopls", "sourcekit", "vimls", "jsonls", "yamlls", "phpactor" }
 for _, lsp in ipairs(servers) do
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true

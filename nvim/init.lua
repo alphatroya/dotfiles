@@ -112,9 +112,6 @@ vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', 'n', 'nzzzv', {noremap = true})
 vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 
-vim.g.indent_blankline_show_current_context = true
-vim.g.indent_blankline_context_patterns = {'class', 'function', 'method', '^if', '^while', '^for', '^object', '^table', 'block', 'arguments'}
-
 require('config/lsp')
 require('config/cmp')
 require('config/gitsigns')
@@ -139,3 +136,8 @@ vim.g.copilot_assume_mapped = true
 vim.g.copilot_tab_fallback = ""
 
 require("diaglist").init{}
+
+-- Disable virtual_text since it's redundant due to lsp_lines.
+vim.diagnostic.config({
+  virtual_text = false,
+})
