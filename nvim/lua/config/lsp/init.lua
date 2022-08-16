@@ -22,6 +22,7 @@ local on_attach = function(client, bufnr)
     }
     require "lsp_signature".on_attach(cfg, bufnr)
     require 'illuminate'.on_attach(client)
+    require("lsp-inlayhints").on_attach(bufnr, client)
 end
 
 local servers = { "gopls", "sourcekit", "vimls", "jsonls", "yamlls", "phpactor" }
@@ -42,6 +43,14 @@ for _, lsp in ipairs(servers) do
                 },
                 staticcheck = true,
                 gofumpt = true,
+                hints = {
+                    assignVariableTypes = true,
+                    constantValues = true,
+                    functionTypeParameters = true,
+                    compositeLiteralFields = true,
+                    parameterNames = true,
+                    rangeVariableTypes = true
+                },
             },
         },
         flags = {

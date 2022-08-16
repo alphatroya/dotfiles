@@ -50,19 +50,19 @@ return require('packer').startup(function(use)
         end,
     }
 
-    -- Portable package manager for Neovim
-    use {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
-    }
-
     -- Theme
     use 'dracula/vim'
 
     -- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
-    use 'tpope/vim-surround'
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit for the latest features
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+    end
+})
 
     -- Lualine
     use {
@@ -76,9 +76,6 @@ return require('packer').startup(function(use)
 
     -- Comment stuff out.
     use 'b3nj5m1n/kommentary'
-
-    -- Vim repeat
-    use 'tpope/vim-repeat'
 
     -- Underlines the word under the cursor
     use 'RRethy/vim-illuminate'
@@ -178,6 +175,13 @@ return require('packer').startup(function(use)
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         config = function()
             require("lsp_lines").setup()
+        end,
+    })
+
+    use({
+        "lvimuser/lsp-inlayhints.nvim",
+        config = function()
+            require("lsp-inlayhints").setup()
         end,
     })
 end)

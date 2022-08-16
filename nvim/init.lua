@@ -80,6 +80,8 @@ augroup illuminate_augroup
 augroup END
 let g:Illuminate_delay = 1000
 
+hi link LspInlayHint Comment
+
 let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
