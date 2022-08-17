@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-buffer',
             'onsails/lspkind-nvim',
             'hrsh7th/cmp-copilot',
+            'hrsh7th/cmp-nvim-lsp-signature-help'
         }
     }
 
@@ -138,9 +139,6 @@ return require('packer').startup(function(use)
 
     -- copilot
     use 'github/copilot.vim'
-
-    -- show signature help during edition
-    use 'ray-x/lsp_signature.nvim'
 
     -- snippets support
     use {

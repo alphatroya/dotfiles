@@ -20,7 +20,6 @@ local on_attach = function(client, bufnr)
         use_lspsaga = true,  -- set to true if you want to use lspsaga popup
         hi_parameter = "IncSearch", -- how your parameter will be highlight
     }
-    require "lsp_signature".on_attach(cfg, bufnr)
     require 'illuminate'.on_attach(client)
     require("lsp-inlayhints").on_attach(bufnr, client)
 end
