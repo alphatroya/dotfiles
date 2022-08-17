@@ -59,19 +59,13 @@ return require('packer').startup(function(use)
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit for the latest features
         config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-    end
+            require("nvim-surround").setup()
+        end
 })
 
     -- Lualine
     use {
         'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
-    use {
-        'romgrk/barbar.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 

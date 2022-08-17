@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
     require("lsp-inlayhints").on_attach(bufnr, client)
 end
 
-local servers = { "gopls", "sourcekit", "vimls", "jsonls", "yamlls", "phpactor" }
+local servers = { "gopls", "sourcekit", "jsonls", "yamlls", "phpactor" }
 for _, lsp in ipairs(servers) do
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
