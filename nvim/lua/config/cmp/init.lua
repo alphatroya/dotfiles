@@ -38,15 +38,10 @@ cmp.setup({
     },
     formatting = {
         format = function(entry, vim_item)
-            if entry.source.name == "copilot" then
-                vim_item.kind = " Copilot"
-                return vim_item
-            end
             return lspkind.cmp_format()(entry, vim_item)
         end,
     },
     sources = {
-        { name = 'copilot', group_index = 1 },
         { name = 'nvim_lsp', group_index = 1 },
         { name = 'nvim_lsp_signature_help', group_index = 1 },
         { name = 'vsnip', group_index = 2 },

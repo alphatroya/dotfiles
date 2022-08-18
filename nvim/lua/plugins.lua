@@ -24,13 +24,18 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
             'onsails/lspkind-nvim',
-            'hrsh7th/cmp-copilot',
             'hrsh7th/cmp-nvim-lsp-signature-help'
         }
     }
 
     -- Live-updating Neovim LSP diagnostics in quickfix and loclist
-    use 'onsails/diaglist.nvim'
+    use{
+        'onsails/diaglist.nvim',
+        config = function()
+            require("diaglist").init{}
+        end
+    }
+
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -130,9 +135,6 @@ return require('packer').startup(function(use)
             'nvim-lua/plenary.nvim'
         }
     }
-
-    -- copilot
-    use 'github/copilot.vim'
 
     -- snippets support
     use {
