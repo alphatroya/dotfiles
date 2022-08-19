@@ -149,16 +149,13 @@ return require('packer').startup(function(use)
     -- support file.txt:<line>:<column> file opening
     use 'wsdjeg/vim-fetch'
 
-    -- FZF support
+    -- Fuzzy finder support
     use {
-        'ojroques/nvim-lspfuzzy',
-        requires = {
-            {
-                'junegunn/fzf',
-                run = ":call fzf#install()",
-            },
-            {'junegunn/fzf.vim'},
-        },
+        'nvim-telescope/telescope.nvim', tag = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} },
+        config = function()
+            require('telescope').setup{}
+        end
     }
 
     -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.

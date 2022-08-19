@@ -18,9 +18,8 @@ local on_attach = function(client, bufnr)
 
     buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-    buf_set_keymap('n', 'gI', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', '<leader>ft', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
+    buf_set_keymap('n', 'gI', ':Telescope lsp_implementations<CR>', opts)
+    buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", opts)
 
     local cfg = {
         use_lspsaga = true,  -- set to true if you want to use lspsaga popup

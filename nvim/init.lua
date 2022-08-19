@@ -84,8 +84,6 @@ hi link LspInlayHint Comment
 
 let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
 let g:do_filetype_lua                                = 1
 let g:did_load_filetypes                             = 0
 
@@ -117,7 +115,7 @@ vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 require('config/lsp')
 require('config/cmp')
 require('config/gitsigns')
-require('config/fzf')
+require('config/fz')
 require('config/lsp-saga')
 
 require('lualine').setup {
