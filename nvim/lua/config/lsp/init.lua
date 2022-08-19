@@ -1,3 +1,9 @@
+local servers = { "gopls", "jsonls", "yamlls", "phpactor", "marksman" }
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = servers
+})
+
 local nvim_lsp = require('lspconfig')
 
 local on_attach = function(client, bufnr)
@@ -24,7 +30,6 @@ local on_attach = function(client, bufnr)
     require("lsp-inlayhints").on_attach(bufnr, client)
 end
 
-local servers = { "gopls", "sourcekit", "jsonls", "yamlls", "phpactor" }
 for _, lsp in ipairs(servers) do
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -61,3 +66,4 @@ end
 require('lint').linters_by_ft = {
   go = {'golangcilint',}
 }
+

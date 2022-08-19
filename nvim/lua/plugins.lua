@@ -165,17 +165,20 @@ return require('packer').startup(function(use)
     use 'mfussenegger/nvim-lint'
 
 
-    use({
+    use {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         config = function()
             require("lsp_lines").setup()
         end,
-    })
+    }
 
-    use({
+    use {
         "lvimuser/lsp-inlayhints.nvim",
         config = function()
             require("lsp-inlayhints").setup()
         end,
-    })
+    }
+
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
 end)
