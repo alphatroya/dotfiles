@@ -28,14 +28,10 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- Live-updating Neovim LSP diagnostics in quickfix and loclist
-    use{
-        'onsails/diaglist.nvim',
-        config = function()
-            require("diaglist").init{}
-        end
+    use {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
     }
-
 
     use {
         'nvim-treesitter/nvim-treesitter',
