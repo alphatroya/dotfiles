@@ -125,10 +125,6 @@ require('lualine').setup {
     },
 }
 
-require('kommentary.config').configure_language("default", {
-    prefer_single_line_comments = true,
-})
-
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
 -- Disable virtual_text since it's redundant due to lsp_lines.

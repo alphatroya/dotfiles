@@ -71,7 +71,12 @@ return require('packer').startup(function(use)
     }
 
     -- Comment stuff out.
-    use 'b3nj5m1n/kommentary'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
 
     -- Underlines the word under the cursor
     use 'RRethy/vim-illuminate'
