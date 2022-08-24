@@ -11,8 +11,6 @@
 	tool = vim_mergetool
 [mergetool "vim_mergetool"]
 	cmd = nvim "$MERGED"
-[commit]
-	gpgsign = true
 [push]
 	default = simple
 	autoSetupRemote = true
