@@ -1,6 +1,6 @@
 [core]
-	pager = delta
 	excludesfile = ~/.gitignore
+	pager = delta
 	autocrlf = input
 [interactive]
 	diffFilter = delta --color-only
@@ -16,8 +16,6 @@
 	autoSetupRemote = true
 [rebase]
 	autosquash = true
-[gpg]
-	program = /opt/homebrew/bin/gpg
 [mergetool]
 	keepBackup = false
 [color]
@@ -26,6 +24,12 @@
 	helper = osxkeychain
 [fetch]
 	prune = true
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[help]
+        autoCorrect = prompt
 [alias]
 	append = town append
 	hack = town hack
@@ -37,9 +41,3 @@
 	repo = town repo
 	ship = town ship
 	sync = town sync
-[pull]
-	rebase = false
-[init]
-	defaultBranch = main
-[help]
-        autoCorrect = prompt
