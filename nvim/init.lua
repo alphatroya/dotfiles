@@ -103,7 +103,7 @@ vim.g.committia_hooks = {
 vim.g.strip_whitespace_on_save = 1
 
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
-vim.api.nvim_set_keymap('n', '<leader>w', ':w!<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>w', ':wa!<cr>', { noremap = true })
 
 -- close active buffer
 vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
