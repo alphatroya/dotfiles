@@ -176,7 +176,4 @@ return require('packer').startup(function(use)
             require("lsp-inlayhints").setup()
         end,
     }
-
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
 end)

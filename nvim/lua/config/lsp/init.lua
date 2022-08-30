@@ -1,8 +1,4 @@
 local servers = { "gopls", "jsonls", "yamlls", "phpactor", "marksman" }
-require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = servers
-})
 
 local nvim_lsp = require('lspconfig')
 
