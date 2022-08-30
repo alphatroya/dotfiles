@@ -68,8 +68,6 @@ autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set synt
 " Configure skeletons
 autocmd BufNewFile *.sh 0r ~/.skeletons/bash.sh
 
-autocmd FileType swift nmap <leader>t :!swift test<CR>
-
 " vim-illuminate setup
 augroup illuminate_augroup
     autocmd!
@@ -87,9 +85,6 @@ let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 let g:do_filetype_lua                                = 1
 let g:did_load_filetypes                             = 0
 
-" nmap <space>q <cmd>lua require('diaglist').open_all_diagnostics()<cr>
-" nmap <space>l <cmd>lua require('diaglist').open_buffer_diagnostics()<cr>
-
 au BufWritePost <buffer> lua require('lint').try_lint()
 ]], false)
 
@@ -101,8 +96,11 @@ vim.g.committia_hooks = {
 
 -- automatically trim whitespaces on save, provided by vim-better-whitespace plugin
 vim.g.strip_whitespace_on_save = 1
+vim.g.strip_whitespace_confirm = 0
 
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
+
+-- save all
 vim.api.nvim_set_keymap('n', '<leader>w', ':wa!<cr>', { noremap = true })
 
 -- close active buffer
