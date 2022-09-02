@@ -1,6 +1,20 @@
 require("plugins")
 
-vim.cmd [[colorscheme dracula]] -- Set color scheme
+vim.o.termguicolors = true
+vim.g.catppuccin_flavour = "mocha"
+require("catppuccin").setup {
+    dim_inactive = {
+        enabled = true,
+        shade = "dark",
+        percentage = 0.15,
+    },
+    compile = {
+        enabled = true,
+        path = vim.fn.stdpath "cache" .. "/catppuccin"
+    },
+    lsp_saga = true,
+}
+vim.cmd [[colorscheme catppuccin]]
 
 vim.g.mapleader                                      = ' '
 vim.o.updatetime                                     = 250       -- Because 4 sec is insane
@@ -117,7 +131,7 @@ require('config/lsp-saga')
 
 require('lualine').setup {
     options = {
-        theme = 'dracula',
+        theme = 'catppuccin',
         globalstatus = true,
     },
 }

@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
     }
 
     -- Theme
-    use 'dracula/vim'
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
     use({
