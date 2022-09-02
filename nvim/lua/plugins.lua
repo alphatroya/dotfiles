@@ -62,7 +62,7 @@ return require('packer').startup(function(use)
         config = function()
             require("nvim-surround").setup()
         end
-})
+    })
 
     -- Lualine
     use {
@@ -92,18 +92,17 @@ return require('packer').startup(function(use)
         'ray-x/go.nvim',
         requires = {'ray-x/guihua.lua'},
         config = function()
-            require('go').setup()
+            local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+            require('go').setup({
+                lsp_cfg = {
+                    capabilities = capabilities,
+                },
+                lsp_on_attach = true,
+                trouble = true,
+            })
         end
 
     }
-    -- use {
-    --     'fatih/vim-go',
-    --     run = ':GoUpdateBinaries',
-    --     requires = {
-    --         'AndrewRadev/splitjoin.vim',
-    --         'buoto/gotests-vim' -- Support for gotests tool
-    --     }
-    -- }
 
     -- Exchange text regions
     use 'tommcdo/vim-exchange'
