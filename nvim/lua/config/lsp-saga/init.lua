@@ -1,3 +1,5 @@
+local keymap = vim.keymap.set
+
 local lspsaga = require('lspsaga')
 
 lspsaga.init_lsp_saga {
@@ -17,15 +19,20 @@ lspsaga.init_lsp_saga {
     },
 }
 
-local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<leader>gh', ':Lspsaga lsp_finder<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>rn', ':Lspsaga rename<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>ca', ':Lspsaga code_action<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>gr', ':Lspsaga lsp_finder<CR>', opts)
-vim.api.nvim_set_keymap('n', 'K', ':Lspsaga hover_doc<CR>', opts)
-vim.api.nvim_set_keymap('n', 'gpp', ':Lspsaga preview_definition<CR>', opts)
+keymap("n", "<leader>gr", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
--- ??
-vim.api.nvim_set_keymap('n', '<leader>e', ':Lspsaga show_line_diagnostics<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>cc', ':Lspsaga show_cursor_diagnostics<CR>', opts)
+keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+keymap("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
 
+keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
+
+keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+keymap("n", "gpp", "<cmd>Lspsaga preview_definition<CR>", { silent = true })
+
+-- Only jump to error
+keymap("n", "[e", function()
+  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+keymap("n", "]e", function()
+  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
