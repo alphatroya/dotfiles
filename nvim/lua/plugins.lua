@@ -89,13 +89,21 @@ return require('packer').startup(function(use)
 
     -- Golang support
     use {
-        'fatih/vim-go',
-        run = ':GoUpdateBinaries',
-        requires = {
-            'AndrewRadev/splitjoin.vim',
-            'buoto/gotests-vim' -- Support for gotests tool
-        }
+        'ray-x/go.nvim',
+        requires = {'ray-x/guihua.lua'},
+        config = function()
+            require('go').setup()
+        end
+
     }
+    -- use {
+    --     'fatih/vim-go',
+    --     run = ':GoUpdateBinaries',
+    --     requires = {
+    --         'AndrewRadev/splitjoin.vim',
+    --         'buoto/gotests-vim' -- Support for gotests tool
+    --     }
+    -- }
 
     -- Exchange text regions
     use 'tommcdo/vim-exchange'
@@ -170,10 +178,10 @@ return require('packer').startup(function(use)
         end,
     }
 
-    use {
-        "lvimuser/lsp-inlayhints.nvim",
-        config = function()
-            require("lsp-inlayhints").setup()
-        end,
-    }
+    -- use {
+    --     "lvimuser/lsp-inlayhints.nvim",
+    --     config = function()
+    --         require("lsp-inlayhints").setup()
+    --     end,
+    -- }
 end)

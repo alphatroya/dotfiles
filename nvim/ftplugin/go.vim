@@ -1,35 +1,10 @@
+autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
+
 setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab for golang
 
-nmap <leader>t <Plug>(go-test)
-nmap <leader>a :GoAlternate!<CR>
-nmap <leader>c <Plug>(go-coverage-toggle)
+nmap <leader>t :GoTest<CR>
+nmap <leader>a :GoAlt<CR>
+nmap <leader>gat :GoAddTag<CR>
 nmap <leader>if :GoIfErr<CR>
-nmap <leader>gat :GoAddTags<CR>
+nmap <leader>c :GoCoverage<CR>
 nmap <leader>gfs :GoFillStruct<CR>
-nmap <leader>gl :!golines -w %<CR>
-
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-    if l:file =~# '^\f\+_test\.go$'
-      call go#test#Test(0, 1)
-    elseif l:file =~# '^\f\+\.go$'
-      call go#cmd#Build(0)
-    endif
-endfunction
-
-nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-
-let g:go_gopls_enabled = 1
-let g:go_list_type='quickfix'
-let g:go_fmt_command='gopls'
-let g:go_imports_mode='gopls'
-let g:go_gopls_gofumpt=1
-let g:go_rename_command='gorename'
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-let g:go_fillstruct_mode='gopls'
-let g:go_addtags_transform = "camelcase"
-let g:go_auto_sameids = 0
-let g:go_doc_keywordprg_enabled = 0
-let g:go_metalinter_command = 'golangci-lint'

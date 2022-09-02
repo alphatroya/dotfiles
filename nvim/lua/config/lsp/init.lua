@@ -22,7 +22,7 @@ local on_attach = function(client, bufnr)
         hi_parameter = "IncSearch", -- how your parameter will be highlight
     }
     require 'illuminate'.on_attach(client)
-    require("lsp-inlayhints").on_attach(bufnr, client)
+    -- require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
 for _, lsp in ipairs(servers) do
