@@ -98,7 +98,6 @@ let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 
 let g:do_filetype_lua                                = 1
 
-au BufWritePost <buffer> lua require('lint').try_lint()
 ]], false)
 
 vim.g.committia_hooks = {

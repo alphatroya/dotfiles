@@ -167,21 +167,10 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- An asynchronous linter plugin for Neovim complementary to the built-in Language Server Protocol support.
-    use 'mfussenegger/nvim-lint'
-
-
     use {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
         config = function()
             require("lsp_lines").setup()
         end,
     }
-
-    -- use {
-    --     "lvimuser/lsp-inlayhints.nvim",
-    --     config = function()
-    --         require("lsp-inlayhints").setup()
-    --     end,
-    -- }
 end)
