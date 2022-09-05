@@ -102,9 +102,6 @@ return require('packer').startup(function(use)
     -- Exchange text regions
     use 'tommcdo/vim-exchange'
 
-    -- Additional next/previous mapping
-    use 'tpope/vim-unimpaired'
-
     -- Show mark symbols on the gutter
     use 'kshenoy/vim-signature'
 
