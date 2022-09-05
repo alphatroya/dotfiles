@@ -148,3 +148,44 @@ require('go').setup {
 require("trouble").setup {}
 vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>TroubleToggle<cr>", {silent = true})
 
+
+require "nvim-treesitter.configs".setup {
+    textobjects = {
+        enable = true,
+        keymaps = {
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["aC"] = "@class.outer",
+            ["iC"] = "@class.inner",
+        },
+        move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+                ["]m"] = "@function.outer",
+                ["]]"] = "@class.outer"
+            },
+            goto_next_end = {
+                ["]M"] = "@function.outer",
+                ["]["] = "@class.outer"
+            },
+            goto_previous_start = {
+                ["[m"] = "@function.outer",
+                ["[["] = "@class.outer"
+            },
+            goto_previous_end = {
+                ["[M"] = "@function.outer",
+                ["[]"] = "@class.outer"
+            }
+        },
+        select = {
+            enable = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+            }
+        },
+    }
+}

@@ -6,6 +6,7 @@ nmap <leader>b :GoBuild<CR>
 nmap <leader>t :GoTest<CR>
 nmap <leader>a :GoAlt<CR>
 nmap <leader>gat :GoAddTag<CR>
+nmap <leader>grt :GoGenReturn<CR>
 nmap <leader>if :GoIfErr<CR>
 nmap <leader>c :GoCoverage<CR>
 nmap <leader>gfs :GoFillStruct<CR>
