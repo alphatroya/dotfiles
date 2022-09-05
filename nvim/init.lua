@@ -162,6 +162,8 @@ require "nvim-treesitter.configs".setup {
             ["if"] = "@function.inner",
             ["aC"] = "@class.outer",
             ["iC"] = "@class.inner",
+            ["ia"] = "@parameter.inner",
+            ["aa"] = "@parameter.outer",
         },
         move = {
             enable = true,
@@ -190,6 +192,8 @@ require "nvim-treesitter.configs".setup {
                 ["if"] = "@function.inner",
                 ["ac"] = "@class.outer",
                 ["ic"] = "@class.inner",
+                ["ia"] = "@parameter.inner",
+                ["aa"] = "@parameter.outer",
             }
         },
     }

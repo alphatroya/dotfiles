@@ -1,4 +1,4 @@
-autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()
+autocmd BufWritePre *.go :silent! lua require('go.format').goimport()
 
 setlocal tabstop=4 shiftwidth=4 softtabstop=4 " using tab for golang
 
