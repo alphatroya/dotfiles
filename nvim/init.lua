@@ -76,6 +76,11 @@ call SetupCommandAlias('Цй', 'wq')
 call SetupCommandAlias('ЦЙ', 'wq')
 call SetupCommandAlias('цй', 'wq')
 
+
+" Disable command line history mode
+nnoremap q: <nop>
+nnoremap Q <nop>
+
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
