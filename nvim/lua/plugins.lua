@@ -14,6 +14,9 @@ return require('packer').startup(function(use)
     use({
         "glepnir/lspsaga.nvim",
         branch = "main",
+        config = function()
+            require('config/lsp-saga')
+        end,
     })
 
     -- Autocomplete
@@ -91,17 +94,6 @@ return require('packer').startup(function(use)
     use {
         'ray-x/go.nvim',
         requires = {'ray-x/guihua.lua'},
-        config = function()
-            local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-            require('go').setup({
-                lsp_cfg = {
-                    capabilities = capabilities,
-                },
-                lsp_on_attach = true,
-                trouble = true,
-            })
-        end
-
     }
 
     -- Exchange text regions
@@ -166,10 +158,4 @@ return require('packer').startup(function(use)
         end
     }
 
-    use {
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").setup()
-        end,
-    }
 end)

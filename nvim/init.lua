@@ -126,7 +126,6 @@ require('config/lsp')
 require('config/cmp')
 require('config/gitsigns')
 require('config/fz')
-require('config/lsp-saga')
 
 require('lualine').setup {
     options = {
@@ -137,10 +136,15 @@ require('lualine').setup {
 
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
--- Disable virtual_text since it's redundant due to lsp_lines.
-vim.diagnostic.config({
-  virtual_text = false,
-})
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+require('go').setup {
+    lsp_keymaps = false,
+    lsp_cfg = {
+        capabilities = capabilities,
+    },
+    trouble = true,
+}
 
 require("trouble").setup {}
-vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>q", "<cmd>TroubleToggle<cr>", {silent = true})
+

@@ -1,7 +1,4 @@
-local keymap = vim.keymap.set
-
 local lspsaga = require('lspsaga')
-
 lspsaga.init_lsp_saga {
     finder_action_keys = {
         open = {'<CR>', 'o'}, vsplit = 's',split = 'i',quit = {'q', '<esc>', '<C-c>'},
@@ -19,10 +16,11 @@ lspsaga.init_lsp_saga {
     },
 }
 
+local keymap = vim.keymap.set
 keymap("n", "<leader>gr", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
 keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-keymap("v", "<leader>ca", "<cmd><C-U>Lspsaga range_code_action<CR>", { silent = true })
+keymap("v", "<leader>ca", "<cmd>Lspsaga range_code_action<CR>", { silent = true })
 
 keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 
