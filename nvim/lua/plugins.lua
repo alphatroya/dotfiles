@@ -108,14 +108,6 @@ return require('packer').startup(function(use)
     -- Replace with register (a gr* key bindings)
     use 'vim-scripts/ReplaceWithRegister'
 
-    -- Spell checker based on treesitter plugin
-    use {
-        'lewis6991/spellsitter.nvim',
-        config = function()
-            require('spellsitter').setup()
-        end
-    }
-
     -- A super powerful autopairs for Neovim. It support multiple character.
     use 'jiangmiao/auto-pairs'
 
