@@ -159,6 +159,9 @@ vim.api.nvim_exec(
   false
 )
 
+vim.keymap.set('n', ']b', ':bnext<CR>')
+vim.keymap.set('n', '[b', ':bprev<CR>')
+
 require "nvim-treesitter.configs".setup {
     textobjects = {
         enable = true,
