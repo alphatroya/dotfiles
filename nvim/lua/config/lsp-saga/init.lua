@@ -25,7 +25,7 @@ lspsaga.init_lsp_saga {
 }
 
 local keymap = vim.keymap.set
-keymap("n", "<leader>gr", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+-- keymap("n", "<leader>gr", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
 keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -39,10 +39,3 @@ keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
--- Only jump to error
-keymap("n", "[e", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
-keymap("n", "]e", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
