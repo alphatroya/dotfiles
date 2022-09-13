@@ -8,13 +8,11 @@ local on_attach = function(client, bufnr)
 
     -- Mappings.
     local opts = { noremap=true, silent=true, buffer=bufnr }
-
     vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', '<leader>f', function()
         vim.lsp.buf.format { async = true }
     end, opts)
-
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('v', '<leader>ca', vim.lsp.buf.code_action, opts)
 

@@ -1,5 +1,4 @@
-local lspsaga = require('lspsaga')
-lspsaga.init_lsp_saga {
+require('lspsaga').init_lsp_saga {
     finder_action_keys = {
         open = {'<CR>', 'o'}, vsplit = 's',split = 'i',quit = {'q', '<esc>', '<C-c>'},
         scroll_down = '<C-f>',scroll_up = '<C-b>'
@@ -23,17 +22,4 @@ lspsaga.init_lsp_saga {
         auto_refresh = true,
     },
 }
-
-local keymap = vim.keymap.set
-
-keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-
-keymap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
--- keymap("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", { silent = true })
--- keymap("v", "<leader>a", "<cmd>Lspsaga range_code_action<CR>", { silent = true })
-
-keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
-
-keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 

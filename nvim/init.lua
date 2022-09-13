@@ -132,7 +132,7 @@ vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', {noremap = true})
 require('config/lsp')
 require('config/cmp')
 require('config/gitsigns')
-require('config/fz')
+require('config/mapping')
 
 require('lualine').setup {
     options = {
@@ -154,51 +154,3 @@ vim.api.nvim_exec(
   [[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]],
   false
 )
-
-vim.keymap.set('n', ']b', ':bnext<CR>')
-vim.keymap.set('n', '[b', ':bprev<CR>')
-
-require "nvim-treesitter.configs".setup {
-    textobjects = {
-        enable = true,
-        keymaps = {
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["aC"] = "@class.outer",
-            ["iC"] = "@class.inner",
-            ["ia"] = "@parameter.inner",
-            ["aa"] = "@parameter.outer",
-        },
-        move = {
-            enable = true,
-            set_jumps = true,
-            goto_next_start = {
-                ["]m"] = "@function.outer",
-                ["]]"] = "@class.outer"
-            },
-            goto_next_end = {
-                ["]M"] = "@function.outer",
-                ["]["] = "@class.outer"
-            },
-            goto_previous_start = {
-                ["[m"] = "@function.outer",
-                ["[["] = "@class.outer"
-            },
-            goto_previous_end = {
-                ["[M"] = "@function.outer",
-                ["[]"] = "@class.outer"
-            }
-        },
-        select = {
-            enable = true,
-            keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
-                ["ia"] = "@parameter.inner",
-                ["aa"] = "@parameter.outer",
-            }
-        },
-    }
-}

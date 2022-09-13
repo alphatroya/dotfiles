@@ -42,13 +42,51 @@ return require('packer').startup(function(use)
                 ensure_installed = "all",
                 auto_install = true,
                 ignore_install = { "phpdoc" },
-                highlight = {
+                highlight = { enable = true },
+                indent = { enable = true },
+                textobjects = {
                     enable = true,
-                    use_languagetree = true,
-                },
-                indent = {
-                    enable = true,
-                },
+                    keymaps = {
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["aC"] = "@class.outer",
+                        ["iC"] = "@class.inner",
+                        ["ia"] = "@parameter.inner",
+                        ["aa"] = "@parameter.outer",
+                    },
+                    move = {
+                        enable = true,
+                        set_jumps = true,
+                        goto_next_start = {
+                            ["]m"] = "@function.outer",
+                            ["]]"] = "@class.outer"
+                        },
+                        goto_next_end = {
+                            ["]M"] = "@function.outer",
+                            ["]["] = "@class.outer"
+                        },
+                        goto_previous_start = {
+                            ["[m"] = "@function.outer",
+                            ["[["] = "@class.outer"
+                        },
+                        goto_previous_end = {
+                            ["[M"] = "@function.outer",
+                            ["[]"] = "@class.outer"
+                        }
+                    },
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                            ["ac"] = "@class.outer",
+                            ["ic"] = "@class.inner",
+                            ["ia"] = "@parameter.inner",
+                            ["aa"] = "@parameter.outer",
+                        }
+                    },
+                }
             })
         end,
     }
