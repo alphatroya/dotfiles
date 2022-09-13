@@ -19,12 +19,11 @@ vim.keymap.set('n', ']b', ':bnext<CR>')
 vim.keymap.set('n', '[b', ':bprev<CR>')
 
 -- LSP
-vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { silent = true })
-vim.keymap.set('n', 'gD', '<Cmd>lua vim.lsp.buf.type_definition()<CR>', { silent = true })
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true, desc = '[G]oto [D]efinition' })
+vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, { silent = true })
 vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { silent = true })
-vim.keymap.set('n', "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 vim.keymap.set('n', "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-vim.keymap.set('n', "<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+vim.keymap.set('n', "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 vim.keymap.set('n', "<leader>gr", require('telescope.builtin').lsp_references)
 vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, { silent = true, desc = '[D]ocument [S]ymbols'})
 
