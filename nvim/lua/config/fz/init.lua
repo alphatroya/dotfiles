@@ -12,10 +12,10 @@ vim.keymap.set('n', '<leader>f/', ':Telescope resume<CR>', { noremap = true, sil
 vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>gr", require('telescope.builtin').lsp_references)
-vim.keymap.set('n', 'gg', function()
+vim.keymap.set('n', '<leader>sd', function()
     require('telescope.builtin').diagnostics({ bufnr = 0 })
 end)
-vim.keymap.set('n', 'gG', require('telescope.builtin').diagnostics)
+vim.keymap.set('n', '<leader>sD', require('telescope.builtin').diagnostics, { desc = "[S]earch [D]iagnostic" })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
