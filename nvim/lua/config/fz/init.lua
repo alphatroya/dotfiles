@@ -7,6 +7,9 @@ vim.keymap.set('n', '<leader>fb', ':Telescope buffers<CR>', { noremap = true, si
 vim.keymap.set('n', '<leader>fl', ':Telescope current_buffer_fuzzy_find<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>f?', ':Telescope oldfiles<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>f/', ':Telescope resume<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>f/', ':Telescope resume<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>gr", require('telescope.builtin').lsp_references)
 vim.keymap.set('n', 'gg', function()

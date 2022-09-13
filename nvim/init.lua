@@ -143,14 +143,10 @@ require('lualine').setup {
 
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 require('go').setup {
     goimport = "goimports",
     lsp_keymaps = false,
     lsp_gofumpt = true,
-    lsp_cfg = {
-        capabilities = capabilities,
-    },
     tag_transform = 'camelcase',
 }
 

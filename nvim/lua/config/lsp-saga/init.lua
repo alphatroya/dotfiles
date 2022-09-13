@@ -25,15 +25,13 @@ lspsaga.init_lsp_saga {
 }
 
 local keymap = vim.keymap.set
--- keymap("n", "<leader>gr", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
 keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
 keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
 keymap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
-
-keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-keymap("v", "<leader>ca", "<cmd>Lspsaga range_code_action<CR>", { silent = true })
+-- keymap("n", "<leader>a", "<cmd>Lspsaga code_action<CR>", { silent = true })
+-- keymap("v", "<leader>a", "<cmd>Lspsaga range_code_action<CR>", { silent = true })
 
 keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 
