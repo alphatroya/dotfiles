@@ -1,4 +1,11 @@
 require('gitsigns').setup {
+    signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+    },
     numhl = true,
     linehl = false,
     on_attach = function(bufnr)
