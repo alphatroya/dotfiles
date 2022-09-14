@@ -9,6 +9,7 @@ vim.keymap.set('n', '<leader>s/', ':Telescope resume<CR>', { silent = true })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostic' })
 vim.keymap.set('n', 'z=', require('telescope.builtin').spell_suggest)
 vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, {desc = '[S]earch [K]eymaps'})
+vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_document_symbols, { silent = true, desc = '[S]earch Document [S]ymbols'})
 
 -- Diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -27,5 +28,4 @@ vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { si
 vim.keymap.set('n', "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 vim.keymap.set('n', "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 vim.keymap.set('n', "<leader>gr", require('telescope.builtin').lsp_references, { desc = '[G]oto [R]eferences' })
-vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, { silent = true, desc = '[D]ocument [S]ymbols'})
 
