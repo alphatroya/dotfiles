@@ -7,6 +7,7 @@ vim.keymap.set('n', '<leader>sw', ':Telescope grep_string<CR>', { silent = true,
 vim.keymap.set('n', '<leader>s?', ':Telescope oldfiles<CR>', { silent = true, desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>s/', ':Telescope resume<CR>', { silent = true })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostic' })
+vim.keymap.set('n', 'z=', require('telescope.builtin').spell_suggest)
 
 -- Diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
