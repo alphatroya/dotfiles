@@ -1,5 +1,5 @@
 -- Telescope
-vim.keymap.set('n', '<leader><leader>', ':Telescope buffers<CR>', { silent = true, desc = '[ ] Find existing buffers'  })
+vim.keymap.set('n', '<leader><leader>', ':Telescope buffers<CR>', { silent = true, desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>sf', ':Telescope git_files<CR>', { silent = true, desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sc', ':Telescope git_status<CR>', { silent = true, desc = '[S]earch [C]hanged' })
 vim.keymap.set('n', '<leader>sg', ':Telescope live_grep<CR>', { silent = true, desc = '[S]earch by [G]rep' })
@@ -8,6 +8,7 @@ vim.keymap.set('n', '<leader>s?', ':Telescope oldfiles<CR>', { silent = true, de
 vim.keymap.set('n', '<leader>s/', ':Telescope resume<CR>', { silent = true })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostic' })
 vim.keymap.set('n', 'z=', require('telescope.builtin').spell_suggest)
+vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, {desc = '[S]earch [K]eymaps'})
 
 -- Diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -21,10 +22,10 @@ vim.keymap.set('n', '[b', ':bprev<CR>')
 
 -- LSP
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true, desc = '[G]oto [D]efinition' })
-vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, { silent = true })
-vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { silent = true })
+vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, { silent = true, desc = '[G]oto type [D]efinition' })
+vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations, { silent = true, desc = '[G]oto [I]mplementations' })
 vim.keymap.set('n', "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 vim.keymap.set('n', "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
-vim.keymap.set('n', "<leader>gr", require('telescope.builtin').lsp_references)
+vim.keymap.set('n', "<leader>gr", require('telescope.builtin').lsp_references, { desc = '[G]oto [R]eferences' })
 vim.keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, { silent = true, desc = '[D]ocument [S]ymbols'})
 
