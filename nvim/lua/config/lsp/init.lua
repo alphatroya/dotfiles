@@ -3,6 +3,18 @@ local servers = { "gopls", "jsonls", "yamlls", "phpactor", "bufls" }
 local nvim_lsp = require('lspconfig')
 
 local on_attach = function(client, bufnr)
+    client.server_capabilities.documentFormattingProvider = true
+    if client.server_capabilities.documentFormattingProvider then
+      local au_lsp = vim.api.nvim_create_augroup("format_lsp", { clear = true })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        pattern = "*",
+        callback = function()
+          vim.lsp.buf.format({ async = false })
+        end,
+        group = au_lsp,
+      })
+    end
+
     --Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 

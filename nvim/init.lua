@@ -150,7 +150,3 @@ require('go').setup {
     tag_transform = 'camelcase',
 }
 
-vim.api.nvim_exec(
-  [[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]],
-  false
-)
