@@ -10,6 +10,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', 'z=', require('telescope.builtin').spell_suggest)
 vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, {desc = '[S]earch [K]eymaps'})
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_document_symbols, { silent = true, desc = '[S]earch Document [S]ymbols'})
+vim.keymap.set('n', '<leader>st', ':TodoTelescope<CR>', { silent = true, desc = '[S]earch [T]ODO marks' })
 
 -- Diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)

@@ -145,6 +145,7 @@ vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
 require('go').setup {
     goimport = "goimports",
+    lsp_cfg = false,
     lsp_keymaps = false,
     lsp_gofumpt = true,
     tag_transform = 'camelcase',
