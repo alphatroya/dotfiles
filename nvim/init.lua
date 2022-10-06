@@ -48,6 +48,7 @@ vim.o.report                                         = 0         -- Always repor
 vim.o.synmaxcol                                      = 200       -- Only highlight the first 200 columns.
 vim.o.list                                           = true      -- Show non-printable characters.
 vim.o.laststatus                                     = 3         -- Global statusline
+vim.o.cmdheight                                      = 0         -- Hide cmdline
 
 vim.cmd [[set display     +=lastline]] -- Show as much as possible of the last line.
 
