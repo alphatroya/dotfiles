@@ -1,5 +1,7 @@
 -- Telescope
-vim.keymap.set('n', '<leader><leader>', ':Telescope buffers<CR>', { silent = true, desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader><leader>', function()
+    require('telescope.builtin').buffers({ sort_mru = true, ignore_current_buffer = true })
+end, { silent = true, desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>sf', ':Telescope git_files<CR>', { silent = true, desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sc', ':Telescope git_status<CR>', { silent = true, desc = '[S]earch [C]hanged' })
 vim.keymap.set('n', '<leader>sg', ':Telescope live_grep<CR>', { silent = true, desc = '[S]earch by [G]rep' })

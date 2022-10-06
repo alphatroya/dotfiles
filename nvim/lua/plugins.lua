@@ -187,7 +187,7 @@ return require('packer').startup(function(use)
                     ["ui-select"] = {
                         require("telescope.themes").get_dropdown {}
                     }
-                }
+                },
             }
             require("telescope").load_extension("ui-select")
         end
