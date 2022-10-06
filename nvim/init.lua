@@ -101,8 +101,6 @@ hi link LspInlayHint Comment
 
 let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 
-let g:do_filetype_lua                                = 1
-
 nnoremap gp `[v`]
 
 ]], false)
