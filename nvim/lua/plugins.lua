@@ -193,7 +193,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- TODO hightlighting
+    -- todo hightlighting
     use {
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
@@ -203,5 +203,16 @@ return require('packer').startup(function(use)
         end
     }
 
-
+    use {
+        'gorbit99/codewindow.nvim',
+        config = function()
+            local codewindow = require('codewindow')
+            codewindow.setup()
+            -- <leader>mo - open the minimap
+            -- <leader>mc - close the minimap
+            -- <leader>mf - focus/unfocus the minimap
+            -- <leader>mm - toggle the minimap
+            codewindow.apply_default_keybinds()
+        end,
+    }
 end)
