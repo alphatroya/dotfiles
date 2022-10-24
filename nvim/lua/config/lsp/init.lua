@@ -1,4 +1,4 @@
-local servers = { "gopls", "jsonls", "yamlls", "phpactor", "bufls" }
+local servers = { "gopls",  "rls", "jsonls", "yamlls", "phpactor", "bufls" }
 
 local nvim_lsp = require('lspconfig')
 
