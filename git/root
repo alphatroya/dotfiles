@@ -24,6 +24,8 @@
 	defaultBranch = main
 [help]
         autoCorrect = prompt
+[status]
+        short = true
 [alias]
 	append = town append
 	hack = town hack
