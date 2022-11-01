@@ -1,7 +1,7 @@
 require("plugins")
 
 vim.o.termguicolors = true
-vim.g.catppuccin_flavour = "mocha"
+vim.g.catppuccin_flavour = "latte"
 require("catppuccin").setup {
     dim_inactive = {
         enabled = true,
