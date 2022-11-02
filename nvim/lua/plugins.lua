@@ -141,9 +141,6 @@ return require('packer').startup(function(use)
     -- Replace with register (a gr* key bindings)
     use 'vim-scripts/ReplaceWithRegister'
 
-    -- A super powerful autopairs for Neovim. It support multiple character.
-    use 'jiangmiao/auto-pairs'
-
     -- Indent line plugin
     use {
         'lukas-reineke/indent-blankline.nvim',
