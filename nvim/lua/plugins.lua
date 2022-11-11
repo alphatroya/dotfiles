@@ -106,7 +106,7 @@ return require('packer').startup(function(use)
     -- Lualine
     use {
         'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 
     -- Comment stuff out.
@@ -129,7 +129,7 @@ return require('packer').startup(function(use)
     -- Golang support
     use {
         'ray-x/go.nvim',
-        requires = {'ray-x/guihua.lua'},
+        requires = { 'ray-x/guihua.lua' },
     }
 
     -- Exchange text regions
@@ -195,8 +195,7 @@ return require('packer').startup(function(use)
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
-            require("todo-comments").setup {
-            }
+            require("todo-comments").setup {}
         end
     }
 
@@ -210,6 +209,27 @@ return require('packer').startup(function(use)
             -- <leader>mf - focus/unfocus the minimap
             -- <leader>mm - toggle the minimap
             codewindow.apply_default_keybinds()
+        end,
+    }
+
+    use {
+        'williamboman/mason-lspconfig.nvim',
+        requires = {
+            'williamboman/mason.nvim',
+            'neovim/nvim-lspconfig',
+            'jose-elias-alvarez/null-ls.nvim',
+        },
+        config = function()
+            require("mason").setup()
+            require("mason-lspconfig").setup()
+
+            local null_ls = require("null-ls")
+            null_ls.setup({
+                sources = {
+                    null_ls.builtins.diagnostics.checkmake,
+                    null_ls.builtins.formatting.goimports,
+                },
+            })
         end,
     }
 end)
