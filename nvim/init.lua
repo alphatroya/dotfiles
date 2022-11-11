@@ -50,6 +50,9 @@ vim.o.list                                           = true      -- Show non-pri
 vim.o.laststatus                                     = 3         -- Global statusline
 vim.o.cmdheight                                      = 0         -- Hide cmdline
 
+-- Avoid showing extra messages when using completion
+vim.opt.shortmess = vim.opt.shortmess + "c"
+
 vim.cmd [[set display     +=lastline]] -- Show as much as possible of the last line.
 
 vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'

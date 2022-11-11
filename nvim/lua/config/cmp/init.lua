@@ -12,8 +12,9 @@ end
 
 local cmp_types = require"cmp.types.cmp"
 cmp.setup({
+    preselect = cmp.PreselectMode.None,
     completion = {
-        completeopt = 'menu,menuone,noselect',
+        completeopt = 'menuone,noinsert,noselect',
     },
     snippet = {
         expand = function(args)
@@ -33,6 +34,7 @@ cmp.setup({
         ['<down>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<up>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<CR>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
     },
