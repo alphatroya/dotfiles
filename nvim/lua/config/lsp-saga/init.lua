@@ -1,11 +1,14 @@
 require('lspsaga').init_lsp_saga {
     finder_action_keys = {
-        open = {'<CR>', 'o'}, vsplit = 's',split = 'i',quit = {'q', '<esc>', '<C-c>'},
-        scroll_down = '<C-f>',scroll_up = '<C-b>'
+        open = { '<CR>', 'o' }, vsplit = 's', split = 'i', quit = { 'q', '<esc>', '<C-c>' },
+        scroll_down = '<C-f>', scroll_up = '<C-b>'
     },
     rename_in_select = false,
     code_action_keys = {
-        quit = {'q', '<esc>', '<C-c>'}, exec = '<CR>'
+        quit = { 'q', '<esc>', '<C-c>' }, exec = '<CR>'
+    },
+    code_action_lightbulb = {
+        enable = false,
     },
     symbol_in_winbar = {
         in_custom = false,
@@ -22,4 +25,3 @@ require('lspsaga').init_lsp_saga {
         auto_refresh = true,
     },
 }
-

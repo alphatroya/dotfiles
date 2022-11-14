@@ -133,7 +133,6 @@ vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true })
 
 require('config/lsp')
 require('config/cmp')
-require('config/gitsigns')
 require('config/mapping')
 
 require('lualine').setup {

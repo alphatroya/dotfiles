@@ -154,8 +154,55 @@ return require('packer').startup(function(use)
     use {
         'lewis6991/gitsigns.nvim',
         requires = {
-            'nvim-lua/plenary.nvim'
-        }
+            'nvim-lua/plenary.nvim',
+            'petertriho/nvim-scrollbar',
+        },
+        config = function()
+            require('gitsigns').setup {
+                signs = {
+                    add = { text = '+' },
+                    change = { text = '~' },
+                    delete = { text = '_' },
+                    topdelete = { text = '‾' },
+                    changedelete = { text = '~' },
+                },
+                numhl = true,
+                linehl = false,
+                on_attach = function(bufnr)
+                    local gs = package.loaded.gitsigns
+
+                    local function map(mode, l, r, opts)
+                        opts = opts or {}
+                        opts.buffer = bufnr
+                        vim.keymap.set(mode, l, r, opts)
+                    end
+
+                    -- Actions
+                    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+                    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+                    map('n', '<leader>hu', gs.undo_stage_hunk)
+                    map('n', '<leader>hR', gs.reset_buffer)
+                    map('n', '<leader>hp', gs.preview_hunk)
+                    map('n', '<leader>hb', function() gs.blame_line { full = true } end)
+                end
+            }
+
+            require("scrollbar.handlers.gitsigns").setup()
+        end
+    }
+
+
+    -- nvim-hlslens helps you better glance at matched information, seamlessly jump between matched instances.
+    use {
+        'kevinhwang91/nvim-hlslens',
+        requires = {
+            'petertriho/nvim-scrollbar',
+        },
+        config = function()
+            -- require('hlslens').setup()
+            require("scrollbar.handlers.search").setup({
+            })
+        end
     }
 
     -- snippets support
@@ -200,15 +247,9 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'gorbit99/codewindow.nvim',
+        'petertriho/nvim-scrollbar',
         config = function()
-            local codewindow = require('codewindow')
-            codewindow.setup()
-            -- <leader>mo - open the minimap
-            -- <leader>mc - close the minimap
-            -- <leader>mf - focus/unfocus the minimap
-            -- <leader>mm - toggle the minimap
-            codewindow.apply_default_keybinds()
+            require("scrollbar").setup()
         end,
     }
 
@@ -226,10 +267,30 @@ return require('packer').startup(function(use)
             local null_ls = require("null-ls")
             null_ls.setup({
                 sources = {
+                    null_ls.builtins.code_actions.refactoring,
                     null_ls.builtins.diagnostics.checkmake,
                     null_ls.builtins.formatting.goimports,
                 },
             })
+        end,
+    }
+
+    use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-treesitter/nvim-treesitter" }
+        },
+        config = function()
+            require('refactoring').setup {
+                prompt_func_return_type = {
+                    go = true,
+                },
+
+                prompt_func_param_type = {
+                    go = true,
+                },
+            }
         end,
     }
 end)
