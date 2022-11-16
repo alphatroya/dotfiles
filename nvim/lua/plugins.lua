@@ -149,7 +149,6 @@ return require('packer').startup(function(use)
         end,
     }
 
-
     -- Super fast git decorations implemented purely in lua/teal.
     use {
         'lewis6991/gitsigns.nvim',
@@ -199,9 +198,7 @@ return require('packer').startup(function(use)
             'petertriho/nvim-scrollbar',
         },
         config = function()
-            -- require('hlslens').setup()
-            require("scrollbar.handlers.search").setup({
-            })
+            require("scrollbar.handlers.search").setup()
         end
     }
 
@@ -293,4 +290,5 @@ return require('packer').startup(function(use)
             }
         end,
     }
+
 end)
