@@ -291,4 +291,14 @@ return require('packer').startup(function(use)
         end,
     }
 
+    -- TreeSJ: split or join blocks of code
+    use {
+        'Wansmer/treesj',
+        requires = { 'nvim-treesitter' },
+        config = function()
+            -- (<space>m - toggle, <space>j - join, <space>s - split)
+            require('treesj').setup {}
+        end,
+    }
+
 end)
