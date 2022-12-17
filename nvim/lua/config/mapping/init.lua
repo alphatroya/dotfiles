@@ -35,7 +35,8 @@ vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations,
     { silent = true, desc = '[G]oto [I]mplementations' })
 vim.keymap.set('n', "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 vim.keymap.set('n', "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
-vim.keymap.set('n', "<leader>gr", require('telescope.builtin').lsp_references, { desc = '[G]oto [R]eferences' })
+vim.api.nvim_set_keymap("n", "<leader>gr", "<cmd>Lspsaga lsp_finder<CR>",
+    { silent = true, desc = '[G]oto [R]eferences' })
 
 -- Remaps for the refactoring
 require("telescope").load_extension("refactoring")
