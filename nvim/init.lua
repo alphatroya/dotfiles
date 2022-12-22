@@ -11,8 +11,16 @@ require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- LSP config
-    use 'neovim/nvim-lspconfig'
+    -- LSP Configuration & Plugins
+    use {
+        'neovim/nvim-lspconfig',
+        requires = {
+            -- Automatically install LSPs to stdpath for neovim
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'jose-elias-alvarez/null-ls.nvim',
+        },
+    }
 
     use({
         "glepnir/lspsaga.nvim",
@@ -116,7 +124,6 @@ require('packer').startup(function(use)
     -- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
     use({
         "kylechui/nvim-surround",
-        tag = "*", -- Use for stability; omit for the latest features
         config = function()
             require("nvim-surround").setup()
         end
@@ -125,7 +132,10 @@ require('packer').startup(function(use)
     -- Lualine
     use {
         'hoob3rt/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+            opt = true,
+        }
     }
 
     -- Comment stuff out.
@@ -148,7 +158,9 @@ require('packer').startup(function(use)
     -- Golang support
     use {
         'ray-x/go.nvim',
-        requires = { 'ray-x/guihua.lua' },
+        requires = {
+            'ray-x/guihua.lua',
+        },
     }
 
     -- Exchange text regions
@@ -164,7 +176,10 @@ require('packer').startup(function(use)
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = function()
-            require("indent_blankline").setup {}
+            require("indent_blankline").setup {
+                char = '┊',
+                show_trailing_blankline_indent = false,
+            }
         end,
     }
 
@@ -236,7 +251,7 @@ require('packer').startup(function(use)
 
     -- Fuzzy finder support
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.x',
+        'nvim-telescope/telescope.nvim',
         requires = {
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-ui-select.nvim',
@@ -270,28 +285,6 @@ require('packer').startup(function(use)
     }
 
     use {
-        'williamboman/mason-lspconfig.nvim',
-        requires = {
-            'williamboman/mason.nvim',
-            'neovim/nvim-lspconfig',
-            'jose-elias-alvarez/null-ls.nvim',
-        },
-        config = function()
-            require("mason").setup()
-            require("mason-lspconfig").setup()
-
-            local null_ls = require("null-ls")
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.code_actions.refactoring,
-                    null_ls.builtins.diagnostics.checkmake,
-                    null_ls.builtins.formatting.goimports,
-                },
-            })
-        end,
-    }
-
-    use {
         "ThePrimeagen/refactoring.nvim",
         requires = {
             { "nvim-lua/plenary.nvim" },
@@ -313,10 +306,12 @@ require('packer').startup(function(use)
     -- TreeSJ: split or join blocks of code
     use {
         'Wansmer/treesj',
-        requires = { 'nvim-treesitter' },
+        requires = {
+            'nvim-treesitter',
+        },
         config = function()
             -- (<space>m - toggle, <space>j - join, <space>s - split)
-            require('treesj').setup {}
+            require('treesj').setup()
         end,
     }
 
@@ -382,8 +377,6 @@ vim.o.completeopt = 'menuone,noselect'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 vim.o.autowrite       = true -- Enable auto save before :make command
@@ -413,8 +406,6 @@ vim.wo.relativenumber = true
 -- Avoid showing extra messages when using completion
 vim.opt.shortmess = vim.opt.shortmess + "c"
 
-vim.cmd [[set display     +=lastline]] -- Show as much as possible of the last line.
-
 vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
 
 vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
@@ -440,7 +431,6 @@ call SetupCommandAlias('Цй', 'wq')
 call SetupCommandAlias('ЦЙ', 'wq')
 call SetupCommandAlias('цй', 'wq')
 
-
 " Disable command line history mode
 nnoremap q: <nop>
 nnoremap Q <nop>
@@ -465,8 +455,6 @@ hi link LspInlayHint Comment
 
 let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 
-nnoremap gp `[v`]
-
 ]]   , false)
 
 vim.g.committia_hooks = {
@@ -485,13 +473,100 @@ vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=tru
 vim.api.nvim_set_keymap('n', '<leader>w', ':wa!<cr>', { noremap = true })
 
 -- close active buffer
-vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>bd', 'bd<CR>', { noremap = true })
 
--- keep it centered
-vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true })
-vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true })
+-- lsp configuration
+local servers = {
+    gopls = {
+        experimentalPostfixCompletions = true,
+        analyses = {
+            unusedparams = true,
+            shadow = true,
+        },
+        staticcheck = true,
+        gofumpt = true,
+        hints = {
+            assignVariableTypes = true,
+            constantValues = true,
+            functionTypeParameters = true,
+            compositeLiteralFields = true,
+            parameterNames = true,
+            rangeVariableTypes = true
+        },
+    },
+    rust_analyzer = {},
+    jsonls = {},
+    yamlls = {},
+    bufls = {},
+    sumneko_lua = {
+        diagnostics = {
+            globals = { 'vim' },
+        },
+        workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+        },
+    },
+}
 
-require('config/lsp')
+-- LSP settings.
+local on_attach = function(client, bufnr)
+    client.server_capabilities.documentFormattingProvider = true
+    if client.server_capabilities.documentFormattingProvider then
+        local au_lsp = vim.api.nvim_create_augroup("format_lsp", { clear = true })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*",
+            callback = function()
+                vim.lsp.buf.format({ async = false })
+            end,
+            group = au_lsp,
+        })
+    end
+
+    --Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'vlua.vim.lsp.omnifunc')
+
+    -- Mappings.
+    local opts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set('n', '<leader>f', function()
+        vim.lsp.buf.format { async = true }
+    end, opts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('v', '<leader>ca', vim.lsp.buf.code_action, opts)
+
+    require 'illuminate'.on_attach(client)
+end
+
+-- Setup mason so it can manage external tooling
+require('mason').setup()
+
+-- Ensure the servers above are installed
+local mason_lspconfig = require 'mason-lspconfig'
+
+mason_lspconfig.setup {
+    ensure_installed = vim.tbl_keys(servers),
+}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+mason_lspconfig.setup_handlers {
+    function(server_name)
+        require('lspconfig')[server_name].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = servers[server_name],
+        }
+    end,
+}
+
+local null_ls = require("null-ls")
+null_ls.setup({
+    sources = {
+        null_ls.builtins.code_actions.refactoring,
+        null_ls.builtins.diagnostics.checkmake,
+        null_ls.builtins.formatting.goimports,
+    },
+})
+
 require('config/cmp')
 require('config/mapping')
 
@@ -504,6 +579,7 @@ require('lualine').setup {
 
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
+-- go language config
 require('go').setup {
     test_runner = 'richgo',
     lsp_cfg = false,
