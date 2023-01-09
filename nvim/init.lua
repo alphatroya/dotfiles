@@ -315,6 +315,13 @@ require('packer').startup(function(use)
         end,
     }
 
+    use {
+        'asiryk/auto-hlsearch.nvim',
+        config = function()
+            require("auto-hlsearch").setup()
+        end,
+    }
+
     if is_bootstrap then
         require('packer').sync()
     end
