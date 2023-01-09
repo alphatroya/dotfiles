@@ -435,6 +435,9 @@ call SetupCommandAlias('цй', 'wq')
 nnoremap q: <nop>
 nnoremap Q <nop>
 
+" Reselect pasted text
+nnoremap gp `[v`]
+
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
