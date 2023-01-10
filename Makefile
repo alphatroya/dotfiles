@@ -1,6 +1,5 @@
 CURRENT_FOLDER:=$(shell pwd)
 NVIM:=~/.config/nvim
-IDEAVIMRC:=~/.ideavimrc
 ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
 FZF=~/.fzf.zsh
 SNIPPETS:=~/.vsnip
@@ -8,7 +7,7 @@ XCODE_SNIPPETS:=~/Library/Developer/Xcode/UserData/CodeSnippets
 VIM_SKELETONS:=~/.skeletons
 
 .PHONY: all
-all: $(NVIM) $(IDEAVIMRC) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS) $(VIM_SKELETONS)
+all: $(NVIM) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS) $(VIM_SKELETONS)
 	cd git && make
 
 $(SNIPPETS): $(CURRENT_FOLDER)/snippets
@@ -18,9 +17,6 @@ $(NVIM): $(CURRENT_FOLDER)/nvim
 	ln -sf $< $@
 
 $(VIM_SKELETONS): $(CURRENT_FOLDER)/nvim/skeletons
-	ln -sf $< $@
-
-$(IDEAVIMRC): $(CURRENT_FOLDER)/ideavim/.ideavimrc
 	ln -sf $< $@
 
 $(FZF):
