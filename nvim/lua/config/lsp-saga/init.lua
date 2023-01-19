@@ -1,4 +1,4 @@
-require('lspsaga').init_lsp_saga {
+require('lspsaga').setup {
     finder_action_keys = {
         open = { '<CR>', 'o' }, vsplit = 's', split = 'i', quit = { 'q', '<esc>', '<C-c>' },
         scroll_down = '<C-f>', scroll_up = '<C-b>'
