@@ -113,11 +113,6 @@ require('packer').startup(function(use)
                     shade = "dark",
                     percentage = 0.15,
                 },
-                compile = {
-                    enabled = true,
-                    path = vim.fn.stdpath "cache" .. "/catppuccin"
-                },
-                lsp_saga = true,
             }
         end
     }
