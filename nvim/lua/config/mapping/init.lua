@@ -44,7 +44,6 @@ vim.keymap.set('n', "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>gr", "<cmd>Lspsaga lsp_finder<CR>",
     { silent = true, desc = '[G]oto [R]eferences' })
 
-
 -- Remaps for the refactoring
 require("telescope").load_extension("refactoring")
 
