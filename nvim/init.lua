@@ -478,7 +478,7 @@ vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=tru
 vim.api.nvim_set_keymap('n', '<leader>w', ':wa!<cr>', { noremap = true })
 
 -- close active buffer
-vim.api.nvim_set_keymap('n', '<leader>bd', 'bd<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
 
 -- lsp configuration
 local servers = {
