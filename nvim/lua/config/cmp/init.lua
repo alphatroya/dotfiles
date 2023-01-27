@@ -1,16 +1,7 @@
 local cmp = require 'cmp'
 local lspkind = require('lspkind')
 
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
-local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
-local cmp_types = require"cmp.types.cmp"
+local cmp_types = require "cmp.types.cmp"
 cmp.setup({
     preselect = cmp.PreselectMode.None,
     completion = {
@@ -22,12 +13,12 @@ cmp.setup({
         end,
     },
     window = {
-      completion = cmp.config.window.bordered(),
-      documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
     mapping = {
         ['<C-e>'] = cmp.mapping.close(),
-        ['<M-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
+        ['<M-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
         ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp_types.SelectBehavior.Select }),
         ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp_types.SelectBehavior.Select }),

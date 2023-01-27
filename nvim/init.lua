@@ -144,9 +144,10 @@ require('packer').startup(function(use)
 
     -- Golang support
     use {
-        'ray-x/go.nvim',
-        requires = {
-            'ray-x/guihua.lua',
+        "olexsmir/gopher.nvim",
+        requires = { -- dependencies
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
         },
     }
 
@@ -158,14 +159,6 @@ require('packer').startup(function(use)
 
     -- Replace with register (a gr* key bindings)
     use 'vim-scripts/ReplaceWithRegister'
-
-    -- Symbols outline
-    use {
-        'simrat39/symbols-outline.nvim',
-        config = function()
-            require("symbols-outline").setup()
-        end,
-    }
 
     -- Indent line plugin
     use {
@@ -295,40 +288,14 @@ require('packer').startup(function(use)
         end,
     }
 
-    use({
+    use {
         "folke/noice.nvim",
-        config = function()
-            require("noice").setup {
-                lsp = {
-                    override = {
-                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                        ["vim.lsp.util.stylize_markdown"] = true,
-                        ["cmp.entry.get_documentation"] = true,
-                    },
-                },
-                presets = {
-                    bottom_search = true, -- use a classic bottom cmdline for search
-                    command_palette = true, -- position the cmdline and popupmenu together
-                    long_message_to_split = true, -- long messages will be sent to a split
-                    inc_rename = true, -- enables an input dialog for inc-rename.nvim
-                    lsp_doc_border = true, -- add a border to hover docs and signature help
-                },
-                routes = {
-                    {
-                        filter = {
-                            event = "msg_show",
-                            kind = "",
-                            find = "written",
-                        },
-                        opts = { skip = true },
-                    },
-                },
-            }
-        end,
         requires = {
             "MunifTanjim/nui.nvim",
         }
-    })
+    }
+
+    use 'lvimuser/lsp-inlayhints.nvim'
 
     if is_bootstrap then
         require('packer').sync()
@@ -491,20 +458,33 @@ vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
 -- lsp configuration
 local servers = {
     gopls = {
-        experimentalPostfixCompletions = true,
-        analyses = {
-            unusedparams = true,
-            shadow = true,
-        },
-        staticcheck = true,
-        gofumpt = true,
-        hints = {
-            assignVariableTypes = true,
-            constantValues = true,
-            functionTypeParameters = true,
-            compositeLiteralFields = true,
-            parameterNames = true,
-            rangeVariableTypes = true
+        gopls = {
+            usePlaceholders = true,
+            completeUnimported = true,
+            experimentalPostfixCompletions = true,
+            analyses = {
+                unreachable = true,
+                nilness = true,
+                unusedparams = true,
+                useany = true,
+                unusedwrite = true,
+                undeclaredname = true,
+                fillreturns = true,
+                nonewvars = true,
+                fieldalignment = false,
+                shadow = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+            hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+            },
         },
     },
     rust_analyzer = {},
@@ -523,7 +503,7 @@ local servers = {
 
 -- LSP settings.
 local on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = true
+
     if client.server_capabilities.documentFormattingProvider then
         local au_lsp = vim.api.nvim_create_augroup("format_lsp", { clear = true })
         vim.api.nvim_create_autocmd("BufWritePre", {
@@ -577,6 +557,7 @@ null_ls.setup({
         null_ls.builtins.code_actions.refactoring,
         null_ls.builtins.diagnostics.checkmake,
         null_ls.builtins.formatting.goimports,
+        null_ls.builtins.code_actions.gomodifytags,
     },
 })
 
@@ -601,15 +582,52 @@ require('lualine').setup {
 
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
--- go language config
-require('go').setup {
-    test_runner = 'richgo',
-    lsp_cfg = false,
-    lsp_on_attach = false,
-    lsp_keymaps = false,
-    lsp_gofumpt = true,
-    tag_transform = 'camelcase',
-    run_in_floaterm = true,
+require("noice").setup {
+    lsp = {
+        override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+        },
+        signature = {
+            auto_open = {
+                enabled = false,
+            },
+        },
+    },
+    presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = true, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true, -- add a border to hover docs and signature help
+    },
+    routes = {
+        {
+            filter = {
+                event = "msg_show",
+                kind = "",
+                find = "written",
+            },
+            opts = { skip = true },
+        },
+    },
 }
 
--- vim: ts=2 sts=2 sw=2 et
+require('gopher').setup {}
+
+-- inline hints config
+require("lsp-inlayhints").setup()
+vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = "LspAttach_inlayhints",
+    callback = function(args)
+        if not (args.data and args.data.client_id) then
+            return
+        end
+
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        require("lsp-inlayhints").on_attach(client, bufnr)
+    end,
+})
