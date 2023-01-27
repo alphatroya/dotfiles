@@ -15,3 +15,12 @@ eval "$(starship init zsh)"
 
 # Configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add brew completion folder to fpath
+fpath=(~/.zsh/completion $fpath)
+if type brew &>/dev/null; then
+    fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
+autoload -U compinit
+compinit
+
