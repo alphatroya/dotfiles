@@ -22,14 +22,6 @@ require('packer').startup(function(use)
         },
     }
 
-    use({
-        "glepnir/lspsaga.nvim",
-        branch = "main",
-        config = function()
-            require('config/lsp-saga')
-        end,
-    })
-
     -- Autocomplete
     use {
         'hrsh7th/nvim-cmp',
@@ -167,13 +159,20 @@ require('packer').startup(function(use)
     -- Replace with register (a gr* key bindings)
     use 'vim-scripts/ReplaceWithRegister'
 
+    -- Symbols outline
+    use {
+        'simrat39/symbols-outline.nvim',
+        config = function()
+            require("symbols-outline").setup()
+        end,
+    }
+
     -- Indent line plugin
     use {
         'lukas-reineke/indent-blankline.nvim',
         config = function()
             require("indent_blankline").setup {
                 char = '┊',
-                show_trailing_blankline_indent = false,
             }
         end,
     }
@@ -214,20 +213,6 @@ require('packer').startup(function(use)
                     map('n', '<leader>hb', function() gs.blame_line { full = true } end)
                 end
             }
-
-            require("scrollbar.handlers.gitsigns").setup()
-        end
-    }
-
-
-    -- nvim-hlslens helps you better glance at matched information, seamlessly jump between matched instances.
-    use {
-        'kevinhwang91/nvim-hlslens',
-        requires = {
-            'petertriho/nvim-scrollbar',
-        },
-        config = function()
-            require("scrollbar.handlers.search").setup()
         end
     }
 
@@ -268,15 +253,8 @@ require('packer').startup(function(use)
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
         config = function()
-            require("todo-comments").setup {}
+            require("todo-comments").setup()
         end
-    }
-
-    use {
-        'petertriho/nvim-scrollbar',
-        config = function()
-            require("scrollbar").setup()
-        end,
     }
 
     use {
@@ -311,11 +289,46 @@ require('packer').startup(function(use)
     }
 
     use {
-        'asiryk/auto-hlsearch.nvim',
+        "smjonas/inc-rename.nvim",
         config = function()
-            require("auto-hlsearch").setup()
+            require("inc_rename").setup()
         end,
     }
+
+    use({
+        "folke/noice.nvim",
+        config = function()
+            require("noice").setup {
+                lsp = {
+                    override = {
+                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                        ["vim.lsp.util.stylize_markdown"] = true,
+                        ["cmp.entry.get_documentation"] = true,
+                    },
+                },
+                presets = {
+                    bottom_search = true, -- use a classic bottom cmdline for search
+                    command_palette = true, -- position the cmdline and popupmenu together
+                    long_message_to_split = true, -- long messages will be sent to a split
+                    inc_rename = true, -- enables an input dialog for inc-rename.nvim
+                    lsp_doc_border = true, -- add a border to hover docs and signature help
+                },
+                routes = {
+                    {
+                        filter = {
+                            event = "msg_show",
+                            kind = "",
+                            find = "written",
+                        },
+                        opts = { skip = true },
+                    },
+                },
+            }
+        end,
+        requires = {
+            "MunifTanjim/nui.nvim",
+        }
+    })
 
     if is_bootstrap then
         require('packer').sync()
@@ -375,7 +388,6 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key
--- See `:help mapleader`
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -389,7 +401,6 @@ vim.o.cursorline      = true -- Find the current line quickly.
 vim.o.expandtab       = true -- Use spaces instead of tabs.
 vim.o.inccommand      = 'split' -- Enable substitution previews with inccommand
 vim.o.laststatus      = 3 -- Global statusline
-vim.o.lazyredraw      = true -- Only redraw when necessary.
 vim.o.list            = true -- Show non-printable characters.
 vim.o.report          = 0 -- Always report changed lines.
 vim.o.scrolloff       = 8 -- Scroll page as soon I reaching 8 lines before edge
@@ -443,9 +454,6 @@ nnoremap gp `[v`]
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
-" Configure skeletons
-autocmd BufNewFile *.sh 0r ~/.skeletons/bash.sh
-
 " vim-illuminate setup
 augroup illuminate_augroup
     autocmd!
@@ -475,7 +483,7 @@ vim.g.strip_whitespace_confirm = 0
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
 
 -- save all
-vim.api.nvim_set_keymap('n', '<leader>w', ':wa!<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>w', ':wa!<cr>', { noremap = true, silent = true })
 
 -- close active buffer
 vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
@@ -579,6 +587,15 @@ require('lualine').setup {
     options = {
         theme = 'catppuccin',
         globalstatus = true,
+    },
+    sections = {
+        lualine_x = {
+            {
+                require("noice").api.statusline.mode.get,
+                cond = require("noice").api.statusline.mode.has,
+                color = { fg = "#ff9e64" },
+            }
+        },
     },
 }
 

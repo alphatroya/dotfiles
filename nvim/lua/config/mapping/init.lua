@@ -39,9 +39,12 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true, desc = '[G]ot
 vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, { silent = true, desc = '[G]oto type [D]efinition' })
 vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations,
     { silent = true, desc = '[G]oto [I]mplementations' })
-vim.keymap.set('n', "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-vim.keymap.set('n', "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
-vim.api.nvim_set_keymap("n", "<leader>gr", "<cmd>Lspsaga lsp_finder<CR>",
+vim.keymap.set('n', "K", vim.lsp.buf.hover, { silent = true })
+vim.keymap.set("n", "<leader>rn", function()
+    return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
+
+vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references,
     { silent = true, desc = '[G]oto [R]eferences' })
 
 -- Remaps for the refactoring
@@ -91,18 +94,3 @@ vim.api.nvim_set_keymap(
     ":lua require('refactoring').debug.cleanup({})<CR>",
     { noremap = true }
 )
-
-
--- hlslens config override
-local kopts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', 'n',
-    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', 'N',
-    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', kopts)
