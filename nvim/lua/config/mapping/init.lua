@@ -44,8 +44,9 @@ vim.keymap.set("n", "<leader>rn", function()
     return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
 
-vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references,
-    { silent = true, desc = '[G]oto [R]eferences' })
+vim.keymap.set("n", "<leader>gr", function()
+    require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({ show_line = false }))
+end, { silent = true, desc = '[G]oto [R]eferences' })
 
 -- Remaps for the refactoring
 require("telescope").load_extension("refactoring")
