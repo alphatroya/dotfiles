@@ -15,13 +15,10 @@ Also you can create `~/.gitignore` file for global ignore rules (like `.DS_Store
 
 ### neovim
 
-- Install [vim-plug](https://github.com/junegunn/vim-plug#neovim) plugin manager
-- Create symlink to the nvim config folder
+Create symlink to the nvim config folder
 ```
 ln -s $(pwd)/nvim ~/.config/nvim
 ```
-
-- Call `:PackerSync` to install required plugins
 
 ### zsh
 
