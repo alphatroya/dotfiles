@@ -1,42 +1,48 @@
--- Install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-local is_bootstrap = false
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    is_bootstrap = true
-    vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-    vim.cmd [[packadd packer.nvim]]
+-- Install lazy plugin manager
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
+vim.opt.rtp:prepend(lazypath)
 
-require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+-- Set <space> as the leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
+require("lazy").setup({
     -- LSP Configuration & Plugins
-    use {
+    {
         'neovim/nvim-lspconfig',
-        requires = {
+        dependencies = {
             -- Automatically install LSPs to stdpath for neovim
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             'jose-elias-alvarez/null-ls.nvim',
         },
-    }
+    },
 
     -- Autocomplete
-    use {
+    {
         'hrsh7th/nvim-cmp',
-        requires = {
+        dependencies = {
             'hrsh7th/cmp-vsnip',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
             'onsails/lspkind-nvim',
             'hrsh7th/cmp-nvim-lsp-signature-help'
         }
-    }
+    },
 
-    use {
+    {
         'nvim-treesitter/nvim-treesitter',
-        requires = {
+        dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
         run = ":TSUpdate",
@@ -92,12 +98,12 @@ require('packer').startup(function(use)
                 }
             })
         end,
-    }
+    },
 
     -- Theme
-    use {
+    {
         "catppuccin/nvim",
-        as = "catppuccin",
+        name = "catppuccin",
         config = function()
             require("catppuccin").setup {
                 dim_inactive = {
@@ -107,73 +113,68 @@ require('packer').startup(function(use)
                 },
             }
         end
-    }
+    },
+
     -- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
-    use({
-        "kylechui/nvim-surround",
-        config = function()
-            require("nvim-surround").setup()
-        end
-    })
+    "kylechui/nvim-surround",
 
     -- Lualine
-    use {
+    {
         'hoob3rt/lualine.nvim',
-        requires = {
+        dependencies = {
             'kyazdani42/nvim-web-devicons',
-            opt = true,
         }
-    }
+    },
 
     -- Comment stuff out.
-    use {
+    {
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
         end
-    }
+    },
 
     -- Underlines the word under the cursor
-    use 'RRethy/vim-illuminate'
+    'RRethy/vim-illuminate',
 
     -- A Vim plugin for more pleasant editing on commit messages
-    use 'rhysd/committia.vim'
+    'rhysd/committia.vim',
 
     -- Better whitespace highlighting for Vim
-    use 'ntpeters/vim-better-whitespace'
+    'ntpeters/vim-better-whitespace',
 
     -- Golang support
-    use {
+    {
         "olexsmir/gopher.nvim",
-        requires = {
+        dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
         },
-    }
+    },
 
     -- Exchange text regions
-    use 'tommcdo/vim-exchange'
+    'tommcdo/vim-exchange',
 
     -- Show mark symbols on the gutter
-    use 'kshenoy/vim-signature'
+    'kshenoy/vim-signature',
 
     -- Replace with register (a gr* key bindings)
-    use 'vim-scripts/ReplaceWithRegister'
+    'vim-scripts/ReplaceWithRegister',
 
     -- Indent line plugin
-    use {
+    {
         'lukas-reineke/indent-blankline.nvim',
         config = function()
             require("indent_blankline").setup {
                 char = '┊',
             }
         end,
-    }
+    },
 
     -- Super fast git decorations implemented purely in lua/teal.
-    use {
+    {
         'lewis6991/gitsigns.nvim',
-        requires = {
+        dependencies = {
             'nvim-lua/plenary.nvim',
             'petertriho/nvim-scrollbar',
         },
@@ -207,25 +208,25 @@ require('packer').startup(function(use)
                 end
             }
         end
-    }
+    },
 
     -- snippets support
-    use {
+    {
         'hrsh7th/vim-vsnip',
-        requires = {
+        dependencies = {
             'hrsh7th/vim-vsnip-integ',
             -- go snippets support
             'golang/vscode-go',
         }
-    }
+    },
 
     -- support file.txt:<line>:<column> file opening
-    use 'wsdjeg/vim-fetch'
+    'wsdjeg/vim-fetch',
 
     -- Fuzzy finder support
-    use {
+    {
         'nvim-telescope/telescope.nvim',
-        requires = {
+        dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-ui-select.nvim',
         },
@@ -239,20 +240,20 @@ require('packer').startup(function(use)
             }
             require("telescope").load_extension("ui-select")
         end
-    }
+    },
 
     -- todo hightlighting
-    use {
+    {
         "folke/todo-comments.nvim",
-        requires = "nvim-lua/plenary.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
         config = function()
             require("todo-comments").setup()
-        end
-    }
+        end,
+    },
 
-    use {
+    {
         "ThePrimeagen/refactoring.nvim",
-        requires = {
+        dependencies = {
             { "nvim-lua/plenary.nvim" },
             { "nvim-treesitter/nvim-treesitter" }
         },
@@ -267,62 +268,37 @@ require('packer').startup(function(use)
                 },
             }
         end,
-    }
+    },
 
     -- TreeSJ: split or join blocks of code
-    use {
+    {
         'Wansmer/treesj',
-        requires = {
+        dependencies = {
             'nvim-treesitter',
         },
         config = function()
             -- (<space>m - toggle, <space>j - join, <space>s - split)
             require('treesj').setup()
         end,
-    }
+    },
 
-    use {
+    {
         "smjonas/inc-rename.nvim",
         config = function()
             require("inc_rename").setup()
         end,
-    }
+    },
 
-    use {
+    {
         "folke/noice.nvim",
-        requires = {
+        dependencies = {
             "MunifTanjim/nui.nvim",
         }
-    }
+    },
 
-    use 'lvimuser/lsp-inlayhints.nvim'
+    'lvimuser/lsp-inlayhints.nvim',
 
-    if is_bootstrap then
-        require('packer').sync()
-    end
-end)
-
--- When we are bootstrapping a configuration, it doesn't
--- make sense to execute the rest of the init.lua.
---
--- You'll need to restart nvim, and then it will work.
-if is_bootstrap then
-    print '=================================='
-    print '    Plugins are being installed'
-    print '    Wait until Packer completes,'
-    print '       then restart nvim'
-    print '=================================='
-    return
-end
-
--- Automatically source and re-compile packer whenever you save this init.lua
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-    command = 'source <afile> | PackerCompile',
-    group = packer_group,
-    pattern = vim.fn.expand '$MYVIMRC',
 })
-
 
 vim.o.termguicolors = true
 vim.cmd.colorscheme "catppuccin-latte"
@@ -352,11 +328,6 @@ vim.wo.signcolumn = 'yes'
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
-
--- [[ Basic Keymaps ]]
--- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
