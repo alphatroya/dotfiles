@@ -131,11 +131,12 @@ require("lazy").setup({
         }
     },
 
-    -- Comment stuff out.
     {
-        'numToStr/Comment.nvim',
+        -- Comment stuff out.
+        'echasnovski/mini.comment',
+        version = false,
         config = function()
-            require('Comment').setup()
+            require('mini.comment').setup()
         end
     },
 
@@ -157,9 +158,6 @@ require("lazy").setup({
             "nvim-treesitter/nvim-treesitter",
         },
     },
-
-    -- Exchange text regions
-    'tommcdo/vim-exchange',
 
     -- Show mark symbols on the gutter
     'kshenoy/vim-signature',
@@ -397,18 +395,6 @@ nnoremap gp `[v`]
 
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
-
-" vim-illuminate setup
-augroup illuminate_augroup
-    autocmd!
-    autocmd VimEnter * hi illuminatedWord cterm=inverse
-    autocmd VimEnter * hi LspReferenceText cterm=inverse
-    autocmd VimEnter * hi LspReferenceWrite cterm=inverse
-    autocmd VimEnter * hi LspReferenceRead cterm=inverse
-augroup END
-let g:Illuminate_delay = 1000
-
-hi link LspInlayHint Comment
 
 let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
 
