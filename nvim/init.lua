@@ -45,9 +45,9 @@ require("lazy").setup({
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
-        build = ":TSUpdate",
+        build = ':TSUpdate',
         config = function()
-            require("nvim-treesitter.configs").setup({
+            require('nvim-treesitter.configs').setup({
                 ensure_installed = "all",
                 auto_install = true,
                 ignore_install = { "phpdoc" },
@@ -63,34 +63,12 @@ require("lazy").setup({
                         ["ia"] = "@parameter.inner",
                         ["aa"] = "@parameter.outer",
                     },
-                    move = {
-                        enable = true,
-                        set_jumps = true,
-                        goto_next_start = {
-                            ["]m"] = "@function.outer",
-                            ["]]"] = "@class.outer"
-                        },
-                        goto_next_end = {
-                            ["]M"] = "@function.outer",
-                            ["]["] = "@class.outer"
-                        },
-                        goto_previous_start = {
-                            ["[m"] = "@function.outer",
-                            ["[["] = "@class.outer"
-                        },
-                        goto_previous_end = {
-                            ["[M"] = "@function.outer",
-                            ["[]"] = "@class.outer"
-                        }
-                    },
                     select = {
                         enable = true,
                         lookahead = true,
                         keymaps = {
                             ["af"] = "@function.outer",
                             ["if"] = "@function.inner",
-                            ["ac"] = "@class.outer",
-                            ["ic"] = "@class.inner",
                             ["ia"] = "@parameter.inner",
                             ["aa"] = "@parameter.outer",
                         }
@@ -102,25 +80,21 @@ require("lazy").setup({
 
     -- Theme
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        config = function()
-            require("catppuccin").setup {
-                dim_inactive = {
-                    enabled = true,
-                    shade = "dark",
-                    percentage = 0.15,
-                },
-            }
-        end
+        'catppuccin/nvim',
+        name = 'catppuccin',
+        opts = {
+            dim_inactive = {
+                enabled = true,
+                shade = "dark",
+                percentage = 0.15,
+            },
+        },
     },
 
     -- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
     {
-        "kylechui/nvim-surround",
-        config = function()
-            require("nvim-surround").setup()
-        end
+        'kylechui/nvim-surround',
+        opts = {},
     },
 
     -- Lualine
@@ -151,12 +125,13 @@ require("lazy").setup({
 
     -- Golang support
     {
-        "olexsmir/gopher.nvim",
-        ft = "go",
+        'olexsmir/gopher.nvim',
+        ft = 'go',
         dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter',
         },
+        opts = {},
     },
 
     -- Show mark symbols on the gutter
@@ -248,10 +223,10 @@ require("lazy").setup({
 
     -- todo hightlighting
     {
-        "folke/todo-comments.nvim",
-        dependencies = "nvim-lua/plenary.nvim",
+        'folke/todo-comments.nvim',
+        dependencies = 'nvim-lua/plenary.nvim',
         config = function()
-            require("todo-comments").setup()
+            require('todo-comments').setup()
         end,
     },
 
@@ -275,33 +250,64 @@ require("lazy").setup({
     },
 
     -- TreeSJ: split or join blocks of code
+    -- (<space>m - toggle, <space>j - join, <space>s - split)
     {
         'Wansmer/treesj',
         dependencies = {
             'nvim-treesitter',
         },
+        opts = {},
+    },
+
+    {
+        'smjonas/inc-rename.nvim',
         config = function()
-            -- (<space>m - toggle, <space>j - join, <space>s - split)
-            require('treesj').setup()
+            require('inc_rename').setup()
         end,
     },
 
     {
-        "smjonas/inc-rename.nvim",
-        config = function()
-            require("inc_rename").setup()
-        end,
-    },
-
-    {
-        "folke/noice.nvim",
+        'folke/noice.nvim',
         dependencies = {
-            "MunifTanjim/nui.nvim",
-        }
+            'MunifTanjim/nui.nvim',
+        },
+        config = function()
+            require("noice").setup {
+                lsp = {
+                    override = {
+                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                        ["vim.lsp.util.stylize_markdown"] = true,
+                        ["cmp.entry.get_documentation"] = true,
+                    },
+                    signature = {
+                        auto_open = {
+                            enabled = false,
+                        },
+                    },
+                },
+                presets = {
+                    bottom_search = true,
+                    command_palette = true,
+                    long_message_to_split = true,
+                    inc_rename = true,
+                    lsp_doc_border = true,
+                },
+                routes = {
+                    {
+                        filter = {
+                            event = "msg_show",
+                            kind = "",
+                            find = "written",
+                        },
+                        opts = { skip = true },
+                    },
+                },
+            }
+
+        end
     },
 
     'lvimuser/lsp-inlayhints.nvim',
-
 })
 
 vim.o.termguicolors = true
@@ -312,9 +318,6 @@ vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -333,8 +336,6 @@ vim.wo.signcolumn = 'yes'
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
 vim.o.autowrite       = true -- Enable auto save before :make command
 vim.o.backup          = false -- Directories for swp files
 vim.o.cmdheight       = 0 -- Hide cmdline
@@ -344,7 +345,6 @@ vim.o.expandtab       = true -- Use spaces instead of tabs.
 vim.o.inccommand      = 'split' -- Enable substitution previews with inccommand
 vim.o.laststatus      = 3 -- Global statusline
 vim.o.list            = true -- Show non-printable characters.
-vim.o.report          = 0 -- Always report changed lines.
 vim.o.scrolloff       = 8 -- Scroll page as soon I reaching 8 lines before edge
 vim.o.shiftround      = true -- >> indents to next multiple of 'shiftwidth'.
 vim.o.shiftwidth      = 4 -- >> indents by 4 spaces.
@@ -544,41 +544,6 @@ require('lualine').setup {
 }
 
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
-
-require("noice").setup {
-    lsp = {
-        override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-        },
-        signature = {
-            auto_open = {
-                enabled = false,
-            },
-        },
-    },
-    presets = {
-        bottom_search = true, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
-        long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = true, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true, -- add a border to hover docs and signature help
-    },
-    routes = {
-        {
-            filter = {
-                event = "msg_show",
-                kind = "",
-                find = "written",
-            },
-            opts = { skip = true },
-        },
-    },
-}
-
--- Go plugin
-require('gopher').setup {}
 
 -- inline hints config
 require("lsp-inlayhints").setup()
