@@ -45,7 +45,7 @@ require("lazy").setup({
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
-        run = ":TSUpdate",
+        build = ":TSUpdate",
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = "all",
@@ -116,7 +116,12 @@ require("lazy").setup({
     },
 
     -- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
-    "kylechui/nvim-surround",
+    {
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup()
+        end
+    },
 
     -- Lualine
     {
@@ -146,6 +151,7 @@ require("lazy").setup({
     -- Golang support
     {
         "olexsmir/gopher.nvim",
+        ft = "go",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
