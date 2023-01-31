@@ -94,7 +94,7 @@ require("lazy").setup({
     -- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
     {
         'kylechui/nvim-surround',
-        opts = {},
+        config = true,
     },
 
     -- Lualine
@@ -131,7 +131,7 @@ require("lazy").setup({
             'nvim-lua/plenary.nvim',
             'nvim-treesitter/nvim-treesitter',
         },
-        opts = {},
+        config = true,
     },
 
     -- Show mark symbols on the gutter
