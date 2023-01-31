@@ -127,6 +127,10 @@ require("lazy").setup({
     {
         'olexsmir/gopher.nvim',
         ft = 'go',
+        keys = {
+            { '<leader>if', ':GoIfErr<CR>', desc = 'Handle golang error' },
+            { '<leader>gat', ':GoTagAdd<CR>', desc = 'Add go struct tags' },
+        },
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-treesitter/nvim-treesitter',
