@@ -355,6 +355,15 @@ require("lazy").setup({
     },
 
     'lvimuser/lsp-inlayhints.nvim',
+
+    {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup()
+        end,
+    },
 })
 
 vim.o.termguicolors = true
@@ -460,7 +469,11 @@ vim.g.strip_whitespace_confirm = 0
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
 
 -- save all
-vim.api.nvim_set_keymap('n', '<leader>w', '<Cmd>silent! update | redraw<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>w', '<Cmd>silent! update | redraw<CR>', {
+    noremap = true,
+    silent = true,
+    desc = "Quick save buffer",
+})
 
 -- close active buffer
 vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
@@ -514,6 +527,7 @@ local servers = {
 -- LSP settings.
 local on_attach = function(client, bufnr)
 
+    -- Reformat code on save
     if client.server_capabilities.documentFormattingProvider then
         local au_lsp = vim.api.nvim_create_augroup("format_lsp", { clear = true })
         vim.api.nvim_create_autocmd("BufWritePre", {
@@ -525,16 +539,24 @@ local on_attach = function(client, bufnr)
         })
     end
 
-    --Enable completion triggered by <c-x><c-o>
+    -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'vlua.vim.lsp.omnifunc')
 
     -- Mappings.
-    local opts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', '<leader>f', function()
         vim.lsp.buf.format { async = true }
-    end, opts)
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('v', '<leader>ca', vim.lsp.buf.code_action, opts)
+    end, {
+        noremap = true,
+        silent = true,
+        buffer = bufnr,
+        desc = "[R]eformat code",
+    })
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {
+        noremap = true,
+        silent = true,
+        buffer = bufnr,
+        desc = "[C]ode [A]ctions",
+    })
 
     require 'illuminate'.on_attach(client)
 end
