@@ -14,7 +14,6 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_document_symbols,
     { silent = true, desc = '[S]earch Document [S]ymbols' })
-vim.keymap.set('n', '<leader>st', ':TodoTelescope<CR>', { silent = true, desc = '[S]earch [T]ODO marks' })
 vim.keymap.set('n', '<leader>/', function()
     require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
         winblend = 10,

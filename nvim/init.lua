@@ -237,6 +237,9 @@ require("lazy").setup({
     {
         'folke/todo-comments.nvim',
         dependencies = 'nvim-lua/plenary.nvim',
+        keys = {
+            { "<leader>st", ':TodoTelescope<CR>', desc = '[S]earch [T]ODO marks' },
+        },
         config = function()
             require('todo-comments').setup()
         end,
