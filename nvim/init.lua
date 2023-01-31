@@ -413,7 +413,7 @@ vim.g.strip_whitespace_confirm = 0
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
 
 -- save all
-vim.api.nvim_set_keymap('n', '<leader>w', ':wa!<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>w', '<Cmd>silent! update | redraw<CR>', { noremap = true, silent = true })
 
 -- close active buffer
 vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
