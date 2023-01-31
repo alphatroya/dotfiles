@@ -280,25 +280,6 @@ require("lazy").setup({
         config = true,
     },
 
-    {
-        "ThePrimeagen/refactoring.nvim",
-        dependencies = {
-            { "nvim-lua/plenary.nvim" },
-            { "nvim-treesitter/nvim-treesitter" }
-        },
-        config = function()
-            require('refactoring').setup {
-                prompt_func_return_type = {
-                    go = true,
-                },
-
-                prompt_func_param_type = {
-                    go = true,
-                },
-            }
-        end,
-    },
-
     -- TreeSJ: split or join blocks of code
     -- (<space>m - toggle, <space>j - join, <space>s - split)
     {
@@ -592,7 +573,6 @@ mason_lspconfig.setup_handlers {
 local null_ls = require("null-ls")
 null_ls.setup({
     sources = {
-        null_ls.builtins.code_actions.refactoring,
         null_ls.builtins.diagnostics.checkmake,
         null_ls.builtins.formatting.goimports,
         null_ls.builtins.code_actions.gomodifytags,
