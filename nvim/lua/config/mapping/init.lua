@@ -1,28 +1,3 @@
--- Telescope
-vim.keymap.set('n', '<leader><leader>', function()
-    require('telescope.builtin').buffers({ sort_mru = true, ignore_current_buffer = true })
-end, { silent = true, desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>sf', ':Telescope git_files theme=dropdown<CR>', { silent = true, desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sn', function()
-    require("telescope.builtin").find_files({ cwd = require('telescope.utils').buffer_dir() })
-end, { silent = true, desc = '[S]earch [N]eighbors' })
-vim.keymap.set('n', '<leader>sc', ':Telescope git_status<CR>', { silent = true, desc = '[S]earch [C]hanged' })
-vim.keymap.set('n', '<leader>sg', ':Telescope live_grep<CR>', { silent = true, desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sw', ':Telescope grep_string<CR>', { silent = true, desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>s/', ':Telescope resume<CR>', { silent = true })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostic' })
-vim.keymap.set('n', '<leader>sk', require('telescope.builtin').keymaps, { desc = '[S]earch [K]eymaps' })
-vim.keymap.set('n', '<leader>ss', require('telescope.builtin').lsp_document_symbols,
-    { silent = true, desc = '[S]earch Document [S]ymbols' })
-vim.keymap.set('n', '<leader>/', function()
-    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
-        previewer = false,
-    })
-end, { desc = '[/] Fuzzily search in current buffer]' })
-vim.keymap.set('n', '<leader>?', ':Telescope oldfiles<CR>', { silent = true, desc = '[?] Find recently opened files' })
-vim.keymap.set('n', 'z=', require('telescope.builtin').spell_suggest)
-
 -- Diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -42,10 +17,6 @@ vim.keymap.set('n', "K", vim.lsp.buf.hover, { silent = true })
 vim.keymap.set("n", "<leader>rn", function()
     return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
-
-vim.keymap.set("n", "<leader>gr", function()
-    require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({ show_line = false }))
-end, { silent = true, desc = '[G]oto [R]eferences' })
 
 -- Remaps for the refactoring
 require("telescope").load_extension("refactoring")
