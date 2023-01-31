@@ -228,7 +228,6 @@ require("lazy").setup({
             { '<leader>sw', ':Telescope grep_string<CR>', silent = true, desc = '[S]earch current [W]ord' },
             { '<leader>s/', ':Telescope resume<CR>', silent = true },
             { '<leader>?', ':Telescope oldfiles<CR>', silent = true, desc = '[?] Find recently opened files' },
-            { 'z=', ':Telescope spell_suggest<CR>' },
             { '<leader>sd', function()
                 require('telescope.builtin').diagnostics()
             end, desc = '[S]earch [D]iagnostic' },
@@ -361,7 +360,13 @@ require("lazy").setup({
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-            require("which-key").setup()
+            require("which-key").setup {
+                plugins = {
+                    spelling = {
+                        enabled = true,
+                    },
+                },
+            }
         end,
     },
 })
