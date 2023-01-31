@@ -8,6 +8,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 vim.keymap.set('n', ']b', ':bnext<CR>')
 vim.keymap.set('n', '[b', ':bprev<CR>')
 
+-- Reselect pasted text
+vim.keymap.set('n', 'gv', '`[v`]')
+
 -- Copy/paste from clipboard
 vim.keymap.set({ 'n', 'x' }, 'gy', '"+y', { desc = 'Copy to system clipboard' })
 vim.keymap.set('n', 'gp', '"+p', { desc = 'Paste from system clipboard' })
