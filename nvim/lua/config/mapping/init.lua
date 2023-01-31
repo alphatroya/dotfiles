@@ -4,12 +4,10 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--- Next/previous buffer
-vim.keymap.set('n', ']b', ':bnext<CR>')
-vim.keymap.set('n', '[b', ':bprev<CR>')
+vim.keymap.set('n', ']b', ':bnext<CR>', { desc = 'Next buffer', noremap = true })
+vim.keymap.set('n', '[b', ':bprev<CR>', { desc = 'Previous buffer', noremap = true })
 
--- Reselect pasted text
-vim.keymap.set('n', 'gv', '`[v`]')
+vim.keymap.set('n', 'gv', '`[v`]', { desc = "Reselect pasted text", noremap = true })
 
 -- Copy/paste from clipboard
 vim.keymap.set({ 'n', 'x' }, 'gy', '"+y', { desc = 'Copy to system clipboard' })
