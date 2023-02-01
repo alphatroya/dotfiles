@@ -379,9 +379,6 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
 vim.o.autowrite       = true -- Enable auto save before :make command
 vim.o.backup          = false -- Directories for swp files
 vim.o.cmdheight       = 0 -- Hide cmdline
