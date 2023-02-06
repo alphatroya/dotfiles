@@ -360,9 +360,7 @@ require("lazy").setup({
     {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
-        opts = {
-            -- config
-        },
+        opts = {},
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     }
 })
