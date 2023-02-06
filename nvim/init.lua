@@ -360,9 +360,16 @@ require("lazy").setup({
     {
         'glepnir/dashboard-nvim',
         event = 'VimEnter',
-        opts = {},
+        opts = {
+            config = {
+                week_header = {
+                    enable = true,
+                },
+                disable_move = true,
+            },
+        },
         dependencies = { 'nvim-tree/nvim-web-devicons' }
-    }
+    },
 })
 
 vim.o.termguicolors = true
