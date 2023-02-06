@@ -340,6 +340,7 @@ require("lazy").setup({
 
     'lvimuser/lsp-inlayhints.nvim',
 
+    -- WhichKey is a lua plugin that displays a popup with possible keybindings of the command you started typing.
     {
         "folke/which-key.nvim",
         config = function()
@@ -354,6 +355,16 @@ require("lazy").setup({
             }
         end,
     },
+
+    -- vim dashboard
+    {
+        'glepnir/dashboard-nvim',
+        event = 'VimEnter',
+        opts = {
+            -- config
+        },
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    }
 })
 
 vim.o.termguicolors = true
@@ -449,6 +460,7 @@ vim.g.committia_hooks = {
 -- automatically trim whitespaces on save, provided by vim-better-whitespace plugin
 vim.g.strip_whitespace_on_save = 1
 vim.g.strip_whitespace_confirm = 0
+vim.g.better_whitespace_filetypes_blacklist = { 'dashboard' }
 
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
 
