@@ -17,9 +17,6 @@ alias gloga="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%C
 alias gfap="git fetch --all"
 alias gcS=gcs
 
-# kubernetes
-alias k=kubectl
-
 # Fill Redmine hours aliases
 func fillredmine() {
     local return="no"
