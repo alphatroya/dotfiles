@@ -183,20 +183,21 @@ require("lazy").setup({
                         if vim.wo.diff then return ']c' end
                         vim.schedule(function() gs.next_hunk() end)
                         return '<Ignore>'
-                    end, { expr = true })
+                    end, { expr = true, desc = "Next git hunk" })
 
                     map('n', '[c', function()
                         if vim.wo.diff then return '[c' end
                         vim.schedule(function() gs.prev_hunk() end)
                         return '<Ignore>'
-                    end, { expr = true })
+                    end, { expr = true, desc = "Previous git hunk" })
 
                     -- Actions
-                    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-                    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-                    map('n', '<leader>hu', gs.undo_stage_hunk)
-                    map('n', '<leader>hp', gs.preview_hunk)
-                    map('n', '<leader>hb', function() gs.blame_line { full = true } end)
+                    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>', { desc = "[H]unk [s]tage" })
+                    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', { desc = "[H]unk [r]eset" })
+                    map('n', '<leader>hu', gs.undo_stage_hunk, { desc = "[H]unk stage [u]ndo" })
+                    map('n', '<leader>hp', gs.preview_hunk, { desc = "[H]unk [p]review" })
+                    map('n', '<leader>hb', function() gs.blame_line { full = true } end,
+                        { desc = "[H]unk trigger [b]lame" })
                 end
             }
         end
