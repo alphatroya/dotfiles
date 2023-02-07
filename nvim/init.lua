@@ -120,9 +120,6 @@ require("lazy").setup({
     -- A Vim plugin for more pleasant editing on commit messages
     'rhysd/committia.vim',
 
-    -- Better whitespace highlighting for Vim
-    'ntpeters/vim-better-whitespace',
-
     -- Golang support
     {
         'olexsmir/gopher.nvim',
@@ -462,11 +459,6 @@ vim.g.committia_hooks = {
     end
 }
 
--- automatically trim whitespaces on save, provided by vim-better-whitespace plugin
-vim.g.strip_whitespace_on_save = 1
-vim.g.strip_whitespace_confirm = 0
-vim.g.better_whitespace_filetypes_blacklist = { 'dashboard' }
-
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
 
 -- save all
@@ -552,6 +544,7 @@ local on_attach = function(client, bufnr)
         buffer = bufnr,
         desc = "[R]eformat code",
     })
+
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {
         noremap = true,
         silent = true,
@@ -590,7 +583,10 @@ null_ls.setup({
         null_ls.builtins.diagnostics.checkmake,
         null_ls.builtins.formatting.goimports,
         null_ls.builtins.code_actions.gomodifytags,
+        null_ls.builtins.formatting.trim_whitespace,
+        null_ls.builtins.diagnostics.trail_space,
     },
+    on_attach = on_attach,
 })
 
 require('config/cmp')
