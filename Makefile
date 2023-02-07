@@ -4,19 +4,18 @@ ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
 FZF=~/.fzf.zsh
 SNIPPETS:=~/.vsnip
 XCODE_SNIPPETS:=~/Library/Developer/Xcode/UserData/CodeSnippets
-VIM_SKELETONS:=~/.skeletons
 
 .PHONY: all
-all: $(NVIM) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS) $(VIM_SKELETONS)
-	cd git && make
+all: $(NVIM) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS) git
+
+.PHONY: git
+git: $(CURRENT_FOLDER)/git/root
+	git config --global include.path $<
 
 $(SNIPPETS): $(CURRENT_FOLDER)/snippets
 	ln -sf $< $@
 
 $(NVIM): $(CURRENT_FOLDER)/nvim
-	ln -sf $< $@
-
-$(VIM_SKELETONS): $(CURRENT_FOLDER)/nvim/skeletons
 	ln -sf $< $@
 
 $(FZF):
@@ -31,6 +30,11 @@ $(ANTIGEN_SCRIPT): $(FZF)
 
 $(XCODE_SNIPPETS): $(CURRENT_FOLDER)/xcode-snippets
 	ln -sf $< $@
+
+.PHONY: clean
+clean:
+	git config --global --unset include.path
+	rm $(NVIM) $(XCODE_SNIPPETS) $(SNIPPETS)
 
 .PHONY: brew
 brew:
