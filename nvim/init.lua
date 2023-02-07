@@ -450,8 +450,6 @@ nnoremap Q <nop>
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
-let g:markdown_fenced_languages = ['go', 'swift', 'rust', 'json']
-
 ]]   , false)
 
 vim.g.committia_hooks = {
@@ -460,17 +458,18 @@ vim.g.committia_hooks = {
     end
 }
 
+
+vim.g.markdown_fenced_languages = { 'go', 'swift', 'rust', 'json' }
+
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
 
--- save all
 vim.api.nvim_set_keymap('n', '<leader>w', '<Cmd>silent! update | redraw<CR>', {
     noremap = true,
     silent = true,
     desc = "Quick save buffer",
 })
 
--- close active buffer
-vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true, desc = "Close active buffer" })
 
 -- lsp configuration
 local servers = {
@@ -543,7 +542,7 @@ local on_attach = function(client, bufnr)
         noremap = true,
         silent = true,
         buffer = bufnr,
-        desc = "[R]eformat code",
+        desc = "Re[f]ormat code",
     })
 
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {
@@ -612,6 +611,7 @@ require('lualine').setup {
     },
 }
 
+-- custom snippets folder
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
 -- inline hints config
