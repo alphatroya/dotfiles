@@ -1,9 +1,9 @@
 CURRENT_FOLDER:=$(shell pwd)
-HOME_DIR := $(shell echo $$HOME)
+HOME_DIR=$(shell echo $$HOME)
 ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
-NVIM:=$(HOME_DIR)/.config/nvim
+NVIM=$(HOME_DIR)/.config/nvim
 FZF=$(HOME_DIR)/.fzf.zsh
-SNIPPETS:=$(HOME_DIR)/.vsnip
+SNIPPETS=$(HOME_DIR)/.vsnip
 XCODE_SNIPPETS:=$(HOME_DIR)/Library/Developer/Xcode/UserData/CodeSnippets
 
 .PHONY: all
