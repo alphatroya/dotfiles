@@ -35,7 +35,6 @@ require("lazy").setup({
             'hrsh7th/cmp-vsnip',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
-            'onsails/lspkind-nvim',
             'hrsh7th/cmp-nvim-lsp-signature-help'
         }
     },
@@ -275,7 +274,7 @@ require("lazy").setup({
         keys = {
             { "<leader>st", ':TodoTelescope<CR>', desc = '[S]earch [T]ODO marks' },
         },
-        config = true,
+        opts = {},
     },
 
     -- TreeSJ: split or join blocks of code

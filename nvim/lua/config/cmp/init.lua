@@ -1,5 +1,4 @@
 local cmp = require 'cmp'
-local lspkind = require('lspkind')
 
 local cmp_types = require "cmp.types.cmp"
 cmp.setup({
@@ -28,11 +27,6 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Insert,
             select = true,
         },
-    },
-    formatting = {
-        format = function(entry, vim_item)
-            return lspkind.cmp_format()(entry, vim_item)
-        end,
     },
     sources = {
         { name = 'nvim_lsp', group_index = 1 },
