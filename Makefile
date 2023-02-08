@@ -10,7 +10,7 @@ XCODE_SNIPPETS:=$(HOME_DIR)/Library/Developer/Xcode/UserData/CodeSnippets
 all: $(NVIM) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS) git
 
 .PHONY: git
-git: $(CURRENT_FOLDER)/git/root
+git: $(CURRENT_FOLDER)/git
 	git config --global include.path $<
 
 $(SNIPPETS): $(CURRENT_FOLDER)/snippets
