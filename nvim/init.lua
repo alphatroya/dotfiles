@@ -98,10 +98,8 @@ require("lazy").setup({
 
     -- Lualine
     {
-        'hoob3rt/lualine.nvim',
-        dependencies = {
-            'kyazdani42/nvim-web-devicons',
-        }
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'kyazdani42/nvim-web-devicons' }
     },
 
     {
@@ -343,29 +341,8 @@ require("lazy").setup({
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
-            require("which-key").setup {
-                plugins = {
-                    spelling = {
-                        enabled = true,
-                    },
-                },
-            }
+            require("which-key").setup { plugins = { spelling = { enabled = true, }, }, }
         end,
-    },
-
-    -- vim dashboard
-    {
-        'glepnir/dashboard-nvim',
-        event = 'VimEnter',
-        opts = {
-            config = {
-                week_header = {
-                    enable = true,
-                },
-                disable_move = true,
-            },
-        },
-        dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
 })
 
