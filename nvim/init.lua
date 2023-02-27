@@ -329,11 +329,16 @@ require("lazy").setup({
                     },
                 },
             }
-
         end
     },
 
-    'lvimuser/lsp-inlayhints.nvim',
+    -- Inlayhints
+    {
+        'lvimuser/lsp-inlayhints.nvim',
+        config = function()
+            require("lsp-inlayhints").setup()
+        end,
+    },
 
     -- WhichKey is a lua plugin that displays a popup with possible keybindings of the command you started typing.
     {
@@ -483,12 +488,10 @@ local servers = {
     jsonls = {},
     yamlls = {},
     bufls = {},
-    sumneko_lua = {
-        diagnostics = {
-            globals = { 'vim' },
-        },
-        workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
+    lua_ls = {
+        Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
         },
     },
 }
@@ -591,7 +594,6 @@ require('lualine').setup {
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
 -- inline hints config
-require("lsp-inlayhints").setup()
 vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 vim.api.nvim_create_autocmd("LspAttach", {
     group = "LspAttach_inlayhints",
