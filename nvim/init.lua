@@ -348,9 +348,32 @@ require("lazy").setup({
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
+
+            local lmu = require('langmapper.utils')
+            local view = require('which-key.view')
+            local execute = view.execute
+
+            -- wrap `execute()` and translate sequence back
+            view.execute = function(prefix_i, mode, buf)
+                -- Translate back to English characters
+                prefix_i = lmu.translate_keycode(prefix_i, 'default', 'ru')
+                execute(prefix_i, mode, buf)
+            end
+
             require("which-key").setup { plugins = { spelling = { enabled = true, }, }, }
         end,
     },
+
+    -- A plugin that makes Neovim more friendly to non-English input methods 🤝
+    {
+        'Wansmer/langmapper.nvim',
+        lazy = false,
+        priority = 1,
+        config = function()
+            require('langmapper').setup()
+        end,
+    }
+
 })
 
 vim.o.termguicolors = true
@@ -401,7 +424,25 @@ vim.wo.relativenumber = true
 -- Avoid showing extra messages when using completion
 vim.opt.shortmess = vim.opt.shortmess + "c"
 
-vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯЖ;ABCDEFGHIJKLMNOPQRSTUVWXYZ:,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
+-- Comfigure langmap (https://github.com/Wansmer/langmapper.nvim#settings)
+local function escape(str)
+    -- You need to escape these characters to work correctly
+    local escape_chars = [[;,."|\]]
+    return vim.fn.escape(str, escape_chars)
+end
+
+-- Recommended to use lua template string
+local en = [[`qwertyuiop[]asdfghjkl;'zxcvbnm]]
+local ru = [[ёйцукенгшщзхъфывапролджэячсмить]]
+local en_shift = [[~QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
+local ru_shift = [[ËЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ]]
+
+vim.opt.langmap = vim.fn.join({
+    -- | `to` should be first     | `from` should be second
+    escape(ru_shift) .. ';' .. escape(en_shift),
+    escape(ru) .. ';' .. escape(en),
+}, ',')
+--- End langmap config
 
 vim.api.nvim_set_keymap('c', '%%', "getcmdtype() == ':' ? expand('%:h').'/' : '%%'", { expr = true, noremap = true })
 
@@ -609,3 +650,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
         require("lsp-inlayhints").on_attach(client, bufnr, true)
     end,
 })
+
+require('langmapper').automapping({ global = true, buffer = true })
