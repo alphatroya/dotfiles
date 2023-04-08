@@ -28,6 +28,7 @@
         short = true
 [alias]
 	append = town append
+	diff-parent = town diff-parent
 	hack = town hack
 	kill = town kill
 	new-pull-request = town new-pull-request
