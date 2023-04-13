@@ -497,6 +497,7 @@ vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true, desc = "
 
 -- lsp configuration
 local servers = {
+    bashls = {},
     gopls = {
         gopls = {
             usePlaceholders = false,
