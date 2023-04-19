@@ -1,0 +1,22 @@
+{
+    "New markdown url string": {
+        "prefix": [
+            "url"
+        ],
+        "body": [
+            "[${1:title}](${2:url})"
+        ],
+        "description": "Create base swagger comment placeholder"
+    },
+    "New embed code block": {
+        "prefix": [
+            "code"
+        ],
+        "body": [
+            "```${1:lang}",
+            "$2",
+            "```"
+        ],
+        "description": "Create base swagger comment placeholder"
+    }
+}
