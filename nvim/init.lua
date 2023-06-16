@@ -377,52 +377,52 @@ require("lazy").setup({
 })
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme "catppuccin-latte"
+vim.cmd.colorscheme "catppuccin-mocha"
 
 -- Set highlight on search
-vim.o.hlsearch = true
+vim.o.hlsearch        = true
 
 -- Make line numbers default
-vim.wo.number = true
+vim.wo.number         = true
 
 -- Enable break indent
-vim.o.breakindent = true
+vim.o.breakindent     = true
 
 -- Save undo history
-vim.o.undofile = true
+vim.o.undofile        = true
 
 -- Case insensitive searching UNLESS /C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.o.ignorecase      = true
+vim.o.smartcase       = true
 
 -- Decrease update time
-vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
+vim.o.updatetime      = 250
+vim.wo.signcolumn     = 'yes'
 
-vim.o.autowrite       = true -- Enable auto save before :make command
-vim.o.backup          = false -- Directories for swp files
-vim.o.cmdheight       = 0 -- Hide cmdline
-vim.o.colorcolumn     = "120" -- Show vertical line on 90 symbols width
-vim.o.cursorline      = true -- Find the current line quickly.
-vim.o.expandtab       = true -- Use spaces instead of tabs.
+vim.o.autowrite       = true    -- Enable auto save before :make command
+vim.o.backup          = false   -- Directories for swp files
+vim.o.cmdheight       = 0       -- Hide cmdline
+vim.o.colorcolumn     = "120"   -- Show vertical line on 90 symbols width
+vim.o.cursorline      = true    -- Find the current line quickly.
+vim.o.expandtab       = true    -- Use spaces instead of tabs.
 vim.o.inccommand      = 'split' -- Enable substitution previews with inccommand
-vim.o.laststatus      = 3 -- Global statusline
-vim.o.list            = true -- Show non-printable characters.
-vim.o.scrolloff       = 8 -- Scroll page as soon I reaching 8 lines before edge
-vim.o.shiftround      = true -- >> indents to next multiple of 'shiftwidth'.
-vim.o.shiftwidth      = 4 -- >> indents by 4 spaces.
+vim.o.laststatus      = 3       -- Global statusline
+vim.o.list            = true    -- Show non-printable characters.
+vim.o.scrolloff       = 8       -- Scroll page as soon I reaching 8 lines before edge
+vim.o.shiftround      = true    -- >> indents to next multiple of 'shiftwidth'.
+vim.o.shiftwidth      = 4       -- >> indents by 4 spaces.
 vim.o.showmatch       = true
-vim.o.showmode        = true -- Show current mode in command-line.
-vim.o.softtabstop     = 4 -- Tab key indents by 4 spaces.
-vim.o.spell           = true -- Enable spell check
+vim.o.showmode        = true    -- Show current mode in command-line.
+vim.o.softtabstop     = 4       -- Tab key indents by 4 spaces.
+vim.o.spell           = true    -- Enable spell check
 vim.o.spelllang       = "ru_ru,en_us"
-vim.o.splitbelow      = true -- Open new windows below the current window.
-vim.o.splitright      = true -- Open new windows right of the current window.
+vim.o.splitbelow      = true    -- Open new windows below the current window.
+vim.o.splitright      = true    -- Open new windows right of the current window.
 vim.o.swapfile        = false
 vim.wo.relativenumber = true
 
 -- Avoid showing extra messages when using completion
-vim.opt.shortmess = vim.opt.shortmess + "c"
+vim.opt.shortmess     = vim.opt.shortmess + "c"
 
 -- Comfigure langmap (https://github.com/Wansmer/langmapper.nvim#settings)
 local function escape(str)
@@ -474,7 +474,7 @@ nnoremap Q <nop>
 " Enable syntax highlighting for ruby-based configuration files
 autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
 
-]]   , false)
+]], false)
 
 vim.g.committia_hooks = {
     diff_open = function()
@@ -542,7 +542,6 @@ local servers = {
 
 -- LSP settings.
 local on_attach = function(client, bufnr)
-
     -- Reformat code on save
     if client.server_capabilities.documentFormattingProvider then
         local au_lsp = vim.api.nvim_create_augroup("format_lsp", { clear = true })
