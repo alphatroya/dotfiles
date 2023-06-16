@@ -124,7 +124,7 @@ require("lazy").setup({
         'olexsmir/gopher.nvim',
         ft = 'go',
         keys = {
-            { '<leader>if', ':GoIfErr<CR>', desc = 'Handle golang error' },
+            { '<leader>if',  ':GoIfErr<CR>',  desc = 'Handle golang error' },
             { '<leader>gat', ':GoTagAdd<CR>', desc = 'Add go struct tags' },
         },
         dependencies = {
@@ -224,26 +224,56 @@ require("lazy").setup({
         },
         keys = {
             { '<leader>sf', ':Telescope git_files theme=dropdown<CR>', silent = true, desc = '[S]earch [F]iles' },
-            { '<leader>sc', ':Telescope git_status<CR>', silent = true, desc = '[S]earch [C]hanged' },
-            { '<leader>sg', ':Telescope live_grep<CR>', silent = true, desc = '[S]earch by [G]rep' },
-            { '<leader>sw', ':Telescope grep_string<CR>', silent = true, desc = '[S]earch current [W]ord' },
-            { '<leader>s/', ':Telescope resume<CR>', silent = true },
-            { '<leader>?', ':Telescope oldfiles<CR>', silent = true, desc = '[?] Find recently opened files' },
-            { '<leader>sd', function()
-                require('telescope.builtin').diagnostics()
-            end, desc = '[S]earch [D]iagnostic' },
-            { '<leader>sk', function()
-                require('telescope.builtin').keymaps()
-            end, desc = '[S]earch [K]eymaps' },
-            { '<leader>ss', function()
-                require('telescope.builtin').lsp_document_symbols()
-            end, silent = true, desc = '[S]earch Document [S]ymbols' },
-            { '<leader><leader>', function()
-                require('telescope.builtin').buffers({ sort_mru = true, ignore_current_buffer = true })
-            end, silent = true, desc = '[ ] Find existing buffers' },
-            { "<leader>gr", function()
-                require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({ show_line = false }))
-            end, silent = true, desc = '[G]oto [R]eferences' },
+            { '<leader>sc', ':Telescope git_status<CR>',               silent = true, desc = '[S]earch [C]hanged' },
+            { '<leader>sg', ':Telescope live_grep<CR>',                silent = true, desc = '[S]earch by [G]rep' },
+            { '<leader>sw', ':Telescope grep_string<CR>',              silent = true, desc = '[S]earch current [W]ord' },
+            { '<leader>s/', ':Telescope resume<CR>',                   silent = true },
+            {
+                '<leader>?',
+                ':Telescope oldfiles<CR>',
+                silent = true,
+                desc =
+                '[?] Find recently opened files'
+            },
+            {
+                '<leader>sd',
+                function()
+                    require('telescope.builtin').diagnostics()
+                end,
+                desc = '[S]earch [D]iagnostic'
+            },
+            {
+                '<leader>sk',
+                function()
+                    require('telescope.builtin').keymaps()
+                end,
+                desc = '[S]earch [K]eymaps'
+            },
+            {
+                '<leader>ss',
+                function()
+                    require('telescope.builtin').lsp_document_symbols()
+                end,
+                silent = true,
+                desc = '[S]earch Document [S]ymbols'
+            },
+            {
+                '<leader><leader>',
+                function()
+                    require('telescope.builtin').buffers({ sort_mru = true, ignore_current_buffer = true })
+                end,
+                silent = true,
+                desc = '[ ] Find existing buffers'
+            },
+            {
+                "<leader>gr",
+                function()
+                    require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({
+                        show_line = false }))
+                end,
+                silent = true,
+                desc = '[G]oto [R]eferences'
+            },
             { '<leader>sn', function()
                 require("telescope.builtin").find_files({ cwd = require('telescope.utils').buffer_dir() })
             end, { silent = true, desc = '[S]earch [N]eighbors' } },
