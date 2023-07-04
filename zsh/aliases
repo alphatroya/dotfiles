@@ -18,23 +18,23 @@ alias gfap="git fetch --all"
 alias gcS="git commit"
 
 # Fill Redmine hours aliases
-func fillredmine() {
+fillredmine() {
     local return="no"
     if [[ ! -f work.csv ]]; then
         return="yes"
-        cd /Users/alphatroya/src/github.com/alphatroya/stunning-enigma
+        pushd /Users/alphatroya/src/github.com/alphatroya/stunning-enigma || exit
     fi
 
     git pull
     vim work.csv
-    if [[ `git status --porcelain` ]]; then
+    if [[ $(git status --porcelain) ]]; then
         git commit --all -m "Update $(date -u +"%Y-%m-%d")" && git push
     else
         echo "Nothing to commit, exit"
     fi
 
     if [[ $return == "yes" ]]; then
-        cd -
+        popd || exit
     fi
 }
 
