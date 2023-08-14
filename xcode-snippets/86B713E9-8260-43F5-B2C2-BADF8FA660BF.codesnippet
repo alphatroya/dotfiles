@@ -9,7 +9,7 @@
 		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let self = self else {
+	<string>guard let self else {
     return
 }
 </string>
