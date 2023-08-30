@@ -44,3 +44,5 @@ alias lt2='exa --tree -L2'
 alias lt3='exa --tree -L3'
 
 alias -s git="git get"
+
+alias lg=lazygit
