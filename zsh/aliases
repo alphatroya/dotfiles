@@ -9,7 +9,7 @@ alias учше="exit"
 
 # Alternatives to standard tools
 alias vim="nvim"
-alias ls="exa"
+alias ls="lsd"
 alias cat="bat"
 
 # git aliases
@@ -39,9 +39,9 @@ fillredmine() {
 }
 
 # view files tree
-alias lt1='exa --tree -L1'
-alias lt2='exa --tree -L2'
-alias lt3='exa --tree -L3'
+alias lt1='lsd --tree -L1'
+alias lt2='lsd --tree -L2'
+alias lt3='lsd --tree -L3'
 
 alias -s git="git get"
 
