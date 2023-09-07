@@ -39,9 +39,9 @@ fillredmine() {
 }
 
 # view files tree
-alias lt1='lsd --tree -L1'
-alias lt2='lsd --tree -L2'
-alias lt3='lsd --tree -L3'
+alias lt1='lsd --tree --depth 1'
+alias lt2='lsd --tree --depth 2'
+alias lt3='lsd --tree --depth 3'
 
 alias -s git="git get"
 
