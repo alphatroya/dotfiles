@@ -143,11 +143,10 @@ require("lazy").setup({
     -- Indent line plugin
     {
         'lukas-reineke/indent-blankline.nvim',
-        config = function()
-            require("indent_blankline").setup {
-                char = '┊',
-            }
-        end,
+        main = "ibl",
+        ops = {
+            char = '┊',
+        }
     },
 
     -- Super fast git decorations implemented purely in lua/teal.
