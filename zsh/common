@@ -23,3 +23,9 @@ if type brew &>/dev/null; then
 fi
 autoload -U compinit
 compinit
+
+# fix zoxide autocomplete issue
+unalias cd
+function cd () {
+    __zoxide_z "$@"
+}
