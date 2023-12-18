@@ -31,10 +31,9 @@
 	diff-parent = town diff-parent
 	hack = town hack
 	kill = town kill
-	new-pull-request = town new-pull-request
 	prepend = town prepend
 	prune-branches = town prune-branches
-	rename-branch = town rename-branch
+	propose = town propose
 	repo = town repo
 	ship = town ship
 	sync = town sync
