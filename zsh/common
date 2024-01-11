@@ -4,9 +4,6 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export LANG="en_US.UTF-8"
 
-# Initialize ruby
-eval "$(rbenv init - zsh)"
-
 # Configure zoxide
 eval "$(zoxide init zsh --cmd cd)"
 
@@ -29,3 +26,5 @@ unalias cd
 function cd () {
     __zoxide_z "$@"
 }
+
+eval "$(rtx activate zsh)"
