@@ -27,4 +27,4 @@ function cd () {
     __zoxide_z "$@"
 }
 
-eval "$(rtx activate zsh)"
+eval "$(mise activate zsh)"
