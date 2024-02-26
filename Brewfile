@@ -1,3 +1,4 @@
+brea "atuin"
 brew "aria2"
 brew "bat"
 brew "difftastic"
