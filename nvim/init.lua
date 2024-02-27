@@ -108,9 +108,7 @@ require("lazy").setup({
         -- Comment stuff out.
         'echasnovski/mini.comment',
         version = false,
-        config = function()
-            require('mini.comment').setup()
-        end
+        config = true,
     },
 
     -- Underlines the word under the cursor
@@ -144,9 +142,10 @@ require("lazy").setup({
     {
         'lukas-reineke/indent-blankline.nvim',
         main = "ibl",
-        ops = {
-            char = '┊',
-        }
+        config = {
+            indent = { char = "┊" },
+            scope = { enabled = true },
+        },
     },
 
     -- Super fast git decorations implemented purely in lua/teal.
