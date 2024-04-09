@@ -4,9 +4,6 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export LANG="en_US.UTF-8"
 
-# Configure zoxide
-eval "$(zoxide init zsh --cmd cd)"
-
 # Configure prompt
 eval "$(starship init zsh)"
 
@@ -21,8 +18,10 @@ fi
 autoload -U compinit
 compinit
 
+# Configure zoxide
+eval "$(zoxide init zsh --cmd cd)"
+
 # fix zoxide autocomplete issue
-unalias cd
 function cd () {
     __zoxide_z "$@"
 }
