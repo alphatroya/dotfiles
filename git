@@ -30,11 +30,12 @@
 	hack = town hack
 	kill = town kill
 	prepend = town prepend
-	prune-branches = town prune-branches
 	propose = town propose
 	repo = town repo
 	ship = town ship
 	sync = town sync
+	rename-branch = town rename-branch
+	ts = town switch
 [rerere]
 	enabled = true
 [pull]
