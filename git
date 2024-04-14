@@ -36,6 +36,7 @@
 	sync = town sync
 	rename-branch = town rename-branch
 	ts = town switch
+	compress = town compress
 [rerere]
 	enabled = true
 [pull]
