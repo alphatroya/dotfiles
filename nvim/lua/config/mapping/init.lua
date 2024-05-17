@@ -1,6 +1,4 @@
 -- Diagnostic
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
@@ -20,7 +18,6 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { silent = true, desc = '[G]ot
 vim.keymap.set('n', 'gD', vim.lsp.buf.type_definition, { silent = true, desc = '[G]oto type [D]efinition' })
 vim.keymap.set('n', 'gI', require('telescope.builtin').lsp_implementations,
     { silent = true, desc = '[G]oto [I]mplementations' })
-vim.keymap.set('n', "K", vim.lsp.buf.hover, { silent = true })
 vim.keymap.set("n", "<leader>rn", function()
     return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true, desc = '[R]e[n]ame refactoring' })
