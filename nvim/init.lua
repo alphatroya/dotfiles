@@ -43,9 +43,6 @@ require("lazy").setup({
 
     {
         'nvim-treesitter/nvim-treesitter',
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter-textobjects',
-        },
         build = ':TSUpdate',
         config = function()
             require('nvim-treesitter.configs').setup({
@@ -54,27 +51,6 @@ require("lazy").setup({
                 ignore_install = { "phpdoc" },
                 highlight = { enable = true },
                 indent = { enable = true },
-                textobjects = {
-                    enable = true,
-                    keymaps = {
-                        ["af"] = "@function.outer",
-                        ["if"] = "@function.inner",
-                        ["aC"] = "@class.outer",
-                        ["iC"] = "@class.inner",
-                        ["ia"] = "@parameter.inner",
-                        ["aa"] = "@parameter.outer",
-                    },
-                    select = {
-                        enable = true,
-                        lookahead = true,
-                        keymaps = {
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
-                            ["ia"] = "@parameter.inner",
-                            ["aa"] = "@parameter.outer",
-                        }
-                    },
-                }
             })
         end,
     },
