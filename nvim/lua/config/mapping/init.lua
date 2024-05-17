@@ -1,5 +1,4 @@
 -- Diagnostic
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 vim.keymap.set('n', ']b', ':bnext<CR>', { desc = 'Next buffer', noremap = true })
