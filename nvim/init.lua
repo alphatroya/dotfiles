@@ -80,13 +80,6 @@ require("lazy").setup({
         dependencies = { 'kyazdani42/nvim-web-devicons' }
     },
 
-    {
-        -- Comment stuff out.
-        'echasnovski/mini.comment',
-        version = false,
-        config = true,
-    },
-
     -- Underlines the word under the cursor
     'RRethy/vim-illuminate',
 
