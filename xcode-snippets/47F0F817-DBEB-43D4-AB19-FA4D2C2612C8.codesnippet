@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>cafeature_</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@Reducer
+public struct Feature {
+    @ObservableState
+    public struct State {}
+
+    public enum Action {}
+
+    // MARK: Computed Properties
+
+    public var body: some ReducerOf&lt;Self&gt; {
+        Reduce { state, action in
+            switch action {
+
+            }
+        }
+    }
+    
+    public init() {}
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>47F0F817-DBEB-43D4-AB19-FA4D2C2612C8</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string></string>
+	<key>IDECodeSnippetTitle</key>
+	<string>New composable architecture feature</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

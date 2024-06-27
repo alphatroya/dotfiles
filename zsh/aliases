@@ -18,7 +18,7 @@ alias gfap="git fetch --all"
 alias gcS="git commit"
 
 # Fill Redmine hours aliases
-fillredmine() {
+log_hours() {
     if [[ ! -f work.csv ]]; then
         pushd /Users/alphatroya/src/github.com/alphatroya/stunning-enigma || exit
         should_popd=true

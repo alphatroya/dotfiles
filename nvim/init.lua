@@ -577,6 +577,8 @@ end
 -- Setup mason so it can manage external tooling
 require('mason').setup()
 
+require 'lspconfig'.sourcekit.setup {}
+
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
