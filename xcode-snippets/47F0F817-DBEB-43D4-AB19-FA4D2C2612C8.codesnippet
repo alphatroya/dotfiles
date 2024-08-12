@@ -3,30 +3,42 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>cafeature_</string>
+	<string>newcafeature_</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>TopLevel</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@Reducer
-public struct Feature {
+	<string>import ComposableArchitecture
+
+@Reducer
+struct &lt;#T##String#&gt;Feature {
     @ObservableState
-    public struct State {}
-
-    public enum Action {}
-
+    struct State {}
+    
+    enum Action: ViewAction, BindableAction {
+        case binding(BindingAction&lt;State&gt;)
+        case delegate(Delegate)
+        case view(View)
+        
+        enum Delegate {}
+        
+        enum View {}
+    }
+    
     // MARK: Computed Properties
-
-    public var body: some ReducerOf&lt;Self&gt; {
+    
+    var body: some ReducerOf&lt;Self&gt; {
         Reduce { state, action in
             switch action {
-
+                case let .view(action):
+                        .none
+                case .binding, .delegate:
+                        .none
+                    
             }
         }
     }
-    
-    public init() {}
 }
 </string>
 	<key>IDECodeSnippetIdentifier</key>
