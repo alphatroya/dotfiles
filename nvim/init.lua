@@ -158,8 +158,10 @@ require("lazy").setup({
                     end, { expr = true, desc = "Previous git hunk" })
 
                     -- Actions
-                    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>', { desc = "[H]unk [s]tage" })
-                    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>', { desc = "[H]unk [r]eset" })
+                    map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>',
+                        { desc = "[H]unk [s]tage" })
+                    map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>',
+                        { desc = "[H]unk [r]eset" })
                     map('n', '<leader>hu', gs.undo_stage_hunk, { desc = "[H]unk stage [u]ndo" })
                     map('n', '<leader>hp', gs.preview_hunk, { desc = "[H]unk [p]review" })
                     map('n', '<leader>hb', function() gs.blame_line { full = true } end,
@@ -235,8 +237,9 @@ require("lazy").setup({
             {
                 "<leader>gr",
                 function()
-                    require('telescope.builtin').lsp_references(require('telescope.themes').get_dropdown({
-                        show_line = false }))
+                    require('telescope.builtin').lsp_references(require('telescope.themes')
+                        .get_dropdown({
+                            show_line = false }))
                 end,
                 silent = true,
                 desc = '[G]oto [R]eferences'
@@ -245,10 +248,11 @@ require("lazy").setup({
                 require("telescope.builtin").find_files({ cwd = require('telescope.utils').buffer_dir() })
             end, { silent = true, desc = '[S]earch [N]eighbors' } },
             { '<leader>/', function()
-                require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-                    winblend = 10,
-                    previewer = false,
-                })
+                require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes')
+                    .get_dropdown {
+                        winblend = 10,
+                        previewer = false,
+                    })
             end, { desc = '[/] Fuzzily search in current buffer]' } },
         },
         config = function()
@@ -347,7 +351,13 @@ require("lazy").setup({
         config = function()
             require('langmapper').setup()
         end,
-    }
+    },
+
+    {
+        "m4xshen/hardtime.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        opts = {}
+    },
 
 })
 
@@ -387,7 +397,7 @@ vim.o.scrolloff       = 8       -- Scroll page as soon I reaching 8 lines before
 vim.o.shiftround      = true    -- >> indents to next multiple of 'shiftwidth'.
 vim.o.shiftwidth      = 4       -- >> indents by 4 spaces.
 vim.o.showmatch       = true
-vim.o.showmode        = true    -- Show current mode in command-line.
+vim.o.showmode        = false   -- Disabled for hardtime
 vim.o.softtabstop     = 4       -- Tab key indents by 4 spaces.
 vim.o.spell           = true    -- Enable spell check
 vim.o.spelllang       = "ru_ru,en_us"
