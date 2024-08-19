@@ -29,7 +29,7 @@ struct &lt;#T##String#&gt;Feature {
     // MARK: Computed Properties
     
     var body: some ReducerOf&lt;Self&gt; {
-        Reduce { state, action in
+        Reduce&lt;State, Action&gt; { state, action in
             switch action {
                 case let .view(action):
                         .none
