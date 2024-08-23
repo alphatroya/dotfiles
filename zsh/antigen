@@ -11,7 +11,6 @@ antigen bundle prompt
 antigen bundle utility
 antigen bundle completion
 antigen bundle command-not-found
-antigen bundle jeffreytse/zsh-vi-mode
 
 antigen bundle Aloxaf/fzf-tab
 antigen bundle zsh-users/zsh-autosuggestions
