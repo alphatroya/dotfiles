@@ -111,10 +111,9 @@ require("lazy").setup({
     {
         'lukas-reineke/indent-blankline.nvim',
         main = "ibl",
-        config = {
-            indent = { char = "┊" },
-            scope = { enabled = true },
-        },
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
     },
 
     -- Super fast git decorations implemented purely in lua/teal.
