@@ -335,14 +335,6 @@ require("lazy").setup({
         end
     },
 
-    -- Inlayhints
-    {
-        'lvimuser/lsp-inlayhints.nvim',
-        config = function()
-            require("lsp-inlayhints").setup()
-        end,
-    },
-
     -- A plugin that makes Neovim more friendly to non-English input methods 🤝
     {
         'Wansmer/langmapper.nvim',
@@ -616,20 +608,5 @@ require('lualine').setup {
 
 -- custom snippets folder
 vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
-
--- inline hints config
-vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
-vim.api.nvim_create_autocmd("LspAttach", {
-    group = "LspAttach_inlayhints",
-    callback = function(args)
-        if not (args.data and args.data.client_id) then
-            return
-        end
-
-        local bufnr = args.buf
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        require("lsp-inlayhints").on_attach(client, bufnr, true)
-    end,
-})
 
 require('langmapper').automapping({ global = true, buffer = true })
