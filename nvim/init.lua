@@ -294,46 +294,6 @@ require("lazy").setup({
         end,
     },
 
-    {
-        'folke/noice.nvim',
-        dependencies = {
-            'MunifTanjim/nui.nvim',
-        },
-        config = function()
-            require("noice").setup {
-                lsp = {
-                    override = {
-                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-                        ["vim.lsp.util.stylize_markdown"] = true,
-                        ["cmp.entry.get_documentation"] = true,
-                    },
-                    signature = {
-                        auto_open = {
-                            enabled = false,
-                        },
-                    },
-                },
-                presets = {
-                    bottom_search = true,
-                    command_palette = true,
-                    long_message_to_split = true,
-                    inc_rename = true,
-                    lsp_doc_border = true,
-                },
-                routes = {
-                    {
-                        filter = {
-                            event = "msg_show",
-                            kind = "",
-                            find = "written",
-                        },
-                        opts = { skip = true },
-                    },
-                },
-            }
-        end
-    },
-
     -- A plugin that makes Neovim more friendly to non-English input methods 🤝
     {
         'Wansmer/langmapper.nvim',
@@ -451,7 +411,6 @@ vim.g.committia_hooks = {
         vim.wo.spell = false
     end
 }
-
 
 vim.g.markdown_fenced_languages = { 'go', 'swift', 'rust', 'json' }
 
@@ -593,11 +552,6 @@ require('lualine').setup {
     },
     sections = {
         lualine_x = {
-            {
-                require("noice").api.statusline.mode.get,
-                cond = require("noice").api.statusline.mode.has,
-                color = { fg = "#ff9e64" },
-            },
             'encoding',
             'fileformat',
             'filetype',
