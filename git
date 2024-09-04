@@ -6,7 +6,6 @@
 [mergetool "vim_mergetool"]
 	cmd = nvim "$MERGED"
 [push]
-	default = simple
 	autoSetupRemote = true
 [rebase]
 	autosquash = true
@@ -18,8 +17,6 @@
 	helper = osxkeychain
 [fetch]
 	prune = true
-[init]
-	defaultBranch = main
 [help]
         autoCorrect = prompt
 [status]
