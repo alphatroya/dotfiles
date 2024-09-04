@@ -1,6 +1,7 @@
 brew "aria2"
 brew "atuin"
 brew "bat"
+brew "coreutils"
 brew "difftastic"
 brew "duf"
 brew "fd"
