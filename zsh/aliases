@@ -9,7 +9,7 @@ alias учше="exit"
 
 # Alternatives to standard tools
 alias vim="nvim"
-alias ls="ls --color=auto"
+alias ls="gls --color=auto"
 alias cat="bat"
 
 # git aliases
