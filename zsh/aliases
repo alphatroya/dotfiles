@@ -9,7 +9,7 @@ alias учше="exit"
 
 # Alternatives to standard tools
 alias vim="nvim"
-alias ls="lsd"
+alias ls="ls --color=auto"
 alias cat="bat"
 
 # git aliases
@@ -48,11 +48,6 @@ log_hours() {
         popd || exit
     fi
 }
-
-# view files tree
-alias lt1='lsd --tree --depth 1'
-alias lt2='lsd --tree --depth 2'
-alias lt3='lsd --tree --depth 3'
 
 alias -s git="git get"
 
