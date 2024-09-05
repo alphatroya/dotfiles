@@ -50,5 +50,3 @@ log_hours() {
 }
 
 alias -s git="git get"
-
-alias lg=lazygit
