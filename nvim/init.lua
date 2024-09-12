@@ -396,10 +396,13 @@ call SetupCommandAlias('цй', 'wq')
 nnoremap q: <nop>
 nnoremap Q <nop>
 
-" Enable syntax highlighting for ruby-based configuration files
-autocmd BufNewFile,BufRead Podfile,*.podspec,Fastfile,Appfile,Matchfile set syntax=ruby
-
 ]], false)
+
+-- Enable syntax highlighting for ruby-based configuration files
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "Fastfile", "Appfile", "Matchfile", "Podfile", "Podfile.lock", "*.podspec" },
+    command = "set filetype=ruby"
+})
 
 vim.g.committia_hooks = {
     diff_open = function()
