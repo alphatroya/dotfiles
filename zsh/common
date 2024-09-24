@@ -4,9 +4,6 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export LANG="en_US.UTF-8"
 
-# Configure prompt
-eval "$(starship init zsh)"
-
 # Configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
