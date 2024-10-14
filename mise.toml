@@ -1,0 +1,16 @@
+[tools]
+flutter = "latest"
+go = "latest"
+ruby = "3.0.6"
+xcodes = "1.5.0"
+neovim = "stable"
+"cargo:difftastic" = "latest"
+"cargo:diskonaut" = "latest"
+"cargo:lowfi" = "latest"
+"go:github.com/charmbracelet/glow" = "latest"
+"go:github.com/charmbracelet/gum" = "latest"
+"go:github.com/icholy/git-get" = "latest"
+"ubi:git-town/git-town" = "latest"
+
+[settings]
+experimental = true

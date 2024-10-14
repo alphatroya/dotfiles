@@ -2,12 +2,13 @@ CURRENT_FOLDER:=$(shell pwd)
 HOME_DIR=$(shell echo $$HOME)
 ANTIGEN_SCRIPT=$(CURRENT_FOLDER)/zsh/antigen.zsh
 NVIM=$(HOME_DIR)/.config/nvim
+MISE=$(HOME_DIR)/.config/mise/config.toml
 FZF=$(HOME_DIR)/.fzf.zsh
 SNIPPETS=$(HOME_DIR)/.vsnip
 XCODE_SNIPPETS:=$(HOME_DIR)/Library/Developer/Xcode/UserData/CodeSnippets
 
 .PHONY: all
-all: $(NVIM) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS) git
+all: $(NVIM) $(ANTIGEN_SCRIPT) $(SNIPPETS) $(XCODE_SNIPPETS) $(MISE) git
 
 .PHONY: git
 git: $(CURRENT_FOLDER)/git
@@ -17,6 +18,9 @@ $(SNIPPETS): $(CURRENT_FOLDER)/snippets
 	ln -sf $< $@
 
 $(NVIM): $(CURRENT_FOLDER)/nvim
+	ln -sf $< $@
+
+$(MISE): $(CURRENT_FOLDER)/mise.toml
 	ln -sf $< $@
 
 $(FZF):
