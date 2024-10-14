@@ -12,6 +12,7 @@ ruby = "3.2"
 "go:github.com/icholy/git-get" = "latest"
 "go:github.com/git-town/git-town/v16" = "16.4.1"
 "cargo:git-trim" = "latest"
+"cargo:ripgrep" = "latest"
 
 [settings]
 experimental = true
