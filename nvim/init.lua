@@ -44,15 +44,16 @@ require("lazy").setup({
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
-        config = function()
-            require('nvim-treesitter.configs').setup({
-                ensure_installed = "all",
-                auto_install = true,
-                ignore_install = { "phpdoc" },
-                highlight = { enable = true },
-                indent = { enable = true },
-            })
-        end,
+        main = 'nvim-treesitter.configs',
+        opts = {
+            ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'go' },
+            auto_install = true,
+            highlight = {
+                enable = true,
+                additional_vim_regex_highlighting = { 'ruby' },
+            },
+            indent = { enable = true, disable = { 'ruby' } },
+        },
     },
 
     -- Theme
