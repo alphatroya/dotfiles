@@ -11,8 +11,6 @@
 	autosquash = true
 [mergetool]
 	keepBackup = false
-[color]
-	ui = true
 [credential]
 	helper = osxkeychain
 [fetch]
