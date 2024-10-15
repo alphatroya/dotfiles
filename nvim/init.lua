@@ -81,21 +81,6 @@ require("lazy").setup({
     -- A Vim plugin for more pleasant editing on commit messages
     'rhysd/committia.vim',
 
-    -- Golang support
-    {
-        'olexsmir/gopher.nvim',
-        ft = 'go',
-        keys = {
-            { '<leader>if',  ':GoIfErr<CR>',  desc = 'Handle golang error' },
-            { '<leader>gat', ':GoTagAdd<CR>', desc = 'Add go struct tags' },
-        },
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-treesitter/nvim-treesitter',
-        },
-        config = true,
-    },
-
     -- Show mark symbols on the gutter
     'kshenoy/vim-signature',
 
