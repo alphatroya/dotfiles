@@ -247,17 +247,6 @@ require("lazy").setup({
         end
     },
 
-    -- todo hightlighting
-    {
-        'folke/todo-comments.nvim',
-        name = "todo-comments",
-        dependencies = 'nvim-lua/plenary.nvim',
-        keys = {
-            { "<leader>st", ':TodoTelescope<CR>', desc = '[S]earch [T]ODO marks' },
-        },
-        opts = {},
-    },
-
     -- TreeSJ: split or join blocks of code
     -- (<space>m - toggle, <space>j - join, <space>s - split)
     {
