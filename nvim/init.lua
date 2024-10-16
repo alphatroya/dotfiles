@@ -257,13 +257,6 @@ require("lazy").setup({
         opts = {},
     },
 
-    {
-        'smjonas/inc-rename.nvim',
-        config = function()
-            require('inc_rename').setup()
-        end,
-    },
-
     -- A plugin that makes Neovim more friendly to non-English input methods 🤝
     {
         'Wansmer/langmapper.nvim',
@@ -278,9 +271,6 @@ require("lazy").setup({
 
 vim.o.termguicolors = true
 vim.cmd.colorscheme "tokyonight"
-
--- Set highlight on search
-vim.o.hlsearch        = true
 
 -- Make line numbers default
 vim.wo.number         = true
@@ -300,7 +290,6 @@ vim.o.updatetime      = 250
 vim.wo.signcolumn     = 'yes'
 
 vim.o.autowrite       = true    -- Enable auto save before :make command
-vim.o.backup          = false   -- Directories for swp files
 vim.o.cmdheight       = 0       -- Hide cmdline
 vim.o.colorcolumn     = "120"   -- Show vertical line on 90 symbols width
 vim.o.cursorline      = true    -- Find the current line quickly.
@@ -312,7 +301,6 @@ vim.o.scrolloff       = 8       -- Scroll page as soon I reaching 8 lines before
 vim.o.shiftround      = true    -- >> indents to next multiple of 'shiftwidth'.
 vim.o.shiftwidth      = 4       -- >> indents by 4 spaces.
 vim.o.showmatch       = true
-vim.o.showmode        = false   -- Disabled for hardtime
 vim.o.softtabstop     = 4       -- Tab key indents by 4 spaces.
 vim.o.spell           = true    -- Enable spell check
 vim.o.spelllang       = "ru_ru,en_us"
