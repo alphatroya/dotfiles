@@ -14,7 +14,8 @@ alias cat="bat"
 # git aliases
 alias gloga="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gfap="git fetch --all"
-alias gc="git commit"
+alias gsy="git town sync"
+alias gha="git town hack"
 
 # Fill Redmine hours aliases
 log_hours() {
