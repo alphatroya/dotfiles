@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# difftastic
-alias gdiff="GIT_EXTERNAL_DIFF=difft git diff"
-alias gshow="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
-
 # Russian typos
 alias учше="exit"
 
@@ -12,15 +8,25 @@ alias vim="nvim"
 alias cat="bat"
 
 # git aliases
+alias ga="git add"
+alias gaa="git add --all"
+alias gco="git checkout"
+alias gc="git commit --verbose"
+alias gp="git push"
 alias gloga="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gfap="git fetch --all"
 alias -s git="git get"
+
+# difftastic
+alias gd="GIT_EXTERNAL_DIFF=difft git diff"
+alias gdc="GIT_EXTERNAL_DIFF=difft git diff --cached"
+alias gsh="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
 
 # git-town aliases
 alias gts="git town sync"
 alias gth="git town hack"
 alias gtp="git town propose"
-alias gtco="git town switch --all --display-types"
+alias gsw="git town switch --all --display-types"
 
 # Fill Redmine hours aliases
 log_hours() {
