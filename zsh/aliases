@@ -1,21 +1,26 @@
 #!/usr/bin/env bash
 
-# Difftastic
+# difftastic
 alias gdiff="GIT_EXTERNAL_DIFF=difft git diff"
 alias gshow="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
 
 # Russian typos
 alias учше="exit"
 
-# Alternatives to standard tools
+# alternatives to standard tools
 alias vim="nvim"
 alias cat="bat"
 
 # git aliases
 alias gloga="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gfap="git fetch --all"
-alias gsy="git town sync"
-alias gha="git town hack"
+alias -s git="git get"
+
+# git-town aliases
+alias gts="git town sync"
+alias gth="git town hack"
+alias gtp="git town propose"
+alias gtco="git town switch --all --display-types"
 
 # Fill Redmine hours aliases
 log_hours() {
@@ -48,5 +53,3 @@ log_hours() {
         popd || exit
     fi
 }
-
-alias -s git="git get"
