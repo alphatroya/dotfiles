@@ -24,3 +24,6 @@ function cd () {
 }
 
 eval "$(mise activate zsh)"
+
+# starship prompt
+eval "$(mise exec cargo:starship@latest -- starship init zsh)"
