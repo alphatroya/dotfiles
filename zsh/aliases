@@ -29,6 +29,9 @@ alias gth="git town hack"
 alias gtp="git town propose"
 alias gsw="git town switch --all --display-types"
 
+alias qc="atr-capture"
+alias йс="atr-capture"
+
 # Fill Redmine hours aliases
 log_hours() {
     if [[ ! -f work.csv ]]; then
