@@ -1,14 +1,15 @@
 [tools]
+bat = "latest"
+difftastic = "latest"
+fd = "latest"
 flutter = "latest"
+fzf = "latest"
 go = "latest"
-xcodes = "1.5.0"
+jq = "latest"
 neovim = "stable"
 ruby = "3.2"
-jq = "latest"
-fd = "latest"
-bat = "latest"
 shellcheck = "latest"
-"cargo:difftastic" = "latest"
+xcodes = "1.5.0"
 "cargo:diskonaut" = "latest"
 "cargo:lowfi" = "latest"
 "cargo:git-trim" = "latest"
@@ -21,7 +22,6 @@ shellcheck = "latest"
 "go:github.com/charmbracelet/freeze" = "latest"
 "go:github.com/tomnomnom/gron" = "latest"
 "go:github.com/charmbracelet/mods" = "latest"
-fzf = "latest"
 
 [settings]
 experimental = true
