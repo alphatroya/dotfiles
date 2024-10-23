@@ -4,9 +4,6 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export LANG="en_US.UTF-8"
 
-# Configure fzf
-source <(fzf --zsh)
-
 # Add brew completion folder to fpath
 fpath=(~/.zsh/completion $fpath)
 if type brew &>/dev/null; then
@@ -24,6 +21,9 @@ function cd () {
 }
 
 eval "$(mise activate zsh)"
+#
+# Configure fzf
+source <(mise exec fzf -- fzf --zsh)
 
 # starship prompt
 eval "$(mise exec cargo:starship@latest -- starship init zsh)"

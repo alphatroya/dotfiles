@@ -1,6 +1,4 @@
 brew "aria2"
-brew "coreutils"
-brew "fzf"
 brew "git"
 brew "mise"
 brew "pandoc"

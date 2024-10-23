@@ -20,6 +20,7 @@ bat = "latest"
 "go:github.com/charmbracelet/freeze" = "latest"
 "go:github.com/tomnomnom/gron" = "latest"
 "go:github.com/charmbracelet/mods" = "latest"
+fzf = "latest"
 
 [settings]
 experimental = true
