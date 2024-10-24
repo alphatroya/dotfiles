@@ -1,8 +1,5 @@
 brew "aria2"
 brew "git"
 brew "mise"
-brew "pandoc"
 brew "tree"
-brew "yt-dlp"
-brew "zoxide"
 brew "zsh"

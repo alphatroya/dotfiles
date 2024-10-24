@@ -12,16 +12,16 @@ fi
 autoload -U compinit
 compinit
 
+eval "$(mise activate zsh)"
+
 # Configure zoxide
-eval "$(zoxide init zsh --cmd cd)"
+eval "$(mise exec zoxide -- zoxide init zsh --cmd cd)"
 
 # fix zoxide autocomplete issue
 function cd () {
     __zoxide_z "$@"
 }
 
-eval "$(mise activate zsh)"
-#
 # Configure fzf
 source <(mise exec fzf -- fzf --zsh)
 
