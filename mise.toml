@@ -2,7 +2,6 @@
 bat = "latest"
 difftastic = "latest"
 fd = "latest"
-flutter = "latest"
 fzf = "latest"
 go = "latest"
 jq = "latest"
@@ -11,6 +10,7 @@ ruby = "3.2"
 shellcheck = "latest"
 xcodes = "1.5.0"
 ripgrep = "latest"
+zoxide = "latest"
 "cargo:diskonaut" = "latest"
 "cargo:lowfi" = "latest"
 "cargo:git-trim" = "latest"
@@ -21,7 +21,6 @@ ripgrep = "latest"
 "go:github.com/git-town/git-town/v16" = "16.4.1"
 "go:github.com/tomnomnom/gron" = "latest"
 "go:github.com/charmbracelet/mods" = "latest"
-zoxide = "latest"
 
 [settings]
 experimental = true
