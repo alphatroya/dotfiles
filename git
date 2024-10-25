@@ -28,7 +28,6 @@
 	compress = town compress
 [rerere]
 	enabled = true
-	autoupdate = true
 [pull]
 	rebase = true
 	ff = only
