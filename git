@@ -17,15 +17,6 @@
         autoCorrect = prompt
 [status]
         short = true
-[alias]
-	append = town append
-	diff-parent = town diff-parent
-	kill = town kill
-	prepend = town prepend
-	repo = town repo
-	ship = town ship
-	rename-branch = town rename-branch
-	compress = town compress
 [rerere]
 	enabled = true
 	autoupdate = true
