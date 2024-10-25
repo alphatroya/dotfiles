@@ -26,4 +26,4 @@ function cd () {
 source <(mise exec fzf -- fzf --zsh)
 
 # starship prompt
-eval "$(mise exec cargo:starship@latest -- starship init zsh)"
+eval "$(mise exec starship -- starship init zsh)"
