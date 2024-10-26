@@ -1,4 +1,5 @@
 brew "aria2"
+brew "curl"
 brew "git"
 brew "mise"
 brew "tree"
