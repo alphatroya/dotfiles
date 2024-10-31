@@ -32,7 +32,6 @@ require("lazy").setup({
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
-            'hrsh7th/cmp-vsnip',
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -147,16 +146,6 @@ require("lazy").setup({
                 end
             }
         end
-    },
-
-    -- snippets support
-    {
-        'hrsh7th/vim-vsnip',
-        dependencies = {
-            'hrsh7th/vim-vsnip-integ',
-            -- go snippets support
-            'golang/vscode-go',
-        }
     },
 
     -- support file.txt:<line>:<column> file opening
@@ -516,8 +505,5 @@ require('lualine').setup {
         },
     },
 }
-
--- custom snippets folder
-vim.api.nvim_exec([[ let g:vsnip_snippet_dir = expand('~/.vsnip') ]], false)
 
 require('langmapper').automapping({ global = true, buffer = true })
