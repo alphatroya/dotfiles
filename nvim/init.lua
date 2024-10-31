@@ -58,9 +58,7 @@ require("lazy").setup({
 
     -- Theme
     {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
+        'tanvirtin/monokai.nvim',
         opts = {},
     },
 
@@ -270,7 +268,7 @@ require("lazy").setup({
 })
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme "tokyonight"
+vim.cmd.colorscheme "monokai_pro"
 
 -- Make line numbers default
 vim.wo.number         = true
