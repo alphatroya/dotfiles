@@ -1,6 +1,7 @@
 brew "aria2"
 brew "curl"
 brew "git"
+brew "pandoc"
 brew "mise"
 brew "tree"
 brew "zsh"
