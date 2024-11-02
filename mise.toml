@@ -22,6 +22,7 @@ zoxide = "latest"
 "go:github.com/git-town/git-town/v16" = "16.5.0"
 "go:github.com/tomnomnom/gron" = "latest"
 "go:github.com/charmbracelet/mods" = "latest"
+"cargo:lazyjj" = "latest"
 
 [settings]
 experimental = true
