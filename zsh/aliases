@@ -69,7 +69,7 @@ log_hours() {
 alias today="zed $KNOWLEDGE_BASE $KNOWLEDGE_BASE/journals/$(date +%Y_%m_%d).md"
 alias archive='mv ~/Downloads/*.md $KNOWLEDGE_BASE/archive'
 
-function generare-ebooks() {
+function generate-ebooks() {
     for file in ~/Downloads/*.md; do
         base=$(basename "$file" ".md")
         pandoc -o ~/Downloads/"$base.epub" --metadata title="$base" "$file"
