@@ -7,6 +7,7 @@ alias учше="exit"
 alias vim="nvim"
 alias less="bat"
 alias cat="bat -pp"
+alias ls="ls --color=auto"
 
 # git aliases
 alias ga="git add"
