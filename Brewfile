@@ -1,4 +1,5 @@
 brew "aria2"
+brew "atuin"
 brew "curl"
 brew "git"
 brew "pandoc"

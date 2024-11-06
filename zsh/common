@@ -24,7 +24,10 @@ function cd () {
 }
 
 # Configure fzf
-source <(mise exec fzf -- fzf --zsh)
+source <(mise exec -- fzf --zsh)
 
 # starship prompt
-eval "$(mise exec starship -- starship init zsh)"
+eval "$(mise exec -- starship init zsh)"
+
+# configure atuin
+eval "$(atuin init zsh --disable-up-arrow)"
