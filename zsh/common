@@ -31,3 +31,6 @@ eval "$(mise exec -- starship init zsh)"
 
 # configure atuin
 eval "$(atuin init zsh --disable-up-arrow)"
+
+# jj completion
+source <(mise exec -- jj util completion zsh)
