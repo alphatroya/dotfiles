@@ -26,12 +26,6 @@ alias gd="GIT_EXTERNAL_DIFF=difft git diff"
 alias gdc="GIT_EXTERNAL_DIFF=difft git diff --cached"
 alias gsh="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
 
-# git-town aliases
-alias gts="git town sync"
-alias gth="git town hack"
-alias gtp="git town propose"
-alias gsw="git town switch --all --display-types"
-
 # jujutsu aliases
 alias jjl="jj log"
 alias jjs="jj status"
