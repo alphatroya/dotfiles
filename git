@@ -23,5 +23,3 @@
 [pull]
 	rebase = true
 	ff = only
-[diff]
-	algorithm = histogram
