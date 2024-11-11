@@ -32,7 +32,7 @@ $(XCODE_SNIPPETS): $(CURRENT_FOLDER)/xcode-snippets
 .PHONY: clean
 clean:
 	git config --global --unset include.path
-	rm $(NVIM) $(XCODE_SNIPPETS) $(SNIPPETS)
+	rm $(NVIM) $(XCODE_SNIPPETS) $(MISE)
 
 .PHONY: brew
 brew:
