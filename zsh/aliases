@@ -32,6 +32,11 @@ alias gth="git town hack"
 alias gtp="git town propose"
 alias gsw="git town switch --all --display-types"
 
+# jujutsu aliases
+alias jjl="jj log"
+alias jjs="jj status"
+alias jjd="jj diff"
+
 alias qc="atr-capture"
 alias йс="atr-capture"
 
