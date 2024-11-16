@@ -1,11 +1,9 @@
 [tools]
 difftastic = "latest"
-fd = "latest"
 fzf = "latest"
 go = "latest"
 jq = "latest"
 neovim = "0.10.2"
-ripgrep = "latest"
 ruby = "3.2"
 shellcheck = "latest"
 starship = "1.21.1"
