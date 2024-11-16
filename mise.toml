@@ -1,5 +1,4 @@
 [tools]
-bat = "latest"
 difftastic = "latest"
 fd = "latest"
 fzf = "latest"
