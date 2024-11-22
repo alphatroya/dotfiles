@@ -76,9 +76,6 @@ require("lazy").setup({
     -- Underlines the word under the cursor
     'RRethy/vim-illuminate',
 
-    -- A Vim plugin for more pleasant editing on commit messages
-    'rhysd/committia.vim',
-
     -- Show mark symbols on the gutter
     'kshenoy/vim-signature',
 
@@ -354,12 +351,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     command = "set filetype=ruby"
 })
 
-vim.g.committia_hooks = {
-    diff_open = function()
-        vim.wo.spell = false
-    end
-}
-
 vim.g.markdown_fenced_languages = { 'go', 'swift', 'rust', 'json' }
 
 vim.cmd('au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}') -- hightlight yank
@@ -374,7 +365,6 @@ vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true, desc = "
 
 -- lsp configuration
 local servers = {
-    bashls = {},
     gopls = {
         gopls = {
             usePlaceholders = false,
@@ -408,7 +398,6 @@ local servers = {
     rust_analyzer = {},
     jsonls = {},
     yamlls = {},
-    bufls = {},
     lua_ls = {
         Lua = {
             workspace = { checkThirdParty = false },
