@@ -26,13 +26,10 @@ alias gd="GIT_EXTERNAL_DIFF=difft git diff"
 alias gdc="GIT_EXTERNAL_DIFF=difft git diff --cached"
 alias gsh="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
 
-# jujutsu aliases
-alias jjl="jj log"
-alias jjs="jj status"
-alias jjd="jj diff"
-
 alias qc="atr-capture"
 alias йс="atr-capture"
+
+alias typora="open -a typora"
 
 # Fill Redmine hours aliases
 log_hours() {
@@ -70,8 +67,10 @@ alias today="zed $KNOWLEDGE_BASE $KNOWLEDGE_BASE/journals/$(date +%Y_%m_%d).md"
 alias archive='mv ~/Downloads/*.md $KNOWLEDGE_BASE/archive'
 
 function generate-ebooks() {
-    for file in ~/Downloads/*.md; do
-        base=$(basename "$file" ".md")
+    for file in ~/Downloads/*.html; do
+        base=$(basename "$file" ".html")
+        pandoc -o ~/Downloads/"$base.md" "$file"
         pandoc -o ~/Downloads/"$base.epub" --metadata title="$base" "$file"
+        rm "$file"
     done
 }
