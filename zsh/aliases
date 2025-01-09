@@ -31,13 +31,3 @@ alias йс="atr-capture"
 
 alias typora="open -a typora"
 alias today="zed $KNOWLEDGE_BASE $KNOWLEDGE_BASE/journals/$(date +%Y_%m_%d).md"
-alias archive='mv ~/Downloads/*.md $KNOWLEDGE_BASE/archive'
-
-function generate-ebooks() {
-    for file in ~/Downloads/*.html; do
-        base=$(basename "$file" ".html")
-        pandoc -o ~/Downloads/"$base.md" "$file"
-        pandoc -o ~/Downloads/"$base.epub" --metadata title="$base" "$file"
-        rm "$file"
-    done
-}
