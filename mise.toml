@@ -18,5 +18,8 @@ zoxide = "latest"
 "go:github.com/charmbracelet/mods" = "latest"
 "cargo:lazyjj" = "latest"
 
+[env]
+_.file = "~/.mise_envs.json"
+
 [settings]
 experimental = true
