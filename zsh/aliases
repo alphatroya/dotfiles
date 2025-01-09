@@ -30,39 +30,6 @@ alias qc="atr-capture"
 alias йс="atr-capture"
 
 alias typora="open -a typora"
-
-# Fill Redmine hours aliases
-log_hours() {
-    if [[ ! -f work.csv ]]; then
-        pushd /Users/alphatroya/src/github.com/alphatroya/stunning-enigma || exit
-        should_popd=true
-    else
-        should_popd=false
-    fi
-
-    git pull
-    if [[ -n "$1" ]]; then
-        file="work.csv"
-        line=$(printf "%s,,Работа" "$1")
-        if [ -s "$file" ]; then
-            echo "$line" >> "$file"
-        else
-            echo "$line" > "$file"
-        fi
-    else
-        vim work.csv
-    fi
-    if [[ $(git status --porcelain) ]]; then
-        git commit --all -m "Update $(date -u +"%Y-%m-%d")" && git push
-    else
-        echo "Nothing to commit, exit"
-    fi
-
-    if [[ $should_popd == true ]]; then
-        popd || exit
-    fi
-}
-
 alias today="zed $KNOWLEDGE_BASE $KNOWLEDGE_BASE/journals/$(date +%Y_%m_%d).md"
 alias archive='mv ~/Downloads/*.md $KNOWLEDGE_BASE/archive'
 
