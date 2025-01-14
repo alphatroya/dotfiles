@@ -15,8 +15,6 @@ zoxide = "latest"
 "go:github.com/charmbracelet/gum" = "latest"
 "go:github.com/icholy/git-get" = "latest"
 "go:github.com/tomnomnom/gron" = "latest"
-"go:github.com/charmbracelet/mods" = "latest"
-"cargo:lazyjj" = "latest"
 
 [env]
 _.file = "~/.mise_envs.json"
