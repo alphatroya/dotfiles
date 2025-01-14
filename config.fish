@@ -40,9 +40,6 @@ if status is-interactive
     # Configure zoxide
     mise exec zoxide -- zoxide init fish --cmd cd | source
 
-    # Configure fzf
-    mise exec -- fzf --fish | source
-
     # starship prompt
     mise exec -- starship init fish | source
 
