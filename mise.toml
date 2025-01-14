@@ -12,7 +12,6 @@ zoxide = "latest"
 "cargo:diskonaut" = "latest"
 "cargo:lowfi" = "latest"
 "cargo:jj-cli" = "latest"
-"go:github.com/charmbracelet/gum" = "latest"
 "go:github.com/icholy/git-get" = "latest"
 "go:github.com/tomnomnom/gron" = "latest"
 
