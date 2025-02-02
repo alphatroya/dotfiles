@@ -31,6 +31,7 @@ if status is-interactive
     alias gsh="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
 
     alias qc="atr-capture"
+    alias pqc="pbpaste | atr-capture"
     alias йс="atr-capture"
 
     alias typora="open -a typora"
