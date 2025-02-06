@@ -1,3 +1,4 @@
+brew "fish-shell/fish-beta-4/fish"
 brew "aria2"
 brew "atuin"
 brew "bat"
