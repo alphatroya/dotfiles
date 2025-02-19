@@ -1,0 +1,23 @@
+[tools]
+difftastic = "latest"
+go = "latest"
+jq = "latest"
+neovim = "latest"
+ruby = "3.2"
+shellcheck = "latest"
+starship = "latest"
+xcodes = "latest"
+zoxide = "latest"
+"cargo:diskonaut" = "latest"
+"cargo:lowfi" = "latest"
+"cargo:jj-cli" = "latest"
+"cargo:https://github.com/alphatroya/tasklog" = "latest"
+"go:github.com/icholy/git-get" = "latest"
+"go:github.com/tomnomnom/gron" = "latest"
+"go:github.com/alphatroya/atr-capture" = "latest"
+
+[env]
+_.file = "~/.mise_envs.json"
+
+[settings]
+experimental = true
