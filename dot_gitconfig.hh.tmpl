@@ -1,0 +1,7 @@
+[user]
+	email = {{ (keepassxc "hh email").UserName }}
+[sendemail]
+        smtpserver = smtp.headsandhands.ru
+        smtpuser = {{ (keepassxc "hh email").UserName }}
+        smtpencryption = tls
+        smtpserverport = 465

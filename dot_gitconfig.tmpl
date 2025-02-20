@@ -1,0 +1,42 @@
+[user]
+	name = Alexey Korolev
+	email = {{ (keepassxc "primary email").UserName }}
+[includeIf "gitdir:**/gitlab.handh.ru/**/.git"]
+	path = .gitconfig.hh
+[includeIf "gitdir:**/gitea.handh.ru:222/**/.git"]
+	path = .gitconfig.hh
+[includeIf "gitdir:**/gitea.handh.ru/**/.git"]
+	path = .gitconfig.hh
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+[merge]
+	tool = vim_mergetool
+[mergetool "vim_mergetool"]
+	cmd = nvim "$MERGED"
+[push]
+	autoSetupRemote = true
+[rebase]
+	autosquash = true
+[mergetool]
+	keepBackup = false
+[fetch]
+	prune = true
+[help]
+	autoCorrect = prompt
+[status]
+	short = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[pull]
+	rebase = true
+	ff = only
+[commit]
+	verbose = true
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpuser = {{ (keepassxc "primary email").UserName }}
+	smtpencryption = tls
+	smtpserverport = 587
+	annotate = yes
