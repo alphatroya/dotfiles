@@ -1,11 +1,11 @@
 [user]
 name = "Alexey Korolev"
-email = "alphatroya@gmail.com"
+email = "{{ (keepassxc "primary email").UserName }}"
 
 [[--scope]]
 --when.repositories = ["~/src/gitlab.handh.ru", "~/src/gitea.handh.ru:222", "~/src/gitea.handh.ru"]
 [--scope.user]
-email = "a.korolev@headsandhands.ru"
+email = "{{ (keepassxc "hh email").UserName }}"
 
 [ui]
 diff.tool = ["difft", "--color=always", "$left", "$right"]
