@@ -17,7 +17,7 @@ zoxide = "latest"
 "go:github.com/alphatroya/atr-capture" = "latest"
 
 [env]
-_.file = "~/.mise_envs.json"
+_.file = "~/.config/mise/envs.json"
 
 [settings]
 experimental = true
