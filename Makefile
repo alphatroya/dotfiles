@@ -5,11 +5,7 @@ FISH=$(HOME_DIR)/.config/fish/config.fish
 XCODE_SNIPPETS:=$(HOME_DIR)/Library/Developer/Xcode/UserData/CodeSnippets
 
 .PHONY: all
-all: $(NVIM) $(XCODE_SNIPPETS) $(FISH) git
-
-.PHONY: git
-git: $(CURRENT_FOLDER)/git
-	git config --global include.path $<
+all: $(NVIM) $(XCODE_SNIPPETS) $(FISH)
 
 $(NVIM): $(CURRENT_FOLDER)/nvim
 	ln -sf $< $@
@@ -22,9 +18,4 @@ $(XCODE_SNIPPETS): $(CURRENT_FOLDER)/xcode-snippets
 
 .PHONY: clean
 clean:
-	git config --global --unset include.path
 	rm $(NVIM) $(XCODE_SNIPPETS)
-
-.PHONY: brew
-brew:
-	brew bundle check || brew bundle
