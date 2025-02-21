@@ -15,6 +15,7 @@ zoxide = "latest"
 "go:github.com/icholy/git-get" = "latest"
 "go:github.com/tomnomnom/gron" = "latest"
 "go:github.com/alphatroya/atr-capture" = "latest"
+rust = "latest"
 
 [env]
 _.file = "~/.config/mise/envs.json"
