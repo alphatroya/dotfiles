@@ -9,3 +9,4 @@ email = "{{ (keepassxc "hh email").UserName }}"
 
 [ui]
 diff.tool = ["difft", "--color=always", "$left", "$right"]
+default-command = "log"
