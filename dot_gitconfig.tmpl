@@ -7,6 +7,10 @@
 	path = .gitconfig.hh
 [includeIf "gitdir:**/gitea.handh.ru/**/.git"]
 	path = .gitconfig.hh
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
@@ -16,6 +20,7 @@
 	cmd = nvim "$MERGED"
 [push]
 	autoSetupRemote = true
+	followTags = true
 [rebase]
 	autosquash = true
 [mergetool]
