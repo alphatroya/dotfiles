@@ -24,6 +24,7 @@
   "vim_mode": true,
   "autosave": "on_focus_change",
   "terminal": { "font_family": "MartianMono Nerd Font" },
+  "relative_line_numbers": true,
   "vim": {
     "use_system_clipboard": "never"
   }
