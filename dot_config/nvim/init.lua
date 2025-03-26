@@ -24,7 +24,6 @@ require("lazy").setup({
             -- Automatically install LSPs to stdpath for neovim
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-            'jose-elias-alvarez/null-ls.nvim',
         },
     },
 
@@ -466,18 +465,6 @@ mason_lspconfig.setup_handlers {
         }
     end,
 }
-
-local null_ls = require("null-ls")
-null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.checkmake,
-        null_ls.builtins.formatting.goimports,
-        null_ls.builtins.code_actions.gomodifytags,
-        null_ls.builtins.formatting.trim_whitespace,
-        null_ls.builtins.diagnostics.trail_space,
-    },
-    on_attach = on_attach,
-})
 
 require('config/cmp')
 require('config/mapping')
