@@ -29,14 +29,17 @@ require("lazy").setup({
 
     -- Autocomplete
     {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-nvim-lsp-signature-help',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-cmdline',
-        }
+        'saghen/blink.cmp',
+        version = '1.*',
+        opts = {
+            keymap = {
+                preset = 'default',
+                ['<CR>'] = { 'accept', 'fallback' },
+                ['<Tab>'] = { 'accept', 'fallback' },
+            },
+            signature = { enabled = true },
+        },
+        opts_extend = { "sources.default" }
     },
 
     {
@@ -364,36 +367,6 @@ vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true, desc = "
 
 -- lsp configuration
 local servers = {
-    gopls = {
-        gopls = {
-            usePlaceholders = false,
-            completeUnimported = true,
-            experimentalPostfixCompletions = true,
-            analyses = {
-                unreachable = true,
-                nilness = true,
-                unusedparams = true,
-                useany = true,
-                unusedwrite = true,
-                undeclaredname = true,
-                fillreturns = true,
-                nonewvars = true,
-                fieldalignment = false,
-                shadow = true,
-            },
-            staticcheck = true,
-            gofumpt = true,
-            hints = {
-                assignVariableTypes = true,
-                compositeLiteralFields = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = true,
-            },
-        },
-    },
     rust_analyzer = {},
     jsonls = {},
     yamlls = {},
@@ -432,13 +405,6 @@ local on_attach = function(client, bufnr)
         desc = "Re[f]ormat code",
     })
 
-    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {
-        noremap = true,
-        silent = true,
-        buffer = bufnr,
-        desc = "[C]ode [A]ctions",
-    })
-
     require 'illuminate'.on_attach(client)
 end
 
@@ -455,7 +421,6 @@ mason_lspconfig.setup {
 }
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 mason_lspconfig.setup_handlers {
     function(server_name)
         require('lspconfig')[server_name].setup {
@@ -466,7 +431,6 @@ mason_lspconfig.setup_handlers {
     end,
 }
 
-require('config/cmp')
 require('config/mapping')
 
 require('lualine').setup {
