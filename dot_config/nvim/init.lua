@@ -436,6 +436,10 @@ vim.lsp.enable {
     "gopls",
 }
 
+vim.diagnostic.config({
+    virtual_lines = true
+})
+
 require('config/mapping')
 
 require('lualine').setup {
