@@ -431,6 +431,11 @@ mason_lspconfig.setup_handlers {
     end,
 }
 
+--- Enable LSP servers for Neovim 0.11+
+vim.lsp.enable {
+    "gopls",
+}
+
 require('config/mapping')
 
 require('lualine').setup {
