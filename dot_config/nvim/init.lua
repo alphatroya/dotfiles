@@ -17,16 +17,6 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 require("lazy").setup({
-    -- LSP Configuration & Plugins
-    {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            -- Automatically install LSPs to stdpath for neovim
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
-        },
-    },
-
     -- Autocomplete
     {
         'saghen/blink.cmp',
@@ -365,79 +355,14 @@ vim.api.nvim_set_keymap('n', '<leader>w', '<Cmd>silent! update | redraw<CR>', {
 
 vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', { noremap = true, desc = "Close active buffer" })
 
--- lsp configuration
-local servers = {
-    rust_analyzer = {},
-    jsonls = {},
-    yamlls = {},
-    lua_ls = {
-        Lua = {
-            workspace = { checkThirdParty = false },
-            telemetry = { enable = false },
-        },
-    },
-}
-
--- LSP settings.
-local on_attach = function(client, bufnr)
-    -- Reformat code on save
-    if client.server_capabilities.documentFormattingProvider then
-        local au_lsp = vim.api.nvim_create_augroup("format_lsp", { clear = true })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = "*",
-            callback = function()
-                vim.lsp.buf.format({ async = false })
-            end,
-            group = au_lsp,
-        })
-    end
-
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'vlua.vim.lsp.omnifunc')
-
-    -- Mappings.
-    vim.keymap.set('n', '<leader>f', function()
-        vim.lsp.buf.format { async = true }
-    end, {
-        noremap = true,
-        silent = true,
-        buffer = bufnr,
-        desc = "Re[f]ormat code",
-    })
-
-    require 'illuminate'.on_attach(client)
-end
-
--- Setup mason so it can manage external tooling
-require('mason').setup()
-
-require 'lspconfig'.sourcekit.setup {}
-
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-    ensure_installed = vim.tbl_keys(servers),
-}
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-mason_lspconfig.setup_handlers {
-    function(server_name)
-        require('lspconfig')[server_name].setup {
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = servers[server_name],
-        }
-    end,
-}
-
 --- Enable LSP servers for Neovim 0.11+
 vim.lsp.enable {
     "gopls",
+    "lua_ls",
 }
 
 vim.diagnostic.config({
-    virtual_lines = true
+    virtual_text = { current_line = true }
 })
 
 require('config/mapping')
