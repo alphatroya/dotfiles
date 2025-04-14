@@ -1,6 +1,7 @@
 {{ if ne .chezmoi.os "darwin" }}
 Library/Application Support/jj/config.toml
 Library/Developer/Xcode/UserData/CodeSnippets/
+Library/Application Support/com.mitchellh.ghostty/config
 {{ end }}
 
 LICENSE.md
