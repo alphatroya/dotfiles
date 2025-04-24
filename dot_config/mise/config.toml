@@ -11,6 +11,7 @@ shellcheck = "latest"
 starship = "latest"
 stylua = "latest"
 zoxide = "latest"
+tuist = "latest"
 "cargo:diskonaut" = "latest"
 "cargo:jj-cli" = "latest"
 "cargo:lowfi" = "latest"
@@ -25,3 +26,4 @@ _.file = "~/.config/mise/envs.json"
 
 [settings]
 experimental = true
+idiomatic_version_file_enable_tools = ["ruby"]
