@@ -23,6 +23,7 @@ tuist = "latest"
 
 [env]
 _.file = "~/.config/mise/envs.json"
+KNOWLEDGE_BASE = "{{env.HOME}}/Sync/Logseq/"
 
 [settings]
 experimental = true
