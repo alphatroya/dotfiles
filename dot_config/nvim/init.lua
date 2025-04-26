@@ -399,6 +399,7 @@ vim.api.nvim_set_keymap("n", "<leader>bd", ":bd<CR>", { noremap = true, desc = "
 vim.lsp.enable({
 	"gopls",
 	"lua_ls",
+	"sourcekit",
 })
 
 require("conform").setup({
