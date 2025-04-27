@@ -406,10 +406,16 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		go = { "gofumpt", "goimports" },
+		swift = { "swift" },
 		json = { "jq" },
 		["_"] = { "trim_whitespace" },
 	},
 })
+
+require("conform").formatters.swift = {
+	command = "swift",
+	args = { "format" },
+}
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
