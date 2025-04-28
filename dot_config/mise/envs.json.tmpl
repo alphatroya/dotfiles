@@ -1,7 +1,5 @@
 {
-{{- if eq .chezmoi.hostname "MolagBal" }}
     "ARTIFACTORY_USER": "{{ (keepassxc "artifactory").UserName }}",
     "ARTIFACTORY_PASS": "{{ (keepassxc "artifactory").Password }}",
-{{- end }}
     "OPENAI_API_KEY": "{{ (keepassxc "openai").Password }}"
 }
