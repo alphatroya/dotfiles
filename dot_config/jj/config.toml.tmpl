@@ -11,3 +11,7 @@ email = "{{ (keepassxc "vk email").UserName }}"
 diff.tool = ["difft", "--color=always", "$left", "$right"]
 default-command = "log"
 
+[fix.tools.swiftformat]
+command = ["swiftformat", "stdin", "--output", "stdout", "--stdinpath", "$path"]
+patterns = ["glob:'**/*.swift'"]
+
