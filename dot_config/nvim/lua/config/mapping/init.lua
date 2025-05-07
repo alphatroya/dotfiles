@@ -1,6 +1,3 @@
-vim.keymap.set("n", "]b", ":bnext<CR>", { desc = "Next buffer", noremap = true })
-vim.keymap.set("n", "[b", ":bprev<CR>", { desc = "Previous buffer", noremap = true })
-
 vim.keymap.set("n", "gv", "`[v`]", { desc = "Reselect pasted text", noremap = true })
 
 -- Copy/paste from clipboard
