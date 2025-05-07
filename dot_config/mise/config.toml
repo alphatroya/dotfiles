@@ -26,7 +26,6 @@ _.file = "~/.config/mise/envs.json"
 _.path = [
     "/Applications/KeePassXC.app/Contents/MacOS",
 ]
-KNOWLEDGE_BASE = "{{env.HOME}}/Sync/Logseq/"
 
 [settings]
 experimental = true
