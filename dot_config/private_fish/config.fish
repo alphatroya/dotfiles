@@ -33,7 +33,7 @@ if status is-interactive
     # Russian typos
     alias учше="exit"
     alias йс="atr-capture"
-    alias зцс=pqc
+    alias зйс=pqc
 
     mise activate fish | source
 
