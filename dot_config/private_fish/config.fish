@@ -5,9 +5,6 @@ if status is-interactive
     set -x VISUAL "nvim"
     set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-    # Russian typos
-    alias учше="exit"
-
     # alternatives to standard tools
     alias vim="nvim"
     alias less="bat"
@@ -17,7 +14,7 @@ if status is-interactive
     # git aliases
     alias ga="git add"
     alias gaa="git add --all"
-    alias gco="git checkout"
+    alias gsw="git switch"
     alias gc="git commit --verbose"
     alias gs="git status"
     alias gp="git push"
@@ -32,9 +29,11 @@ if status is-interactive
 
     alias qc="atr-capture"
     alias pqc="pbpaste | atr-capture"
-    alias йс="atr-capture"
 
-    alias typora="open -a typora"
+    # Russian typos
+    alias учше="exit"
+    alias йс="atr-capture"
+    alias зцс=pqc
 
     mise activate fish | source
 
