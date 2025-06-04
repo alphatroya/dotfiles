@@ -20,6 +20,7 @@ tuist = "latest"
 "go:github.com/tomnomnom/gron" = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "go:golang.org/x/tools/cmd/goimports" = "latest"
+"go:github.com/idursun/jjui/cmd/jjui" = "latest"
 
 [env]
 _.file = "~/.config/mise/envs.json"
