@@ -78,12 +78,6 @@ require("lazy").setup({
 		opts = {},
 	},
 
-	-- Lualine
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
-	},
-
 	-- Underlines the word under the cursor
 	"RRethy/vim-illuminate",
 
@@ -429,18 +423,5 @@ vim.diagnostic.config({
 })
 
 require("config/mapping")
-
-require("lualine").setup({
-	options = {
-		globalstatus = true,
-	},
-	sections = {
-		lualine_x = {
-			"encoding",
-			"fileformat",
-			"filetype",
-		},
-	},
-})
 
 require("langmapper").automapping({ global = true, buffer = true })
