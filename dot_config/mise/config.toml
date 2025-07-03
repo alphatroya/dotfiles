@@ -1,7 +1,6 @@
 [tools]
 difftastic = "latest"
 go = "latest"
-gofumpt = "latest"
 jq = "latest"
 lua-language-server = "latest"
 neovim = "latest"
@@ -17,8 +16,6 @@ tuist = "latest"
 "go:github.com/alphatroya/atr-capture" = "latest"
 "go:github.com/icholy/git-get" = "latest"
 "go:github.com/tomnomnom/gron" = "latest"
-"go:golang.org/x/tools/gopls" = "latest"
-"go:golang.org/x/tools/cmd/goimports" = "latest"
 
 [env]
 _.file = "~/.config/mise/envs.json"
