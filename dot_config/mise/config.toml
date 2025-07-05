@@ -1,6 +1,7 @@
 [tools]
 difftastic = "latest"
 go = "latest"
+gron = "latest"
 jj = "latest"
 jq = "latest"
 lua-language-server = "latest"
@@ -14,7 +15,6 @@ zoxide = "latest"
 "cargo:diskonaut" = "latest"
 "go:github.com/alphatroya/atr-capture" = "latest"
 "go:github.com/icholy/git-get" = "latest"
-"go:github.com/tomnomnom/gron" = "latest"
 
 [env]
 _.file = "~/.config/mise/envs.json"
