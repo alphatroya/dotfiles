@@ -275,7 +275,6 @@ require("lazy").setup({
 	},
 })
 
-vim.o.termguicolors = true
 vim.cmd.colorscheme("monokai_pro")
 
 -- Make line numbers default
