@@ -1,2 +1,2 @@
-[ui]
-  highlight_dark = "#414339"
+[ui.colors]
+"selected" = { bg =  "#414339" }
