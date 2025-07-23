@@ -2,11 +2,6 @@
 name = "Alexey Korolev"
 email = "{{ (keepassxc "primary email").UserName }}"
 
-[[--scope]]
---when.repositories = ["~/src/gitlab.mvk.com"]
-[--scope.user]
-email = "{{ (keepassxc "vk email").UserName }}"
-
 [ui]
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
 default-command = "log"
