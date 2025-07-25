@@ -1,4 +1,7 @@
 {
-    "ARTIFACTORY_USER": "{{ (keepassxc "artifactory").UserName }}",
-    "ARTIFACTORY_PASS": "{{ (keepassxc "artifactory").Password }}"
+    {{ $computerName := output "scutil" "--get" "ComputerName" | trim }}
+    {{- if eq $computerName "aleksey-korolev" -}}
+    "ARTIFACTORY_USER": {{ .artifactory.user | quote }},
+    "ARTIFACTORY_PASS": {{ keyring "artifactory" .artifactory.user | quote }}
+{{ end -}}
 }

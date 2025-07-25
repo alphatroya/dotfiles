@@ -1,3 +1,8 @@
+{{ $computerName := output "scutil" "--get" "ComputerName" | trim }}
+{{- if eq $computerName "aleksey-korolev" -}}
+command_timeout = 1000
+{{ end -}}
+
 [custom.bartib]
 format = '[󰥔 $output]($style) '
 style = "#767676"
