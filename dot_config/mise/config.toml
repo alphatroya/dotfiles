@@ -14,7 +14,6 @@ zoxide = "latest"
 "go:github.com/icholy/git-get" = "latest"
 
 [env]
-_.file = "~/.config/mise/envs.json"
 _.path = [
     "/Applications/KeePassXC.app/Contents/MacOS",
 ]
