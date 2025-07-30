@@ -400,7 +400,6 @@ require("conform").setup({
 		lua = { "stylua" },
 		go = { "gofumpt", "goimports" },
 		swift = { "swift" },
-		json = { "jq" },
 		["_"] = { "trim_whitespace" },
 	},
 })
