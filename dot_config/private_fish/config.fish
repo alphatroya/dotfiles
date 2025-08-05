@@ -41,7 +41,7 @@ if status is-interactive
     mise exec zoxide -- zoxide init fish --cmd cd | source
 
     # starship prompt
-    mise exec -- starship init fish | source
+    starship init fish | source
 
     # configure atuin
     atuin init fish --disable-up-arrow | source

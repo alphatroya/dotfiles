@@ -2,7 +2,6 @@
 #!/bin/bash
 
 brew bundle --file=/dev/stdin <<EOF
-cask "keepassxc"
 brew "aria2"
 brew "atuin"
 brew "bat"
@@ -14,8 +13,10 @@ brew "git"
 brew "mise"
 brew "ripgrep"
 brew "ruby-build"
+brew "starship"
 brew "tree-sitter"
 brew "tree"
 brew "xcodesorg/made/xcodes"
+cask "keepassxc"
 EOF
 {{ end -}}
