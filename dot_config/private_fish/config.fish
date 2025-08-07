@@ -38,7 +38,7 @@ if status is-interactive
     mise activate fish | source
 
     # Configure zoxide
-    mise exec zoxide -- zoxide init fish --cmd cd | source
+    zoxide init fish --cmd cd | source
 
     # starship prompt
     starship init fish | source

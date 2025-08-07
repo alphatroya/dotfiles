@@ -8,7 +8,6 @@ ruby = "3.2"
 rust = "latest"
 shellcheck = "latest"
 stylua = "latest"
-zoxide = "latest"
 "cargo:diskonaut" = "latest"
 "go:github.com/icholy/git-get" = "latest"
 
