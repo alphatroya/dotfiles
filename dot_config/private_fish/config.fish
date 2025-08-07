@@ -27,12 +27,8 @@ if status is-interactive
     alias gdc="GIT_EXTERNAL_DIFF=difft git diff --cached"
     alias gsh="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
 
-    alias qc="atr-capture"
-    alias pqc="pbpaste | atr-capture"
-
     # Russian typos
     alias учше="exit"
-    alias йс="atr-capture"
     alias зйс=pqc
 
     mise activate fish | source
