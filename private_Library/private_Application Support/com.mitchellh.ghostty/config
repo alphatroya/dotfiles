@@ -1,2 +1,3 @@
 theme = "Monokai Pro"
 macos-option-as-alt = true
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
