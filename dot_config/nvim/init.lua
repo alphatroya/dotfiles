@@ -408,6 +408,7 @@ require("conform").setup({
 		lua = { "stylua" },
 		go = { "gofumpt", "goimports" },
 		swift = { "swift" },
+		typst = { "typstyle" },
 		["_"] = { "trim_whitespace" },
 	},
 })
