@@ -1,4 +1,6 @@
 [tools]
+"cargo:diskonaut" = "latest"
+"go:github.com/icholy/git-get" = "latest"
 difftastic = "latest"
 go = "latest"
 jj = "latest"
@@ -6,8 +8,7 @@ lua-language-server = "latest"
 neovim = "latest"
 rust = "latest"
 stylua = "latest"
-"cargo:diskonaut" = "latest"
-"go:github.com/icholy/git-get" = "latest"
+tinymist = "latest"
 
 [settings]
 experimental = true
