@@ -9,6 +9,7 @@ neovim = "latest"
 rust = "latest"
 stylua = "latest"
 tinymist = "latest"
+typst = "latest"
 
 [settings]
 experimental = true

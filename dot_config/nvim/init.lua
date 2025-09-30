@@ -273,6 +273,13 @@ require("lazy").setup({
 			require("langmapper").setup()
 		end,
 	},
+
+	-- typst preview
+	{
+		"chomosuke/typst-preview.nvim",
+		ft = "typst",
+		opts = {},
+	},
 })
 
 vim.cmd.colorscheme("monokai_pro")
@@ -393,6 +400,7 @@ vim.lsp.enable({
 	"gopls",
 	"lua_ls",
 	"sourcekit",
+	"tinymist",
 })
 
 require("conform").setup({
