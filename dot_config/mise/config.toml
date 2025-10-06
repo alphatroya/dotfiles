@@ -8,9 +8,6 @@ lua-language-server = "latest"
 neovim = "latest"
 rust = "latest"
 stylua = "latest"
-tinymist = "latest"
-typst = "latest"
-typstyle = "latest"
 
 [settings]
 experimental = true
