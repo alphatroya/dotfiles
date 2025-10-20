@@ -6,8 +6,3 @@
 - Use `jj fix` after changes to reformat source code with code formatters.
 - Do not use conventional commits format in new jj commit messages.
 
-# Available CLI Tools
-
-- Use **ripgrep** (rg) instead of **grep**; it has better performance.
-- Use **fd** instead of **find** for the same reason.
-
