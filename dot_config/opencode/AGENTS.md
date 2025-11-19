@@ -6,3 +6,9 @@
 - Use `jj fix` after changes to reformat source code with code formatters.
 - Do not use conventional commits format in new jj commit messages.
 
+# Commit Message Styleguide
+
+- Use simple structure with clear distinctive title and short (3-5 lines) description
+- If bug tracker ID is provided, prefix title with it using single space separator (e.g., "XXXX-1 Title")
+- Keep commit messages concise and focused on the main change purpose
+
