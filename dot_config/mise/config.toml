@@ -8,6 +8,7 @@ lua-language-server = "latest"
 neovim = "latest"
 rust = "latest"
 stylua = "latest"
+opencode = "latest"
 
 [settings]
 experimental = true
