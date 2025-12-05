@@ -31,8 +31,6 @@ if status is-interactive
     alias учше="exit"
     alias зйс=pqc
 
-    mise activate fish | source
-
     # Configure zoxide
     zoxide init fish --cmd cd | source
 
