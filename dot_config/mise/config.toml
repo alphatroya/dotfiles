@@ -1,14 +1,15 @@
 [tools]
 "cargo:diskonaut" = "latest"
 "go:github.com/icholy/git-get" = "latest"
+"go:github.com/idursun/jjui/cmd/jjui" = "latest"
 difftastic = "latest"
 go = "latest"
 jj = "latest"
 lua-language-server = "latest"
 neovim = "latest"
+opencode = "latest"
 rust = "latest"
 stylua = "latest"
-opencode = "latest"
 
 [settings]
 experimental = true
