@@ -11,7 +11,7 @@ opencode = "latest"
 rust = "latest"
 stylua = "latest"
 "cargo:alphatroya/local_shelf" = "latest"
-"spm:alphatroya/stylus-telegram-bot" = "latest"
+"spm:alphatroya/stylus-telegram-bot" = "v1.0"
 
 [settings]
 experimental = true
