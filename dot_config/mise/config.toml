@@ -10,6 +10,8 @@ neovim = "latest"
 opencode = "latest"
 rust = "latest"
 stylua = "latest"
+"cargo:alphatroya/local_shelf" = "latest"
+"spm:alphatroya/stylus-telegram-bot" = "latest"
 
 [settings]
 experimental = true
