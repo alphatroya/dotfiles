@@ -43,3 +43,7 @@ if status is-interactive
     # jj completion
     mise exec -- jj util completion fish | source
 end
+
+function xcrecord
+    xcrun simctl io booted recordVideo ~/Desktop/(uuidgen).mp4
+end
