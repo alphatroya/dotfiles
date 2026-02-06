@@ -10,7 +10,7 @@ neovim = "latest"
 opencode = "latest"
 rust = "latest"
 stylua = "latest"
-"cargo:alphatroya/local_shelf" = "latest"
+"cargo:alphatroya/local_shelf" = "tag:v0.2"
 "spm:alphatroya/stylus-telegram-bot" = "v1.0"
 
 [settings]
