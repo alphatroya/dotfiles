@@ -1,12 +1,11 @@
 [tools]
 "cargo:diskonaut" = "latest"
-"cargo:alphatroya/local_shelf" = "tag:v0.3"
 "go:github.com/icholy/git-get" = "latest"
-"go:github.com/idursun/jjui/cmd/jjui" = "latest"
 "spm:alphatroya/stylus-telegram-bot" = "v1.0"
 difftastic = "latest"
 go = "latest"
 jj = "latest"
+jjui = "latest"
 lua-language-server = "latest"
 neovim = "latest"
 rust = "latest"
