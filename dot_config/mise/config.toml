@@ -10,6 +10,7 @@ lua-language-server = "latest"
 neovim = "latest"
 rust = "latest"
 stylua = "latest"
+"cargo:jj-starship" = "latest"
 
 [settings]
 experimental = true
