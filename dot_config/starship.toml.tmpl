@@ -1,6 +1,6 @@
 {{ $computerName := output "scutil" "--get" "ComputerName" | trim }}
 {{- if eq $computerName "aleksey-korolev" -}}
-command_timeout = 1000
+command_timeout = 1500
 {{ end -}}
 
 [custom.bartib]
