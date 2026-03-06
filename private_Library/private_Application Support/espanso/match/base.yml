@@ -1,0 +1,44 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+
+matches:
+  - triggers: ["shrug", "ыркгп"]
+    replace: '¯\_(ツ)_/¯'
+
+  - triggers: [qc_, йс_]
+    replace: "**{{time}}**"
+    vars:
+      - name: time
+        type: shell
+        params:
+          cmd: "date +\"%H:%M\""
+
+  - triggers: [qcc_, йсс_]
+    replace: "**{{time}}** [[{{date}}]] "
+    vars:
+      - name: time
+        type: shell
+        params:
+          cmd: "date +\"%H:%M\""
+      - name: date
+        type: shell
+        params:
+          cmd: "today"
+
+  - trigger: "checkmark"
+    replace: '✅'
+
+  - trigger: "tada"
+    replace: '🎉'
+
+  - trigger: "руб"
+    replace: '₽'
