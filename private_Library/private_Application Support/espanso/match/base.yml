@@ -30,9 +30,22 @@ matches:
         params:
           cmd: "date +\"%H:%M\""
       - name: date
-        type: shell
+        type: script
         params:
-          cmd: "today"
+          args:
+            - bash
+            - '-c'
+            - |
+                d=$(date +%-d)
+
+                case $d in
+                  1|21|31) suf="st" ;;
+                  2|22)    suf="nd" ;;
+                  3|23)    suf="rd" ;;
+                  *)       suf="th" ;;
+                esac
+
+                printf '%s %d%s, %s\n' "$(date +%b)" "$d" "$suf" "$(date +%Y)"
 
   - trigger: "cmark_"
     replace: '✅'
