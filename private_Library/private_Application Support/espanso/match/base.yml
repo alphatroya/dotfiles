@@ -37,8 +37,8 @@ matches:
   - trigger: "checkmark"
     replace: '✅'
 
-  - trigger: "tada"
+  - trigger: "tada_"
     replace: '🎉'
 
-  - trigger: "руб"
+  - trigger: "руб_"
     replace: '₽'
