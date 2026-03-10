@@ -11,7 +11,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
 
 matches:
-  - triggers: ["shrug", "ыркгп"]
+  - triggers: ["shrug_", "ыркгп_"]
     replace: '¯\_(ツ)_/¯'
 
   - triggers: [qc_, йс_]
@@ -34,7 +34,7 @@ matches:
         params:
           cmd: "today"
 
-  - trigger: "checkmark"
+  - trigger: "cmark_"
     replace: '✅'
 
   - trigger: "tada_"
