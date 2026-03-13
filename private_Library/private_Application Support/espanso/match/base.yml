@@ -15,7 +15,7 @@ matches:
     replace: '¯\_(ツ)_/¯'
 
   - triggers: [qc_, йс_]
-    replace: "**{{time}}**"
+    replace: "**{{time}}** "
     vars:
       - name: time
         type: shell
@@ -49,6 +49,12 @@ matches:
 
   - trigger: "cmark_"
     replace: '✅'
+
+  - trigger: "+1_"
+    replace: '👍'
+
+  - trigger: "think_"
+    replace: '🤔'
 
   - trigger: "tada_"
     replace: '🎉'
