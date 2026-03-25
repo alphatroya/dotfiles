@@ -42,6 +42,8 @@ if status is-interactive
 
     # jj completion
     mise exec -- jj util completion fish | source
+
+    alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData/*"
 end
 
 function xcrecord
