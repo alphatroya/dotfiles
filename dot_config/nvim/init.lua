@@ -17,6 +17,50 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("lazy").setup({
+	{
+		"dmtrKovalenko/fff.nvim",
+		build = function()
+			-- this will download prebuild binary or try to use existing rustup toolchain to build from source
+			-- (if you are using lazy you can use gb for rebuilding a plugin if needed)
+			require("fff.download").download_or_build_binary()
+		end,
+		lazy = false,
+		keys = {
+			{
+				"ff", -- try it if you didn't it is a banger keybinding for a picker
+				function()
+					require("fff").find_files()
+				end,
+				desc = "FFFind files",
+			},
+			{
+				"fg",
+				function()
+					require("fff").live_grep()
+				end,
+				desc = "LiFFFe grep",
+			},
+			{
+				"fz",
+				function()
+					require("fff").live_grep({
+						grep = {
+							modes = { "fuzzy", "plain" },
+						},
+					})
+				end,
+				desc = "Live fffuzy grep",
+			},
+			{
+				"fc",
+				function()
+					require("fff").live_grep({ query = vim.fn.expand("<cword>") })
+				end,
+				desc = "Search current word",
+			},
+		},
+	},
+
 	-- Autocomplete
 	{
 		"saghen/blink.cmp",
@@ -339,9 +383,7 @@ local ru_shift = [[ËЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТ�
 
 vim.opt.langmap = vim.fn.join({
 	-- | `to` should be first     | `from` should be second
-	escape(ru_shift)
-		.. ";"
-		.. escape(en_shift),
+	escape(ru_shift) .. ";" .. escape(en_shift),
 	escape(ru) .. ";" .. escape(en),
 }, ",")
 --- End langmap config
