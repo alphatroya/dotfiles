@@ -20,14 +20,12 @@ require("lazy").setup({
 	{
 		"dmtrKovalenko/fff.nvim",
 		build = function()
-			-- this will download prebuild binary or try to use existing rustup toolchain to build from source
-			-- (if you are using lazy you can use gb for rebuilding a plugin if needed)
 			require("fff.download").download_or_build_binary()
 		end,
 		lazy = false,
 		keys = {
 			{
-				"ff", -- try it if you didn't it is a banger keybinding for a picker
+				"ff",
 				function()
 					require("fff").find_files()
 				end,
@@ -77,33 +75,13 @@ require("lazy").setup({
 	},
 
 	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		main = "nvim-treesitter.configs",
-		opts = {
-			ensure_installed = {
-				"bash",
-				"c",
-				"diff",
-				"html",
-				"lua",
-				"luadoc",
-				"markdown",
-				"markdown_inline",
-				"query",
-				"vim",
-				"vimdoc",
-				"go",
-			},
-			auto_install = true,
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = { "ruby" },
-			},
-			indent = { enable = true, disable = { "ruby" } },
-		},
+		"romus204/tree-sitter-manager.nvim",
+		dependencies = {},
+		config = function()
+			require("tree-sitter-manager").setup({})
+		end,
 	},
-
+	--
 	-- Theme
 	{
 		"tanvirtin/monokai.nvim",
