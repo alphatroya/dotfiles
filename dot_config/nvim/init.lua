@@ -16,6 +16,14 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Add/change/delete surrounding delimiter pairs with ease.
+vim.pack.add({
+	{
+		src = "https://github.com/kylechui/nvim-surround",
+		version = vim.version.range("4.x"),
+	},
+})
+
 require("lazy").setup({
 	{
 		"dmtrKovalenko/fff.nvim",
@@ -74,24 +82,11 @@ require("lazy").setup({
 		opts_extend = { "sources.default" },
 	},
 
-	{
-		"romus204/tree-sitter-manager.nvim",
-		dependencies = {},
-		config = function()
-			require("tree-sitter-manager").setup({})
-		end,
-	},
 	--
 	-- Theme
 	{
 		"tanvirtin/monokai.nvim",
 		opts = {},
-	},
-
-	-- Surround.vim is all about surroundings: parentheses, brackets, quotes, XML tags, and more
-	{
-		"kylechui/nvim-surround",
-		config = true,
 	},
 
 	-- Autoformat
