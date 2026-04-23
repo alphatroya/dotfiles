@@ -16,15 +16,13 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Add/change/delete surrounding delimiter pairs with ease.
-vim.pack.add({
-	{
-		src = "https://github.com/kylechui/nvim-surround",
-		version = vim.version.range("4.x"),
-	},
-})
-
 require("lazy").setup({
+	{
+		"kylechui/nvim-surround",
+		version = "^4.0.0",
+		event = "VeryLazy",
+	},
+
 	{
 		"dmtrKovalenko/fff.nvim",
 		build = function()
@@ -356,7 +354,9 @@ local ru_shift = [[ËЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТ�
 
 vim.opt.langmap = vim.fn.join({
 	-- | `to` should be first     | `from` should be second
-	escape(ru_shift) .. ";" .. escape(en_shift),
+	escape(ru_shift)
+		.. ";"
+		.. escape(en_shift),
 	escape(ru) .. ";" .. escape(en),
 }, ",")
 --- End langmap config
