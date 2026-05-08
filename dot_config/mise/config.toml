@@ -1,10 +1,10 @@
 [tools]
 "cargo:diskonaut" = "latest"
 "cargo:difftastic" = "latest"
+"cargo:jj-cli" = "latest"
 "go:github.com/icholy/git-get" = "latest"
 "spm:alphatroya/stylus-telegram-bot" = "v1.0"
 go = "latest"
-jj = "latest"
 jjui = "latest"
 lua-language-server = "latest"
 neovim = "latest"
