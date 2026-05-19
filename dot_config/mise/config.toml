@@ -3,7 +3,7 @@
 "cargo:difftastic" = "latest"
 "cargo:jj-cli" = "latest"
 "go:github.com/icholy/git-get" = "latest"
-"spm:alphatroya/stylus-telegram-bot" = "v1.0"
+"spm:alphatroya/stylus-telegram-bot" = "v1.1"
 go = "latest"
 jjui = "latest"
 lua-language-server = "latest"
