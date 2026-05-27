@@ -56,6 +56,9 @@ matches:
   - trigger: "think_"
     replace: '🤔'
 
+  - trigger: "facepalm_"
+    replace: '🤦‍♂️'
+
   - trigger: "tada_"
     replace: '🎉'
 
