@@ -27,10 +27,6 @@ if status is-interactive
     alias gdc="GIT_EXTERNAL_DIFF=difft git diff --cached"
     alias gsh="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
 
-    # Russian typos
-    alias учше="exit"
-    alias зйс=pqc
-
     # Configure zoxide
     zoxide init fish --cmd cd | source
 
