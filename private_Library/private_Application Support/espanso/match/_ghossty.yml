@@ -1,0 +1,6 @@
+matches:
+  - trigger: "оогш"
+    replace: 'jjui'
+    
+  - trigger: "учше"
+    replace: 'exit'

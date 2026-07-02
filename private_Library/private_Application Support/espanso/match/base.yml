@@ -65,8 +65,3 @@ matches:
   - trigger: "руб_"
     replace: '₽'
 
-  - trigger: "оогш"
-    replace: 'jjui'
-
-  - trigger: "учше"
-    replace: 'exit'
