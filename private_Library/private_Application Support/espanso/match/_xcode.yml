@@ -1,0 +1,3 @@
+matches:
+  - trigger: "gss_"
+    replace: 'guard let self else { return }'

@@ -1,4 +1,5 @@
 filter_exec: '/Applications/Ghostty.app'
 
 extra_includes:
-  - "../match/_ghossty.yml"
+  - "../match/_ghostty.yml"
+
