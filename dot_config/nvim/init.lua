@@ -16,13 +16,23 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("lazy").setup({
-	{
-		"kylechui/nvim-surround",
-		version = "^4.0.0",
-		event = "VeryLazy",
-	},
+-- Load nvim-surround after startup without depending on lazy.nvim.
+vim.api.nvim_create_autocmd("VimEnter", {
+	once = true,
+	callback = function()
+		vim.schedule(function()
+			vim.pack.add({
+				{
+					src = "https://github.com/kylechui/nvim-surround",
+					version = vim.version.range("4.x"),
+				},
+				"https://github.com/RRethy/vim-illuminate",
+			})
+		end)
+	end,
+})
 
+require("lazy").setup({
 	{
 		"dmtrKovalenko/fff.nvim",
 		build = function()
@@ -92,9 +102,6 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {},
 	},
-
-	-- Underlines the word under the cursor
-	"RRethy/vim-illuminate",
 
 	-- Show mark symbols on the gutter
 	"kshenoy/vim-signature",
@@ -296,6 +303,9 @@ require("lazy").setup({
 		opts = {},
 	},
 })
+
+-- lazy.nvim resets 'packpath'; restore the native package directory for vim.pack.
+vim.opt.packpath:append(vim.fn.stdpath("data") .. "/site")
 
 vim.cmd.colorscheme("monokai_pro")
 
