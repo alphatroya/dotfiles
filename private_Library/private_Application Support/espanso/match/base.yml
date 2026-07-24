@@ -22,6 +22,16 @@ matches:
         params:
           cmd: "date +\"%H:%M\""
 
+  - triggers: [tqc_, ейс_]
+    replace: "TODO **{{time}}** {{clipb}}"
+    vars:
+      - name: time
+        type: shell
+        params:
+          cmd: "date +\"%H:%M\""
+      - name: "clipb"
+        type: "clipboard"
+
   - triggers: [qcc_, йсс_]
     replace: "**{{time}}** [[{{date}}]] "
     vars:
