@@ -1,16 +1,15 @@
 [tools]
-"cargo:diskonaut" = "latest"
 "cargo:difftastic" = "latest"
+"cargo:diskonaut" = "latest"
 "cargo:jj-cli" = "latest"
+"cargo:jj-starship" = "latest"
 "go:github.com/icholy/git-get" = "latest"
-"spm:alphatroya/stylus-telegram-bot" = "v1.2"
 go = "latest"
 jjui = "latest"
 lua-language-server = "latest"
 neovim = "latest"
 rust = "latest"
 stylua = "latest"
-"cargo:jj-starship" = "latest"
 tree-sitter = "latest"
 
 [settings]
