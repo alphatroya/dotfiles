@@ -276,16 +276,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- TreeSJ: split or join blocks of code
-	-- (<space>m - toggle, <space>j - join, <space>s - split)
-	{
-		"Wansmer/treesj",
-		dependencies = {
-			"nvim-treesitter",
-		},
-		opts = {},
-	},
-
 	-- A plugin that makes Neovim more friendly to non-English input methods 🤝
 	{
 		"Wansmer/langmapper.nvim",
@@ -306,6 +296,9 @@ require("lazy").setup({
 
 -- lazy.nvim resets 'packpath'; restore the native package directory for vim.pack.
 vim.opt.packpath:append(vim.fn.stdpath("data") .. "/site")
+
+-- Tree-sitter via the native plugin manager (must load after the packpath fix)
+require("plugins/treesitter")
 
 vim.cmd.colorscheme("monokai_pro")
 
@@ -364,9 +357,7 @@ local ru_shift = [[ËЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТ�
 
 vim.opt.langmap = vim.fn.join({
 	-- | `to` should be first     | `from` should be second
-	escape(ru_shift)
-		.. ";"
-		.. escape(en_shift),
+	escape(ru_shift) .. ";" .. escape(en_shift),
 	escape(ru) .. ";" .. escape(en),
 }, ",")
 --- End langmap config
