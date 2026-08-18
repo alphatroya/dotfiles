@@ -90,13 +90,6 @@ require("lazy").setup({
 		opts_extend = { "sources.default" },
 	},
 
-	--
-	-- Theme
-	{
-		"tanvirtin/monokai.nvim",
-		opts = {},
-	},
-
 	-- Autoformat
 	{
 		"stevearc/conform.nvim",
@@ -299,6 +292,10 @@ vim.opt.packpath:append(vim.fn.stdpath("data") .. "/site")
 
 -- Tree-sitter via the native plugin manager (must load after the packpath fix)
 require("plugins/treesitter")
+
+-- Colorscheme via the native plugin manager (must load after the packpath fix
+-- and before :colorscheme is applied below).
+require("plugins/monokai")
 
 vim.cmd.colorscheme("monokai_pro")
 
