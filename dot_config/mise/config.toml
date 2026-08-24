@@ -6,7 +6,6 @@
 go = "latest"
 jjui = "latest"
 lua-language-server = "latest"
-neovim = "latest"
 rust = "latest"
 stylua = "latest"
 tree-sitter = "latest"

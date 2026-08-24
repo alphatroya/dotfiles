@@ -12,6 +12,7 @@ brew "fish"
 brew "fisher"
 brew "git"
 brew "mise"
+brew "neovim"
 brew "ripgrep"
 brew "ruby-build"
 brew "tree-sitter"
@@ -22,8 +23,8 @@ cask "keepassxc"
 cask "espanso"
 EOF
 
-fisher install IlanCosman/tide
-fisher install lucasadelino/tide-item-jj
-set -U tide_left_prompt_items pwd vcs newline character
+fish -c 'fisher install IlanCosman/tide'
+fish -c 'fisher install lucasadelino/tide-item-jj'
+fish -c 'set -U tide_left_prompt_items pwd vcs newline character'
 
 {{ end -}}
