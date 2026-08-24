@@ -30,9 +30,6 @@ if status is-interactive
     # Configure zoxide
     zoxide init fish --cmd cd | source
 
-    # starship prompt
-    starship init fish | source
-
     # configure atuin
     atuin init fish --disable-up-arrow | source
 

@@ -2,7 +2,6 @@
 "cargo:difftastic" = "latest"
 "cargo:diskonaut" = "latest"
 "cargo:jj-cli" = "latest"
-"cargo:jj-starship" = "latest"
 "go:github.com/icholy/git-get" = "latest"
 go = "latest"
 jjui = "latest"
