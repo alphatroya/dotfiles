@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 					version = vim.version.range("4.x"),
 				},
 				"https://github.com/RRethy/vim-illuminate",
+				"https://github.com/kshenoy/vim-signature",
 			})
 		end)
 	end,
@@ -95,9 +96,6 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {},
 	},
-
-	-- Show mark symbols on the gutter
-	"kshenoy/vim-signature",
 
 	-- Replace with register (a gr* key bindings)
 	"vim-scripts/ReplaceWithRegister",
