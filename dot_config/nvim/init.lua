@@ -28,6 +28,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 				},
 				"https://github.com/RRethy/vim-illuminate",
 				"https://github.com/kshenoy/vim-signature",
+				"https://github.com/vim-scripts/ReplaceWithRegister",
 			})
 		end)
 	end,
@@ -96,9 +97,6 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {},
 	},
-
-	-- Replace with register (a gr* key bindings)
-	"vim-scripts/ReplaceWithRegister",
 
 	-- Indent line plugin
 	{
