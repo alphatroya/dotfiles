@@ -3,3 +3,4 @@ Library/Application Support/com.mitchellh.ghostty/config
 {{ end }}
 
 LICENSE.md
+README.md
