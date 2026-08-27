@@ -273,13 +273,6 @@ require("lazy").setup({
 			require("langmapper").setup()
 		end,
 	},
-
-	-- typst preview
-	{
-		"chomosuke/typst-preview.nvim",
-		ft = "typst",
-		opts = {},
-	},
 })
 
 -- lazy.nvim resets 'packpath'; restore the native package directory for vim.pack.
@@ -416,7 +409,6 @@ require("conform").setup({
 		lua = { "stylua" },
 		go = { "gofumpt", "goimports" },
 		swift = { "swift" },
-		typst = { "typstyle" },
 		["_"] = { "trim_whitespace" },
 	},
 })

@@ -35,8 +35,8 @@ chezmoi apply
   `zoxide` and `atuin` setup, `xcrecord` helper for recording iOS Simulator video.
 - **Neovim** — modern Lua config:
   - `blink.cmp` autocompletion, `conform.nvim` auto-formatting, Telescope fuzzy finder
-  - `gitsigns.nvim`, `indent-blankline`, `nvim-orgmode` (with daily journal + agenda)
-  - LSP for Go (`gopls`), Lua (`lua_ls`), Swift (`sourcekit`), Typst (`tinymist`)
+  - `gitsigns.nvim`, `indent-blankline`
+  - LSP for Go (`gopls`), Lua (`lua_ls`), Swift (`sourcekit`)
   - Tree-sitter parsers and a Monokai Pro colorscheme
   - Russian/English keyboard `langmap` support
 - **git** — sane defaults: rebase-on-pull, `autosquash`, `rerere`, diff/merge via
