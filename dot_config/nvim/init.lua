@@ -170,100 +170,6 @@ require("lazy").setup({
 	-- support file.txt:<line>:<column> file opening
 	"wsdjeg/vim-fetch",
 
-	-- Fuzzy finder support
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope-ui-select.nvim",
-		},
-		keys = {
-			{ "<leader>sf", ":Telescope git_files theme=dropdown<CR>", silent = true, desc = "[S]earch [F]iles" },
-			{ "<leader>sc", ":Telescope git_status<CR>", silent = true, desc = "[S]earch [C]hanged" },
-			{ "<leader>sg", ":Telescope live_grep<CR>", silent = true, desc = "[S]earch by [G]rep" },
-			{
-				"<leader>sw",
-				":Telescope grep_string<CR>",
-				silent = true,
-				desc = "[S]earch current [W]ord",
-			},
-			{ "<leader>s/", ":Telescope resume<CR>", silent = true },
-			{
-				"<leader>?",
-				":Telescope oldfiles<CR>",
-				silent = true,
-				desc = "[?] Find recently opened files",
-			},
-			{
-				"<leader>sd",
-				function()
-					require("telescope.builtin").diagnostics()
-				end,
-				desc = "[S]earch [D]iagnostic",
-			},
-			{
-				"<leader>sk",
-				function()
-					require("telescope.builtin").keymaps()
-				end,
-				desc = "[S]earch [K]eymaps",
-			},
-			{
-				"<leader>ss",
-				function()
-					require("telescope.builtin").lsp_document_symbols()
-				end,
-				silent = true,
-				desc = "[S]earch Document [S]ymbols",
-			},
-			{
-				"<leader><leader>",
-				function()
-					require("telescope.builtin").buffers({ sort_mru = true, ignore_current_buffer = true })
-				end,
-				silent = true,
-				desc = "[ ] Find existing buffers",
-			},
-			{
-				"<leader>gr",
-				function()
-					require("telescope.builtin").lsp_references(require("telescope.themes").get_dropdown({
-						show_line = false,
-					}))
-				end,
-				silent = true,
-				desc = "[G]oto [R]eferences",
-			},
-			{
-				"<leader>sn",
-				function()
-					require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() })
-				end,
-				{ silent = true, desc = "[S]earch [N]eighbors" },
-			},
-			{
-				"<leader>/",
-				function()
-					require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-						winblend = 10,
-						previewer = false,
-					}))
-				end,
-				{ desc = "[/] Fuzzily search in current buffer]" },
-			},
-		},
-		config = function()
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
-					},
-				},
-			})
-			require("telescope").load_extension("ui-select")
-		end,
-	},
-
 	-- A plugin that makes Neovim more friendly to non-English input methods 🤝
 	{
 		"Wansmer/langmapper.nvim",
@@ -395,6 +301,12 @@ vim.api.nvim_set_keymap("n", "<leader>w", "<Cmd>silent! update | redraw<CR>", {
 })
 
 vim.api.nvim_set_keymap("n", "<leader>bd", ":bd<CR>", { noremap = true, desc = "Close active buffer" })
+
+vim.api.nvim_set_keymap("n", "<leader><leader>", ":bnext<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Next buffer",
+})
 
 --- Enable LSP servers for Neovim 0.11+
 vim.lsp.enable({
