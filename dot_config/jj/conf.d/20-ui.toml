@@ -1,0 +1,3 @@
+[ui]
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
+default-command = "status"

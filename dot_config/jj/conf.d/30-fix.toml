@@ -1,0 +1,3 @@
+[fix.tools.swiftformat]
+command = ["swiftformat", "stdin", "--output", "stdout", "--stdinpath", "$path"]
+patterns = ["glob:'**/*.swift'"]
