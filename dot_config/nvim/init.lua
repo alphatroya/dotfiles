@@ -167,9 +167,6 @@ require("lazy").setup({
 		end,
 	},
 
-	-- support file.txt:<line>:<column> file opening
-	"wsdjeg/vim-fetch",
-
 	-- A plugin that makes Neovim more friendly to non-English input methods 🤝
 	{
 		"Wansmer/langmapper.nvim",
@@ -190,6 +187,8 @@ require("plugins/treesitter")
 -- Colorscheme via the native plugin manager (must load after the packpath fix
 -- and before :colorscheme is applied below).
 require("plugins/monokai")
+
+require("plugins/vim-fetch")
 
 vim.cmd.colorscheme("monokai_pro")
 
