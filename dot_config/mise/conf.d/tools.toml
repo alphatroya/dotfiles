@@ -9,6 +9,3 @@ lua-language-server = "latest"
 rust = "latest"
 stylua = "latest"
 tree-sitter = "latest"
-
-[settings]
-experimental = true
