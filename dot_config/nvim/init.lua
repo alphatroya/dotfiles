@@ -315,4 +315,23 @@ vim.diagnostic.config({
 
 require("config/mapping")
 
+local trim_trailing_whitespace = vim.api.nvim_create_augroup("TrimTrailingWhitespace", {
+	clear = true,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = trim_trailing_whitespace,
+	callback = function(event)
+		if vim.bo[event.buf].filetype == "markdown" then
+			return
+		end
+
+		if vim.bo[event.buf].modifiable and not vim.bo[event.buf].binary then
+			local view = vim.fn.winsaveview()
+			vim.cmd([[silent! keeppatterns %s/\s\+$//e]])
+			vim.fn.winrestview(view)
+		end
+	end,
+})
+
 require("langmapper").automapping({ global = true, buffer = true })
