@@ -91,12 +91,6 @@ require("lazy").setup({
 		opts_extend = { "sources.default" },
 	},
 
-	-- Autoformat
-	{
-		"stevearc/conform.nvim",
-		opts = {},
-	},
-
 	-- Indent line plugin
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -313,27 +307,6 @@ vim.lsp.enable({
 	"lua_ls",
 	"sourcekit",
 	"tinymist",
-})
-
-require("conform").setup({
-	formatters_by_ft = {
-		lua = { "stylua" },
-		go = { "gofumpt", "goimports" },
-		swift = { "swift" },
-		["_"] = { "trim_whitespace" },
-	},
-})
-
-require("conform").formatters.swift = {
-	command = "swift",
-	args = { "format" },
-}
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
-	end,
 })
 
 vim.diagnostic.config({
