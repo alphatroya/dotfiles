@@ -285,7 +285,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 vim.g.markdown_fenced_languages = { "go", "swift", "rust", "json" }
 
-vim.cmd("au TextYankPost * lua vim.highlight.on_yank {timeout=250, on_visual=true}") -- hightlight yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ timeout = 250, on_visual = true })
+  end,
+})
 
 vim.api.nvim_set_keymap("n", "<leader>w", "<Cmd>silent! update | redraw<CR>", {
 	noremap = true,
