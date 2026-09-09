@@ -144,7 +144,16 @@ require("plugins/treesitter")
 -- and before :colorscheme is applied below).
 require("plugins/monokai")
 
-require("plugins/fff")
+-- fff (file finder) via native package manager (vim.pack, Neovim 0.12+).
+vim.api.nvim_create_autocmd("VimEnter", {
+	once = true,
+	callback = function()
+		-- schedules clone + keymaps + PackChanged handler, then loads the
+		-- package and ensures the rust backend binary is present.
+		require("plugins/fff").load()
+	end,
+})
+
 require("plugins/vim-fetch")
 
 vim.cmd.colorscheme("monokai_pro")
@@ -273,7 +282,6 @@ vim.lsp.enable({
 	"gopls",
 	"lua_ls",
 	"sourcekit",
-	"tinymist",
 })
 
 vim.diagnostic.config({
