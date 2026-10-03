@@ -1,0 +1,5 @@
+[revset-aliases]
+"mutable_roots()" = "roots(trunk()..) & mutable()"
+
+[aliases]
+restack = ["rebase", "-o", "trunk()", "-s", "mutable_roots()"]
