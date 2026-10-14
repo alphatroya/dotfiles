@@ -57,6 +57,27 @@ matches:
 
                 printf '%s %d%s, %s\n' "$(date +%b)" "$d" "$suf" "$(date +%Y)"
 
+  - triggers: [ещвфн_, today_]
+    replace: "[[{{date}}]] "
+    vars:
+      - name: date
+        type: script
+        params:
+          args:
+            - bash
+            - '-c'
+            - |
+                d=$(date +%-d)
+
+                case $d in
+                  1|21|31) suf="st" ;;
+                  2|22)    suf="nd" ;;
+                  3|23)    suf="rd" ;;
+                  *)       suf="th" ;;
+                esac
+
+                printf '%s %d%s, %s\n' "$(date +%b)" "$d" "$suf" "$(date +%Y)"
+
   - trigger: "cmark_"
     replace: '✅'
 
@@ -74,4 +95,7 @@ matches:
 
   - trigger: "руб_"
     replace: '₽'
+
+  - triggers: [shebang_, ыдуифп_]
+    replace: '#!/usr/bin/env bash'
 
