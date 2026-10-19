@@ -1,3 +1,4 @@
 [fix.tools.swiftformat]
 command = ["swiftformat", "stdin", "--output", "stdout", "--stdinpath", "$path"]
 patterns = ["glob:'**/*.swift'"]
+line-range-args = ['--line-range', '$first,$last']
