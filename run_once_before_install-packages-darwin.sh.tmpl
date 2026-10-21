@@ -5,6 +5,7 @@ brew bundle --file=/dev/stdin <<EOF
 cask "keepassxc"
 EOF
 
+fisher update
 fish -c 'set -U tide_left_prompt_items pwd vcs newline character'
 
 {{ end -}}
