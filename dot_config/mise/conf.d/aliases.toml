@@ -1,0 +1,26 @@
+[shell_alias]
+# alternatives to standard tools
+vim = "nvim"
+less = "bat"
+cat = "bat -pp"
+ls = "ls --color=auto"
+
+# git aliases
+ga = "git add"
+gaa = "git add --all"
+gsw = "git switch"
+gc = "git commit --verbose"
+gs = "git status"
+gp = "git push"
+gP = "git pull"
+gloga = "git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+gfap = "git fetch --all"
+
+# difftastic
+gd = "GIT_EXTERNAL_DIFF=difft git diff"
+gdc = "GIT_EXTERNAL_DIFF=difft git diff --cached"
+gsh = "GIT_EXTERNAL_DIFF=difft git show --ext-diff"
+
+# wipe DerivedData
+ddd = "rm -rf ~/Library/Developer/Xcode/DerivedData/*"
+

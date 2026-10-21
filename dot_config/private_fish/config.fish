@@ -5,28 +5,6 @@ if status is-interactive
     set -x VISUAL "nvim"
     set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-    # alternatives to standard tools
-    alias vim="nvim"
-    alias less="bat"
-    alias cat="bat -pp"
-    alias ls="ls --color=auto"
-
-    # git aliases
-    alias ga="git add"
-    alias gaa="git add --all"
-    alias gsw="git switch"
-    alias gc="git commit --verbose"
-    alias gs="git status"
-    alias gp="git push"
-    alias gP="git pull"
-    alias gloga="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-    alias gfap="git fetch --all"
-
-    # difftastic
-    alias gd="GIT_EXTERNAL_DIFF=difft git diff"
-    alias gdc="GIT_EXTERNAL_DIFF=difft git diff --cached"
-    alias gsh="GIT_EXTERNAL_DIFF=difft git show --ext-diff"
-
     # Configure zoxide
     zoxide init fish --cmd cd | source
 
@@ -35,8 +13,6 @@ if status is-interactive
 
     # jj completion
     mise exec -- jj util completion fish | source
-
-    alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData/*"
 end
 
 function xcrecord
