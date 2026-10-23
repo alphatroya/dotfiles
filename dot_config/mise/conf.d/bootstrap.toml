@@ -17,3 +17,5 @@
 "brew:xcodesorg/made/xcodes" = "latest"
 "brew:zoxide" = "latest"
 
+[bootstrap.user]
+login_shell = "fish"
