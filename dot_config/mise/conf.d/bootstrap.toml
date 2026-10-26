@@ -4,7 +4,6 @@ fish = "auto"
 
 [bootstrap.packages]
 "brew:aria2" = "latest"
-"brew:atuin" = "latest"
 "brew:bat" = "latest"
 "brew:chezmoi" = "latest"
 "brew:curl" = "latest"
@@ -19,7 +18,6 @@ fish = "auto"
 "brew:tree-sitter" = "latest"
 "brew:tree" = "latest"
 "brew:xcodesorg/made/xcodes" = "latest"
-"brew:zoxide" = "latest"
 "brew-cask:keepassxc" = "latest"
 
 [bootstrap.user]
@@ -27,6 +25,6 @@ login_shell = "fish"
 
 [dotfiles]
 "~/.config/fish/config.fish/brew" = { line = "eval \"$(/opt/homebrew/bin/brew shellenv)\"" }
-"~/.config/fish/config.fish/fish" = { line = "zoxide init fish --cmd cd | source" }
-"~/.config/fish/config.fish/atuin" = { line = "atuin init fish --disable-up-arrow | source" }
+"~/.config/fish/config.fish/fish" = { line = "mise exec -- zoxide init fish --cmd cd | source" }
+"~/.config/fish/config.fish/atuin" = { line = "mise exec -- atuin init fish --disable-up-arrow | source" }
 "~/.config/fish/config.fish/jj" = { line = "mise exec -- jj util completion fish | source" }
