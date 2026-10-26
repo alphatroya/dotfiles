@@ -16,6 +16,7 @@
 "brew:tree" = "latest"
 "brew:xcodesorg/made/xcodes" = "latest"
 "brew:zoxide" = "latest"
+"brew-cask:keepassxc" = "latest"
 
 [bootstrap.user]
 login_shell = "fish"
