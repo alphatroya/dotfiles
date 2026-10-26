@@ -25,6 +25,6 @@ login_shell = "fish"
 
 [dotfiles]
 "~/.config/fish/config.fish/brew" = { line = "eval \"$(/opt/homebrew/bin/brew shellenv)\"" }
-"~/.config/fish/config.fish/fish" = { line = "mise exec -- zoxide init fish --cmd cd | source" }
+"~/.config/fish/config.fish/zoxide" = { line = "mise exec -- zoxide init fish --cmd cd | source" }
 "~/.config/fish/config.fish/atuin" = { line = "mise exec -- atuin init fish --disable-up-arrow | source" }
 "~/.config/fish/config.fish/jj" = { line = "mise exec -- jj util completion fish | source" }
