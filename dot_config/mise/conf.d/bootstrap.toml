@@ -1,3 +1,7 @@
+[bootstrap.mise_shell_activate]
+zsh = true
+fish = "auto"
+
 [bootstrap.packages]
 "brew:aria2" = "latest"
 "brew:atuin" = "latest"
