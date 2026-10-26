@@ -97,5 +97,25 @@ matches:
     replace: '₽'
 
   - triggers: [shebang_, ыдуифп_]
-    replace: '#!/usr/bin/env bash'
+    replace: |
+      #!/usr/bin/env bash
+      set -euxo pipefail
+
+  - trigger: "pp_"
+    replace: "{{perplexity_url}}"
+    vars:
+    - name: query
+      type: form
+      params:
+          layout: "Search Perplexity: [[query]]"
+    - name: perplexity_url
+      type: script
+      params:
+          args:
+              - bash
+              - -c
+              - |
+                raw=$ESPANSO_QUERY_QUERY
+                encoded=$(printf '%s' "$raw" | jq -sRr @uri | sed 's/%20/+/g')
+                printf 'https://www.perplexity.ai/search?q=%s' "$encoded"
 
