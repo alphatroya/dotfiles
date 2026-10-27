@@ -24,7 +24,7 @@ fish = "auto"
 login_shell = "fish"
 
 [dotfiles]
-"~/.config/fish/config.fish/path" = { line = 'fish_add_path --path "$HOME/.local/bin"' }
+"~/.config/fish/config.fish/path" = { line = 'fish_add_path --path "$HOME/.local/bin"', position = "prepend" }
 "~/.config/fish/config.fish/brew" = { line = "eval \"$(/opt/homebrew/bin/brew shellenv)\"" }
 "~/.config/fish/config.fish/zoxide" = { line = "mise exec -- zoxide init fish --cmd cd | source" }
 "~/.config/fish/config.fish/atuin" = { line = "mise exec -- atuin init fish --disable-up-arrow | source" }
