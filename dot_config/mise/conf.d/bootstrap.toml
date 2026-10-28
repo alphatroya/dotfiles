@@ -20,6 +20,9 @@ fish = "auto"
 "brew:xcodesorg/made/xcodes" = "latest"
 "brew-cask:keepassxc" = "latest"
 
+[bootstrap.hooks.post-packages]
+run = "fish -c 'fisher update'"
+
 [bootstrap.user]
 login_shell = "fish"
 

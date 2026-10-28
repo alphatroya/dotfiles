@@ -1,7 +1,6 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-fisher update
 fish -c 'set -U tide_left_prompt_items pwd vcs newline character'
 
 {{ end -}}
