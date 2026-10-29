@@ -21,7 +21,7 @@ fish = "auto"
 "brew-cask:keepassxc" = "latest"
 
 [bootstrap.hooks.post-packages]
-run = "fish -c 'fisher update'"
+run = "fish -c 'fisher update && set -U tide_left_prompt_items pwd vcs newline character'"
 
 [bootstrap.user]
 login_shell = "fish"
