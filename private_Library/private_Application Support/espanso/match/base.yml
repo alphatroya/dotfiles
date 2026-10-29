@@ -101,6 +101,16 @@ matches:
       #!/usr/bin/env bash
       set -euxo pipefail
 
+  - triggers: [link_, дшту_]
+    replace: "[{{form.title}}]({{form.link}})"
+    vars:
+      - name: form
+        type: form
+        params:
+          layout: |
+            Title: [[title]]
+            Link: [[link]]
+
   - trigger: "pp_"
     replace: "{{perplexity_url}}"
     vars:
