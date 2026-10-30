@@ -17,7 +17,7 @@ fish = "auto"
 "brew:ruby-build" = "latest"
 "brew:tree-sitter" = "latest"
 "brew:tree" = "latest"
-"brew:xcodesorg/made/xcodes" = "latest"
+"brew:xcodes" = "latest"
 "brew-cask:keepassxc" = "latest"
 
 [bootstrap.hooks.post-packages]
