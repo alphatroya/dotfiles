@@ -310,3 +310,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 require("langmapper").automapping({ global = true, buffer = true })
+
+vim.api.nvim_create_autocmd({ "TermOpen", "TermEnter" }, {
+  pattern = "*",
+  command = "setlocal nospell",
+})
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

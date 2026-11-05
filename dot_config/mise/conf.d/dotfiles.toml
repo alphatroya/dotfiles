@@ -1,0 +1,15 @@
+# Sources keep the chezmoi-era names (`dot_`, `private_`), so each entry names
+# its source under the checkout. An explicit source resolves against this file's
+# config root, not `dotfiles.root`, hence the `~/.dotfiles/` prefix: keep the
+# checkout there, or link it (`ln -s <checkout> ~/.dotfiles`).
+[dotfiles]
+"~/.gitconfig" = { source = "~/.dotfiles/dot_gitconfig.tmpl" }
+"~/.gitignore" = { source = "~/.dotfiles/dot_gitignore.tmpl" }
+"~/.config/nvim" = { source = "~/.dotfiles/dot_config/nvim" }
+"~/.config/fish/config.fish" = { source = "~/.dotfiles/dot_config/private_fish/config.fish" }
+"~/.config/fish/fish_plugins" = { source = "~/.dotfiles/dot_config/private_fish/fish_plugins" }
+"~/.config/jj" = { source = "~/.dotfiles/dot_config/jj" }
+"~/.config/mole/whitelist" = { source = "~/.dotfiles/dot_config/mole/whitelist" }
+"~/.config/mise/conf.d" = { source = "~/.dotfiles/dot_config/mise/conf.d", mode = "symlink-each" }
+"~/Library/Application Support/com.mitchellh.ghostty/config" = { source = "~/.dotfiles/private_Library/private_Application Support/com.mitchellh.ghostty/config" }
+"~/Library/Application Support/espanso" = { source = "~/.dotfiles/private_Library/private_Application Support/espanso", mode = "symlink-each" }
