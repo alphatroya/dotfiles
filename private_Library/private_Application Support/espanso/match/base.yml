@@ -21,6 +21,7 @@ matches:
         type: shell
         params:
           cmd: "date +\"%H:%M\""
+          macos_override_path: false
 
   - triggers: [tqc_, ейс_]
     replace: "TODO **{{time}}** {{clipb}}"
@@ -29,6 +30,7 @@ matches:
         type: shell
         params:
           cmd: "date +\"%H:%M\""
+          macos_override_path: false
       - name: "clipb"
         type: "clipboard"
 
@@ -39,6 +41,7 @@ matches:
         type: shell
         params:
           cmd: "date +\"%H:%M\""
+          macos_override_path: false
       - name: date
         type: script
         params:
