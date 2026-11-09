@@ -42,7 +42,8 @@ matches:
         params:
           cmd: "date +\"%H:%M\""
           macos_override_path: false
-      - name: date
+      - &date
+        name: date
         type: script
         params:
           args:
@@ -63,23 +64,7 @@ matches:
   - triggers: [ещвфн_, today_]
     replace: "[[{{date}}]] "
     vars:
-      - name: date
-        type: script
-        params:
-          args:
-            - bash
-            - '-c'
-            - |
-                d=$(date +%-d)
-
-                case $d in
-                  1|21|31) suf="st" ;;
-                  2|22)    suf="nd" ;;
-                  3|23)    suf="rd" ;;
-                  *)       suf="th" ;;
-                esac
-
-                printf '%s %d%s, %s\n' "$(date +%b)" "$d" "$suf" "$(date +%Y)"
+      - *date
 
   - trigger: "cmark_"
     replace: '✅'
